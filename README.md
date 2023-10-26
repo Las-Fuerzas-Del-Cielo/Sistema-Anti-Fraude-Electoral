@@ -1,7 +1,10 @@
-# APP-Fiscales
-Aplicacion para Fiscales de Mesa
+# Sistema-Anti-Fraude-Electoral
 
-El objetivo de esta APP es prevenir e identificar potenciales fraudes electorales.
+Los objetivos de este sistema son: 
+
+1. Identificar potenciales fraudes electorales.
+2. Minimizar su ocurrencia e impacto.
+3. Acelerar su deteccion para evitar la falsa declaracion de un ganador con altos niveles de fraude / casos sospechosos.
 
 ## Autores
 
