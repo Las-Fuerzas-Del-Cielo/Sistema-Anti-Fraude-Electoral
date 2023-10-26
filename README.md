@@ -143,7 +143,9 @@ Esta seria la UI especifica para estos casos de usos, a cargo de gente especiali
 
 El sistema oficial provee aqui(https://resultados.mininterior.gob.ar/desarrollo) instrucciones de como acceder a ciertos datos del mismos a traves de una API. Nostros debieramos tener un proceso que extraiga dichos datos cada cierto tiempo (5 minutos?) y actualice nuestra base de datos. 
 
-** Procesos de Deteccion de Fraudes**
+Para poder abrir el juego y que varios developers puedan hacer diferentes procesos usando los datos del Sitio Oficial mas los datos subidos por los Fiscales de Mesa, es mejor si hay un proceso que solo extraiga los datos del sitio oficial y los graba en nuestra base de datos. Luego de que corra ese proceso cada cierto tiempo, pueden haber n procesos, de n developers distintos cada uno buscando detectar algun tipo de fraude diferente. 
+
+** Procesoss de Deteccion de Fraudes**
 
 Con los datos cargados por los Fiscales a traves de la mobile app mas los datos extraidos del sistema oficial, el sistema tiene la capicidad de correr multiples procesos cada uno especializado en detectar algun tipo de fraude.
 
