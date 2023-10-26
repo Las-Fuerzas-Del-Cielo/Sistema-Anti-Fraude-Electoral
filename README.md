@@ -38,7 +38,9 @@ Esta APP tendria estos tipos de usuarios:
 3. **Consultas para el Publico:** El sistema permitiria ejecutar diferentes tipos de consultas al publico en general. NOTA: solo si da el tiempo para desarrolar esto.
   
 4. **Mapa / Reporte de Fiscales Trabajando:** El sistema deberia permitir saber en linea donde hay y donde no hay fiscales asi a traves de las redes se puede agitar para que la gente vaya a fiscalizar ysobre todo en los casos mas extremos donde por ejemplo no hay nadie. Un reporte en linea ordenado por gravedad de donde hacen faltan fiscales con urgencia seria optimo. Seria mas grave en las escualas con mayor cantidad de electores donde hay la menor cantidad de fiscales. De ahi pudieran tomar los datos que estarian actualizados a toda hora durante la votacion de donde es mas critico llamar por las redes a que se refuercen esas escuelas.
-
+   
+5.**Mapa / Info de bunkers-sucursales:** El sistema debe de permitir visualizar un mapa o varios mapas en los cuales se deberiand e poder visualizar donde ir a buscar boletas personales y asi que la gente pueda ver donde ir a buscarlas.
+   
 ## Tipos de Fraudes 
 
 Que tipos de fraude se esperan detectar? En una eleccion como esta hay muchas formas de hacer fraudes si alguien controla el sistema de computos oficial. 
