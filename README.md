@@ -54,3 +54,6 @@ Estos serian gente que se inscribieron como fiscales solo para quedarse con una 
 
 Este tipo de fraude se basa en reclutar e inscribir Fiscales de Mesa que en vez de fiscalizar y defender los votos de LLA, en realidad hacen lo opuesto.  Las mesas con fiscales falsos pudieran permitir que se carguen en el Sistema Oficial datos falsos.
 
+### Ficales Incompetentes
+
+El sistema debe cubrir el caso de fiscales que simplemente son incompetentes y por ignoracia cargan mal los datos en el sistema. Esto significa que deberian existir mecanismos para excluir datos de este tipo de fiscales o que algun tipo de usuario los puead sobreescribir basandose por ejemplo en las fotografias de las actas.
