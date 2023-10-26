@@ -22,3 +22,22 @@ Esta APP tendria 3 tipos de usuarios:
 2. **Reportes para Auditores:**: El sistema generaria distintos tipo de reportes orientados a detectar fraude, basandose en los datos cargados por los Fiscales de Mesa y los datos Oficiales.
 
 3. **Consultas para el Publico:** El sistema permitiria ejecutar diferentes tipos de consultas al publico en general. NOTA: solo si da el tiempo para desarrolar esto.
+
+## Tipos de Fraudes 
+
+Que tipos de fraude se esperan detectar? En una eleccion como esta hay muchas formas de hacer fraudes si alguien controla el sistema de computos oficial. 
+
+### Sumarizacion Fraudulenta
+
+En este caso el Sistema Oficial de computos tiene cargado correctamente todos los datos pero aun asi el agrupamiento por Provicia / Nacion es incorrecto.
+
+### Mesas Inexistentes
+
+En este caso el Sistema Oficial de computos tiene cargado correctamente todos los datos pero adicional a las mesas reales hay mesas que solo existen en el sistema y que se usan para cambiar los resultados globales.
+
+### Datos de Mesa Correctos luego Incorrectos
+
+El tercer tipo de fraude seria que las mesas cargadas en el Sistema Oficial tienen datos diferentes a las actas de los fiscales. Esto actualmente se puede detectar a mano si el fiscal revisa el Sistema Oficial. El problema es que el sistema oficial pudiera mostrarle los datos correctos por un tiempo y luego cambiarlos mas adelante cuando el fiscal ya los consulto y los vio correctos. Seguramente un fiscal solo verificaria una vez los datos y si estan bien daria por hecho de que eso luego no cambia mas.
+
+
+
