@@ -39,5 +39,11 @@ En este caso el Sistema Oficial de computos tiene cargado correctamente todos lo
 
 El tercer tipo de fraude seria que las mesas cargadas en el Sistema Oficial tienen datos diferentes a las actas de los fiscales. Esto actualmente se puede detectar a mano si el fiscal revisa el Sistema Oficial. El problema es que el sistema oficial pudiera mostrarle los datos correctos por un tiempo y luego cambiarlos mas adelante cuando el fiscal ya los consulto y los vio correctos. Seguramente un fiscal solo verificaria una vez los datos y si estan bien daria por hecho de que eso luego no cambia mas.
 
+### Fiscales Falsos
 
+Estos serian gente que se inscribieron como fiscales solo para quedarse con una mesa o grupo de mesas y luego no ir o abandonar a ultimo momento cuando es muy dificil conseguir reemplazo y reasignar sus mesass.
+
+### Fiscales Judas
+
+Este tipo de fraude se basa en reclutar e inscribir Fiscales de Mesa que en vez de fiscalizar y defender los votos de LLA, en realidad hacen lo opuesto.  Las mesas con fiscales falsos pudieran permitir que se carguen en el Sistema Oficial datos falsos.
 
