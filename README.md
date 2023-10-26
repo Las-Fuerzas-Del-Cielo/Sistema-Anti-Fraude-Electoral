@@ -39,7 +39,7 @@ Esta APP tendria estos tipos de usuarios:
   
 4. **Mapa / Reporte de Fiscales Trabajando:** El sistema deberia permitir saber en linea donde hay y donde no hay fiscales asi a traves de las redes se puede agitar para que la gente vaya a fiscalizar ysobre todo en los casos mas extremos donde por ejemplo no hay nadie. Un reporte en linea ordenado por gravedad de donde hacen faltan fiscales con urgencia seria optimo. Seria mas grave en las escualas con mayor cantidad de electores donde hay la menor cantidad de fiscales. De ahi pudieran tomar los datos que estarian actualizados a toda hora durante la votacion de donde es mas critico llamar por las redes a que se refuercen esas escuelas.
    
-5.**Mapa / Info de bunkers-sucursales:** El sistema debe de permitir visualizar un mapa o varios mapas en los cuales se deberiand e poder visualizar donde ir a buscar boletas personales y asi que la gente pueda ver donde ir a buscarlas.
+5. **Mapa / Info de Bunkers-Sucursales:** El sistema debe de permitir visualizar un mapa o varios mapas en los cuales se deberia poder visualizar donde ir a buscar boletas personales y asi que la gente pueda ver donde ir a buscarlas.
    
 ## Tipos de Fraudes 
 
