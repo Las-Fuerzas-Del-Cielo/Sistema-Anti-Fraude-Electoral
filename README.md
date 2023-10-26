@@ -74,9 +74,13 @@ El sistema debe cubrir el caso de fiscales que simplemente son incompetentes y p
 Hay muchas formas de encarar la arquitectura de un sistema como este. Vamos a listar antes que nada cuales son los criterios mas importantes que querriamos seguir y a partir de ellos vamos a derivar la arquitectura que emerja de ahi.
 
 1. El sistema completo se tiene que desarrollar y probar en tiempo record. Ese es el principal contraint.
-2. Necesitamos poner a trabajar mucha gente en paralelo.
+
+2. Necesitamos poner a trabajar mucha gente en paralelo, con la minima friccion entre ellos. Para esto tenemos que partir el sistema en bloques de casos de uso que van a interactuar entre si a traves de interfaces bien definidas.
+
 3. Tenemos que minimizar el TRUST en cada gente que participe, porque nadie se conoce y nadie sabe quien es quien, y quien pudiera tomar alguna responsabilidad con la intencion explicita de no cumplir, entre otras cosas.
+
 4. Tenemos que minimizar el riesgo de que algo falle el dia de las elecciones asi que deberiamos tener redundancia no solo a nivel de hardware, pero tambien de software.
+
 5. Creemos en OPEN SOURCE, en sistemas PERMISSIONLESS y DECENTRALIZADOS (hasta donde se pueda y sea razonable para este caso). Queremos desarrollar un sistema que no solo cualquiera pueda auditar su codigo, por ser open source, sino que cualquiera pueda registrarse con cualquiera de sus roles / tipos de usuarios, para que de esta manera y por primera vez en la historia, cualquier persona del mundo, este donde este a traves del internet pueda ayudar a auditar la eleccion y evitar fraudes.
 
 ### Componentes Principales
@@ -113,16 +117,30 @@ Normalmente esto seria parte del Backend Principal, pero como tenemos tan poco t
 
 **UI Web / Mobile para Fiscales**
 
-La UI para los Fiscales debe considerarse de mision critica. Si ella no funcionara no tendriamos nada, porque los fiscales son los que cargan los datos que son la base de todas las auditorias que el sistema va a permitir realizar. Basandonos en los criterios antes expuestos de minimizar el riesgo de que algun modulo no este listo o que no funcione bien, la propuesta es abrir la cancha y que multiples desarrolladores desarrolles multiples UIs. Luego publicariamos los links a las que pasen las pruebas que hagamos y el resto quedarian abandonadas. Cada quien es libre de elegir el framework y tecnologias a usar para us UI para Fiscales, porque cada quien invierte su propio tiempo construyendola. Todas estas UI se conectarian al Backend principal via una API pre-definida y desde cualquiera de ellas se pudieran realizar los casos de uso definidos / a definir. 
+La UI para los Fiscales debe considerarse de mision critica. Si ella no funcionara no tendriamos nada, porque los fiscales son los que cargan los datos que son la base de todas las auditorias que el sistema va a permitir realizar. Basandonos en los criterios antes expuestos de minimizar el riesgo de que algun modulo no este listo o que no funcione bien, la propuesta es abrir la cancha y que multiples desarrolladores desarrollen multiples UIs. Luego publicariamos los links a las que pasen las pruebas que hagamos y el resto quedarian abandonadas. Cada quien es libre de elegir el framework y tecnologias a usar para su UI para Fiscales, porque cada quien invierte su propio tiempo construyendola. Todas estas UI se conectarian al Backend principal via una API pre-definida y desde cualquiera de ellas se pudieran realizar los casos de uso definidos / a definir. 
 
-Si todas las mesas tuvieran fiscales estamos hablando de una cantidad de potenciales usuario de entre 100K y 150K porque hay mas o menos esa cantidad de mesas de votacion a nivel nacional.
+Como una extension del criterio anterior, seria incluso optimo si cada desarrollador hosteara el mismo en su propio servidor su UI inlcuyendo su propio dominio si lo quisiera. Esto haria el sistema mas resiliente si hubiera mas de una opcion. Esto aplica para la siguiente UI tambien.
+
+Si todas las mesas tuvieran fiscales estamos hablando de una cantidad de potenciales usuarios de entre 100K y 150K porque hay mas o menos esa cantidad de mesas de votacion a nivel nacional.
 
 **UI Web para el publico en general / auditores externos**
 
-La UI para el publico en general / auditores externos y ideas de funcionalidades no mision critica, deberia ser una web app. En este caso la masa potencial de usuarios es tremendamente mayor a la anterior, en el orden de los 30 o 40 millones de personas potencialmente que pudieran querer consultar los resultados como los ve LLA y algun numero menor que ese de gente que quiera jugar el rol de auditor y controlar lo que el sistema le permita controlar. Permitir que cualquier numero de personas entre al sistema a auditar puede ser la clave para que combinado al usao / denuncias a traves de redes sociales de un gran numero de personas, se puedan desaconsejar los posibles fraudes que la gente que controla el sistema oficial que es un sistema cerrado y opaco pudieran querer hacer.
+La UI para el publico en general / auditores externos y ideas de funcionalidades mision no-critica, deberia ser una web app. En este caso la masa potencial de usuarios es tremendamente mayor a la anterior, en el orden de los 30 o 40 millones de personas potencialmente que pudieran querer consultar los resultados como los ve LLA y algun numero menor que ese de gente que quiera jugar el rol de auditor externo y controlar lo que el sistema le permita controlar. Permitir que cualquier numero de personas entre al sistema a auditar puede ser la clave para que combinado al usao / denuncias a traves de redes sociales de un gran numero de personas, se puedan desaconsejar los posibles fraudes que la gente que controla el sistema oficial (que es un sistema cerrado y opaco) pudieran querer hacer.
 
-En este caso tambien permitiriamos que cualquier developer pueda crear su proia version de este sito para el publico en general y auditores externos, en la tecnologia que quiera, y luego publicariamos los links a los sitios que pasen correctamente las pruebas que hagamos. Al mismo tiempo, si hubiera varias versiones del sitio, disminuiriamos la carga individual en cada uno, y bajariamos el riesgo de no tener algo funcionando para el dia de las elecciones. 
+En este caso tambien permitiriamos que cualquier developer pueda crear su propia version de este sito para el publico en general y auditores externos, en la tecnologia que quiera, y luego publicariamos los links a los sitios que pasen correctamente las pruebas que hagamos. Al mismo tiempo, si hubiera varias versiones del sitio, disminuiriamos la carga individual en cada uno, y bajariamos el riesgo de no tener algo funcionando para el dia de las elecciones. 
 
 **UI Login / Signup / Mantenimiento de Usuarios**
 
 Esta seria la UI especifica para estos casos de usos, a cargo de gente especializada en Seguridad de Sistemas.
+
+#### Procesos Batch
+
+** Extraccion de Datos del Sistema Oficial**
+
+El sistema oficial provee aqui(https://resultados.mininterior.gob.ar/desarrollo) instrucciones de como acceder a ciertos datos del mismos a traves de una API. Nostros debieramos tener un proceso que extraiga dichos datos cada cierto tiempo (5 minutos?) y actualice nuestra base de datos. 
+
+** Procesos de Eeteccion de Fraudes**
+
+Con los datos cargados por los Fiscales a traves de la mobile app mas los datos extraidos del sistema oficial, el sistema tiene la capicidad de correr multiples procesos cada uno especializado en detectar algun tipo de fraude.
+
+Se debe analizar los procesos que se necesitan para detectar los tipos de fraude previamente especificados.
