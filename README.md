@@ -143,7 +143,7 @@ Esta seria la UI especifica para estos casos de usos, a cargo de gente especiali
 
 El sistema oficial provee aqui(https://resultados.mininterior.gob.ar/desarrollo) instrucciones de como acceder a ciertos datos del mismos a traves de una API. Nostros debieramos tener un proceso que extraiga dichos datos cada cierto tiempo (5 minutos?) y actualice nuestra base de datos. 
 
-** Procesos de Eeteccion de Fraudes**
+** Procesos de Deteccion de Fraudes**
 
 Con los datos cargados por los Fiscales a traves de la mobile app mas los datos extraidos del sistema oficial, el sistema tiene la capicidad de correr multiples procesos cada uno especializado en detectar algun tipo de fraude.
 
