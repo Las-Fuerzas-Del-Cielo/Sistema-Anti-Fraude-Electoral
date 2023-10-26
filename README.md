@@ -43,7 +43,7 @@ Esta APP tendria estos tipos de usuarios:
   
 4. **Mapa / Reporte de Fiscales Trabajando:** El sistema deberia permitir saber en linea donde hay y donde no hay fiscales asi a traves de las redes se puede agitar para que la gente vaya a fiscalizar ysobre todo en los casos mas extremos donde por ejemplo no hay nadie. Un reporte en linea ordenado por gravedad de donde hacen faltan fiscales con urgencia seria optimo. Seria mas grave en las escualas con mayor cantidad de electores donde hay la menor cantidad de fiscales. De ahi pudieran tomar los datos que estarian actualizados a toda hora durante la votacion de donde es mas critico llamar por las redes a que se refuercen esas escuelas.
    
-5.**Mapa / Info de bunkers-sucursales:** El sistema debe de permitir visualizar un mapa o varios mapas en los cuales se deberiand e poder visualizar donde ir a buscar boletas personales y asi que la gente pueda ver donde ir a buscarlas.
+5. **Mapa / Info de Bunkers-Sucursales:** El sistema debe de permitir visualizar un mapa o varios mapas en los cuales se deberia poder visualizar donde ir a buscar boletas personales y asi que la gente pueda ver donde ir a buscarlas.
    
 ## Tipos de Fraudes 
 
@@ -72,3 +72,79 @@ Este tipo de fraude se basa en reclutar e inscribir Fiscales de Mesa que en vez 
 ### Ficales Incompetentes
 
 El sistema debe cubrir el caso de fiscales que simplemente son incompetentes y por ignoracia cargan mal los datos en el sistema. Esto significa que deberian existir mecanismos para excluir datos de este tipo de fiscales o que algun tipo de usuario los puead sobreescribir basandose por ejemplo en las fotografias de las actas.
+
+## Arquitectura del Sistema
+
+Hay muchas formas de encarar la arquitectura de un sistema como este. Vamos a listar antes que nada cuales son los criterios mas importantes que querriamos seguir y a partir de ellos vamos a derivar la arquitectura que emerja de ahi.
+
+1. El sistema completo se tiene que desarrollar y probar en tiempo record. Ese es el principal contraint.
+
+2. Necesitamos poner a trabajar mucha gente en paralelo, con la minima friccion entre ellos. Para esto tenemos que partir el sistema en bloques de casos de uso que van a interactuar entre si a traves de interfaces bien definidas.
+
+3. Tenemos que minimizar el TRUST en cada gente que participe, porque nadie se conoce y nadie sabe quien es quien, y quien pudiera tomar alguna responsabilidad con la intencion explicita de no cumplir, entre otras cosas.
+
+4. Tenemos que minimizar el riesgo de que algo falle el dia de las elecciones asi que deberiamos tener redundancia no solo a nivel de hardware, pero tambien de software.
+
+5. Creemos en OPEN SOURCE, en sistemas PERMISSIONLESS y DECENTRALIZADOS (hasta donde se pueda y sea razonable para este caso). Queremos desarrollar un sistema que no solo cualquiera pueda auditar su codigo, por ser open source, sino que cualquiera pueda registrarse con cualquiera de sus roles / tipos de usuarios, para que de esta manera y por primera vez en la historia, cualquier persona del mundo, este donde este a traves del internet pueda ayudar a auditar la eleccion y evitar fraudes.
+
+### Componentes Principales
+
+#### Base de Datos
+
+**Base de Datos Principal**
+
+La base de datos del sistema es en nuestro caso el SINGLE POINT OF FAILURE (salvo que este replicada). Visualizamos tener al menos una base de datos para la informacion recogida por los Fiscales de Mesa y los Fiscales Generales, que sera de lectura / escritura y desde ella se servira la informacion para las funcionalidades de esos roles (Fiscales de Mesa, Fiscales Generales).
+
+**Base de Datos Read-Only**
+
+Para consultas del Publico en General, o del ejercito online de auditores, debido que es dificil estimar la cantidad de usuarios en esos roles en un sistema abierto y permissionless, es posible que tengamos una replica de la base de datos anterior pero de solo lectura, o una versio in-memory o cache para servir todo tipo de requerimiento de consultas por parte de estos tipos de usuarios.
+
+**Base de Datos de Usuarios**
+
+Estaria separada del resto para que sea construida, mantenida y operada por gente especializada en Seguridad de Sistemas y que nadie ageno a ese team pueda romper nada aqui.
+
+#### Servicios de Backend
+
+**Backend Principal**
+
+El backend principal sera el que tenga la business logic de los casos de uso principales, que son los que corresponden a los Fiscales de Mesa, Fiscales Generales, Delagados del Partido.
+
+**Backend Read Only"
+
+Es posible que tengamos un backend para las operaciones read-only del publico en general / auditores externos a LLA. Es posible que este backend trabaje con una replica off line de la Base de Datos Princial, actualizada cada tanto.
+
+**Backend para Logins / Signups / Mantenimiento de Usuarios**
+
+Normalmente esto seria parte del Backend Principal, pero como tenemos tan poco tiempo, pudieramos separar este grupo fucionalidades para que un equipo especializado desarrolle esto sin tocarse en nada con el resto del sistema.  
+
+#### Frontend 
+
+**UI Web / Mobile para Fiscales**
+
+La UI para los Fiscales debe considerarse de mision critica. Si ella no funcionara no tendriamos nada, porque los fiscales son los que cargan los datos que son la base de todas las auditorias que el sistema va a permitir realizar. Basandonos en los criterios antes expuestos de minimizar el riesgo de que algun modulo no este listo o que no funcione bien, la propuesta es abrir la cancha y que multiples desarrolladores desarrollen multiples UIs. Luego publicariamos los links a las que pasen las pruebas que hagamos y el resto quedarian abandonadas. Cada quien es libre de elegir el framework y tecnologias a usar para su UI para Fiscales, porque cada quien invierte su propio tiempo construyendola. Todas estas UI se conectarian al Backend principal via una API pre-definida y desde cualquiera de ellas se pudieran realizar los casos de uso definidos / a definir. 
+
+Como una extension del criterio anterior, seria incluso optimo si cada desarrollador hosteara el mismo en su propio servidor su UI inlcuyendo su propio dominio si lo quisiera. Esto haria el sistema mas resiliente si hubiera mas de una opcion. Esto aplica para la siguiente UI tambien.
+
+Si todas las mesas tuvieran fiscales estamos hablando de una cantidad de potenciales usuarios de entre 100K y 150K porque hay mas o menos esa cantidad de mesas de votacion a nivel nacional.
+
+**UI Web para el publico en general / auditores externos**
+
+La UI para el publico en general / auditores externos y ideas de funcionalidades mision no-critica, deberia ser una web app. En este caso la masa potencial de usuarios es tremendamente mayor a la anterior, en el orden de los 30 o 40 millones de personas potencialmente que pudieran querer consultar los resultados como los ve LLA y algun numero menor que ese de gente que quiera jugar el rol de auditor externo y controlar lo que el sistema le permita controlar. Permitir que cualquier numero de personas entre al sistema a auditar puede ser la clave para que combinado al usao / denuncias a traves de redes sociales de un gran numero de personas, se puedan desaconsejar los posibles fraudes que la gente que controla el sistema oficial (que es un sistema cerrado y opaco) pudieran querer hacer.
+
+En este caso tambien permitiriamos que cualquier developer pueda crear su propia version de este sito para el publico en general y auditores externos, en la tecnologia que quiera, y luego publicariamos los links a los sitios que pasen correctamente las pruebas que hagamos. Al mismo tiempo, si hubiera varias versiones del sitio, disminuiriamos la carga individual en cada uno, y bajariamos el riesgo de no tener algo funcionando para el dia de las elecciones. 
+
+**UI Login / Signup / Mantenimiento de Usuarios**
+
+Esta seria la UI especifica para estos casos de usos, a cargo de gente especializada en Seguridad de Sistemas.
+
+#### Procesos Batch
+
+** Extraccion de Datos del Sistema Oficial**
+
+El sistema oficial provee aqui(https://resultados.mininterior.gob.ar/desarrollo) instrucciones de como acceder a ciertos datos del mismos a traves de una API. Nostros debieramos tener un proceso que extraiga dichos datos cada cierto tiempo (5 minutos?) y actualice nuestra base de datos. 
+
+** Procesos de Eeteccion de Fraudes**
+
+Con los datos cargados por los Fiscales a traves de la mobile app mas los datos extraidos del sistema oficial, el sistema tiene la capicidad de correr multiples procesos cada uno especializado en detectar algun tipo de fraude.
+
+Se debe analizar los procesos que se necesitan para detectar los tipos de fraude previamente especificados.
