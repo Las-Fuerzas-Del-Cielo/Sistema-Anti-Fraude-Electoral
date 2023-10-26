@@ -144,3 +144,8 @@ El sistema oficial provee aqui(https://resultados.mininterior.gob.ar/desarrollo)
 Con los datos cargados por los Fiscales a traves de la mobile app mas los datos extraidos del sistema oficial, el sistema tiene la capicidad de correr multiples procesos cada uno especializado en detectar algun tipo de fraude.
 
 Se debe analizar los procesos que se necesitan para detectar los tipos de fraude previamente especificados.
+
+## Responsableas
+
+Al mejor estipo Open Source, el que quiera hacerse responsable de alguna parte del sistema, puede auto listarse aqui abajo, modificando este readme vi PR
+
