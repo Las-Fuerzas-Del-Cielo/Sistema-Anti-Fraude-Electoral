@@ -16,11 +16,13 @@ Este es un proyecto Open Source cuyo objetivo es minimizar la posibilidad de fra
 
 Esta APP tendria 3 tipos de usuarios:
 
-1. **Fiscales de Mesa:** El principal usuario de esta APP serian los Fiscales de Mesa de LLA. Serian quienes cargan los datos.
+1. **Fiscal de Mesa:** El principal usuario de esta APP serian los Fiscales de Mesa de LLA. Serian quienes cargan los datos.
 
-2. **Auditores:** Serian gente de LLA que analizarian los datos cargados por los Fiscales de Mesa y los compararian con los datos oficiales. La APP trataria de automatizar esa comparacion con el objetivo de detectar diferencias y potenciales fraudes.
+2. **Fiscal General:** Supervisa a los Fiscales de Mesa en una determinada escuela.
 
-3. **Publico:** Cualquier persona que quiera ver los resultados en linea, de acuerdo a los datos cargados por los Fiscales de Mesa de LLA. **NOTA:** Esto solo si da el tiempo de dessarrollar la funcionalidad para el publico.
+3. **Auditores:** Serian gente de LLA que analizarian los datos cargados por los Fiscales de Mesa y los compararian con los datos oficiales. La APP trataria de automatizar esa comparacion con el objetivo de detectar diferencias y potenciales fraudes.
+
+4. **Publico:** Cualquier persona que quiera ver los resultados en linea, de acuerdo a los datos cargados por los Fiscales de Mesa de LLA. **NOTA:** Esto solo si da el tiempo de dessarrollar la funcionalidad para el publico.
 
 ## Funcionalidad
 
