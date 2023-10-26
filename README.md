@@ -156,3 +156,5 @@ Se debe analizar los procesos que se necesitan para detectar los tipos de fraude
 Al mejor estilo Open Source, el que quiera hacerse responsable de alguna parte del sistema, puede auto listarse aqui abajo, modificando este readme vi PR
 
 - Analisis General [@Luis-Fernando-Molina](https://www.github.com/Luis-Fernando-Molina)
+- UX/UI [@JoseOrtega02](https://github.com/JoseOrtega02), [quien quiera sumarse]
+- FrontEnd [@JoseOrtega02](https://github.com/JoseOrtega02), [quien quiera sumarse]
