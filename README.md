@@ -14,7 +14,7 @@ Este es un proyecto Open Source cuyo objetivo es minimizar la posibilidad de fra
 
 ## Usuarios
 
-Esta APP tendria 3 tipos de usuarios:
+Esta APP tendria 4 tipos de usuarios:
 
 1. **Fiscal de Mesa:** El principal usuario de esta APP serian los Fiscales de Mesa de LLA. Serian quienes cargan los datos.
 
