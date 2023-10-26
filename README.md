@@ -1,6 +1,6 @@
 # Sistema-Anti-Fraude-Electoral
 
-Los objetivos de este sistema son 
+Los objetivos de este sistema son: 
 
 1. Identificar potenciales fraudes electorales.
 2. Minimizar su ocurrencia e impacto.
