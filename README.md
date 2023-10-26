@@ -1,6 +1,13 @@
 # APP-Fiscales
 Aplicacion para Fiscales de Mesa
 
+El objetivo de esta APP es prevenir e identificar potenciales fraudes electorales.
+
+## Autores
+
+- [@Luis-Fernando-Molina](https://www.github.com/Luis-Fernando-Molina)
+- [@switTV](https://www.github.com/switTV)
+
 ## Intro
 
 Este es un proyecto Open Source cuyo objetivo es minimizar la posibilidad de fraude electoral en las proximas elecciones presidenciales de Argentina donde se define finalmente quien sera presidente. Entendemos que tener un sistema anti-fraude seria algo muy deseable para una fuerza nueva como lo es LLA, que compite con un partido que actualmente esta en el gobierno y tiene una estructura formada durante muchos anios.
