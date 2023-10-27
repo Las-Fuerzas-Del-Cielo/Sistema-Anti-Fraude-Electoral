@@ -43,6 +43,10 @@ Este tipo de fraude se basa en reclutar e inscribir Fiscales de Mesa que en vez 
 
 El sistema debe cubrir el caso de fiscales que simplemente son incompetentes y por ignoracia cargan mal los datos en el sistema. Esto significa que deberian existir mecanismos para excluir datos de este tipo de fiscales o que algun tipo de usuario los puead sobreescribir basandose por ejemplo en las fotografias de las actas.
 
+### Conteo de Voto Corrupto por falta del Fiscal de Mesa
+
+El sistema debe ayudar a administrar los Fiscales de Mesa y los Fiscales Generales, para que por lo menos haya un Fiscal General en cada escuela como minimo. Los casos donde no hay ni siquiera un Fiscal General por escuela son una perdida gigante de votos. Tambien debe gestionar la asignacion de Fiscales de Mesa, para que ante la escaces, estos sean enviados a los lugares donde mas se necesitan. Por ejemplo, a las escuelas donde haya una mayor cantidad de electores combinado con una menor cantidad de Fiscales de Mesa.
+
 ## Usuarios
 
 Esta APP tendria estos tipos de usuarios:
