@@ -19,6 +19,8 @@ Este es un proyecto Open Source cuyo objetivo es minimizar la posibilidad de fra
 
 Que tipos de fraude se esperan detectar? En una eleccion como esta hay muchas formas de hacer fraudes si alguien controla el sistema de computos oficial. 
 
+Esta es la lista de Tipos de Fraudes que se quieren atacar. Esa es la columna vertebral de este proyecto, de ahi deriva toda la funcionalidad que se va a construir. Si queres podes codear algo de lo que se necesita para alguno de los tipos de fraudes identificados, si se te ocurre algun otro tipo de fraude y como minimizarlo, lo podes agregar a la lista y especificar que habria que hacer para eso. Y si tenes tiempo y energia pudieras arrancar programando lo que haga falta en lo que llegan otros y te ayudan.
+
 ### Sumarizacion Fraudulenta
 
 En este caso el Sistema Oficial de computos tiene cargado correctamente todos los datos pero aun asi el agrupamiento por Provicia / Nacion es incorrecto.
