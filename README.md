@@ -39,6 +39,8 @@ Estos serian gente que se inscribieron como fiscales solo para quedarse con una 
 
 Este tipo de fraude se basa en reclutar e inscribir Fiscales de Mesa que en vez de fiscalizar y defender los votos de LLA, en realidad hacen lo opuesto.  Las mesas con fiscales falsos pudieran permitir que se carguen en el Sistema Oficial datos falsos.
 
+El sistema debe permitir a los usuarios del tipo **Auditores Externos** ver los datos de los Fiscales de Mesa para poder investigarlos y asi poder inferir si son judas o no. Los Fiscales de Mesa seran invitados a proveer informacion de manera opcional de sus identidades en redes sociales, y a los que lo hagan, sumaran puntos en su reputacion. Del otro lado, un ejercito de auditores externos puede investigar con su DNI y esas identidades sociales cual es el background real de esas personas y en base a los resultados de estas investigaciones, asignarle a cada fiscal un score que puede usarse en un caso extermo para descalificarlo o al menos para observarlo con precaucion.
+
 ### Ficales Incompetentes
 
 El sistema debe cubrir el caso de fiscales que simplemente son incompetentes y por ignoracia cargan mal los datos en el sistema. Esto significa que deberian existir mecanismos para excluir datos de este tipo de fiscales o que algun tipo de usuario los puead sobreescribir basandose por ejemplo en las fotografias de las actas.
