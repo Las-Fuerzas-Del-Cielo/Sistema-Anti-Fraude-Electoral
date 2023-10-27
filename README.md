@@ -53,9 +53,11 @@ Esta APP tendria estos tipos de usuarios:
 
 4. **Delegado del Partido:** Son personas de confianza de LLA que durante la votacion puden ir de una escuela a otra para apoyar y auditar a los Fiscales Generales y a los Fiscales de Mesa.
    
-5. **Auditores:** Serian gente de LLA que analizarian los datos cargados por los Fiscales de Mesa y los compararian con los datos oficiales. La APP trataria de automatizar esa comparacion con el objetivo de detectar diferencias y potenciales fraudes.
+5. **Auditor Interno:** Serian gente de LLA que analizarian los datos cargados por los Fiscales de Mesa y los compararian con los datos oficiales. La APP trataria de automatizar esa comparacion con el objetivo de detectar diferencias y potenciales fraudes.
 
-6. **Publico:** Cualquier persona que quiera ver los resultados en linea, de acuerdo a los datos cargados por los Fiscales de Mesa de LLA. Es importante notar que el fraude se tiene que detectar lo antes posible porque una vez que se declara a alguien ganador, dificilmente eso se vuelva para atras sin importar la cantidad de denuncias de fraude que haya despues. Eso elimina la posibilidad de solo cargar una foto y luego que alguien en algun momento digite los datos de esa foto. En general la deteccion de los distintos tipos de fraude deberia ser instantanea y es mas, si es posible cualquier persona de la poblacion en general deberia poder ver el recuento de votos de acuerdo a los fiscales de LLA incluso antes que salgan los datos oficiales, cosa de que antes de que se nombre un ganador ya haya una reaccion del publico general ante un potencial fraude de gran escala.
+6. **Auditor Externo:** Serian cualquier persona que complete el proceso de sign up como auditor externo. Este perfil tendria acceso a la funcionalidad necesaria para consultar datos y documentos digitalizados y reportar anomalias que luego serian levantadas por los Auditores Internos. Es importante notar que el fraude se tiene que detectar lo antes posible porque una vez que se declara a alguien ganador, dificilmente eso se vuelva para atras sin importar la cantidad de denuncias de fraude que haya despues. Eso elimina la posibilidad de solo cargar una foto y luego que alguien en algun momento digite los datos de esa foto. En general la deteccion de los distintos tipos de fraude deberia ser instantanea y es mas, si es posible cualquier persona de la poblacion en general deberia poder ver el recuento de votos de acuerdo a los fiscales de LLA incluso antes que salgan los datos oficiales, cosa de que antes de que se nombre un ganador ya haya una reaccion del publico general ante un potencial fraude de gran escala.
+
+7. **Publico:** Cualquier persona que quiera ver los resultados en linea, de acuerdo a los datos cargados por los Fiscales de Mesa de LLA. Tambien podran navegar por toda la informacion disponible en el sistema.
 
 ## Funcionalidad
 
@@ -63,7 +65,7 @@ Esta APP tendria estos tipos de usuarios:
 
 2. **Reportes para Auditores:**: El sistema generaria distintos tipo de reportes orientados a detectar fraude, basandose en los datos cargados por los Fiscales de Mesa y los datos Oficiales.
 
-3. **Consultas para el Publico:** El sistema permitiria ejecutar diferentes tipos de consultas al publico en general. NOTA: solo si da el tiempo para desarrolar esto.
+3. **Consultas para el Publico:** El sistema permitiria ejecutar diferentes tipos de consultas al publico en general.
   
 4. **Mapa / Reporte de Fiscales Trabajando:** El sistema deberia permitir saber en linea donde hay y donde no hay fiscales asi a traves de las redes se puede agitar para que la gente vaya a fiscalizar ysobre todo en los casos mas extremos donde por ejemplo no hay nadie. Un reporte en linea ordenado por gravedad de donde hacen faltan fiscales con urgencia seria optimo. Seria mas grave en las escualas con mayor cantidad de electores donde hay la menor cantidad de fiscales. De ahi pudieran tomar los datos que estarian actualizados a toda hora durante la votacion de donde es mas critico llamar por las redes a que se refuercen esas escuelas.
    
