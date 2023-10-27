@@ -49,15 +49,17 @@ Esta APP tendria estos tipos de usuarios:
 
 1. **Fiscal de Mesa:** El principal usuario de esta APP serian los Fiscales de Mesa de LLA. Serian quienes cargan los datos.
 
-2. **Fiscal General:** Supervisa a los Fiscales de Mesa en una determinada escuela.
-
-4. **Delegado del Partido:** Son personas de confianza de LLA que durante la votacion puden ir de una escuela a otra para apoyar y auditar a los Fiscales Generales y a los Fiscales de Mesa.
+2. **Fiscal General:** Supervisa a los Fiscales de Mesa en una determinada escuela. El fiscal general DEBE tomar fotos de todas las actas de todas las mesas de la escuala al cual fue asignado. En teoria siempre hay aunque sea un fiscal general, aunque pudiera no haber ningun Fiscal de Mesa. Si lo hace y las sube al sistema, podemos tener atras un ejercito de voluntarios x internet que transcriba los valores de las fotos en registros numericos y asi tener la primera version de datos en el sistema bien temprano despues del cierre de la votacion.
    
-5. **Auditor Interno:** Serian gente de LLA que analizarian los datos cargados por los Fiscales de Mesa y los compararian con los datos oficiales. La APP trataria de automatizar esa comparacion con el objetivo de detectar diferencias y potenciales fraudes.
+Debiera ser una responsabilidad del Fiscal General tomar las fotos de todas las mesas de una escuela, porque de esa manera pudieramos evitar el tipo de fraude **Mesas Inexistentes** en la que en el sistema oficial aparece luego alguna mesa que en la realidad no existio. Si cada uno de nuestros fiscales toma foto de TODAS las mesas fisicamente presentes en cada escuela, pudieramos detectar esas mesas fantasmas.
 
-6. **Auditor Externo:** Serian cualquier persona que complete el proceso de sign up como auditor externo. Este perfil tendria acceso a la funcionalidad necesaria para consultar datos y documentos digitalizados y reportar anomalias que luego serian levantadas por los Auditores Internos. Es importante notar que el fraude se tiene que detectar lo antes posible porque una vez que se declara a alguien ganador, dificilmente eso se vuelva para atras sin importar la cantidad de denuncias de fraude que haya despues. Eso elimina la posibilidad de solo cargar una foto y luego que alguien en algun momento digite los datos de esa foto. En general la deteccion de los distintos tipos de fraude deberia ser instantanea y es mas, si es posible cualquier persona de la poblacion en general deberia poder ver el recuento de votos de acuerdo a los fiscales de LLA incluso antes que salgan los datos oficiales, cosa de que antes de que se nombre un ganador ya haya una reaccion del publico general ante un potencial fraude de gran escala.
+3. **Delegado del Partido:** Son personas de confianza de LLA que durante la votacion puden ir de una escuela a otra para apoyar y auditar a los Fiscales Generales y a los Fiscales de Mesa.
+   
+4. **Auditor Interno:** Serian gente de LLA que analizarian los datos cargados por los Fiscales de Mesa y los compararian con los datos oficiales. La APP trataria de automatizar esa comparacion con el objetivo de detectar diferencias y potenciales fraudes.
 
-7. **Publico:** Cualquier persona que quiera ver los resultados en linea, de acuerdo a los datos cargados por los Fiscales de Mesa de LLA. Tambien podran navegar por toda la informacion disponible en el sistema.
+5. **Auditor Externo:** Serian cualquier persona que complete el proceso de sign up como auditor externo. Este perfil tendria acceso a la funcionalidad necesaria para consultar datos y documentos digitalizados y reportar anomalias que luego serian levantadas por los Auditores Internos. Es importante notar que el fraude se tiene que detectar lo antes posible porque una vez que se declara a alguien ganador, dificilmente eso se vuelva para atras sin importar la cantidad de denuncias de fraude que haya despues. Eso elimina la posibilidad de solo cargar una foto y luego que alguien en algun momento digite los datos de esa foto. En general la deteccion de los distintos tipos de fraude deberia ser instantanea y es mas, si es posible cualquier persona de la poblacion en general deberia poder ver el recuento de votos de acuerdo a los fiscales de LLA incluso antes que salgan los datos oficiales, cosa de que antes de que se nombre un ganador ya haya una reaccion del publico general ante un potencial fraude de gran escala.
+
+6. **Publico:** Cualquier persona que quiera ver los resultados en linea, de acuerdo a los datos cargados por los Fiscales de Mesa de LLA. Tambien podran navegar por toda la informacion disponible en el sistema.
 
 ## Funcionalidad
 
