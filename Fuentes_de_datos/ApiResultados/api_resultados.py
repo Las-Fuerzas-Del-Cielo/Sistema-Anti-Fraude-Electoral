@@ -5,11 +5,11 @@ import requests
 class ApiResultados:
     def __init__(self) -> None:
         self.url = settings.URL
-        
+
 
     def _get(self,endpoint):
         return requests.get(self.url+endpoint).json()
-    
+
 
     def get_resultados_generales(self):
         '''
@@ -30,7 +30,7 @@ class ApiResultados:
 
             Args:
                 mesa_id (str): id de la mesa de la cual se quiere obtener la foto del telgrama.
-            
+
             Retrun : json
         '''
 
@@ -45,8 +45,8 @@ class ApiResultados:
             Args:
                 mesa_id (str): id de la mesa de la cual se quiere obtener la foto del telgrama.
 
-            Returns:            
-                json: 
+            Returns:
+                json:
                     "encodingBinary": Binario de la imagen en base64
                     "fileName": Nombre definido para la imagen,
                     "imagenState": {
@@ -69,7 +69,7 @@ class ApiResultados:
                                 "pageNumber": NN,
                                 "transmissionDate": Fecha emision,
                                 "transmissionUserId": DNI EMISOR,
-                                "transmissionUserName": NOMBRE EMISOR 
+                                "transmissionUserName": NOMBRE EMISOR
                             }
                         ]
                     },
@@ -77,13 +77,13 @@ class ApiResultados:
                     "scopeId": NN
                 }
 
-            Nota : Los valores que aparece como NN son valores que no pude 
-                    interpretar a que hacen referencia     
+            Nota : Los valores que aparece como NN son valores que no pude
+                    interpretar a que hacen referencia
 
         '''
 
         endpoint = '/scope/data/getTiff/'
-        return self._get(endpoint+mesa_id) 
+        return self._get(endpoint+mesa_id)
 
 
 

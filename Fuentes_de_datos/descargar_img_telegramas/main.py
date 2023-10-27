@@ -1,11 +1,11 @@
 import sys
-import os 
-sys.path.append(os.path.join(os.path.dirname(__file__), '../'))
+import os
+
 from ApiResultados import ApiResultados
 import base64
 
+sys.path.append(os.path.join(os.path.dirname(__file__), '../'))
 api_client = ApiResultados()
-
 
 def descargar_img_telegrama(mesa_id):
     response = api_client.get_img_telegrama(mesa_id)
@@ -15,5 +15,5 @@ def descargar_img_telegrama(mesa_id):
         tiff_file.write(binary_data)
 
 
-#ejemplo 
+#ejemplo
 descargar_img_telegrama('0100501926X')
