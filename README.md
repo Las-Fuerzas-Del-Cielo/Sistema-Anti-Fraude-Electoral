@@ -35,11 +35,13 @@ El tercer tipo de fraude seria que las mesas cargadas en el Sistema Oficial tien
 
 Estos serian gente que se inscribieron como fiscales solo para quedarse con una mesa o grupo de mesas y luego no ir o abandonar a ultimo momento cuando es muy dificil conseguir reemplazo y reasignar sus mesass.
 
+El sistema debe tener pre-cargado los datos de los Fiscales de Mesa y su trabajo en las elecciones PASO y GENERALES para que si en ellas se ausentaron sin causa, o de manera sospechosa, no se los vuelva a convocar para el BALLOTAGE.
+
 ### Fiscales Judas
 
-Este tipo de fraude se basa en reclutar e inscribir Fiscales de Mesa que en vez de fiscalizar y defender los votos de LLA, en realidad hacen lo opuesto.  Las mesas con fiscales falsos pudieran permitir que se carguen en el Sistema Oficial datos falsos.
+Este tipo de fraude se basa en reclutar e inscribir Fiscales de Mesa que en vez de fiscalizar y defender los votos de LLA, en realidad hacen lo opuesto.  Las mesas con Fiscales Judas pudieran permitir que se carguen en el Sistema Oficial datos falsos porque la contabilizacion ya fue corrupta.
 
-El sistema debe permitir a los usuarios del tipo **Auditores Externos** ver los datos de los Fiscales de Mesa para poder investigarlos y asi poder inferir si son judas o no. Los Fiscales de Mesa seran invitados a proveer informacion de manera opcional de sus identidades en redes sociales, y a los que lo hagan, sumaran puntos en su reputacion. Del otro lado, un ejercito de auditores externos puede investigar con su DNI y esas identidades sociales cual es el background real de esas personas y en base a los resultados de estas investigaciones, asignarle a cada fiscal un score que puede usarse en un caso extermo para descalificarlo o al menos para observarlo con precaucion.
+El sistema debe permitir a los usuarios del tipo **Auditores Externos** ver los datos de los Fiscales de Mesa para poder investigarlos y asi poder inferir si son del tipo Judas o no. Los Fiscales de Mesa seran invitados a proveer informacion de manera opcional de sus identidades en redes sociales, y a los que lo hagan, sumaran puntos en su reputacion como Fiscal. Del otro lado, un ejercito de auditores externos puede investigar con su DNI y esas identidades sociales cual es el background real de esas personas y en base a los resultados de estas investigaciones, asignarle a cada fiscal un score que puede usarse en un caso extermo para descalificarlo o al menos para observarlo con precaucion.
 
 ### Ficales Incompetentes
 
