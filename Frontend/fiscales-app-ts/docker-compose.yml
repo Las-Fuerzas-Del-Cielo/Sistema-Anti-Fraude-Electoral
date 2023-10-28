@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  fiscales-app-ts:
+    image: node:20-alpine
+    container_name: fiscales-app-ts
+    command: sh -c "npm ci && npm run dev"
+    working_dir: /app
+    env_file: .env
+    ports:
+      - '${APP_PORT}:${APP_PORT}'
+    volumes:
+      - './app:/app/app'
+      - './public:/app/public'
+      - './package.json:/app/package.json'
+      - './package-lock.json:/app/package-lock.json'
+      - './postcss.config.js:/app/postcss.config.js'
+      - './tailwind.config.ts:/app/tailwind.config.ts'
+      - './tsconfig.json:/app/tsconfig.json'
