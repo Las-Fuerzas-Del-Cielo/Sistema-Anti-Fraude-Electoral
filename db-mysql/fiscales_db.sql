@@ -161,7 +161,7 @@ CREATE TABLE `gen_mesa` (
 -- -----------------------
 -- Comicio
 -- -----------------------
-
+/*
 CREATE TABLE `com_comicio_estado` (
   `id` INT NOT NULL,
   `descripcion` VARCHAR(45) NULL,
@@ -205,6 +205,82 @@ CREATE TABLE `com_comisio_candidato` (
   CONSTRAINT `comiciocandidato_comiciocategoria` FOREIGN KEY (`comicio_categoria_id`) REFERENCES `com_comicio_categoria` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `comiciocandidato_comiciofuerzapolitica` FOREIGN KEY (`comicio_fuerza_politica_id`) REFERENCES `com_comicio_fuerza_politica` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+*/
+-- -----------------------
+-- fiscalizcion
+-- -----------------------
+
+CREATE TABLE `fis_fiscalizacion_estado` (
+  `id` int(11) NOT NULL,
+  `descripcion` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `fis_fiscalizacion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `estado_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fiscalizacion_estado_idx` (`estado_id`),
+  CONSTRAINT `fiscalizacion_estado` FOREIGN KEY (`estado_id`) REFERENCES `fis_fiscalizacion_estado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `fis_fiscalizacion_mesa_estado` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `fis_fiscalizacion_mesa` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fiscalizacion_id` int(11) NOT NULL,
+  `mesa_id` int(11) NOT NULL,
+  `votos_massarasa` int(11) DEFAULT NULL,
+  `votos_milei` int(11) DEFAULT NULL,
+  `votos_blanco` int(11) DEFAULT NULL,
+  `votos_nulos` int(11) DEFAULT NULL,
+  `votos_impugnados_massarasa` int(11) DEFAULT NULL,
+  `votos_impugnados_milei` int(11) DEFAULT NULL,
+  `estado_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fiscalizacionmesa_estado_idx` (`estado_id`),
+  KEY `fiscalizacionmesa_fiscalizacion_idx` (`fiscalizacion_id`),
+  KEY `fiscalizacionmesa_mesa_idx` (`mesa_id`),
+  CONSTRAINT `fiscalizacionmesa_estado` FOREIGN KEY (`estado_id`) REFERENCES `fis_fiscalizacion_mesa_estado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fiscalizacionmesa_fiscalizacion` FOREIGN KEY (`fiscalizacion_id`) REFERENCES `fis_fiscalizacion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fiscalizacionmesa_mesa` FOREIGN KEY (`mesa_id`) REFERENCES `gen_mesa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `fis_fiscal_mesa` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `fiscalizacion_mesa_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fiscalmesa_user_idx` (`user_id`),
+  KEY `fiscalmesa_fiscalizacionmesa_idx` (`fiscalizacion_mesa_id`),
+  CONSTRAINT `fiscalmesa_fiscalizacionmesa` FOREIGN KEY (`fiscalizacion_mesa_id`) REFERENCES `fis_fiscalizacion_mesa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fiscalmesa_user` FOREIGN KEY (`user_id`) REFERENCES `gen_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `fis_fiscal_general` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `gen_local_comicio` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fiscalgeneral_user_idx` (`user_id`),
+  KEY `fiscalgeneral_localcomicio_idx` (`gen_local_comicio`),
+  CONSTRAINT `fiscalgeneral_localcomicio` FOREIGN KEY (`gen_local_comicio`) REFERENCES `gen_local_comicio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fiscalgeneral_user` FOREIGN KEY (`user_id`) REFERENCES `gen_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `fis_coordinador` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `circuito_id` int(11) DEFAULT NULL,
+  `seccion_id` int(11) DEFAULT NULL,
+  `distrito_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
