@@ -15,13 +15,13 @@ SET time_zone = "+00:00";
 -- Usuario
 -- -----------------------
 CREATE TABLE `gen_user_status` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `gen_user_level` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(45) NOT NULL,
   `enabled` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
@@ -158,60 +158,13 @@ CREATE TABLE `gen_mesa` (
   CONSTRAINT `mesa_localcomicio` FOREIGN KEY (`local_comicio_id`) REFERENCES `gen_local_comicio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- -----------------------
--- Comicio
--- -----------------------
-/*
-CREATE TABLE `com_comicio_estado` (
-  `id` INT NOT NULL,
-  `descripcion` VARCHAR(45) NULL,
-  PRIMARY KEY (`id`));
 
-CREATE TABLE `com_comicio` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `descripcion` varchar(100) NOT NULL,
-  `estado_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `comicio_comicioestado_idx` (`estado_id`),
-  CONSTRAINT `comicio_comicioestado` FOREIGN KEY (`estado_id`) REFERENCES `com_comicio_estado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-CREATE TABLE `com_comicio_categoria` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `comicio_id` int(11) NOT NULL,
-  `descripcion` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `comiciocategoria_comicio_idx` (`comicio_id`),
-  CONSTRAINT `comiciocategoria_comicio` FOREIGN KEY (`comicio_id`) REFERENCES `com_comicio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-CREATE TABLE `com_comicio_fuerza_politica` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `comicio_id` int(11) NOT NULL,
-  `descripcion` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `comiciofuerzapolitica_comicio_idx` (`comicio_id`),
-  CONSTRAINT `comiciofuerzapolitica_comicio` FOREIGN KEY (`comicio_id`) REFERENCES `com_comicio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-CREATE TABLE `com_comisio_candidato` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `comicio_categoria_id` int(11) NOT NULL,
-  `comicio_fuerza_politica_id` int(11) NOT NULL,
-  `descripcion` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `comiciocandidato_comiciofuerzapolitica_idx` (`comicio_fuerza_politica_id`),
-  KEY `comiciocandidato_comiciocategoria_idx` (`comicio_categoria_id`),
-  CONSTRAINT `comiciocandidato_comiciocategoria` FOREIGN KEY (`comicio_categoria_id`) REFERENCES `com_comicio_categoria` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `comiciocandidato_comiciofuerzapolitica` FOREIGN KEY (`comicio_fuerza_politica_id`) REFERENCES `com_comicio_fuerza_politica` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-*/
 -- -----------------------
 -- fiscalizcion
 -- -----------------------
 
 CREATE TABLE `fis_fiscalizacion_estado` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -234,6 +187,7 @@ CREATE TABLE `fis_fiscalizacion_mesa` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `fiscalizacion_id` int(11) NOT NULL,
   `mesa_id` int(11) NOT NULL,
+  `total_votantes` int(11) DEFAULT NULL,
   `votos_massarasa` int(11) DEFAULT NULL,
   `votos_milei` int(11) DEFAULT NULL,
   `votos_blanco` int(11) DEFAULT NULL,
@@ -249,6 +203,7 @@ CREATE TABLE `fis_fiscalizacion_mesa` (
   CONSTRAINT `fiscalizacionmesa_fiscalizacion` FOREIGN KEY (`fiscalizacion_id`) REFERENCES `fis_fiscalizacion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fiscalizacionmesa_mesa` FOREIGN KEY (`mesa_id`) REFERENCES `gen_mesa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 CREATE TABLE `fis_fiscal_mesa` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -272,16 +227,22 @@ CREATE TABLE `fis_fiscal_general` (
   CONSTRAINT `fiscalgeneral_user` FOREIGN KEY (`user_id`) REFERENCES `gen_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `fis_coordinador` (
+CREATE TABLE `fis_fiscal_coordinador` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `circuito_id` int(11) DEFAULT NULL,
   `seccion_id` int(11) DEFAULT NULL,
   `distrito_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `coordinador_idx` (`circuito_id`),
+  KEY `coordinador_seccion_idx` (`seccion_id`),
+  KEY `coordinador_distrito_idx` (`distrito_id`),
+  KEY `coordinador_user_idx` (`user_id`),
+  CONSTRAINT `coordinador_circuito` FOREIGN KEY (`circuito_id`) REFERENCES `gen_circuito` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `coordinador_distrito` FOREIGN KEY (`distrito_id`) REFERENCES `gen_distrito` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `coordinador_seccion` FOREIGN KEY (`seccion_id`) REFERENCES `gen_seccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `coordinador_user` FOREIGN KEY (`user_id`) REFERENCES `gen_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
