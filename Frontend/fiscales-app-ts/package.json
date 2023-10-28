@@ -1,5 +1,5 @@
 {
-  "name": "fiscales-app",
+  "name": "fiscales-app-ts",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,6 +14,10 @@
     "next": "14.0.0"
   },
   "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
     "autoprefixer": "^10",
     "postcss": "^8",
     "tailwindcss": "^3",
