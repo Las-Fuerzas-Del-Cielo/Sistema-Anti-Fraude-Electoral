@@ -6,3 +6,9 @@ Están pensados para ser modificados a la necesidad de los equipos y ser utiliza
 Las tecnologías que se definieron son
 - Frontend: ReactJs
 - Backend: NestJs
+
+Se recomienda crear los dockerfiles con la siguiente estructura dentro de los proyectos para facilitar la automatización
+
+```console
+deployment/docker/Dockerfile
+```
