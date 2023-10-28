@@ -24,3 +24,5 @@ COPY --chown=node:node --from=build /app/node_modules node_modules
 USER node
 
 CMD ["node", "dist/main.js"]
+
+EXPOSE 8080

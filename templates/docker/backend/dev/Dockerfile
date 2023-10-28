@@ -22,3 +22,5 @@ COPY --chown=node:node . .
 
 # Set Docker as a non-root user
 USER node
+
+EXPOSE 8080

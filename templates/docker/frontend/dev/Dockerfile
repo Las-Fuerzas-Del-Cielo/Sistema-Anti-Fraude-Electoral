@@ -10,8 +10,8 @@ RUN yarn install --frozen-lockfile
 
 COPY . /app
 
-EXPOSE 3000
+EXPOSE 9000
 ENV HOST=0.0.0.0
-ENV PORT=3000
+ENV PORT=9000
 
 RUN if [ "$VERSION" ];then npm i -g serve && npm run build; fi

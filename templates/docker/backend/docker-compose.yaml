@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: deployment/docker/Dockerfile
+    container_name: backend
+    image: backend
+    command: npx nest start --watch
+    env_file:
+      - dev.env
+    # Mount host directory to docker container to support watch mode
+    volumes:
+      - .:/app
+      # This ensures that the NestJS container manages the node_modules folder
+      # rather than synchronizes it with the host machine
+      - /app/node_modules
+    ports:
+      - 8080:8080
