@@ -49,6 +49,20 @@ npm run dev
 npm run build
 ```
 
+**Uso de Tailwind CSS**
+Este proyecto ya tiene Tailwind CSS configurado y listo para su uso. Para aplicar estilos de Tailwind CSS a tus componentes, simplemente agrega las clases de Tailwind en tus archivos de componentes de React.
+
+Por ejemplo, puedes aplicar clases de Tailwind a un elemento HTML de esta manera:
+
+```jsx
+Copy code
+<div className="bg-blue-500 text-white p-4">
+  Este es un elemento con estilos de Tailwind CSS.
+</div>
+```
+
+Si deseas personalizar aún más la configuración de Tailwind CSS, podés editar el archivo tailwind.config.js en la raíz del proyecto. ahí, podés agregar tus propias clases, colores y configuraciones personalizadas.
+
 ## Cómo Contribuir
 
 ¡Agradecemos tu interés en contribuir! Para hacerlo, sigue estos pasos:
