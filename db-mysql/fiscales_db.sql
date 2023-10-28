@@ -11,31 +11,22 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `fiscales_db`
 --
-
--- --------------------------------------------------------
-
--- -------
--- Estado de los usuarios 
--- -------
+-- -----------------------
+-- Usuario
+-- -----------------------
 CREATE TABLE `gen_user_status` (
   `id` int(11) NOT NULL,
   `description` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- -------
--- Niveles de usuarios para seguridad (alternativa a Rol)
--- -------
 CREATE TABLE `gen_user_level` (
   `id` int(11) NOT NULL,
   `description` varchar(45) NOT NULL,
   `enabled` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- -------
--- Usuarios, con firebaseId
--- -------
 CREATE TABLE `gen_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(100) NOT NULL,
@@ -60,24 +51,12 @@ CREATE TABLE `gen_user` (
   KEY `user_sttatus_idx` (`status_id`),
   CONSTRAINT `user_level` FOREIGN KEY (`level_id`) REFERENCES `gen_user_level` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `user_status` FOREIGN KEY (`status_id`) REFERENCES `gen_user_status` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- -------
--- Rol
--- -------
-CREATE TABLE `sec_rol` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `description` varchar(45) NOT NULL,
-  `create_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `create_user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `rol_user_idx` (`create_user_id`),
-  CONSTRAINT `rol_user` FOREIGN KEY (`create_user_id`) REFERENCES `gen_user` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- -----------------------
+-- Seguridad
+-- -----------------------
 
--- -------
--- Privilegio
--- -------
 CREATE TABLE `sec_privilege` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(45) NOT NULL,
@@ -86,11 +65,18 @@ CREATE TABLE `sec_privilege` (
   PRIMARY KEY (`id`),
   KEY `privilege_user_idx` (`create_user_id`),
   CONSTRAINT `privilege_user` FOREIGN KEY (`create_user_id`) REFERENCES `gen_user` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- -------
--- Rol Privilegio
--- -------
+CREATE TABLE `sec_rol` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(45) NOT NULL,
+  `create_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `rol_user_idx` (`create_user_id`),
+  CONSTRAINT `rol_user` FOREIGN KEY (`create_user_id`) REFERENCES `gen_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 CREATE TABLE `sec_rol_privilege` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `rol_id` int(11) NOT NULL,
@@ -104,12 +90,10 @@ CREATE TABLE `sec_rol_privilege` (
   CONSTRAINT `rol_privilege_create_user` FOREIGN KEY (`create_user_id`) REFERENCES `gen_user` (`id`),
   CONSTRAINT `rol_privilege_privilege` FOREIGN KEY (`privilege_id`) REFERENCES `sec_privilege` (`id`),
   CONSTRAINT `rol_privilege_rol` FOREIGN KEY (`rol_id`) REFERENCES `sec_rol` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
--- -------
--- Relacion usuario Rol
--- -------
+
 CREATE TABLE `gen_user_rol` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
@@ -123,8 +107,104 @@ CREATE TABLE `gen_user_rol` (
   CONSTRAINT `user_rol_create_user` FOREIGN KEY (`create_user_id`) REFERENCES `gen_user` (`id`),
   CONSTRAINT `user_rol_rol` FOREIGN KEY (`rol_id`) REFERENCES `sec_rol` (`id`),
   CONSTRAINT `user_rol_user` FOREIGN KEY (`user_id`) REFERENCES `gen_user` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
+-- -----------------------
+-- Estructura territorial
+-- -----------------------
+
+CREATE TABLE `gen_distrito` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+  -- Existen distintos modelos entre provincias / BsAs,Mza,Tucuman / CABA en la seccion, pero unificamos todo en seccion para mantener la estructura estandar
+  -- -----------------------
+CREATE TABLE `gen_seccion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `distrito_id` int(11) NOT NULL,
+  `descripcion` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `seccion_distrito_idx` (`distrito_id`),
+  CONSTRAINT `seccion_distrito` FOREIGN KEY (`distrito_id`) REFERENCES `gen_distrito` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `gen_circuito` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `seccion_id` int(11) NOT NULL,
+  `descripcion` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `circuito_seccion_idx` (`seccion_id`),
+  CONSTRAINT `circuito_seccion` FOREIGN KEY (`seccion_id`) REFERENCES `gen_seccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `gen_local_comicio` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `circuito_id` int(11) NOT NULL,
+  `descripcion` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `localcomicio_circuito_idx` (`circuito_id`),
+  CONSTRAINT `localcomicio_circuito` FOREIGN KEY (`circuito_id`) REFERENCES `gen_circuito` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `gen_mesa` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `local_comicio_id` int(11) NOT NULL,
+  `descripcion` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mesa_localcomicio_idx` (`local_comicio_id`),
+  CONSTRAINT `mesa_localcomicio` FOREIGN KEY (`local_comicio_id`) REFERENCES `gen_local_comicio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- -----------------------
+-- Comicio
+-- -----------------------
+
+CREATE TABLE `com_comicio_estado` (
+  `id` INT NOT NULL,
+  `descripcion` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `com_comicio` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(100) NOT NULL,
+  `estado_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `comicio_comicioestado_idx` (`estado_id`),
+  CONSTRAINT `comicio_comicioestado` FOREIGN KEY (`estado_id`) REFERENCES `com_comicio_estado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `com_comicio_categoria` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `comicio_id` int(11) NOT NULL,
+  `descripcion` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `comiciocategoria_comicio_idx` (`comicio_id`),
+  CONSTRAINT `comiciocategoria_comicio` FOREIGN KEY (`comicio_id`) REFERENCES `com_comicio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `com_comicio_fuerza_politica` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `comicio_id` int(11) NOT NULL,
+  `descripcion` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `comiciofuerzapolitica_comicio_idx` (`comicio_id`),
+  CONSTRAINT `comiciofuerzapolitica_comicio` FOREIGN KEY (`comicio_id`) REFERENCES `com_comicio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `com_comisio_candidato` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `comicio_categoria_id` int(11) NOT NULL,
+  `comicio_fuerza_politica_id` int(11) NOT NULL,
+  `descripcion` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `comiciocandidato_comiciofuerzapolitica_idx` (`comicio_fuerza_politica_id`),
+  KEY `comiciocandidato_comiciocategoria_idx` (`comicio_categoria_id`),
+  CONSTRAINT `comiciocandidato_comiciocategoria` FOREIGN KEY (`comicio_categoria_id`) REFERENCES `com_comicio_categoria` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `comiciocandidato_comiciofuerzapolitica` FOREIGN KEY (`comicio_fuerza_politica_id`) REFERENCES `com_comicio_fuerza_politica` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
