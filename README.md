@@ -53,7 +53,7 @@ Este repositorio tiene la finalidad de:
 
 Estos repositorios son las partes complementarias del proyecto:
 - Frontend público (_TO DO: Incluir link cuando se lo cree_)
-- Backend API (_TO DO: Incluir link cuando se lo cree_)
+- [Backend API](https://github.com/Las-Fuerzas-Del-Cielo/api)
 
 ## Tipos de Fraudes
 
