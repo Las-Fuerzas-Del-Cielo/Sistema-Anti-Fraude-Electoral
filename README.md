@@ -7,7 +7,11 @@ Este es un proyecto **Open Source** (codigo libre) cuyo objetivo es minimizar y 
 La intencion de crear este sistema es mantener y preservar la democracia y la transparencia al pueblo argentino.
 
 ## Indice
+- [:lion: Sistema-Anti-Fraude-Electoral :lion:](#lion-sistema-anti-fraude-electoral-lion)
+  - [Indice](#indice)
   - [Objetivos](#objetivos)
+  - [Componentes](#componentes)
+  - [Repositorios y organización](#repositorios-y-organización)
   - [Tipos de Fraudes](#tipos-de-fraudes)
     - [Sumarizacion Fraudulenta](#sumarizacion-fraudulenta)
     - [Mesas Inexistentes](#mesas-inexistentes)
@@ -36,6 +40,20 @@ Los objetivos de este sistema son:
 1. Identificar potenciales fraudes electorales.
 2. Minimizar su ocurrencia e impacto.
 3. Acelerar su deteccion para evitar la falsa declaracion de un ganador con altos niveles de fraude/casos sospechosos.
+
+## Componentes
+- Frontend fiscales (carga de datos)
+- Frontend público (para toda persona que quiera acceder a los datos)
+- Backend (API)
+
+## Repositorios y organización
+Este repositorio tiene la finalidad de:
+- Explicar el proyecto en general
+- Alojar el [código para el frontend para fiscales](https://github.com/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral/tree/main/Frontend/fiscales-app-ts).
+
+Estos repositorios son las partes complementarias del proyecto:
+- Frontend público (_TO DO: Incluir link cuando se lo cree_)
+- Backend API (_TO DO: Incluir link cuando se lo cree_)
 
 ## Tipos de Fraudes
 
