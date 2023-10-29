@@ -2,10 +2,6 @@
 
 This is a base API in NestJS, which contains a [swagger ui endpoint](http://localhost:3000/api) with an open API spec generated from the MVP definition.
 
-ref [Nest documentation](https://docs.nestjs.com)
-ref [Swagger with Nest documentation](https://docs.nestjs.com/openapi/introduction)
-Ref: [MVP](https://docs.google.com/document/d/11F_YE7d1th6ORO_AVKZn9idoiMjSzepwSYcMBZONDt8)
-
 # How to contribute
 
 If you want to contribute to this project, please follow these steps:
@@ -20,3 +16,9 @@ If you want to contribute to this project, please follow these steps:
 - Wait for the code review and feedback from the maintainers.
 
 Thank you for your interest and collaboration. 😊
+
+# Ref:
+
+[Nest documentation](https://docs.nestjs.com)
+[Swagger with Nest documentation](https://docs.nestjs.com/openapi/introduction)
+[MVP](https://docs.google.com/document/d/11F_YE7d1th6ORO_AVKZn9idoiMjSzepwSYcMBZONDt8)
