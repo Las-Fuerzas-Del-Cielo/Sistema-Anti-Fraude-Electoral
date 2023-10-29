@@ -3,15 +3,16 @@ import { Route, Routes } from 'react-router-dom';
 
 const Login = lazy(() => import('#/pages/login/login'));
 const Profile = lazy(() => import('#/pages/profile/profile'));
+const SendSuccess = lazy(() => import('#/pages/send-success/sendSuccess'));
+const LoadData = lazy(() => import('#/pages/load-data/loadData'));
+const Dashboard = lazy(() => import("#/pages/dashboard/dashboard"));
 const UploadCertificate = lazy(
   () => import('#/pages/upload-certificate/uploadCertificate'),
 );
-const SendSuccess = lazy(() => import('#/pages/send-success/sendSuccess'));
-const Dashboard = lazy(() => import('#/pages/dashboard/dashboard'));
 
 const AppRoutes: React.FC = () => (
   <Routes>
-    <Route path="/login" element={<Login />} />
+    <Route path='/login' element={<Login />} />
     <Route path="/dashboard" element={<Dashboard />} />
     <Route path="/profile" element={<Profile />} />
     <Route path="/upload-certificate" element={<UploadCertificate />} />
