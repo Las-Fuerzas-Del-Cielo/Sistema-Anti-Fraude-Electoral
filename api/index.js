@@ -3,10 +3,13 @@ const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const helmet = require('helmet');
 const swaggerDocument = YAML.load('swagger.yaml');
+const cors = require('cors');
 
 const app = express();
 const port = 3000;
 
+// Enable CORS for all requests
+app.use(cors());
 // Secure Express app by setting various HTTP headers. Documentation: https://helmetjs.github.io/
 app.use(helmet());
 
