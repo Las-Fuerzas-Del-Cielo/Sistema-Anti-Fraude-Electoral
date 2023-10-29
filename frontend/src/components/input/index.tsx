@@ -8,6 +8,7 @@ const Input: React.FC<IInputProps> = ({
   type,
   id,
   placeholder,
+  error,
   
   className,
   labelClassName,
@@ -30,15 +31,15 @@ const Input: React.FC<IInputProps> = ({
 
   return (
     <div className="flex flex-col w-full gap-2 group">
-      <div className={classNames("block font-sans w-full text-left px-3.5 py-2", labelApperence, className)}>
-        <label className={classNames("text-md text-violet-brand", spanApperence, labelClassName)} htmlFor={id}>{label}</label>
+      <div className={classNames("block font-sans w-full text-left px-3.5 py-2", labelApperence, className, error && 'border-red')}>
+        <label className={classNames("text-md text-violet-brand", spanApperence, labelClassName, error && 'text-red')} htmlFor={id}>{label}</label>
         <div className="flex items-center gap-2">
           <input 
             id={id}
             type={type === 'password' && isPasswordVisible ? 'text' : type}
             placeholder={placeholder}
             onChange={onChange}
-            className={classNames("w-full p-0 bg-transparent border-none focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm", inputApperence, inputClassName)} />
+            className={classNames("w-full p-0 bg-transparent border-none focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm", inputApperence, inputClassName, error && 'text-red')} />
           {
             type === 'password' && 
               (

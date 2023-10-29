@@ -3,6 +3,7 @@ export interface IInputProps {
   type: 'text' | 'password';
   id: string;
   placeholder: string;
+  error?: boolean;
 
   className?: string;
   labelClassName?: string;
