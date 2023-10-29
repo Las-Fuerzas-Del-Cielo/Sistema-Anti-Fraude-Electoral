@@ -1,20 +1,28 @@
 import { getBase64 } from "#/utils";
-import { ChangeEvent } from "react";
 
 export function UploadImage({
   onUpload,
 }: {
   onUpload: (image: string) => void;
 }) {
-  async function onUploadInternal(event: ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files?.[0];
+  async function onUploadInternal(file: File | null | undefined) {
     if (!file) return;
     const base64 = await getBase64(file);
     onUpload(base64);
   }
 
   return (
-    <div className="flex flex-col items-center text-lg gap-16">
+    <div
+      className="flex flex-col items-center text-lg gap-16"
+      onDragOver={(e) => {
+        e.preventDefault();
+      }}
+      onDrop={(e) => {
+        e.preventDefault();
+        const file = e.dataTransfer.items[0].getAsFile();
+        onUploadInternal(file);
+      }}
+    >
       <div className="flex items-center justify-center w-full">
         <label
           htmlFor="dropzone-file"
@@ -29,7 +37,7 @@ export function UploadImage({
             type="file"
             className="hidden"
             accept="image/*"
-            onChange={onUploadInternal}
+            onChange={(ev) => onUploadInternal(ev.target.files?.[0])}
           />
         </label>
       </div>
@@ -43,7 +51,7 @@ export function UploadImage({
           className="hidden"
           accept="image/*"
           capture="user"
-          onChange={onUploadInternal}
+          onChange={(ev) => onUploadInternal(ev.target.files?.[0])}
         />
         Tomar foto
       </label>
