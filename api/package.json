@@ -4,12 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index"
+    "start": "node index",
+    "dev": "nodemon index",
+    "test:examples": "node examples/index"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.438.0",
+    "@aws-sdk/client-s3": "^3.438.0",
+    "@aws-sdk/client-sqs": "^3.438.0",
+    "dotenv": "^16.3.1",
+    "fs-extra": "^11.1.1",
     "swagger-ui-express": "^5.0.0",
     "yamljs": "^0.3.0"
   }
