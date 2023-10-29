@@ -45,3 +45,19 @@ export interface ReporteFaltaFiscal {
   observaciones: string; // Observaciones adicionales si son necesarias
 }
 
+interface ResultadoSubidaS3 {
+  key: string;
+  bucket: string;
+  status: string;
+  resultadoMetadata: unknown; // Aquí puedes especificar un tipo más preciso si lo conoces
+}
+
+interface ErrorSubidaS3 {
+  error: true;
+  mensaje: string;
+  detalles: string;
+  codigoError: number;
+}
+
+// Tipo de retorno unificado que puede ser uno de los dos anteriores
+export type ResultadoRegistroS3 = ResultadoSubidaS3 | ErrorSubidaS3;
