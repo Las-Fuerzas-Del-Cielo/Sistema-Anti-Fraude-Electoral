@@ -13,7 +13,7 @@ const FlatList = ({
 
   const titleColor: any = {
     massa: 'text-sky-400',
-    milei: 'text-purple-800',
+    milei: 'text-violet-800',
     blank: 'text-neutral-700',
     noValidate: 'text-neutral-700',
     absent: 'text-neutral-700',
