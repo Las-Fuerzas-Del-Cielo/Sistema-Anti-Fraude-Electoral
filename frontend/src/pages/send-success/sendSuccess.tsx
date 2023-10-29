@@ -2,35 +2,14 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react';
 import Button from '#/components/button';
+import Header from '#/components/header';
 import { ISendSuccessProps } from './types';
-
 import './styles.css';
 
 const SendSuccessPage: FC<ISendSuccessProps> = ({ message }) => {
   return (
     <section className='bg-gray-100 items-center flex flex-col '>
-      <div className='bg-violet-brand p-4 w-full flex flex-col justify-center  items-center text-white '>
-        <div className='w-full flex flex-row'>
-          <div className='flex flex-col justify-center  items-cente basis-1/4'>
-            <Link to='/'>
-              <img
-                src='src/assets/images/back-arrow.svg'
-                alt='data sent successful'
-                className='object-cover rounded w-6  sm:w-8  h-auto '
-              />
-            </Link>
-          </div>
-          <div className='basis-auto w-full flex justify-center  items-center'>
-            <img
-              src='src/assets/logos/fenix-white.svg'
-              alt='data sent successful'
-              className='object-cover rounded w-35 sm:w-36 lg:w-36  h-auto w-image-25 '
-            />
-          </div>
-        </div>
-
-        <h1 className='text-4xl mb-5 mt-5 message'>Datos enviados con éxito</h1>
-      </div>
+      <Header routerLink='/' title='Datos enviados con éxito' />
       <div className='p-4'>
         <div className='container mx-auto'>
           <div className='flex items-center justify-center my-210'>
