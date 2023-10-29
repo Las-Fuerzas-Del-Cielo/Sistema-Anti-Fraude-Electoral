@@ -9,17 +9,17 @@ const FormHeader: React.FC<IFormHeaderProps> = ({ routerLink, title }) => {
         <div className='flex flex-col justify-center  items-cente basis-1/4'>
           <Link to={routerLink}>
             <img
-              src='src/assets/images/back-arrow.svg'
               alt='fenix logo'
               className='object-cover rounded w-6  sm:w-8  h-auto '
+              src='src/assets/images/back-arrow.svg'
             />
           </Link>
         </div>
         <div className='basis-auto w-full flex justify-center  items-center'>
           <img
-            src='src/assets/logos/fenix-white.svg'
             alt='fenix logo'
             className='object-cover rounded w-35 sm:w-36 lg:w-36  h-auto w-image-25 '
+            src='src/assets/logos/fenix-white.svg'
           />
         </div>
       </div>
