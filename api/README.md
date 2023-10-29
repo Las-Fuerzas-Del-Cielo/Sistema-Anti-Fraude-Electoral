@@ -35,3 +35,10 @@ Corré
 ```bash
 yarn build:swagger
 ```
+## CREAR UNA NUEVA RUTA
+
+Corré
+
+```bash
+yarn build:swagger
+```

@@ -1,20 +1,18 @@
 import express, { json, urlencoded } from 'express'
 import swaggerUi from 'swagger-ui-express'
 import fs from 'fs-extra'
+import Server from './server/server'
 
 /**
  * @description Bootstrap the application with middlewares & swagger endpoint
  */
 export function bootstrap() {
-  const app = express()
-  app.use(json()).use(urlencoded({ extended: true }))
-
+  const server =new Server({baseUrl:'/api'})
+  
   // swagger
   if (!process.env.AWS_LAMBDA_FUNCTION_NAME) {
-    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(fs.readJsonSync('./swagger.json')))
+    server.setMiddleware('/api-docs', swaggerUi.serve, swaggerUi.setup(fs.readJsonSync('./swagger.json')))
   }
 
-  
-
-  return app
+  return server
 }
