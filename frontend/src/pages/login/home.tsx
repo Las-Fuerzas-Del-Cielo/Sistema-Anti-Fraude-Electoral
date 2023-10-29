@@ -73,7 +73,7 @@ const LoginHomeContent = () => {
             </a>
           </div>
         </form>
-      </div>
+      s</div>
       <div className='mt-auto bg-gray-100 h-screen overflow-hidden items-center flex flex-col md:hidden'>
         <img
           src='src/assets/logos/footer.svg'
@@ -81,6 +81,8 @@ const LoginHomeContent = () => {
           className='w-full h-full p-0 m-0'
         />
       </div>
+
+      <span className='bg-violet p-5 text-6xl text-white rounded-xl'>🦁 VLLC!</span>
     </div>
   );
 };

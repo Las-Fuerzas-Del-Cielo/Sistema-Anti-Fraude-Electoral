@@ -2,6 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer base {
+  /* Normal Fonts */
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-display: auto;
+
+    src: url(./assets/fonts/Poppins-Regular.ttf);
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-display: auto;
+
+    src: url(./assets/fonts/Poppins-Medium.ttf);
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-display: auto;
+
+    src: url(./assets/fonts/Poppins-SemiBold.ttf);
+  }
+
+  /* Italic Fonts */
+  @font-face {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 400;
+    font-display: auto;
+
+    src: url(./assets/fonts/Poppins-Italic.ttf);
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 500;
+    font-display: auto;
+
+    src: url(./assets/fonts/Poppins-MediumItalic.ttf);
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 600;
+    font-display: auto;
+
+    src: url(./assets/fonts/Poppins-SemiBoldItalic.ttf);
+  }
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
