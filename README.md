@@ -123,6 +123,16 @@ Esta APP tendria estos tipos de usuarios:
 
 ## Arquitectura del Sistema
 
+![image](https://github.com/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral/assets/140413871/d3b6c243-93b5-41f6-9060-5ab97d90995c)
+
+**Cloudflare:** como DNS management, cdn y seguridad en capa 7.
+**React SPA:** hosteada en S3.
+**API Express:** hosteada como monolito en lambda function, esto permite flexibilidad para los desarrolladores y evita la complejidad de tener que adaptarse a desarrolo de microservicios.
+**API Gateway:** La magia de hacer un monolito serverless sucede acá, se proxean todos los endpoints a la lambda que ejecuta el servidor de Express.
+**DynamoDB:** Otra servicio serverless, nos evita tener que lidiar con configuraciones de escalado, posibles spikes inesperados de tráfico, esto nos asegura que la aplicación va a soportar altos niveles de carga sin crashear.
+**S3 Bucket:** Acá se subiran assets en forma de videos o imagenes como pruebas de fraudes.
+ 
+
 Hay muchas formas de encarar la arquitectura de un sistema como este. Vamos a listar antes que nada cuales son los criterios mas importantes que querriamos seguir y a partir de ellos vamos a derivar la arquitectura que emerja de ahi.
 
 1. El sistema completo se tiene que desarrollar y probar en tiempo record. Ese es el principal contraint.
