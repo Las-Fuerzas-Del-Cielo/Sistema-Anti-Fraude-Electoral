@@ -10,7 +10,7 @@ const Header: React.FC<IHeaderProps> = ({ routerLink, title }) => {
           <Link to={routerLink}>
             <img
               src='src/assets/images/back-arrow.svg'
-              alt='data sent successful'
+              alt='fenix logo'
               className='object-cover rounded w-6  sm:w-8  h-auto '
             />
           </Link>
@@ -18,7 +18,7 @@ const Header: React.FC<IHeaderProps> = ({ routerLink, title }) => {
         <div className='basis-auto w-full flex justify-center  items-center'>
           <img
             src='src/assets/logos/fenix-white.svg'
-            alt='data sent successful'
+            alt='fenix logo'
             className='object-cover rounded w-35 sm:w-36 lg:w-36  h-auto w-image-25 '
           />
         </div>
