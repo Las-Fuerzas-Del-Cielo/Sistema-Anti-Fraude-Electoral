@@ -9,6 +9,7 @@ Ref: [MVP](https://docs.google.com/document/d/11F_YE7d1th6ORO_AVKZn9idoiMjSzepwS
 [Node.js (v18+)](https://nodejs.org/en/download)
 [Docker](https://www.docker.com/products/docker-desktop/)
 [Yarn](https://yarnpkg.com/getting-started/install)
+[AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) [Para Mac: brew install awscli]
 
 # Setup Instructions
 
