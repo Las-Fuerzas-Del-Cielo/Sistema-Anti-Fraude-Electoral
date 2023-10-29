@@ -6,6 +6,7 @@ type Routes = {
   };
   USER: {
     profile: string;
+    send_success: string;
   };
 };
 
@@ -17,5 +18,6 @@ export const ROUTES_PATHS: Routes = {
   },
   USER: {
     profile: "/user/profile",
+    send_success: "/user/send-success",
   },
 };

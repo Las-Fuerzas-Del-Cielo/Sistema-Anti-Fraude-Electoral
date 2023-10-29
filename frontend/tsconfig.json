@@ -67,9 +67,6 @@
             "#hooks/*": [
                 "src/hooks/*"
             ],
-            "#routes/*": [
-                "src/routes/*"
-            ],
             "#lib/*": [
                 "src/lib/*"
             ]
