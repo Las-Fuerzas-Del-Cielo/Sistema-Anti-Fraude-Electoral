@@ -1,6 +1,7 @@
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { ReporteFaltaFiscal } from 'src/types/models';
 import { ResultadoRegistroS3 } from 'src/types/models';
+import { ERROR_CODES } from './errorConstants';
 
 // Inicializa el cliente de S3 con las configuraciones necesarias
 const s3Client = new S3Client({ region: 'tu-region' });
@@ -8,8 +9,8 @@ const s3Client = new S3Client({ region: 'tu-region' });
 /**
  * Sube un reporte al bucket S3 especificado.
  * 
- * @param {any} reporte - El objeto reporte que quieres subir.
- * @return {Promise<any>} - El resultado de la operación de subida.
+ * @param {ReporteFaltaFiscal} reporte - El objeto reporte que quieres subir.
+ * @return {Promise<ResultadoRegistroS3>} - El resultado de la operación de subida.
  */
 export async function registrarReporteEnS3(reporte: ReporteFaltaFiscal): Promise<ResultadoRegistroS3> {
     const bucketName = 'nombre-de-tu-bucket';
@@ -35,7 +36,8 @@ export async function registrarReporteEnS3(reporte: ReporteFaltaFiscal): Promise
         // Devuelve un objeto con detalles del error para un mejor manejo
         return {
           error: true,
-          mensaje: 'Error al subir a S3',
+          mensaje:  ERROR_CODES.S3_UPLOAD_ERROR.message,
+          codigoError: ERROR_CODES.S3_UPLOAD_ERROR.status,
           detalles: error.message || 'Error no especificado'
         };
     }
