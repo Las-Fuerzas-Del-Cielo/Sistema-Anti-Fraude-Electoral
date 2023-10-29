@@ -1,5 +1,12 @@
-import { auth } from "src/routes/middleware";
-
+import { auth } from "../../routes/middleware";
+interface route{
+    path:string;
+    method:string;
+    auth?:Boolean;
+    controller:Function;
+    active?:Boolean;
+    middlewares:Array<Function>;
+}
 class Route {
     path:string;
     method:string;
@@ -8,7 +15,7 @@ class Route {
     active:Boolean;
     middlewares:Array<Function>;
 
-    constructor({path,method,controller,active,middlewares,auth}){
+    constructor({path,method,controller,active,middlewares,auth}:route){
         this.path=path,
         this.method=method,
         this.auth = auth ?? true;

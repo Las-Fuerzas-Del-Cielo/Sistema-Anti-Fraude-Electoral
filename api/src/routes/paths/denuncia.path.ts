@@ -1,5 +1,6 @@
-import Route from "src/server/class/route";
+import Route from "../../server/class/route";
 import { getSpecificDenuncia, listDenuncias } from "../controllers/denuncia";
+import { MethodRoutes } from "../../enum/method.enum";
 
 export default [
     new Route({
@@ -8,7 +9,6 @@ export default [
         middlewares:[],
         auth:false,
         controller:listDenuncias,
-        active:true
     }),
     new Route({
         path:'/:id',
@@ -16,6 +16,5 @@ export default [
         middlewares:[],
         auth:false,
         controller:getSpecificDenuncia,
-        active:true
     }),
 ]

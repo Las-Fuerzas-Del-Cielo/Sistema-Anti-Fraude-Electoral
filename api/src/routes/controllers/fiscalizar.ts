@@ -1,6 +1,4 @@
-import { RequestHandler } from 'express';
-
-export const evaluateFiscalMesa: RequestHandler = (req, res) => {
+export const evaluateFiscalMesa:Function = function(result){
   // Mocked Logic
-  res.status(201).json({ message: 'Fiscalization recorded', data: req.body });
+  return result({ message: 'Fiscalization recorded', data: this.body })
 };

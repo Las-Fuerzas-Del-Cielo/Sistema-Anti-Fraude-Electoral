@@ -1,5 +1,6 @@
 import { getMesaData, searchMesas } from '../controllers/mesa'
-import Route from 'src/server/class/route'
+import Route from "../../server/class/route";
+import { MethodRoutes } from "../../enum/method.enum";
 
 export default [
     new Route({

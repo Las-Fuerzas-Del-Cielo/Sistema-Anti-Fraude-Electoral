@@ -1,6 +1,6 @@
-import SAFE from "src/errors/safe";
+import SAFE from "../../errors/safe";
 
-const catchErrors = (err, req, res, next) => {
+export default (err, req, res, next) => {
     if(process.env.DEV){
         console.log(err)
     }
@@ -20,4 +20,3 @@ const catchErrors = (err, req, res, next) => {
     console.log(err,"Error general");
     return res.status(400).json(new SAFE().errorAplicacion);
 }
-export default catchErrors;

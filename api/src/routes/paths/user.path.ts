@@ -1,6 +1,6 @@
 import { createUser, getUserRoles, getUser, getUsers } from '../controllers/user'
-import Route from 'src/server/class/route'
-
+import Route from "../../server/class/route";
+import { MethodRoutes } from "../../enum/method.enum";
 
 export default [
     new Route({

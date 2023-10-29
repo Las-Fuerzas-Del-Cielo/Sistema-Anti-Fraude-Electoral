@@ -1,9 +1,6 @@
-import { Router } from 'express'
 import { evaluateFiscalMesa } from '../controllers/fiscalizar'
-import Route from 'src/server/class/route'
-const router = Router()
-
-router.post('/fiscalizar', evaluateFiscalMesa)
+import Route from "../../server/class/route";
+import { MethodRoutes } from "../../enum/method.enum";
 
 export default [
     new Route({

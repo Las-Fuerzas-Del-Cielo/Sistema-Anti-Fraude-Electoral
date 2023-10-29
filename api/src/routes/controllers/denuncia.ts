@@ -1,11 +1,10 @@
-import { RequestHandler } from 'express';
 
-export const listDenuncias: RequestHandler = (req, res) => {
+export const listDenuncias:Function = function(result) {
   // Mocked Logic
-  res.status(200).json({ denuncias: ['Denuncia 1', 'Denuncia 2'] });
+ return result({ denuncias: ['Denuncia 1', 'Denuncia 2'] })
 };
 
-export const getSpecificDenuncia: RequestHandler = (req, res) => {
+export const getSpecificDenuncia:Function = function(result) {
   // Mocked Logic
-  res.status(200).json({ denuncia: 'Specific denuncia data' });
+  return result({ denuncia: 'Specific denuncia data' })
 };

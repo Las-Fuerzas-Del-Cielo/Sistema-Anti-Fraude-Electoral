@@ -8,14 +8,14 @@
     "forceConsistentCasingInFileNames": true,
     "strict": false,
     "skipLibCheck": true,
-    "outDir": "./dist",
+    "outDir": "./",
     "rootDir": "./",
     "noImplicitReturns": false,
     "noImplicitAny": false,
     "baseUrl": "./",
     "sourceMap": true
   },
-  "include": ["src/"],
+  "include": ["src/", "src/index.ts"],
   "exclude": ["node_modules"],
   "ts-node": {
     "transpileOnly": true

@@ -1,11 +1,8 @@
-import { RequestHandler } from 'express'
-
-export const getMesaData: RequestHandler = (req, res) => {
+export const getMesaData:Function = function(result){
   // Mocked Logic
-  res.status(200).json({ mesaData: 'some mesa data' })
-}
-
-export const searchMesas: RequestHandler = (req, res) => {
+  return result({ mesaData: 'some mesa data' })
+};
+export const searchMesas:Function = function(result){
   // Mocked Logic
-  res.status(200).json({ mesas: ['Mesa 1', 'Mesa 2'] })
-}
+  return result({ mesas: ['Mesa 1', 'Mesa 2'] })
+};

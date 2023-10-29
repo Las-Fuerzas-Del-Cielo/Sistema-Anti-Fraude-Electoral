@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import Route from './route';
-import SAFE from 'src/errors/safe';
+import SAFE from "../../errors/safe";
 
 interface options{
     auth:boolean
@@ -32,8 +32,8 @@ class CreateRoutes{
         this.Routes.forEach(route=>{
             if(!route.active){
                 return;
-            }
-            const fullPath = `${this.path}${route.path}`;
+            }            
+            const fullPath = `${this.path}${route.path}`;            
             this.router[route.method](fullPath,route.middlewares,async(req,res,next)=>{
                 try {
                     const controller = route.controller;

@@ -1,7 +1,7 @@
 import express, { json, urlencoded } from 'express'
-import SAFE from 'src/errors/safe';
 import catchErrors from './middlewares/catchErrors';
 import CreateRoutes from './class/createRoute';
+import SAFE from "../errors/safe";
 
 interface options{
     baseUrl?:String
@@ -38,7 +38,7 @@ class Server{
         });
     }
     setMiddleware(...middlewares){
-        this.app.user(...middlewares)
+        this.app.use(...middlewares)
     }
     listen(){
         this.setFinishRoutes();
@@ -48,7 +48,7 @@ class Server{
     }
     setRoutes(routes:CreateRoutes){
         const route = routes.createRoutes();
-        this.app.use("/",route);
+        this.app.use(`${this.baseUrl}/`,route);
     }
     setRouteMap(routes=new Map()){
         routes.forEach((value, key)=>{
@@ -58,9 +58,7 @@ class Server{
     }
     setFinishRoutes(){
         this.app.use((req, res)=>{
-            if(this.dev){
-                console.log(`No se encontró el base Path ${req.originalUrl},${req.method}`)
-            }
+            console.log(`No se encontró el base Path ${req.originalUrl},${req.method}`)
             res.status(404).json(new SAFE().urlInvalido);
         });
         this.app.use(catchErrors);

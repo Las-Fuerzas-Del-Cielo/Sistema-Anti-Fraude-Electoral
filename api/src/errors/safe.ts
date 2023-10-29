@@ -1,4 +1,6 @@
-class SAFE {
+
+///// Sistema-Anti-Fraude-Electoral => SAFE
+export default class SAFE {
     message:String
     code:Number
     logMessage?:String
@@ -48,4 +50,3 @@ class SAFE {
         return this;
     }
 }
-export default SAFE;
