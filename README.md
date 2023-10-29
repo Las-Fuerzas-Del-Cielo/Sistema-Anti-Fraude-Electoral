@@ -30,6 +30,7 @@ La intencion de crear este sistema es mantener y preservar la democracia y la tr
       - [Procesos Batch](#procesos-batch)
   - [Responsables](#responsables)
   - [Links de interes](#links-de-interes)
+- [Como contribuir](#como-contribuir)
 - [Autores](#autores)
 - [Contributors](#contributors)
 
@@ -208,6 +209,18 @@ Para poder abrir el juego y que varios developers puedan hacer diferentes proces
 Con los datos cargados por los Fiscales a traves de la mobile app mas los datos extraidos del sistema oficial, el sistema tiene la capicidad de correr multiples procesos cada uno especializado en detectar algun tipo de fraude.
 
 Se debe analizar los procesos que se necesitan para detectar los tipos de fraude previamente especificados.
+
+## Como contribuir
+
+Para aportar tu contribución tenés que crearte un fork incluyendo la rama dev y trabajar en él. Cuando hayas terminado con tus cambios, creá un PR de tu fork apuntando a la rama dev de este repositorio. Dentro de lo posible, agregar una buena descripción al PR para que los reviewers se orienten rápido y agregarle los labels correspondientes a los cambios realizados.
+
+Pasando en limpio:
+- Crear un fork de este repositorio incluyendo la rama **dev**.
+- Realizar los cambios en el clon local del fork en la rama **dev**.
+- Subir los cambios al fork.
+- Crear un PR a la rama **dev** de este repositorio.
+- Agregar una descripción clara de los cambios al PR.
+- Agregar labels correspondientes a los cambios al PR.
 
 ## Responsables
 
