@@ -11,8 +11,12 @@
     "preview-stg": "tsc && vite build --mode staging && vite preview"
   },
   "dependencies": {
+    "@radix-ui/react-icons": "^1.3.0",
+    "@radix-ui/react-select": "^2.0.0",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.5.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
     "formik": "^2.4.3",
     "mitt": "^3.0.1",
     "mobx": "^6.10.2",
@@ -20,6 +24,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.17.0",
+    "tailwind-merge": "^2.0.0",
+    "tailwindcss-animate": "^1.0.7",
     "yup": "^1.2.0"
   },
   "devDependencies": {
