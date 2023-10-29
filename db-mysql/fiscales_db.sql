@@ -120,8 +120,8 @@ CREATE TABLE `gen_distrito` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-  -- Existen distintos modelos entre provincias / BsAs,Mza,Tucuman / CABA en la seccion, pero unificamos todo en seccion para mantener la estructura estandar
-  -- -----------------------
+	-- Existen distintos modelos entre provincias / BsAs,Mza,Tucuman / CABA en la seccion, pero unificamos todo en seccion para mantener la estructura estandar
+	-- -----------------------
 CREATE TABLE `gen_seccion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `distrito_id` int(11) NOT NULL,
@@ -243,6 +243,71 @@ CREATE TABLE `fis_fiscal_coordinador` (
   CONSTRAINT `coordinador_seccion` FOREIGN KEY (`seccion_id`) REFERENCES `gen_seccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `coordinador_user` FOREIGN KEY (`user_id`) REFERENCES `gen_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- -----------------------
+-- fiscalizcion - centro computo
+-- -----------------------
+CREATE TABLE `fis_centro_computo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(100) NOT NULL,
+  `reponsable_user_id` int(11) NOT NULL,
+  `circuito_id` int(11) DEFAULT NULL,
+  `seccion_id` int(11) DEFAULT NULL,
+  `distrito_id` int(11) DEFAULT NULL,
+  `telefono_recepcion_imagen` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `centrocomputo_responsable_idx` (`reponsable_user_id`),
+  KEY `centrocomputo_circuito_idx` (`circuito_id`),
+  KEY `centrocomputo_seccion_idx` (`seccion_id`),
+  KEY `centrocomputo_distrito_idx` (`distrito_id`),
+  CONSTRAINT `centrocomputo_circuito` FOREIGN KEY (`circuito_id`) REFERENCES `gen_circuito` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `centrocomputo_distrito` FOREIGN KEY (`distrito_id`) REFERENCES `gen_distrito` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `centrocomputo_responsable` FOREIGN KEY (`reponsable_user_id`) REFERENCES `gen_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `centrocomputo_seccion` FOREIGN KEY (`seccion_id`) REFERENCES `gen_seccion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `fis_centro_computo_auditor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `centro_computo_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `centrocomputoauditor_centrocomputo_idx` (`centro_computo_id`),
+  KEY `centrocomputoauditor_user_idx` (`user_id`),
+  CONSTRAINT `centrocomputoauditor_centrocomputo` FOREIGN KEY (`centro_computo_id`) REFERENCES `fis_centro_computo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `centrocomputoauditor_user` FOREIGN KEY (`user_id`) REFERENCES `gen_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `fis_centro_computo_auditoria_acta_fiscal_estado` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `fis_centro_computo_auditoria_acta_correo_estado` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `fis_centro_computo_auditoria` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `createDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `auditor_id` int(11) NOT NULL,
+  `mesa_id` int(11) NOT NULL,
+  `acta_fiscal_estado_id` int(11) DEFAULT NULL,
+  `acta_correo_estado_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `centrocomputoauditoria_auditor_idx` (`auditor_id`),
+  KEY `centro_computo_auditoria_mesaid_idx` (`mesa_id`),
+  KEY `centrocomputoauditoria_estadoacta_idx` (`acta_fiscal_estado_id`),
+  KEY `centrocomputoauditoria_estadocorreoacta_idx` (`acta_correo_estado_id`),
+  CONSTRAINT `centrocomputoauditoria_auditor` FOREIGN KEY (`auditor_id`) REFERENCES `fis_centro_computo_auditor` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `centrocomputoauditoria_estadoacta` FOREIGN KEY (`acta_fiscal_estado_id`) REFERENCES `fis_centro_computo_auditoria_acta_fiscal_estado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `centrocomputoauditoria_estadocorreoacta` FOREIGN KEY (`acta_correo_estado_id`) REFERENCES `fis_centro_computo_auditoria_acta_correo_estado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `centrocomputoauditoria_mesaid` FOREIGN KEY (`mesa_id`) REFERENCES `gen_mesa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
