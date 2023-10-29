@@ -1,14 +1,17 @@
+import { observer } from "mobx-react-lite";
 import { DataProfile } from "#/components";
 import { ButtonSignout } from "#/components/buttonSignout";
+import "./styles.css";
 
-export const Profile = () => {
+const ProfilePage = () => {
   return (
-    <main
-      style={{ backgroundColor: "#F1F3F4", paddingTop: "21px" }}
-      className="minHeight-main flex justify-between flex-col px-4"
-    >
+    <main className="min__height-main flex justify-between flex-col px-4 profile__design">
       <DataProfile />
       <ButtonSignout />
     </main>
   );
 };
+
+export const Profile = observer(ProfilePage);
+
+export default Profile;
