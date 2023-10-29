@@ -40,7 +40,7 @@ export const reportarFaltaFiscal: RequestHandler = async (req, res) => {
     }
 
     // Validar que la mesa y la escuela existan y estén relacionadas
-    const mesaValida = await validarMesaYEscuela(mesaId, escuelaId);
+    const mesaValida: boolean = await validarMesaYEscuela(mesaId, escuelaId);
     if (!mesaValida) {
       return res.status(ERROR_CODES.INVALID_MESA_OR_ESCUELA.status).json({ message: ERROR_CODES.INVALID_MESA_OR_ESCUELA.message });
     }
@@ -57,7 +57,8 @@ export const reportarFaltaFiscal: RequestHandler = async (req, res) => {
     
     const resultadoS3 = await registrarReporteEnS3(reporte);
 
-    if (resultadoS3.error) {
+    // Verifica si 'resultadoS3' es del tipo 'ErrorSubidaS3'
+    if ('error' in resultadoS3 && resultadoS3.error) {
       // Manejar el caso de error
       res.status(ERROR_CODES.S3_UPLOAD_ERROR.status).json({ message: ERROR_CODES.S3_UPLOAD_ERROR.message, detalles: resultadoS3.detalles });
     } else {
