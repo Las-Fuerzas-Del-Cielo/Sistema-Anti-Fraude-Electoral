@@ -28,4 +28,4 @@ wait_for_localstack() {
 wait_for_localstack
 
 # Start nodejs app in dev mode
-npm run dev
+yarn dev
