@@ -8,8 +8,8 @@ import './styles.css';
 const ProfilePage = () => {
   return (
     <>
-      <Header routerLink="/dashboard" title="Mi Perfil" />
-      <main className="min__height-main flex justify-between flex-col px-4 profile__design bg-white">
+      <Header routerLink='/dashboard' title='Mi Perfil' />
+      <main className='min__height-main flex justify-between flex-col px-4 profile__design bg-white'>
         <DataProfile />
         <ButtonSignout />
       </main>
