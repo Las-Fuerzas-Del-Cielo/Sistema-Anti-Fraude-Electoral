@@ -27,15 +27,14 @@ export interface IDataSentSuccessful {
               <img
                 src="src/assets/logos/fenix-white.svg"
                 alt="data sent successful"
-                className="object-cover rounded w-35 sm:w-36 lg:w-36  h-auto "
-                style={{ marginRight: "25%" }}
+                className="object-cover rounded w-35 sm:w-36 lg:w-36  h-auto w-image-25 "
               />
             </div>
           </div>
 
           <h1
-            className="text-sm/[17px] text-4xl mb-5 mt-5"
-            style={{ fontSize: "144%", fontWeight: "600" }}
+            className="text-sm/[17px] text-4xl mb-5 mt-5 message"
+           
           >
             Datos enviados con éxito
           </h1>
@@ -50,16 +49,12 @@ export interface IDataSentSuccessful {
               <img
                 src="src/assets/images/square-logo.svg"
                 alt="data sent successful"
-                className="object-cover rounded w-64 h-auto"
+                className="object-cover rounded w-68 h-auto"
               />
             </div>
             <div className="flex items-center justify-center my-20">
               <h3
-                style={{
-                  fontSize: "144%",
-                  fontWeight: "600",
-                  color: "rgba(68, 68, 68, 1)",
-                }}
+              className='successfull'
               >
                 {message ?? "¡ MUCHAS GRACIAS POR FISCALIZAR !"}
               </h3>
