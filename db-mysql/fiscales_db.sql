@@ -11,6 +11,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `fiscales_db`
 --
+
 -- -----------------------
 -- Usuario
 -- -----------------------
@@ -120,8 +121,8 @@ CREATE TABLE `gen_distrito` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-	-- Existen distintos modelos entre provincias / BsAs,Mza,Tucuman / CABA en la seccion, pero unificamos todo en seccion para mantener la estructura estandar
-	-- -----------------------
+  -- Existen distintos modelos entre provincias / BsAs,Mza,Tucuman / CABA en la seccion, pero unificamos todo en seccion para mantener la estructura estandar
+  -- -----------------------
 CREATE TABLE `gen_seccion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `distrito_id` int(11) NOT NULL,
@@ -255,6 +256,7 @@ CREATE TABLE `fis_centro_computo` (
   `seccion_id` int(11) DEFAULT NULL,
   `distrito_id` int(11) DEFAULT NULL,
   `telefono_recepcion_imagen` varchar(45) DEFAULT NULL,
+  `telefono_recepcion_denuncia` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `centrocomputo_responsable_idx` (`reponsable_user_id`),
   KEY `centrocomputo_circuito_idx` (`circuito_id`),
@@ -306,7 +308,6 @@ CREATE TABLE `fis_centro_computo_auditoria` (
   CONSTRAINT `centrocomputoauditoria_estadocorreoacta` FOREIGN KEY (`acta_correo_estado_id`) REFERENCES `fis_centro_computo_auditoria_acta_correo_estado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `centrocomputoauditoria_mesaid` FOREIGN KEY (`mesa_id`) REFERENCES `gen_mesa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
