@@ -6,8 +6,8 @@ services:
     ports:
       - '4566:4566'
       - '4510-4559:4510-4559'
-      - '53:53'
-      - '53:53/udp'
+      - '8053:53'
+      - '8053:53/udp'
       - '443:443'
     environment:
       - SERVICES=s3,sqs,dynamodb
