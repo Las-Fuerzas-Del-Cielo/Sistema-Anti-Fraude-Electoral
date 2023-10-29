@@ -16,16 +16,16 @@ const Input: React.FC<IInputProps> = ({
 
   onChange,
 }) => {
-  const outlineLabelApperence = 'border-2 relative rounded-xl bg-white shadow-md border-gray-300 focus-within:border-violet-light'
-  const underlineLabelApperence = 'border-b-2 border-gray-300 focus-within:border-violet-light text-center'
-  const labelApperence = appearance === 'underline' ? underlineLabelApperence : outlineLabelApperence
+  const outlineLabelApperence: string = 'border-2 relative rounded-xl bg-white shadow-md border-gray-300 focus-within:border-violet-light'
+  const underlineLabelApperence: string = 'border-b-2 border-gray-300 focus-within:border-violet-light text-center'
+  const labelApperence: string = appearance === 'underline' ? underlineLabelApperence : outlineLabelApperence
 
-  const outlineSpanApperence = 'absolute top-1/3 transition-all transform duration-300 ease-in-out group-focus-within:-translate-y-full group-focus-within:text-sm -translate-y-1/2 pointer-events-none'
-  const spanApperence = appearance === 'underline' ? '' : outlineSpanApperence
+  const outlineSpanApperence: string = 'absolute top-1/3 transition-all transform duration-300 ease-in-out group-focus-within:-translate-y-full group-focus-within:text-sm -translate-y-1/2 pointer-events-none'
+  const spanApperence: string = appearance === 'underline' ? '' : outlineSpanApperence
 
-  const outlineInputApperence = 'pt-6 pb-1'
-  const underlineInputApperence = 'text-center'
-  const inputApperence = appearance === 'underline' ? underlineInputApperence : outlineInputApperence
+  const outlineInputApperence: string = 'pt-6 pb-1'
+  const underlineInputApperence: string = 'text-center'
+  const inputApperence: string = appearance === 'underline' ? underlineInputApperence : outlineInputApperence
 
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false)
 
