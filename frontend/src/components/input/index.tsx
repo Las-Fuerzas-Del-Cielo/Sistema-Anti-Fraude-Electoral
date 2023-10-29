@@ -44,8 +44,8 @@ const Input: React.FC<IInputProps> = ({
             type === 'password' && 
               (
                 isPasswordVisible ?
-                  <img src='src/assets/icon/eye.svg' alt='Show password' className='object-cover h-auto rounded cursor-pointer w-35 sm:w-36 lg:w-36 w-image-25' onClick={() => setIsPasswordVisible(false)} /> :
-                  <img src='src/assets/icon/eye-off.svg' alt='Hide password' className='object-cover h-auto rounded cursor-pointer w-35 sm:w-36 lg:w-36 w-image-25' onClick={() => setIsPasswordVisible(true)} />
+                  <img src='src/assets/icon/eye.svg' alt='Show password' className='object-cover h-auto rounded cursor-pointer' onClick={() => setIsPasswordVisible(false)} /> :
+                  <img src='src/assets/icon/eye-off.svg' alt='Hide password' className='object-cover h-auto rounded cursor-pointer' onClick={() => setIsPasswordVisible(true)} />
               )
           }
         </div>
