@@ -1,8 +1,7 @@
 import { Router } from 'express'
 import { evaluateFiscalMesa } from '../controllers/fiscalizar'
-
 const router = Router()
 
-router.post('/', evaluateFiscalMesa)
+router.post('/fiscalizar', evaluateFiscalMesa)
 
 export default router

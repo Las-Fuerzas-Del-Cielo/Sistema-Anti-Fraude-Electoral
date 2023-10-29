@@ -1,20 +1,20 @@
-import { registerRoutes } from './routes'
-import { Express, json, urlencoded } from 'express'
+import express, { json, urlencoded } from 'express'
 import swaggerUi from 'swagger-ui-express'
-import YAML from 'yamljs'
-
-const swaggerDocument = YAML.load('swagger.yaml')
+import fs from 'fs-extra'
 
 /**
- * @description Bootstrap the application with middlewares, routes & swagger endpoint
+ * @description Bootstrap the application with middlewares & swagger endpoint
  */
-export function bootstrap(app: Express) {
-  registerRoutes(app)
-    .use(json())
-    .use(urlencoded({ extended: true }))
+export function bootstrap() {
+  const app = express()
+  app.use(json()).use(urlencoded({ extended: true }))
 
   // swagger
   if (!process.env.AWS_LAMBDA_FUNCTION_NAME) {
-    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(fs.readJsonSync('./swagger.json')))
   }
+
+  
+
+  return app
 }
