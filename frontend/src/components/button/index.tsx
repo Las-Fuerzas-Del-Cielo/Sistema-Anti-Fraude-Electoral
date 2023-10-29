@@ -1,12 +1,5 @@
-// Input.tsx
 import React from 'react';
-
-interface IButtonProps {
-  type: 'button' | 'submit' | 'reset';
-  className: string;
-  label: string;
-  onClick?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+import { IButtonProps } from './types';
 
 const Button: React.FC<IButtonProps> = ({ type, className, label }) => {
   return (

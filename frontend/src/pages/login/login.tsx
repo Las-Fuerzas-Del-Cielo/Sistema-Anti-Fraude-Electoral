@@ -72,8 +72,9 @@ const LoginContent = () => {
           </div>
         </form>
       </div>
-      {/* TODO: FIX FOOTER IMAGE DESIGN */}
+
       {/* 
+        // TODO: FIX FOOTER IMAGE DESIGN
         <div className='mt-auto bg-gray-100 h-screen overflow-hidden items-center flex flex-col md:hidden'> <img /
             src='src/assets/logos/footer.svg'
             alt='footer'

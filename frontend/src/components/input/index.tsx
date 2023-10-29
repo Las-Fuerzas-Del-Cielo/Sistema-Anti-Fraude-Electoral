@@ -1,13 +1,5 @@
-// Input.tsx
 import React from 'react';
-
-interface IInputProps {
-  type: 'text' | 'password';
-  id: string;
-  placeholder: string;
-  className: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+import { IInputProps } from './types';
 
 const Input: React.FC<IInputProps> = ({
   type,
