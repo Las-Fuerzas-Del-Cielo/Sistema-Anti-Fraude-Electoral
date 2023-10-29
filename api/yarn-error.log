@@ -1,0 +1,36 @@
+Arguments: 
+  /home/paw/.nvm/versions/node/v18.17.1/bin/node /home/paw/.nvm/versions/node/v18.17.1/bin/yarn init
+
+PATH: 
+  /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/paw/.vscode-server/bin/f1b07bd25dfad64b0167beb15359ae573aecd2cc/bin/remote-cli:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/paw/.nvm/versions/node/v18.17.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python312/Scripts/:/mnt/c/Python312/:/mnt/c/Program Files/ImageMagick-7.1.1-Q16-HDRI/magick.exe:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/Amazon/AWSCLIV2/:/mnt/c/Program Files/Git/cmd:/mnt/c/HashiCorp/Vagrant/bin:/mnt/c/Users/paujo/AppData/Roaming/nvm:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Users/paujo/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/paujo/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/paujo/AppData/Local/gitkraken/bin:/mnt/c/Users/paujo/.dotnet/tools:/mnt/c/Program Files/ImageMagick-7.1.1-Q16-HDRI:/mnt/c/Program Files/Memurai/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Program Files/GitHub CLI/:/mnt/c/Users/paujo/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/paujo/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/paujo/AppData/Local/gitkraken/bin:/mnt/c/Users/paujo/AppData/Roaming/nvm:/mnt/c/Program Files/nodejs:/mnt/c/Windows/system32/config/systemprofile/.dotnet/tools:/mnt/c/Users/paujo/AppData/Local/Programs/Lens/resources/cli/bin:/mnt/c/Program Files (x86)/granted:/snap/bin:/home/paw/.dotnet/tools:/home/paw/.pulumi/bin:/home/paw/.local/bin:/usr/share/dotnet:/home/paw/.pulumi/bin:/home/paw/.local/bin:/usr/share/dotnet
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.17.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/home/paw/.nvm/versions/node/v18.17.1/lib/node_modules/yarn/lib/cli.js:137150:13)
+      at Interface.emit (node:events:514:28)
+      at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1131:18)
+      at ReadStream.onkeypress (node:internal/readline/interface:270:20)
+      at ReadStream.emit (node:events:514:28)
+      at emitKeys (node:internal/readline/utils:357:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+      at ReadStream.emit (node:events:514:28)
+      at addChunk (node:internal/streams/readable:324:12)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

@@ -1,0 +1,83 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "useDefineForClassFields": true,
+        "lib": [
+            "DOM",
+            "DOM.Iterable",
+            "ESNext"
+        ],
+        "allowJs": false,
+        "skipLibCheck": true,
+        "esModuleInterop": false,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "noUnusedLocals": false,
+        "jsx": "react-jsx",
+        "baseUrl": "./",
+        "paths": {
+            "#/*": [
+                "src/*"
+            ],
+            "#types/*": [
+                "src/types/*"
+            ],
+            "#assets/*": [
+                "src/assets/*"
+            ],
+            "#constants/*": [
+                "src/constants/*"
+            ],
+            "#locales/*": [
+                "src/locales/*"
+            ],
+            "#models/*": [
+                "src/models/*"
+            ],
+            "#navigation/*": [
+                "src/navigation/*"
+            ],
+            "#pages/*": [
+                "src/pages/*"
+            ],
+            "#service/*": [
+                "src/service/*"
+            ],
+            "#store/*": [
+                "src/store/*"
+            ],
+            "#test/*": [
+                "src/test/*"
+            ],
+            "#utils/*": [
+                "src/utils/*"
+            ],
+            "#components/*": [
+                "src/components/*"
+            ],
+            "#hooks/*": [
+                "src/hooks/*"
+            ],
+            "#routes/*": [
+                "src/routes/*"
+            ]
+        }
+    },
+    "types": [
+        "vitest/globals"
+    ],
+    "include": [
+        "src"
+    ],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ]
+}

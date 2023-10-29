@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  local:
+    image: localstack/localstack
+    container_name: localstack
+    ports:
+      - '4566:4566'
+      - '4510-4559:4510-4559'
+      - '8053:53'
+      - '8053:53/udp'
+      - '443:443'
+    environment:
+      - SERVICES=s3,sqs,dynamodb
+      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      # - DEBUG=1
+    volumes:
+      - './bin/setup_localstack.py:/etc/localstack/init/ready.d/setup_localstack.py'
+      - '${TMPDIR:-/tmp/localstack}:/tmp/localstack'
+      - '/var/run/docker.sock:/var/run/docker.sock'
