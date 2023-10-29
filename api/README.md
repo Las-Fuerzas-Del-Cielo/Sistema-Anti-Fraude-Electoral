@@ -15,7 +15,7 @@ Ref: [MVP](https://docs.google.com/document/d/11F_YE7d1th6ORO_AVKZn9idoiMjSzepwS
 Para el desarrollo local, el proyecto emula los servicios de AWS con localstack. Por lo que no tenes que instalar ni configurar AWS CLI; incluso las variables `.env` se popularan automáticamente para que solo tengas que concentrarte en el desarrollo :).
 
 ```bash
-cd api && make start
+cd api && docker-compose up && make start
 ```
 
 ## AWS SDK Examples
