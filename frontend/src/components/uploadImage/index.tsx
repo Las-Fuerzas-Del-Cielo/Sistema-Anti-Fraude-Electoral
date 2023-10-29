@@ -29,7 +29,7 @@ export function UploadImage({ onUpload }: { onUpload: (image: string) => void })
         >
           <div className='flex flex-col items-center justify-center pt-5 pb-6 gap-2'>
             <img alt='' src='src/assets/icon/upload.svg' />
-            <p className='mb-2 text-m'>Subir desde galería</p>
+            <p className='mb-2 text-m'>Subir una imagen de la galería</p>
           </div>
           <input
             accept='image/*'
@@ -41,7 +41,7 @@ export function UploadImage({ onUpload }: { onUpload: (image: string) => void })
         </label>
       </div>
       <label
-        className='bg-purple-700 p-4 text-white w-full rounded-xl font-semibold text-xl tracking-wider'
+        className='bg-violet-brand p-4 text-white w-full rounded-xl font-semibold text-xl tracking-wider'
         htmlFor='open-camera'
       >
         <input

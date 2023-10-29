@@ -1,6 +1,7 @@
 import Button from '#/components/button';
 import Navbar from '#/components/navbar';
 import { observer } from 'mobx-react-lite';
+import { Link } from 'react-router-dom';
 
 const DashboardPage = () => {
   const user: string = 'Javier Gerardo';
@@ -17,11 +18,13 @@ const DashboardPage = () => {
             <p className='text-gray-500'>{email}</p>
           </div>
           <div className='flex flex-col items-center space-y-8 w-full'>
-            <Button
-              className='bg-violet-brand p-3 text-white w-full rounded-xl text-xl tracking-wider shadow-md hover:border-violet-light'
-              label='Cargar resultados de mesa'
-              type='submit'
-            />
+            <Link className='w-full' to='/upload-certificate'>
+              <Button
+                className='bg-violet-brand p-3 text-white w-full rounded-xl text-xl tracking-wider shadow-md hover:border-violet-light'
+                label='Cargar resultados de mesa'
+                type='submit'
+              />
+            </Link>
             <Button
               className='border-2 border-violet-brand text-violet-brand bg-transparent p-3 w-full rounded-xl text-xl tracking-wider shadow-md hover:border-violet-light'
               label='Ver resultados'
