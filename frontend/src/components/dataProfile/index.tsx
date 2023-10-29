@@ -1,3 +1,5 @@
+import './styles.css';
+
 export const DataProfile = () => {
 
     const profileData = [
