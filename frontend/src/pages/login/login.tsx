@@ -74,7 +74,8 @@ const LoginContent = () => {
       </div>
 
       {/* 
-        // TODO: FIX FOOTER IMAGE DESIGN
+        // TODO: FIX FOOTER IMAGE DESIGN 
+        // https://www.figma.com/file/iO7j93Rxbk2nIfYdqpAmv2/%F0%9F%A6%85-APP-Fiscalizaci%C3%B3n-Libertaria-%7C-%F0%9F%93%B1-FINAL?type=design&node-id=59-4193&mode=dev
         <div className='mt-auto bg-gray-100 h-screen overflow-hidden items-center flex flex-col md:hidden'> <img /
             src='src/assets/logos/footer.svg'
             alt='footer'
