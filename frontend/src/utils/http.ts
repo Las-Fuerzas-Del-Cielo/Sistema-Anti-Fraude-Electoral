@@ -1,8 +1,9 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
-import { sleep } from './utils';
 import { eventBus } from './event-bus';
+import { sleep } from './utils';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Data = Record<string, any>;
 
 export class Http {
@@ -45,54 +46,31 @@ export class Http {
     return axios.get(path, options).then(this.mapData).catch(this.handleError);
   }
 
-  public async post(
-    path: string,
-    data?: Data,
-    options: AxiosRequestConfig = {}
-  ) {
+  public async post(path: string, data?: Data, options: AxiosRequestConfig = {}) {
     await this.waitForConnection().catch();
 
-    return axios
-      .post(path, data, options)
-      .then(this.mapData)
-      .catch(this.handleError);
+    return axios.post(path, data, options).then(this.mapData).catch(this.handleError);
   }
 
-  public async put(
-    path: string,
-    data?: Data,
-    options: AxiosRequestConfig = {}
-  ) {
+  public async put(path: string, data?: Data, options: AxiosRequestConfig = {}) {
     await this.waitForConnection().catch();
 
-    return axios
-      .put(path, data, options)
-      .then(this.mapData)
-      .catch(this.handleError);
+    return axios.put(path, data, options).then(this.mapData).catch(this.handleError);
   }
 
-  public async patch(
-    path: string,
-    data?: Data,
-    options: AxiosRequestConfig = {}
-  ) {
+  public async patch(path: string, data?: Data, options: AxiosRequestConfig = {}) {
     await this.waitForConnection().catch();
 
-    return axios
-      .patch(path, data, options)
-      .then(this.mapData)
-      .catch(this.handleError);
+    return axios.patch(path, data, options).then(this.mapData).catch(this.handleError);
   }
 
   public async delete(path: string, options: AxiosRequestConfig = {}) {
     await this.waitForConnection().catch();
 
-    return axios
-      .delete(path, options)
-      .then(this.mapData)
-      .catch(this.handleError);
+    return axios.delete(path, options).then(this.mapData).catch(this.handleError);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private mapData = (result: AxiosResponse<any>) => {
     const error = result?.data?.errors?.[0]?.extensions?.code;
 
@@ -108,6 +86,7 @@ export class Http {
     return result.data;
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private handleError = (error: AxiosError<any>) => {
     if (error.response?.status === 401) {
       eventBus.emit('UNAUTHORIZED');

@@ -5,8 +5,8 @@ const Login = lazy(() => import('../pages/login/login'));
 
 const AppRoutes: React.FC = () => (
   <Routes>
-    <Route path='/login' element={<Login />} />
-    <Route path='/' element={<Login />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/" element={<Login />} />
   </Routes>
 );
 

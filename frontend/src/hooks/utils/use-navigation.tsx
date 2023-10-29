@@ -1,5 +1,5 @@
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const useNavigation = () => {
   const navigate = useNavigate();
@@ -8,7 +8,7 @@ export const useNavigation = () => {
     (route: string) => {
       navigate(route);
     },
-    [navigate]
+    [navigate],
   );
 
   const replace = useCallback(
@@ -17,7 +17,7 @@ export const useNavigation = () => {
         replace: true,
       });
     },
-    [navigate]
+    [navigate],
   );
 
   const pop = useCallback(
@@ -25,11 +25,11 @@ export const useNavigation = () => {
       const pages = pagesAmount ? -pagesAmount : -1;
       navigate(pages);
     },
-    [navigate]
+    [navigate],
   );
 
   const popToTop = useCallback(() => {
-    navigate("/", {
+    navigate('/', {
       replace: true,
     });
   }, [navigate]);
