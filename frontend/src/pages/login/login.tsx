@@ -23,8 +23,8 @@ const LoginContent = () => {
   });
 
   return (
-    <section className='bg-gray-100 h-screen overflow-hidden items-center flex flex-col'>
-      <div className='md:w-1/2 w-full shadow-3xl rounded-xl p-4'>
+    <section className='bg-gray-100 min-h-screen overflow-hidden items-center flex flex-col'>
+      <div className='md:w-1/2 w-full shadow-3xl rounded-xl p-4 mb-20'>
         <div className='container mx-auto'>
           <div className='flex items-center justify-center my-20'>
             <img
@@ -73,7 +73,6 @@ const LoginContent = () => {
           </div>
         </form>
       </div>
-
       <Footer />
     </section>
   );
