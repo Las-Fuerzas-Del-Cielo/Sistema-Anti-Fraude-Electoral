@@ -1,6 +1,6 @@
 <?php
     require_once("./mesas.php");
-    //0900601232X
+    
     @mkdir(__DIR__.'/images', 0777, true);
     chmod(__DIR__.'/images', 0777);
 
@@ -35,6 +35,15 @@
 
         $response = curl_exec($curl);
         $responseParsed = json_decode($response);    
+        if (curl_errno($curl)) {
+            error_log('Error de cURL en la mesa '.$mesa.': '.curl_error($curl));
+            curl_close($curl);
+            return false;
+        }
+        if(!$responseParsed) {
+            error_log('Error al buscar '.$mesa.': '.$response);
+            return false;
+        }
         curl_close($curl);
         return $responseParsed->encodingBinary;
     }
@@ -44,6 +53,5 @@
         chmod($output_file,777);
         return($status); 
     }
-    
     
 ?>
