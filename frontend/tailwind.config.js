@@ -9,7 +9,15 @@ export default {
   theme: {
     extend: {
       colors: {
-
+        'violet': '#61439D',
+        'light-violet': '#8B6ACE',
+        'gray': '#64748B',
+        'gray-inactive': '#CACACB',
+        'light-gray': '#CBD5E1',
+        'red': '#AD3459',
+        'black': '#000000',
+        'white': '#FFFFFF',
+        'green': '#58C299'
       },
       fontFamily: {
         'sans': ['Poppins', ...defaultTheme.fontFamily.sans],
