@@ -1,3 +1,4 @@
+import React from 'react';
 import { IProgressIndicatorProps, ProgressStepStatus } from './types';
 import './styles.css';
 
@@ -5,9 +6,8 @@ const ProgressIndicator = ({ steps }: IProgressIndicatorProps) => {
   return (
     <div className="w-full flex justify-between items-center px-20 mt-4">
       {steps.map((step, index) => (
-        <>
+        <React.Fragment key={index}>
           <div
-            key={index}
             className={`circle flex justify-center items-center rounded-full ${
               step === ProgressStepStatus.Active
                 ? 'bg-violet-brand text-white'
@@ -40,7 +40,7 @@ const ProgressIndicator = ({ steps }: IProgressIndicatorProps) => {
               }`}
             ></div>
           )}
-        </>
+        </React.Fragment>
       ))}
     </div>
   );
