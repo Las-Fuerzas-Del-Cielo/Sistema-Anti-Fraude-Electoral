@@ -74,6 +74,7 @@ const LoginPage = () => {
             </a>
           </div>
         </form>
+        
       </div>
       <Footer />
     </section>
