@@ -1,8 +1,13 @@
+import { Suspense } from 'react';
+import AppRoutes from './routes/routes';
 import './App.css';
-import { LoginHome } from './pages';
 
 function App() {
-  return <LoginHome />;
+  return (
+    <Suspense fallback={<div>Cargando...</div>}>
+      <AppRoutes />
+    </Suspense>
+  );
 }
 
 export default App;
