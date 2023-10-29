@@ -12,7 +12,7 @@ export interface IDataSentSuccessful {
  const DataSentSuccessful: FC<IDataSentSuccessful>  = ({message }) =>{
     return (
       <section className="bg-gray-100 items-center flex flex-col ">
-        <div className="bg-main p-4 w-full flex flex-col justify-center  items-center text-white ">
+        <div className="bg-violet-brand p-4 w-full flex flex-col justify-center  items-center text-white ">
           <div className="w-full flex flex-row">
             <div className="flex flex-col justify-center  items-cente basis-1/4">
               <Link to="/">
@@ -62,7 +62,7 @@ export interface IDataSentSuccessful {
             <div className="flex items-center justify-center my-20">
               <Link to="/">
                 <Button
-                  className="bg-main p-4 text-white w-full rounded-xl font-semibold text-xl tracking-wider"
+                  className="bg-violet-brand p-4 text-white w-full rounded-xl font-semibold text-xl tracking-wider"
                   type="submit"
                   label="Volver a inicio"
                 />
