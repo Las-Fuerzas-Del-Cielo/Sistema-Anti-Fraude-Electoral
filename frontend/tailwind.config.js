@@ -17,6 +17,7 @@ export default {
         'red': '#AD3459',
         'black': '#000000',
         'white': '#FFFFFF',
+        'green': '#58C299'
       },
       fontFamily: {
         'sans': ['Poppins', ...defaultTheme.fontFamily.sans],
