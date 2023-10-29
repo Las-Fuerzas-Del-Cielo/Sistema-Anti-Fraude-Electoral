@@ -9,8 +9,8 @@ const Input: React.FC<IInputProps> = ({
   className,
   onChange,
 }) => {
-  const [isFocused, setIsFocused] = useState(false);
-  const [hasValue, setHasValue] = useState(false);
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [hasValue, setHasValue] = useState<boolean>(false);
 
   return (
     <div className="relative bg-white shadow-md rounded-xl font-sans w-full">
