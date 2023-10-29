@@ -1,7 +1,7 @@
 import { RequestHandler } from 'express'
 import { registrarReporteEnS3 } from '../utils/s3Utils';
 import { ERROR_CODES } from '../utils/errorConstants';
-import { ReporteFaltaFiscal, Mesa, Escuela } from '../types/models';
+import { ReportFaltaFiscal, Mesa, Escuela } from '../types/models';
 import { generateUniqueId } from '../utils/generateUniqueId';
 
 // Definir tipos específicos para los ID
@@ -34,19 +34,19 @@ export const reportarFaltaFiscal: RequestHandler = async (req, res) => {
     }
 
     // Detectar la institución del fiscal general
-    const institucion = await obtenerInstitucionDeFiscal(fiscalId);
+    const institucion = await getInstitucionDeFiscal(fiscalId);
     if (!institucion) {
       return res.status(ERROR_CODES.INSTITUTION_NOT_FOUND.status).json({ message: ERROR_CODES.INSTITUTION_NOT_FOUND.message });
     }
 
     // Validar que la mesa y la escuela existan y estén relacionadas
-    const mesaValida: boolean = await validarMesaYEscuela(mesaId, escuelaId);
+    const mesaValida: boolean = await validateMesaYEscuela(mesaId, escuelaId);
     if (!mesaValida) {
       return res.status(ERROR_CODES.INVALID_MESA_OR_ESCUELA.status).json({ message: ERROR_CODES.INVALID_MESA_OR_ESCUELA.message });
     }
 
     // Registrar en S3 el reporte de falta de fiscales
-    const reporte: ReporteFaltaFiscal = {
+    const reporte: ReportFaltaFiscal = {
       id: generateUniqueId(), // Función que genera un ID único
       fiscalId,
       mesaId,
@@ -82,7 +82,7 @@ async function validarFiscalGeneral(fiscalId: string): Promise<boolean> {
   return true; // Simulación, reemplazar con la lógica real
 }
 
-async function obtenerInstitucionDeFiscal(fiscalId: string): Promise<string|null> {
+async function getInstitucionDeFiscal(fiscalId: string): Promise<string|null> {
   // Lógica para obtener la institución del fiscal
   // Ejemplo:
   // const fiscal = await FiscalModel.findById(fiscalId);
@@ -90,7 +90,7 @@ async function obtenerInstitucionDeFiscal(fiscalId: string): Promise<string|null
   return 'Institución XYZ'; // Simulación, reemplazar con la lógica real
 }
 
-async function validarMesaYEscuela(mesaId: string, escuelaId: string): Promise<boolean> {
+async function validateMesaYEscuela(mesaId: string, escuelaId: string): Promise<boolean> {
   // Lógica para validar que la mesa pertenece a la escuela
   // Ejemplo:
   // const mesa = await MesaModel.findById(mesaId);

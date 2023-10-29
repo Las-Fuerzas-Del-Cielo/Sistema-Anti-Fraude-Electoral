@@ -36,7 +36,7 @@ type MesaId = string;
 type EscuelaId = string;
 
 // Interfaz para el reporte de falta de fiscales
-export interface ReporteFaltaFiscal {
+export interface ReportFaltaFiscal {
   id: string; // ID único para el reporte
   fiscalId: FiscalId; // ID del fiscal que reporta
   mesaId: MesaId; // ID de la mesa donde falta el fiscal

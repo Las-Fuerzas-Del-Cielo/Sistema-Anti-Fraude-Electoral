@@ -1,5 +1,5 @@
 import { PutObjectCommand, PutObjectCommandOutput, S3Client } from '@aws-sdk/client-s3';
-import { ReporteFaltaFiscal } from 'src/types/models';
+import { ReportFaltaFiscal } from 'src/types/models';
 import { ResultadoRegistroS3 } from 'src/types/models';
 import { ERROR_CODES } from './errorConstants';
 
@@ -9,10 +9,10 @@ const s3Client = new S3Client({ region: 'tu-region' });
 /**
  * Sube un reporte al bucket S3 especificado.
  * 
- * @param {ReporteFaltaFiscal} reporte - El objeto reporte que quieres subir.
+ * @param {ReportFaltaFiscal} reporte - El objeto reporte que quieres subir.
  * @return {Promise<ResultadoRegistroS3>} - El resultado de la operación de subida.
  */
-export async function registrarReporteEnS3(reporte: ReporteFaltaFiscal): Promise<ResultadoRegistroS3> {
+export async function registrarReporteEnS3(reporte: ReportFaltaFiscal): Promise<ResultadoRegistroS3> {
     const bucketName: string = 'nombre-de-tu-bucket';
     const objectKey: string = `reportes/${reporte.fiscalId}-${new Date().getTime()}.json`;
 
