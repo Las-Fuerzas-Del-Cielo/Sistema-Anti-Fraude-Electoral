@@ -62,6 +62,9 @@
             ],
             "#hooks/*": [
                 "src/hooks/*"
+            ],
+            "#routes/*": [
+                "src/routes/*"
             ]
         }
     },
