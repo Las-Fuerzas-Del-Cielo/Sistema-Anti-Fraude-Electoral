@@ -1,17 +1,15 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires, no-undef
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
         'violet-brand': '#61439D',
         'violet-light': '#8B6ACE',
-        'gray-dark': '64748B',
+        'gray-dark': '#64748B',
         'gray-inactive': '#CACACB',
         'gray-light': '#CBD5E1',
         red: '#AD3459',
@@ -19,10 +17,9 @@ export default {
         white: '#FFFFFF',
       },
       fontFamily: {
-        'sans': ['Poppins', ...defaultTheme.fontFamily.sans],
-      }
+        sans: ['Poppins', ...defaultTheme.fontFamily.sans],
+      },
     },
   },
   plugins: [],
-}
-
+};

@@ -3,5 +3,5 @@ export interface IButtonProps {
   className: string;
   label: string;
   // eslint-disable-next-line no-unused-vars
-  onClick?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }

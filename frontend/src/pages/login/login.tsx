@@ -2,15 +2,18 @@ import Button from '#/components/button';
 import Input from '#/components/input';
 import { useFormik } from 'formik';
 import { observer } from 'mobx-react-lite';
+import { useNavigate } from 'react-router-dom';
+import { ILoginProps } from './types';
 
-interface ILoginProps {
-  dni: string;
-  password: string;
-}
+const LoginPage: React.FC = () => {
+  const navigate = useNavigate();
 
-const LoginPage = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
-  const onSubmit = (values: ILoginProps) => {};
+  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
+  const onSubmit = (values: ILoginProps) => {
+    //TODO: Add logic auth.
+    //TODO: Change logic on submit with AUTH and redirect to /dashboard
+    navigate('/dashboard');
+  };
 
   const { handleSubmit, handleChange } = useFormik({
     initialValues: {
@@ -32,6 +35,15 @@ const LoginPage = () => {
         <form className='w-full' onSubmit={handleSubmit}>
           <div className='flex items-center mb-6 text-lg md:mb-8 shadow-3xl'>
             <Input id='dni' label='DNI' placeholder='Ingresa tu DNI' type='text' onChange={handleChange} />
+          </div>
+          <div className='flex items-center mb-6 text-lg md:mb-8 shadow-3xl'>
+            <Input
+              id='password'
+              label='Contraseña'
+              placeholder='Ingresa tu Contraseña'
+              type='password'
+              onChange={handleChange}
+            />
           </div>
           <div className='flex items-center mb-6 text-lg md:mb-8 shadow-3xl'>
             <Input

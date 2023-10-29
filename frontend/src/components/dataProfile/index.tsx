@@ -12,7 +12,7 @@ export const DataProfile = () => {
   ];
 
   return (
-    <section className='flex flex-col w-full rounded-lg px-4 py-2 gap-x-4 bg-white'>
+    <section className='flex flex-col w-full rounded-lg px-4 py-2 gap-x-4 bg-gray-100'>
       {profileData?.map((fieldText, index) => (
         <FieldText key={crypto.randomUUID()} fieldText={fieldText} isLast={index === profileData.length - 1} />
       ))}

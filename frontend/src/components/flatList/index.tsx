@@ -4,7 +4,8 @@ import { FlatListProps } from './types';
 const FlatList = ({ logo, type, subTitle, title, votes, edit = false }: FlatListProps) => {
   const [vote, setVote] = useState<number>(votes);
 
-  const titleColor = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const titleColor: any = {
     massa: 'text-sky-400',
     milei: 'text-purple-800',
     blank: 'text-neutral-700',
@@ -14,31 +15,13 @@ const FlatList = ({ logo, type, subTitle, title, votes, edit = false }: FlatList
 
   return (
     <div className='flex p-2 justify-between items-center w-full  max-w-md '>
-      {logo}
+      <img alt='logo' className='w-16 h-16' src={logo} />
       <div className='flex flex-col justify-start items-start mt-3'>
         <label className={` ${titleColor[type]} text-xl font-bold leading-[15px]`}>{subTitle}</label>
-        {type === 'noValidate' ? (
-          <label className={`text-purple-800 mt-1   text-[10px] text-start font-normal leading-[15px]`}>
-            {title?.split('\n').map((item, i) => (
-              <span key={i}>
-                {item}
-                <br />
-              </span>
-            ))}
-          </label>
-        ) : (
-          <label
-            className={`text-neutral-700 mt-1  text-base font-semibold
-          }  leading-[15px]`}
-          >
-            {title}
-          </label>
-        )}
+        <label className={`text-neutral-700 mt-1 text-base font-semibold leading-7`}>{title}</label>
       </div>
       <input
-        className={`border-2 text-center  ${
-          type === 'noValidate' ? 'border-neutral-200' : 'border-purple-800'
-        } outline-none cursor-default bg-white text-neutral-700 font-bold rounded-xl h-12  w-24 flex  text-xl`}
+        className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-700 font-bold rounded-xl h-12 w-28 flex text-xl`}
         readOnly={!edit}
         type='number'
         value={vote}
