@@ -1,4 +1,4 @@
-export interface IHeaderProps {
+export interface IFormHeaderProps {
   title: string;
   routerLink: string;
 }

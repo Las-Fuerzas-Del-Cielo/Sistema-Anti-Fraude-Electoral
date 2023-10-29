@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { IHeaderProps } from './types';
+import { IFormHeaderProps } from './types';
 
-const Header: React.FC<IHeaderProps> = ({ routerLink, title }) => {
+const FormHeader: React.FC<IFormHeaderProps> = ({ routerLink, title }) => {
   return (
     <div className='bg-violet-brand p-4 w-full flex flex-col justify-center  items-center text-white '>
       <div className='w-full flex flex-row'>
@@ -29,4 +29,4 @@ const Header: React.FC<IHeaderProps> = ({ routerLink, title }) => {
   );
 };
 
-export default Header;
+export default FormHeader;
