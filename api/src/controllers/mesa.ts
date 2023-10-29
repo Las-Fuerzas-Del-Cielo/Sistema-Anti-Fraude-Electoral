@@ -1,7 +1,7 @@
 import { RequestHandler } from 'express'
 import { registrarReporteEnS3 } from '../utils/s3Utils';
 import { ERROR_CODES } from '../utils/errorConstants';
-import { ReportFaltaFiscal, Mesa, Escuela } from '../types/models';
+import { ReportFaltaFiscal, Mesa, Escuela, ResultadoRegistroS3 } from '../types/models';
 import { generateUniqueId } from '../utils/generateUniqueId';
 
 // Definir tipos específicos para los ID
@@ -55,7 +55,7 @@ export const reportarFaltaFiscal: RequestHandler = async (req, res) => {
       observaciones: '', // Puedes dejarlo vacío o agregar alguna observación por defecto
     };
     
-    const resultadoS3 = await registrarReporteEnS3(reporte);
+    const resultadoS3: ResultadoRegistroS3 = await registrarReporteEnS3(reporte);
 
     // Verifica si 'resultadoS3' es del tipo 'ErrorSubidaS3'
     if ('error' in resultadoS3 && resultadoS3.error) {
