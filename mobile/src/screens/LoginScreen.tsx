@@ -1,5 +1,5 @@
 import React from 'react';
-import {Input, Text, Button} from '@rneui/themed';
+import {Input, Button} from '@rneui/themed';
 import {View, StyleSheet} from 'react-native';
 
 const LoginScreen = () => {
