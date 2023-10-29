@@ -1,19 +1,7 @@
 <?php
-    require_once("./mesas.php");
-    
-    @mkdir(__DIR__.'/images', 0777, true);
-    chmod(__DIR__.'/images', 0777);
 
-    foreach ($mesas as $mesa) {
-        echo 'descargando: '.$mesa.'';
-        touch(__DIR__.'/images/'.$mesa.'.jpg');
-        $base64Data = descargar($mesa);
-        $image = base64_to_jpeg($base64Data, __DIR__.'/images/'.$mesa.'.jpg' );
-    }
-    echo 'fin';
-    exit;
-
-    function descargar($mesa) {
+class DownloadImage {
+    public static function download($mesa) {
         $endpoint = "https://resultados.gob.ar/backend-difu/scope/data/getTiff/$mesa";
         $curl = curl_init();
 
@@ -33,17 +21,22 @@
             CURLOPT_CUSTOMREQUEST => 'GET',
         ));
 
-        $response = curl_exec($curl);
-        $responseParsed = json_decode($response);    
+        $response = curl_exec($curl);    
         curl_close($curl);
-        return $responseParsed->encodingBinary;
+        return self::processJson($response, $mesa);
     }
 
-    function base64_to_jpeg( $base64_string, $output_file ) {
-        $status = file_put_contents($output_file, base64_decode($base64_string));
-        chmod($output_file,777);
-        return($status); 
+    private static function processJson($response,  $mesa) {
+        if($response == "NOT FOUND") {
+            return false;
+        }
+        $responseParsed = json_decode($response);
+        touch(__DIR__."error_mesa.txt");
+        if(empty($responseParsed->encodingBinary)) {
+            error_log('Telegrama faltante'.$mesa.'');
+            file_put_contents(__DIR__."/error_mesa.txt", 'Telegrama faltante'.$mesa.'');
+        }
+        return $responseParsed->encodingBinary;
     }
-    
-    
+}
 ?>
