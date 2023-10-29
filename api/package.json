@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "ddos": "^0.2.1",
     "helmet": "^7.0.0",
     "swagger-ui-express": "^5.0.0",
     "yamljs": "^0.3.0"
