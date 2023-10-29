@@ -1,21 +1,21 @@
 require('dotenv').config()
-const fs = require('fs-extra')
-const path = require('path')
-const { DynamoDBClient, GetItemCommand, PutItemCommand, ListTablesCommand } = require('@aws-sdk/client-dynamodb')
-const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3')
-const { SQSClient, SendMessageCommand } = require('@aws-sdk/client-sqs')
+import fs from 'fs-extra'
+import path from 'path'
+import { DynamoDBClient, GetItemCommand, PutItemCommand } from '@aws-sdk/client-dynamodb'
+import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
+import { SQSClient, SendMessageCommand } from '@aws-sdk/client-sqs'
 
 const awsEndpoint = process.env.AWS_ENDPOINT
 const dynamodbClient = new DynamoDBClient({ endpoint: awsEndpoint })
 const s3Client = new S3Client({ endpoint: awsEndpoint, forcePathStyle: true })
 const sqsClient = new SQSClient({ endpoint: awsEndpoint })
 
-async function insertDBItem(id, description) {
+async function insertDBItem(id: string, description: string) {
   const params = {
     TableName: process.env.DYNAMODB_TABLE_NAME,
     Item: {
-      'id': { S: id },
-      'description': { S: description }
+      id: { S: id },
+      description: { S: description }
     }
   }
   const command = new PutItemCommand(params)
@@ -23,11 +23,11 @@ async function insertDBItem(id, description) {
   console.log('DynamoDB insertItem success')
 }
 
-async function fetchDBItemById(id) {
+async function fetchDBItemById(id: string) {
   const params = {
     TableName: process.env.DYNAMODB_TABLE_NAME,
     Key: {
-      'id': { S: id }
+      id: { S: id }
     }
   }
   const command = new GetItemCommand(params)
@@ -35,7 +35,7 @@ async function fetchDBItemById(id) {
   console.log(`DynamoDB fetchItemById success`)
 }
 
-async function uploadToS3(Key, filePath) {
+async function uploadToS3(Key: string, filePath: string) {
   const file = await fs.readFile(path.resolve(__dirname, filePath))
   const command = new PutObjectCommand({
     Key,
@@ -47,7 +47,7 @@ async function uploadToS3(Key, filePath) {
   console.log(`uploadToS3 success`)
 }
 
-async function sendMessageToSQS(MessageBody) {
+async function sendMessageToSQS(MessageBody: string) {
   const command = new SendMessageCommand({ QueueUrl: process.env.QUEUE_URL, MessageBody })
   const res = await sqsClient.send(command)
   console.log(`sendMessageToSQS message sent`)
