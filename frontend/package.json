@@ -20,6 +20,7 @@
     "class-variance-authority": "^0.7.0",
     "classnames": "^2.3.2",
     "clsx": "^2.0.0",
+    "eslint-plugin-react": "^7.33.2",
     "formik": "^2.4.3",
     "mitt": "^3.0.1",
     "mobx": "^6.10.2",

@@ -5,13 +5,14 @@
     "eslint:recommended",
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:react/recommended"
   ],
   "ignorePatterns": ["dist", ".eslintrc.cjs"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["react-refresh"],
   "rules": {
-    "no-console": "warn",
+    "no-console": "error",
     "react/prop-types": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
@@ -30,7 +31,7 @@
         "endOfLine": "auto"
       }
     ],
-    "no-unused-vars": "warn",
+    "no-unused-vars": "error",
     "react/self-closing-comp": "warn",
     "react/jsx-sort-props": [
       "warn",
