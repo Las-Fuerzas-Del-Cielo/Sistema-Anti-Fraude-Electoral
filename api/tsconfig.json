@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "target": "es2021",
+    "module": "commonjs",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "rootDir": "./",
+    "noImplicitReturns": false,
+    "noImplicitAny": false,
+    "baseUrl": "./",
+    "sourceMap": true
+  },
+  "include": ["src/"],
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "transpileOnly": true
+  }
+}

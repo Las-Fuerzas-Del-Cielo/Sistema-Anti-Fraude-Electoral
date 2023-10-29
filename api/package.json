@@ -1,26 +1,29 @@
 {
-  "name": "@pawfv/api",
+  "name": "api",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
+  "license": "MIT",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index",
-    "test:examples": "node examples/index"
+    "start": "ts-node src/index.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "test:examples": "ts-node src/examples/index.ts",
+    "build:swagger": "tsc && node dist/src/generators/swagger.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.438.0",
     "@aws-sdk/client-s3": "^3.438.0",
     "@aws-sdk/client-sqs": "^3.438.0",
+    "axios": "^1.6.0",
     "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "fs-extra": "^11.1.1",
-    "swagger-ui-express": "^5.0.0",
-    "yamljs": "^0.3.0"
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "@types/fs-extra": "^11.0.3",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.2.2"
   }
 }
