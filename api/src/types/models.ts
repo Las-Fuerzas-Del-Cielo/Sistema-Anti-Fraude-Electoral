@@ -1,5 +1,15 @@
 export interface User {
   id: string
+
+  dni: string
+  password: string
+
+  firstName: string
+  lastName: string
+  
+  email?: string
+  phone?: string
+
   roles: string[]
   whatsapp: string
   mesa_id: string

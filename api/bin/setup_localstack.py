@@ -23,4 +23,34 @@ dynamodb.create_table(
     }
 )
 
+dynamodb.create_table(
+    TableName='users',
+    KeySchema=[
+        {'AttributeName': 'id', 'KeyType': 'HASH'}
+    ],
+    AttributeDefinitions=[
+        {'AttributeName': 'id', 'AttributeType': 'S'},
+        {'AttributeName': 'dni', 'AttributeType': 'S'} 
+    ],
+    ProvisionedThroughput={
+        'ReadCapacityUnits': 5,
+        'WriteCapacityUnits': 5
+    },
+    GlobalSecondaryIndexes=[
+        {
+            'IndexName': 'DniIndex',
+            'KeySchema': [
+                {'AttributeName': 'dni', 'KeyType': 'HASH'}
+            ],
+            'Projection': {
+                'ProjectionType': 'ALL'
+            },
+            'ProvisionedThroughput': {
+                'ReadCapacityUnits': 5,
+                'WriteCapacityUnits': 5
+            }
+        }
+    ]
+)
+
 print("Infrastructure set up successfully! 🎉")
