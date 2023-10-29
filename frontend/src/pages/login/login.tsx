@@ -8,7 +8,7 @@ interface ILoginProps {
   password: string;
 }
 
-const LoginContent = () => {
+const LoginPage = () => {
   const onSubmit = (values: ILoginProps) => {
     console.log(values);
   };
@@ -97,6 +97,6 @@ const LoginContent = () => {
   );
 };
 
-export const Login = observer(LoginContent);
+export const Login = observer(LoginPage);
 
 export default Login;
