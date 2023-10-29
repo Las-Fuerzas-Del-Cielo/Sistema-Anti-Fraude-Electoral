@@ -21,7 +21,7 @@ const FlatList = ({
 
   return (
     <div className="flex p-2 justify-between items-center w-full  max-w-md ">
-      {logo && logo}
+      {logo}
       <div className="flex flex-col justify-start items-start mt-3">
         <label
           className={` ${titleColor[type]} text-xl font-bold leading-[15px]`}
