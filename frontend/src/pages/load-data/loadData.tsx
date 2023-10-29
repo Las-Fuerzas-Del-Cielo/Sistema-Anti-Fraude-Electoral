@@ -77,8 +77,6 @@ const LoadDataPage: FC<ILoadDataProps> = ({ message }) => {
         {flatList.map((item, index) => (
           <div key={index} className='flex items-center justify-center my-6 w-full p-2'>
             <FlatList
-              key={index}
-              edit={item.edit}
               logo={item.logo}
               subTitle={item.subTitle}
               title={item.title}
