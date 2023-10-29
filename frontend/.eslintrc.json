@@ -11,11 +11,41 @@
   "parser": "@typescript-eslint/parser",
   "plugins": ["react-refresh"],
   "rules": {
-    "prettier/prettier": "warn",
-    "@typescript-eslint/no-unused-vars": "warn",
-    "react-refresh/only-export-components": [
+    "no-console": "warn",
+    "react/prop-types": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "prettier/prettier": [
       "warn",
-      { "allowConstantExport": true }
+      {
+        "semi": true,
+        "tabWidth": 2,
+        "printWidth": 120,
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "jsxSingleQuote": true,
+        "bracketSpacing": true,
+        "arrowParens": "always",
+        "endOfLine": "auto"
+      }
+    ],
+    "no-unused-vars": "warn",
+    "react/self-closing-comp": "warn",
+    "react/jsx-sort-props": [
+      "warn",
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "noSortAlphabetically": false,
+        "reservedFirst": true
+      }
+    ],
+    "padding-line-between-statements": [
+      "warn",
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+      { "blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"] }
     ]
   }
 }
