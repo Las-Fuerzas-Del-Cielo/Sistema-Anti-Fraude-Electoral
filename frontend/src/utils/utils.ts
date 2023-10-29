@@ -6,6 +6,7 @@ export const sleep = (ms: number | undefined) =>
 export const getCurrentYear = () => {
   return new Date().getFullYear();
 };
+
 export function getBase64(file: File) {
   return new Promise<string>((resolve, reject) => {
     const reader = new FileReader();
