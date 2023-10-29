@@ -24,7 +24,7 @@ const FormHeader: React.FC<IFormHeaderProps> = ({ routerLink, title }) => {
         </div>
       </div>
 
-      <h1 className='text-4xl mb-5 mt-5 message'>{title}</h1>
+      <h1 className='text-4xl mb-4 mt-4 message'>{title}</h1>
     </div>
   );
 };

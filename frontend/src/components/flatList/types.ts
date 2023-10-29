@@ -2,6 +2,7 @@ export enum FlatListTypeEnum {
   massa = 'massa',
   milei = 'milei',
   blank = 'blank',
+  null = 'null',
   noValidate = 'noValidate',
   absent = 'absent',
 }

@@ -13,6 +13,57 @@ import { ILoadDataProps } from './types';
 import './styles.css';
 
 const LoadDataPage: FC<ILoadDataProps> = ({ message }) => {
+  const flatList = [
+    {
+      logo: 'src/assets/logos/lla-logo.svg',
+      type: FlatListTypeEnum.milei,
+      subTitle: 'Milei',
+      title: 'Javier Gerardo',
+      votes: 0,
+      edit: true,
+    },
+    {
+      logo: 'src/assets/logos/uxp.svg',
+      type: FlatListTypeEnum.massa,
+      subTitle: 'Massa',
+      title: 'Sergio Tomas',
+      votes: 0,
+      edit: true,
+    },
+    {
+      logo: 'src/assets/icon/mail-closed.svg',
+      type: FlatListTypeEnum.blank,
+      subTitle: '',
+      title: 'Votos en blanco',
+      votes: 0,
+      edit: true,
+    },
+    {
+      logo: 'src/assets/icon/mail-open.svg',
+      type: FlatListTypeEnum.null,
+      subTitle: '',
+      title: 'Votos nulos',
+      votes: 0,
+      edit: true,
+    },
+    {
+      logo: 'src/assets/icon/mail-invalid.svg',
+      type: FlatListTypeEnum.noValidate,
+      subTitle: '',
+      title: 'Votos invalidos',
+      votes: 0,
+      edit: true,
+    },
+    {
+      logo: 'src/assets/icon/mail-question.svg',
+      type: FlatListTypeEnum.absent,
+      subTitle: '',
+      title: 'Ausentes',
+      votes: 0,
+      edit: true,
+    },
+  ];
+
   return (
     <section className="bg-white items-center flex flex-col ">
       <FormHeader routerLink="/" title="Cargar datos del certificado" />
@@ -26,27 +77,20 @@ const LoadDataPage: FC<ILoadDataProps> = ({ message }) => {
             ]}
           />
         </div>
-        <div className="flex items-center justify-center my-20 w-full">
-          <FlatList
-            logo="src/assets/logos/uxp.svg"
-            type={FlatListTypeEnum.massa}
-            subTitle="Massa"
-            title="Sergio Tomas"
-            votes={0}
-            edit={true}
-          />
-        </div>
-        <div className="flex items-center justify-center my-20 w-full">
-          <FlatList
-            logo="src/assets/logos/lla-logo.svg"
-            type={FlatListTypeEnum.milei}
-            subTitle="Milei"
-            title="Javier Gerardo"
-            votes={0}
-            edit={true}
-          />
-        </div>
-        <div className="flex items-center justify-center my-20">
+        {flatList.map((item, index) => (
+          <div className="flex items-center justify-center my-6 w-full p-2">
+            <FlatList
+              key={index}
+              logo={item.logo}
+              type={item.type}
+              subTitle={item.subTitle}
+              title={item.title}
+              votes={item.votes}
+              edit={item.edit}
+            />
+          </div>
+        ))}
+        <div className="flex items-center justify-center my-10">
           {/* TODO: Mover a Dashboard */}
           <Link to="/">
             <Button

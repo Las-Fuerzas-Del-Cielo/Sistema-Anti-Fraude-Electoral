@@ -11,7 +11,7 @@ const LoginPage: React.FC = () => {
   const onSubmit = (values: ILoginProps) => {
     //TODO: Add logic auth.
     //TODO: Change logic on submit with AUTH and redirect to /dashboard
-    navigate('/profile');
+    navigate('/dashboard');
   };
 
   const { handleSubmit, handleChange } = useFormik({
