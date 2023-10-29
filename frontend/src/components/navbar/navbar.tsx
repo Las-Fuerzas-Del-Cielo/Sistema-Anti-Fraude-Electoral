@@ -33,7 +33,7 @@ const Navbar = () => {
             onClick={handlePageChange}
           />
         </div>
-        <div className="text-white text-2xl font-semibold p-2">
+        <div className="hidden text-white text-2xl font-semibold p-2"> {/* Está hidden porqué estamos en /profile */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1em"
