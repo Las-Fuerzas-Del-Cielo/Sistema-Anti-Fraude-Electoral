@@ -1,0 +1,31 @@
+#!/bin/bash
+
+: > .env # Clear out the old .env file
+{
+  echo AWS_ACCESS_KEY_ID=test
+  echo AWS_SECRET_ACCESS_KEY=test
+  echo AWS_DEFAULT_REGION=us-east-1
+  echo AWS_ENDPOINT=http://localhost:4566
+  echo DYNAMODB_ENDPOINT=http://localhost:4566/000000000000/process-telegrams
+  echo QUEUE_URL=http://localhost:4566/000000000000/process-telegrams
+  echo DYNAMODB_TABLE_NAME=FraudPrevention
+  echo S3_REPORTS_BUCKET=lla-reports
+} >> .env
+
+
+wait_for_localstack() {
+  echo "Waiting for Localstack to be ready..."
+
+  # Poll the logs until we see that Localstack is ready
+  while true; do
+    docker logs localstack 2>&1 | grep 'Infrastructure set up successfully' && break
+    echo "[bin/set_env_vars] Still waiting for Localstack to be ready..."
+    sleep 1
+  done
+  echo "Localstack is ready."
+}
+
+wait_for_localstack
+
+# Start nodejs app in dev mode
+npm run dev
