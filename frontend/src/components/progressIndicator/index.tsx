@@ -1,9 +1,9 @@
 import { IProgressIndicatorProps, ProgressStepStatus } from './types';
 import './styles.css';
 
-export const ProgressIndicator = ({ steps }: IProgressIndicatorProps) => {
+const ProgressIndicator = ({ steps }: IProgressIndicatorProps) => {
   return (
-    <div className="w-full flex justify-between items-center">
+    <div className="w-full flex justify-between items-center px-20 mt-4">
       {steps.map((step, index) => (
         <>
           <div
@@ -23,7 +23,9 @@ export const ProgressIndicator = ({ steps }: IProgressIndicatorProps) => {
                 alt=""
               />
             ) : (
-              (index + 1).toString()
+              <span className="font-normal text-xl">
+                {(index + 1).toString()}
+              </span>
             )}
           </div>
 
@@ -43,3 +45,5 @@ export const ProgressIndicator = ({ steps }: IProgressIndicatorProps) => {
     </div>
   );
 };
+
+export default ProgressIndicator;
