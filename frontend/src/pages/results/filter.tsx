@@ -11,15 +11,19 @@ const FilterPage = () => {
     <Navbar />
     <main className="items-center flex flex-col relative px-10">
       <section className="md:w-1/2 w-full rounded-xl z-10 mt-10">
-        <Selector provincias={DummyData} placeholder="Distrito" />
-        <Selector provincias={DummyData} placeholder="Sección Electoral" />
-        <Selector provincias={DummyData} placeholder="Sección" />
-        <Selector provincias={DummyData} placeholder="Municipio" />
-        <Selector provincias={DummyData} placeholder="Circuito " />
-        <Selector provincias={DummyData} placeholder="Establecimiento" />
-        <Selector provincias={DummyData} placeholder="Mesa" />
+        <h1 className="text-xl font-bold mb-6">Resultados totales</h1>
+        <div className="px-3">
+          <Selector provincias={DummyData} placeholder="Distrito" />
+          <Selector provincias={DummyData} placeholder="Sección Electoral" />
+          <Selector provincias={DummyData} placeholder="Sección" />
+          <Selector provincias={DummyData} placeholder="Municipio" />
+          <Selector provincias={DummyData} placeholder="Circuito " />
+          <Selector provincias={DummyData} placeholder="Establecimiento" />
+          <Selector provincias={DummyData} placeholder="Mesa" />
+        </div>
+
         <Button
-          className="bg-violet-brand p-4 text-white w-full rounded-xl font-semibold text-xl tracking-wider"
+          className="mt-10 bg-violet-brand p-4 text-white w-full rounded-xl font-semibold text-xl tracking-wider"
           type="submit"
           label="Aplicar Filtros"
           />

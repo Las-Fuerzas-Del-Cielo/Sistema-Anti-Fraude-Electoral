@@ -11,6 +11,7 @@ import {
   }
 
   function Selector(props:Props) {
+    // TODO: HANDLE VALUE FROM PARENT BY PROPS
     const [value, setValue] = useState<string>('');
     
     return (
