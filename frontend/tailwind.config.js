@@ -9,7 +9,8 @@ export default {
   theme: {
     extend: {
       colors: {
-
+        'main': 'rgba(97, 67, 157, 1)',
+        'second': 'rgba(100, 116, 139, 1)'
       },
       fontFamily: {
         'sans': ['Poppins', ...defaultTheme.fontFamily.sans],

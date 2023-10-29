@@ -1,3 +1,4 @@
+import DataSuccessful from '#/components/dataSentSuccessful';
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
@@ -7,6 +8,7 @@ const AppRoutes: React.FC = () => (
   <Routes>
     <Route path='/login' element={<Login />} />
     <Route path='/' element={<Login />} />
+    <Route path='/envio-existoso' element={<DataSuccessful />} />
   </Routes>
 );
 
