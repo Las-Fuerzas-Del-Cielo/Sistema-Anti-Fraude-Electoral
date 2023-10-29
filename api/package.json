@@ -14,8 +14,10 @@
     "@aws-sdk/client-s3": "^3.438.0",
     "@aws-sdk/client-sqs": "^3.438.0",
     "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "fs-extra": "^11.1.1",
-    "swagger-autogen": "^2.23.7"
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.3",

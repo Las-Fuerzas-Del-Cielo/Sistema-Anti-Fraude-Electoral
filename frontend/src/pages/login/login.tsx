@@ -22,7 +22,7 @@ const LoginContent = () => {
   });
 
   return (
-    <section className='bg-gray-100 h-screen overflow-hidden items-center flex flex-col'>
+    <section className='bg-gray-200 h-screen overflow-hidden items-center flex flex-col'>
       <div className='md:w-1/2 w-full shadow-3xl rounded-xl p-4'>
         <div className='container mx-auto'>
           <div className='flex items-center justify-center my-20'>
@@ -40,22 +40,32 @@ const LoginContent = () => {
         </div>
         <form className='w-full' onSubmit={handleSubmit}>
           <div className='flex items-center text-lg mb-6 md:mb-8 shadow-3xl'>
+          <div className='w-full'>
+              <div className='text-violet-700 font-bold flex p-2 rounded-t-xl'>
+                DNI
+              </div>
             <Input
               type='text'
               id='dni'
-              className='bg-gray-200 rounded-xl pl-4 py-4 focus:outline-none w-full font-semibold border-2 border-gray-300'
+              className='rounded-xl pl-4 py-4 focus:outline-none w-full font-semibold border-2 border-gray-300'
               placeholder='Ingresa tu DNI'
               onChange={handleChange}
             />
           </div>
+          </div>
           <div className='flex items-center text-lg mb-6 md:mb-8 shadow-3xl'>
+          <div className='w-full'>
+              <div className='text-violet-700 font-bold flex p-2 rounded-t-xl'>
+                Contraseña
+              </div>
             <Input
               type='password'
               id='password'
-              className='bg-gray-200 rounded-xl pl-4 py-4 focus:outline-none w-full font-semibold border-2 border-gray-300'
+              className='rounded-xl pl-4 py-4 focus:outline-none w-full font-semibold border-2 border-gray-300'
               placeholder='Ingresa tu Contraseña'
               onChange={handleChange}
             />
+            </div>
           </div>
           <div className='flex flex-col items-center text-lg'>
             <Button
