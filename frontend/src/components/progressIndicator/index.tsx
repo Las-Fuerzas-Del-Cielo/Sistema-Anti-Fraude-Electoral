@@ -1,110 +1,45 @@
-import './styles.css'
+import { IProgressIndicatorProps, ProgressStepStatus } from './types';
+import './styles.css';
 
-export const ProgressIndicator = ({ stateStep }: any) => {
+export const ProgressIndicator = ({ steps }: IProgressIndicatorProps) => {
   return (
-    <div className="w-full flex items-center">
-      {/* Step 1 */}
-      <div
-        className={`circle flex justify-center items-center rounded-full ${
-          stateStep.step_one === 'active'
-            ? 'bg-violet text-white'
-            : stateStep.step_one === 'successful'
-            ? 'bg-green text-white'
-            : 'bg-light-gray text-black'
-        }`}
-      >
-        {stateStep.step_one === 'successful' ? (
-          <img
-            className="icon-tick"
-            src="src/assets/check-icono.svg"
-            alt=""
-          />
-        ) : (
-          '1'
-        )}
-      </div>
+    <div className="w-full flex justify-between items-center">
+      {steps.map((step, index) => (
+        <>
+          <div
+            key={index}
+            className={`circle flex justify-center items-center rounded-full ${
+              step === ProgressStepStatus.Active
+                ? 'bg-violet-brand text-white'
+                : step === ProgressStepStatus.Successful
+                ? 'bg-green-check text-white'
+                : 'bg-gray-light text-black'
+            }`}
+          >
+            {step === ProgressStepStatus.Successful ? (
+              <img
+                className="w-4 h-4"
+                src="src/assets/check-icono.svg"
+                alt=""
+              />
+            ) : (
+              (index + 1).toString()
+            )}
+          </div>
 
-      <div
-        className={`tick ${
-          stateStep.step_one === 'active'
-            ? 'bg-violet text-white'
-            : stateStep.step_one === 'successful'
-            ? 'bg-green text-white'
-            : 'bg-light-gray text-black'
-        }`}
-      ></div>
-
-      <div
-        className={`tick ${
-          stateStep.step_two === 'active'
-            ? 'bg-violet text-white'
-            : stateStep.step_two === 'successful'
-            ? 'bg-green text-white'
-            : 'bg-light-gray text-black'
-        }`}
-      ></div>
-
-      {/* Step 2 */}
-      <div
-        className={`circle flex justify-center items-center rounded-full ${
-          stateStep.step_two === 'active'
-            ? 'bg-violet text-white'
-            : stateStep.step_two === 'successful'
-            ? 'bg-green text-white'
-            : 'bg-light-gray text-black'
-        }`}
-      >
-        {stateStep.step_two === 'successful' ? (
-          <img
-            className="icon-tick"
-            src="src/assets/check-icono.svg"
-            alt=""
-          />
-        ) : (
-          '2'
-        )}
-      </div>
-
-      <div
-        className={`tick ${
-          stateStep.step_two === 'active'
-            ? 'bg-violet text-white'
-            : stateStep.step_two === 'successful'
-            ? 'bg-green text-white'
-            : 'bg-light-gray text-black'
-        }`}
-      ></div>
-
-      <div
-        className={`tick ${
-          stateStep.step_three === 'active'
-            ? 'bg-violet text-white'
-            : stateStep.step_three === 'successful'
-            ? 'bg-green text-white'
-            : 'bg-light-gray text-black'
-        }`}
-      ></div>
-
-      {/* Step 3 */}
-      <div
-        className={`circle flex justify-center items-center rounded-full ${
-          stateStep.step_three === 'active'
-            ? 'bg-violet text-white'
-            : stateStep.step_three === 'successful'
-            ? 'bg-green text-white'
-            : 'bg-light-gray text-black'
-        }`}
-      >
-        {stateStep.step_three === 'successful' ? (
-          <img
-            className="icon-tick"
-            src="src/assets/check-icono.svg"
-            alt=""
-          />
-        ) : (
-          '3'
-        )}
-      </div>
+          {index != steps.length - 1 && (
+            <div
+              className={`stick ${
+                step === ProgressStepStatus.Active
+                  ? 'bg-violet-brand text-white'
+                  : step === ProgressStepStatus.Successful
+                  ? 'bg-green-check text-white'
+                  : 'bg-gray-light text-black'
+              }`}
+            ></div>
+          )}
+        </>
+      ))}
     </div>
   );
 };

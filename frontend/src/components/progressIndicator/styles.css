@@ -1,15 +1,19 @@
 .circle {
-    width: 25px;
-    height: 25px;
+  width: 48px;
+  height: 48px;
 }
 
 .circle .icon-check {
-    width: 40%;
-    height: 40%;
+  width: 40%;
+  height: 40%;
 }
 
-.tick {
-    content: '';
-    width: 25px;
-    height: 2px;
+.stick {
+  content: "";
+  flex: 1;
+  height: 2px;
+}
+
+.bg-green-check {
+  background-color: #58C299;
 }
