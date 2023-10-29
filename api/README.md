@@ -35,12 +35,12 @@ Corré
 ```bash
 yarn build:swagger
 ```
-## CREAR UNA NUEVA RUTA
+## Crear una nueva ruta
 
-Para crear una nueva ruta hay que seguir los siguientes pasos:
+Para crearla hay seguir los siguientes pasos:
 
-- Agregar dentro dentro del map de routes/index.ts el basePath de la route y un array de routas
-- Crear dentro de la carpeta routes/path un archivo con la terminacion .path.ts
+- Agregar dentro dentro del map de src\routes\index.ts el basePath de la route y un array de routas
+- Crear dentro de la carpeta src\routes\path un archivo con la terminacion .path.ts
 - Dentro de este archivo hay que crear un array con las rutas a utilizar 
 ```js
     new Route({
@@ -52,7 +52,7 @@ Para crear una nueva ruta hay que seguir los siguientes pasos:
     })
 ```
 - Una vez creado la ruta hay que crear los controladores y los middlewares
-- Para crear un controlador si o si tiene que ser una función no puede ser de flecha para poder acceder al objeto this que en este caso es la request y para responder un objeto al usuario solamente hay que hacer uso de result() este se encargara de responder automáticamente en caso de querer responder 400 se usaría reject() 
+- Para crear un controlador se deberá crear en la carpeta src\routes\controllers, si o si tiene que ser una función no puede ser de flecha para poder acceder al objeto this que en este caso es la request y para responder un objeto al usuario solamente hay que hacer uso de result() este se encargara de responder automáticamente en caso de querer responder 400 se usaría reject() 
 ```js
     export const listDenuncias:Function = function(result,reject) {
     // Mocked Logic
@@ -64,11 +64,39 @@ Para crear una nueva ruta hay que seguir los siguientes pasos:
     }
     };
 ```
-- Para crear un middleware seguir la misma lógica que anterior pero esta recibe next y res  para hacer uso
+- Para crear un middleware se deberá crear en la carpeta src\routes\middleware también hay seguir la misma lógica que anterior pero esta recibe next y res para hacer uso dentro de la función
 
 ```js
     export const listDenuncias:Function = function(next,res) {
     // Mocked Logic
         return next()
+    };
+```
+
+
+## Crear errores
+
+Para crear un nuevo error solamente hace falta agregar un nuevo getter a la case SAFE ubicada en src/errors/safe. Automáticamente cuando rompan en algún controlador o middleware un error handler general va a obtenerlo y responderá automáticamente al usuario con un error status 400.
+
+- Ejemplo getter
+```js
+    get usrPassInvalida(){
+        this.code = 6;
+        this.message='Usuario y/o password inválidos.'
+        return this;
+    }
+```
+- Ejemplo de middleware
+```js
+    export const listDenuncias:Function = function(next,res) {
+    // Mocked Logic
+        return next(new SAFE('Error que se imprimirá en la consola').usrPassInvalida);
+    };
+```
+- Ejemplo controlador
+```js
+    export const listDenuncias:Function = function(next,res) {
+    // Mocked Logic
+       throw new SAFE('Error que se imprimirá en la consola').usrPassInvalida
     };
 ```
