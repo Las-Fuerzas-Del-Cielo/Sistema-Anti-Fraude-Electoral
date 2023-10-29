@@ -1,10 +1,11 @@
+import './styles.css'
+
 export const ProgressIndicator = ({ stateStep }: any) => {
   return (
-    <div className="w-full flex items-center" style={{ padding: '16px' }}>
+    <div className="w-full flex items-center">
       {/* Step 1 */}
       <div
-        style={{ width: '32px', height: '32px' }}
-        className={`flex justify-center items-center rounded-full ${
+        className={`circle flex justify-center items-center rounded-full ${
           stateStep.step_one === 'active'
             ? 'bg-violet text-white'
             : stateStep.step_one === 'successful'
@@ -14,7 +15,7 @@ export const ProgressIndicator = ({ stateStep }: any) => {
       >
         {stateStep.step_one === 'successful' ? (
           <img
-            style={{ width: '50%', height: '50%' }}
+            className="icon-tick"
             src="src/assets/check-icono.svg"
             alt=""
           />
@@ -24,31 +25,28 @@ export const ProgressIndicator = ({ stateStep }: any) => {
       </div>
 
       <div
-        className={`${
+        className={`tick ${
           stateStep.step_one === 'active'
             ? 'bg-violet text-white'
             : stateStep.step_one === 'successful'
             ? 'bg-green text-white'
             : 'bg-light-gray text-black'
         }`}
-        style={{ content: '', width: '25px', height: '2px' }}
       ></div>
 
       <div
-        className={`${
+        className={`tick ${
           stateStep.step_two === 'active'
             ? 'bg-violet text-white'
             : stateStep.step_two === 'successful'
             ? 'bg-green text-white'
             : 'bg-light-gray text-black'
         }`}
-        style={{ content: '', width: '25px', height: '2px' }}
       ></div>
 
       {/* Step 2 */}
       <div
-        style={{ width: '32px', height: '32px' }}
-        className={`flex justify-center items-center rounded-full ${
+        className={`circle flex justify-center items-center rounded-full ${
           stateStep.step_two === 'active'
             ? 'bg-violet text-white'
             : stateStep.step_two === 'successful'
@@ -58,7 +56,7 @@ export const ProgressIndicator = ({ stateStep }: any) => {
       >
         {stateStep.step_two === 'successful' ? (
           <img
-            style={{ width: '50%', height: '50%' }}
+            className="icon-tick"
             src="src/assets/check-icono.svg"
             alt=""
           />
@@ -68,31 +66,28 @@ export const ProgressIndicator = ({ stateStep }: any) => {
       </div>
 
       <div
-        className={`${
+        className={`tick ${
           stateStep.step_two === 'active'
             ? 'bg-violet text-white'
             : stateStep.step_two === 'successful'
             ? 'bg-green text-white'
             : 'bg-light-gray text-black'
         }`}
-        style={{ content: '', width: '25px', height: '2px' }}
       ></div>
 
       <div
-        className={`${
+        className={`tick ${
           stateStep.step_three === 'active'
             ? 'bg-violet text-white'
             : stateStep.step_three === 'successful'
             ? 'bg-green text-white'
             : 'bg-light-gray text-black'
         }`}
-        style={{ content: '', width: '25px', height: '2px' }}
       ></div>
 
       {/* Step 3 */}
       <div
-        style={{ width: '32px', height: '32px' }}
-        className={`flex justify-center items-center rounded-full ${
+        className={`circle flex justify-center items-center rounded-full ${
           stateStep.step_three === 'active'
             ? 'bg-violet text-white'
             : stateStep.step_three === 'successful'
@@ -102,56 +97,12 @@ export const ProgressIndicator = ({ stateStep }: any) => {
       >
         {stateStep.step_three === 'successful' ? (
           <img
-            style={{ width: '50%', height: '50%' }}
+            className="icon-tick"
             src="src/assets/check-icono.svg"
             alt=""
           />
         ) : (
           '3'
-        )}
-      </div>
-
-      <div
-        className={`${
-          stateStep.step_three === 'active'
-            ? 'bg-violet text-white'
-            : stateStep.step_three === 'successful'
-            ? 'bg-green text-white'
-            : 'bg-light-gray text-black'
-        }`}
-        style={{ content: '', width: '25px', height: '2px' }}
-      ></div>
-
-      <div
-        className={`${
-          stateStep.step_four === 'active'
-            ? 'bg-violet text-white'
-            : stateStep.step_four === 'successful'
-            ? 'bg-green text-white'
-            : 'bg-light-gray text-black'
-        }`}
-        style={{ content: '', width: '25px', height: '2px' }}
-      ></div>
-
-      {/* Step 4 */}
-      <div
-        style={{ width: '32px', height: '32px' }}
-        className={`flex justify-center items-center rounded-full ${
-          stateStep.step_four === 'active'
-            ? 'bg-violet text-white'
-            : stateStep.step_four === 'successful'
-            ? 'bg-green text-white'
-            : 'bg-light-gray text-black'
-        }`}
-      >
-        {stateStep.step_four === 'successful' ? (
-          <img
-            style={{ width: '50%', height: '50%' }}
-            src="src/assets/check-icono.svg"
-            alt=""
-          />
-        ) : (
-          '4'
         )}
       </div>
     </div>
