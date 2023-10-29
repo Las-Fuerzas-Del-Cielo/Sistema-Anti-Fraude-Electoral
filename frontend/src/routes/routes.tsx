@@ -10,7 +10,7 @@ const AppRoutes: React.FC = () => (
     <Route path='/login' element={<Login />} />
     <Route path='/profile' element={<Profile />} />
     <Route path='/' element={<Login />} />
-    <Route path='/envio-existoso' element={<DataSuccessful />} />
+    <Route path='/send-success' element={<DataSuccessful />} />
   </Routes>
 );
 
