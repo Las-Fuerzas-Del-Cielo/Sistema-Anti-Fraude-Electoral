@@ -1,5 +1,4 @@
 import { IFieldProps, IProfileDataProps } from './types';
-import './styles.css';
 
 export const DataProfile = () => {
   const profileData: IProfileDataProps[] = [
