@@ -18,9 +18,13 @@
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": true,
+        "noUnusedLocals": false,
         "jsx": "react-jsx",
         "baseUrl": "./",
         "paths": {
+            "@/*": [
+                "./*"
+            ],
             "#/*": [
                 "src/*"
             ],
@@ -65,6 +69,9 @@
             ],
             "#routes/*": [
                 "src/routes/*"
+            ],
+            "#lib/*": [
+                "src/lib/*"
             ]
         }
     },
