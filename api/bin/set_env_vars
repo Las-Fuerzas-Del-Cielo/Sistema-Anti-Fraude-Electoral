@@ -4,7 +4,7 @@
 {
   echo AWS_ACCESS_KEY_ID=test
   echo AWS_SECRET_ACCESS_KEY=test
-  echo AWS_DEFAULT_REGION=us-east-1
+  echo AWS_REGION=us-east-1
   echo AWS_ENDPOINT=http://localhost:4566
   echo DYNAMODB_ENDPOINT=http://localhost:4566/000000000000/process-telegrams
   echo QUEUE_URL=http://localhost:4566/000000000000/process-telegrams
