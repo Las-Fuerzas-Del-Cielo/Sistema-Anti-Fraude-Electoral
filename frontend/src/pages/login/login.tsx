@@ -1,5 +1,6 @@
 import Button from '#/components/button';
 import Input from '#/components/input';
+
 import { useFormik } from 'formik';
 import { observer } from 'mobx-react-lite';
 
@@ -38,6 +39,7 @@ const LoginContent = () => {
             />
           </div>
         </div>
+        
         <form className='w-full' onSubmit={handleSubmit}>
           <div className='flex items-center text-lg mb-6 md:mb-8 shadow-3xl'>
             <Input
@@ -71,6 +73,7 @@ const LoginContent = () => {
             </a>
           </div>
         </form>
+        
       </div>
 
       {/* 
