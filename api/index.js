@@ -1,14 +1,19 @@
 const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
-
+const helmet = require('helmet');
 const swaggerDocument = YAML.load('swagger.yaml');
 
 const app = express();
 const port = 3000;
 
+// Secure Express app by setting various HTTP headers. Documentation: https://helmetjs.github.io/
+app.use(helmet());
+
+// Serve Swagger UI at /api-docs endpoint
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+// Start the server
 app.listen(port, () => {
   console.log(`Swagger UI running at http://localhost:${port}/api-docs`);
 });
