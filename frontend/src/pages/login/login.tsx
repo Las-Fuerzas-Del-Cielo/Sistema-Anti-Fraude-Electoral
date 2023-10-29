@@ -1,4 +1,5 @@
 import Button from '#/components/button';
+import Footer from '#/components/footer';
 import Input from '#/components/input';
 import { useFormik } from 'formik';
 import { observer } from 'mobx-react-lite';
@@ -59,7 +60,7 @@ const LoginContent = () => {
           </div>
           <div className='flex flex-col items-center text-lg'>
             <Button
-              className='bg-violet-700 p-4 text-white w-full rounded-xl font-semibold text-xl tracking-wider'
+              className='bg-violet-brand p-4 text-white w-full rounded-xl font-semibold text-xl tracking-wider'
               type='submit'
               label='Ingresar'
             />
@@ -73,16 +74,7 @@ const LoginContent = () => {
         </form>
       </div>
 
-      {/* 
-        // TODO: FIX FOOTER IMAGE DESIGN 
-        // https://www.figma.com/file/iO7j93Rxbk2nIfYdqpAmv2/%F0%9F%A6%85-APP-Fiscalizaci%C3%B3n-Libertaria-%7C-%F0%9F%93%B1-FINAL?type=design&node-id=59-4193&mode=dev
-        <div className='mt-auto bg-gray-100 h-screen overflow-hidden items-center flex flex-col md:hidden'> <img /
-            src='src/assets/logos/footer.svg'
-            alt='footer'
-            className='w-full h-full p-0 m-0'
-          /> 
-        </div>
-      */}
+      <Footer />
     </section>
   );
 };
