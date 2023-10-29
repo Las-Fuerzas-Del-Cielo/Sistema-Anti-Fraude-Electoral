@@ -1,6 +1,12 @@
 import { RequestHandler } from 'express'
 import { registrarReporteEnS3 } from '../utils/s3Utils';
+import { ERROR_CODES } from '../utils/errorConstants';
+import { ReporteFaltaFiscal, Mesa, Escuela } from '../types/models';
+import { generateUniqueId } from '../utils/generateUniqueId';
 
+// Definir tipos específicos para los ID
+type FiscalId = string;
+type MesaId = string;
 export const getMesaData: RequestHandler = (req, res) => {
   // Mocked Logic
   res.status(200).json({ mesaData: 'some mesa data' })
@@ -16,49 +22,51 @@ export const reportarFaltaFiscal: RequestHandler = async (req, res) => {
 
   // Validación básica de los datos de entrada
   if (!fiscalId || !mesaId || !escuelaId) {
-    return res.status(400).json({ message: 'Datos incompletos' });
+    return res.status(ERROR_CODES.INCOMPLETE_DATA.status).json({ message: ERROR_CODES.INCOMPLETE_DATA.message });
+    
   }
 
   try {
     // Validar que el fiscal es un fiscal general
     const esFiscalGeneral = await validarFiscalGeneral(fiscalId);
     if (!esFiscalGeneral) {
-      return res.status(403).json({ message: 'Acceso denegado. No es fiscal general.' });
+      return res.status(ERROR_CODES.UNAUTHORIZED_GENERAL.status).json({ message: ERROR_CODES.UNAUTHORIZED_GENERAL.message });
     }
 
     // Detectar la institución del fiscal general
     const institucion = await obtenerInstitucionDeFiscal(fiscalId);
     if (!institucion) {
-      return res.status(404).json({ message: 'Institución del fiscal no encontrada.' });
+      return res.status(ERROR_CODES.INSTITUTION_NOT_FOUND.status).json({ message: ERROR_CODES.INSTITUTION_NOT_FOUND.message });
     }
 
     // Validar que la mesa y la escuela existan y estén relacionadas
     const mesaValida = await validarMesaYEscuela(mesaId, escuelaId);
     if (!mesaValida) {
-      return res.status(404).json({ message: 'Mesa o escuela no válida.' });
+      return res.status(ERROR_CODES.INVALID_MESA_OR_ESCUELA.status).json({ message: ERROR_CODES.INVALID_MESA_OR_ESCUELA.message });
     }
 
     // Registrar en S3 el reporte de falta de fiscales
-    const reporte = {
+    const reporte: ReporteFaltaFiscal = {
+      id: generateUniqueId(), // Función que genera un ID único
       fiscalId,
       mesaId,
       escuelaId,
-      institucion,
-      timestamp: new Date().toISOString()
+      timestamp: new Date(), // Asegúrate de que sea un objeto Date
+      observaciones: '', // Puedes dejarlo vacío o agregar alguna observación por defecto
     };
-
+    
     const resultadoS3 = await registrarReporteEnS3(reporte);
 
     if (resultadoS3.error) {
       // Manejar el caso de error
-      res.status(500).json({ message: 'Error al registrar el reporte en S3', detalles: resultadoS3.detalles });
+      res.status(ERROR_CODES.S3_UPLOAD_ERROR.status).json({ message: ERROR_CODES.S3_UPLOAD_ERROR.message, detalles: resultadoS3.detalles });
     } else {
       // Manejar el caso de éxito
       res.status(200).json({ message: 'Reporte de falta de fiscal recibido', resultadoS3 });
     }
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Error interno del servidor' });
+    res.status(ERROR_CODES.INTERNAL_SERVER_ERROR.status).json({ message: ERROR_CODES.INTERNAL_SERVER_ERROR.message });
   }
 }
 

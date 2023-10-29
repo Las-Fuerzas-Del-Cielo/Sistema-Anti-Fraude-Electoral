@@ -30,12 +30,18 @@ export interface Escuela {
   direccion: string;
 }
 
+// Definir tipos específicos para los ID
+type FiscalId = string;
+type MesaId = string;
+type EscuelaId = string;
+
 // Interfaz para el reporte de falta de fiscales
 export interface ReporteFaltaFiscal {
   id: string; // ID único para el reporte
-  fiscalId: string; // ID del fiscal que reporta
-  mesaId: string; // ID de la mesa donde falta el fiscal
-  escuelaId: string; // ID de la escuela asociada a la mesa
+  fiscalId: FiscalId; // ID del fiscal que reporta
+  mesaId: MesaId; // ID de la mesa donde falta el fiscal
+  escuelaId: EscuelaId; // ID de la escuela asociada a la mesa
   timestamp: Date; // Fecha y hora del reporte
   observaciones: string; // Observaciones adicionales si son necesarias
 }
+
