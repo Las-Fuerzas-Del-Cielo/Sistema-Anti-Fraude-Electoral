@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 type CopiedValue = string | null;
+// eslint-disable-next-line no-unused-vars
 type CopyFn = (text: string) => Promise<boolean>;
 
 export const useCopyToClipboard = (): [CopyFn, CopiedValue] => {
@@ -8,17 +9,17 @@ export const useCopyToClipboard = (): [CopyFn, CopiedValue] => {
 
   const copy: CopyFn = async (text) => {
     if (!navigator?.clipboard) {
-      console.warn("Clipboard not supported");
       return false;
     }
 
     try {
       await navigator.clipboard.writeText(text);
       setCopiedText(text);
+
       return true;
     } catch (error) {
-      console.warn("Copy failed", error);
       setCopiedText(null);
+
       return false;
     }
   };

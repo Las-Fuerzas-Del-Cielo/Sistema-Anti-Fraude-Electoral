@@ -1,12 +1,12 @@
-import { makeAutoObservable, runInAction } from "mobx";
+import { makeAutoObservable, runInAction } from 'mobx';
 
-import { RootStore } from "./root";
-import { testClient } from "#/service";
+import { RootStore } from './root';
+import { testClient } from '#/service';
 
 export class UiStore {
   public readonly rootStore: RootStore;
 
-  public globalTestid: string = "algo";
+  public globalTestid: string = 'algo';
 
   constructor(rootStore: RootStore) {
     makeAutoObservable(this);

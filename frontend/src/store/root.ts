@@ -1,8 +1,8 @@
-import axios from "axios";
-import { UiStore } from "./ui";
+import axios from 'axios';
+import { UiStore } from './ui';
 
 //aca configuras la url de la api
-const API_BASE_URL = "www.asda.com";
+const API_BASE_URL = 'www.asda.com';
 
 export class RootStore {
   public readonly uiStore;
