@@ -4,5 +4,21 @@ Base de api en nodejs express, contiene un [swagger ui endpoint](http://localhos
 
 Ref: [MVP](https://docs.google.com/document/d/11F_YE7d1th6ORO_AVKZn9idoiMjSzepwSYcMBZONDt8)
 
-Stack:
+# Requirements
 
+[Node.js (v18+)](https://nodejs.org/en/download)
+[Docker](https://www.docker.com/products/docker-desktop/)
+
+# Setup Instructions
+
+Para el desarrollo local, el proyecto emula los servicios de AWS con localstack. Por lo que no tenes que instalar ni configurar AWS CLI; incluso las variables `.env` se popularan automáticamente para que solo tengas que concentrarte en el desarrollo :).
+
+```bash
+cd api && make start
+```
+
+## AWS SDK Examples
+
+Una vez que esté corriendo localstack, podes mirar ejemplos de peticiones con el SDK de AWS en [ejemplos](examples/index.js).
+
+O simplemente corré `npm run test:examples` para verificar que todo funcione correctamente.
