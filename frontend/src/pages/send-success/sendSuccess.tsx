@@ -14,17 +14,17 @@ const SendSuccessPage: FC<ISendSuccessProps> = ({ message }) => {
           <div className='flex flex-col justify-center  items-cente basis-1/4'>
             <Link to='/'>
               <img
-                src='src/assets/images/back-arrow.svg'
                 alt='data sent successful'
                 className='object-cover rounded w-6  sm:w-8  h-auto '
+                src='src/assets/images/back-arrow.svg'
               />
             </Link>
           </div>
           <div className='basis-auto w-full flex justify-center  items-center'>
             <img
-              src='src/assets/logos/fenix-white.svg'
               alt='data sent successful'
               className='object-cover rounded w-35 sm:w-36 lg:w-36  h-auto w-image-25 '
+              src='src/assets/logos/fenix-white.svg'
             />
           </div>
         </div>
@@ -39,23 +39,21 @@ const SendSuccessPage: FC<ISendSuccessProps> = ({ message }) => {
           </div>
           <div className='flex items-center justify-center my-20 '>
             <img
-              src='src/assets/images/square-logo.svg'
               alt='data sent successful'
               className='object-cover rounded w-68 h-auto'
+              src='src/assets/images/square-logo.svg'
             />
           </div>
           <div className='flex items-center justify-center my-20'>
-            <h3 className='successfull'>
-              {message ?? '¡ MUCHAS GRACIAS POR FISCALIZAR !'}
-            </h3>
+            <h3 className='successfull'>{message ?? '¡ MUCHAS GRACIAS POR FISCALIZAR !'}</h3>
           </div>
           <div className='flex items-center justify-center my-20'>
             {/* TODO: Mover a Dashboard */}
             <Link to='/'>
               <Button
                 className='bg-violet-brand p-4 text-white w-full rounded-xl font-semibold text-xl tracking-wider'
-                type='submit'
                 label='Volver a inicio'
+                type='submit'
               />
             </Link>
           </div>

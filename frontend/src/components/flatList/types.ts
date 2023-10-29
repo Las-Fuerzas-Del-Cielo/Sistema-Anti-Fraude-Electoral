@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
+
 enum Type {
-  massa = "massa",
-  milei = "milei",
-  blank = "blank",
-  noValidate = "noValidate",
-  absent = "absent",
+  massa = 'massa',
+  milei = 'milei',
+  blank = 'blank',
+  noValidate = 'noValidate',
+  absent = 'absent',
 }
 
 export interface FlatListProps {

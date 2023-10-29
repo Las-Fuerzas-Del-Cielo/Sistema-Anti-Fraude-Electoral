@@ -9,6 +9,7 @@ export interface IInputProps {
   labelClassName?: string;
   inputClassName?: string;
 
-  appearance?: 'outline' | 'underline'
+  appearance?: 'outline' | 'underline';
+  // eslint-disable-next-line no-unused-vars
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

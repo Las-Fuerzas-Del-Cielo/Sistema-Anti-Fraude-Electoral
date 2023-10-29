@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useEffectOnce } from "./use-effect-once";
-import { useEventListener } from "./use-event-listener";
+import { useState } from 'react';
+import { useEffectOnce } from './use-effect-once';
+import { useEventListener } from './use-event-listener';
 
 interface WindowSize {
   width: number;
@@ -20,7 +20,7 @@ export function useWindowSize(): WindowSize {
     });
   };
 
-  useEventListener("resize", handleSize);
+  useEventListener('resize', handleSize);
 
   useEffectOnce(() => {
     handleSize();

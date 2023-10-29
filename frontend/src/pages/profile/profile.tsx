@@ -5,9 +5,7 @@ import './styles.css';
 
 const ProfilePage = () => {
   return (
-    <main
-      className='min__height-main flex justify-between flex-col px-4 profile__design'
-    >
+    <main className='min__height-main flex justify-between flex-col px-4 profile__design'>
       <DataProfile />
       <ButtonSignout />
     </main>

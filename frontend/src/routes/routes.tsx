@@ -7,10 +7,10 @@ const SendSuccess = lazy(() => import('#/pages/send-success/sendSuccess'));
 
 const AppRoutes: React.FC = () => (
   <Routes>
-    <Route path='/login' element={<Login />} />
-    <Route path='/profile' element={<Profile />} />
-    <Route path='/send-success' element={<SendSuccess />} />
-    <Route path='/' element={<Login />} />
+    <Route element={<Login />} path='/login' />
+    <Route element={<Profile />} path='/profile' />
+    <Route element={<SendSuccess />} path='/send-success' />
+    <Route element={<Login />} path='/' />
   </Routes>
 );
 

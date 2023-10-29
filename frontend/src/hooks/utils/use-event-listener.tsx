@@ -1,4 +1,5 @@
-import { RefObject, useEffect, useRef } from "react";
+/* eslint-disable no-unused-vars */
+import { RefObject, useEffect, useRef } from 'react';
 
 function useEventListener<K extends keyof MediaQueryListEventMap>(
   eventName: K,
@@ -14,10 +15,7 @@ function useEventListener<K extends keyof WindowEventMap>(
   options?: boolean | AddEventListenerOptions
 ): void;
 
-function useEventListener<
-  K extends keyof HTMLElementEventMap,
-  T extends HTMLElement = HTMLDivElement
->(
+function useEventListener<K extends keyof HTMLElementEventMap, T extends HTMLElement = HTMLDivElement>(
   eventName: K,
   handler: (event: HTMLElementEventMap[K]) => void,
   element: RefObject<T>,
@@ -35,16 +33,10 @@ function useEventListener<
   KW extends keyof WindowEventMap,
   KH extends keyof HTMLElementEventMap,
   KM extends keyof MediaQueryListEventMap,
-  T extends HTMLElement | MediaQueryList | void = void
+  T extends HTMLElement | MediaQueryList | void = void,
 >(
   eventName: KW | KH | KM,
-  handler: (
-    event:
-      | WindowEventMap[KW]
-      | HTMLElementEventMap[KH]
-      | MediaQueryListEventMap[KM]
-      | Event
-  ) => void,
+  handler: (event: WindowEventMap[KW] | HTMLElementEventMap[KH] | MediaQueryListEventMap[KM] | Event) => void,
   element?: RefObject<T>,
   options?: boolean | AddEventListenerOptions
 ) {

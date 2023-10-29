@@ -3,7 +3,7 @@ import './styles.css';
 
 export const ProgressIndicator = ({ steps }: IProgressIndicatorProps) => {
   return (
-    <div className="w-full flex justify-between items-center">
+    <div className='w-full flex justify-between items-center'>
       {steps.map((step, index) => (
         <>
           <div
@@ -17,11 +17,7 @@ export const ProgressIndicator = ({ steps }: IProgressIndicatorProps) => {
             }`}
           >
             {step === ProgressStepStatus.Successful ? (
-              <img
-                className="w-4 h-4"
-                src="src/assets/check-icono.svg"
-                alt=""
-              />
+              <img alt='' className='w-4 h-4' src='src/assets/check-icono.svg' />
             ) : (
               (index + 1).toString()
             )}
@@ -36,7 +32,7 @@ export const ProgressIndicator = ({ steps }: IProgressIndicatorProps) => {
                   ? 'bg-green-check text-white'
                   : 'bg-gray-light text-black'
               }`}
-            ></div>
+            />
           )}
         </>
       ))}
