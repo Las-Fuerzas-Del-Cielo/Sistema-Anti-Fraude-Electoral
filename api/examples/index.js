@@ -7,7 +7,7 @@ const { SQSClient, SendMessageCommand } = require('@aws-sdk/client-sqs')
 
 const awsEndpoint = process.env.AWS_ENDPOINT
 const dynamodbClient = new DynamoDBClient({ endpoint: awsEndpoint })
-const s3Client = new S3Client({ endpoint: awsEndpoint })
+const s3Client = new S3Client({ endpoint: awsEndpoint, forcePathStyle: true })
 const sqsClient = new SQSClient({ endpoint: awsEndpoint })
 
 async function insertDBItem(id, description) {
