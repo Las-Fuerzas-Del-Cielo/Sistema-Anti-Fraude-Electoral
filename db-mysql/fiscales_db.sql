@@ -310,6 +310,89 @@ CREATE TABLE `fis_centro_computo_auditoria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
+-- -----------------------
+-- denuncia de fiscales o usuarios de la plataforma 
+-- -----------------------
+
+CREATE TABLE `den_denuncia_tipo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(45) DEFAULT NULL,
+  `nivel` int(11) NOT NULL DEFAULT '1' COMMENT 'refiere al nivel de importancia que debe darsele a la denuncia de este tipo',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `den_denuncia_estado` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(45) NOT NULL,
+  `es_activa` tinyint(4) NOT NULL DEFAULT '1' COMMENT 'Define si el estado de la denuncia es activo o no, refiriendose a que ya no deberia listarse',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `den_denuncia_usuario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `creacion_fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `creacion_user_id` int(11) NOT NULL,
+  `mesa_id` int(11) DEFAULT NULL,
+  `local_comicio_id` int(11) DEFAULT NULL,
+  `tipo_id` int(11) NOT NULL,
+  `descripcion_usuario` varchar(5000) NOT NULL,
+  `imagen_url` varchar(200) DEFAULT NULL,
+  `estado_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `denuncia_usuariocreacion_idx` (`creacion_user_id`),
+  KEY `denuncia_mesa_idx` (`mesa_id`),
+  KEY `denuncia_localcomicio_idx` (`local_comicio_id`),
+  KEY `denuncia_tipodenuncia_idx` (`tipo_id`),
+  KEY `denuncia_estadodenuncia_idx` (`estado_id`),
+  CONSTRAINT `denuncia_estadodenuncia` FOREIGN KEY (`estado_id`) REFERENCES `den_denuncia_estado` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `denuncia_localcomicio` FOREIGN KEY (`local_comicio_id`) REFERENCES `gen_local_comicio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `denuncia_mesa` FOREIGN KEY (`mesa_id`) REFERENCES `gen_mesa` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `denuncia_tipodenuncia` FOREIGN KEY (`tipo_id`) REFERENCES `den_denuncia_tipo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `denuncia_usuariocreacion` FOREIGN KEY (`creacion_user_id`) REFERENCES `gen_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- -----------------------
+-- denuncia publicas
+-- -----------------------
+CREATE TABLE `den_denuncia_publica_tipo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE `den_denuncia_publica_estado` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(50) DEFAULT NULL,
+  `es_activa` tinyint(4) DEFAULT '1' COMMENT 'refiere a si el estado debe listarse o no',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `den_denuncia_publica_dispositivo_bloqueado` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dispositivo_id` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `den_denuncia_publica` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `creacion_fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `codPostal` varchar(45) NOT NULL,
+  `tipo_id` int(11) DEFAULT NULL,
+  `titulo` varchar(100) NOT NULL,
+  `descripcion` varchar(5000) NOT NULL,
+  `contacto` varchar(200) DEFAULT NULL,
+  `dispositivo_origen_id` varchar(100) NOT NULL,
+  `estado_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `denunciapublica_tipo_idx` (`tipo_id`),
+  CONSTRAINT `denunciapublica_tipo` FOREIGN KEY (`tipo_id`) REFERENCES `den_denuncia_publica_tipo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
