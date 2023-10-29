@@ -27,9 +27,9 @@ export function UploadImage({ onUpload }: { onUpload: (image: string) => void })
           className='flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer'
           htmlFor='dropzone-file'
         >
-          <div className='flex flex-col items-center justify-center pt-5 pb-6 gap-2'>
-            <img alt='' src='src/assets/icon/upload.svg' />
-            <p className='mb-2 text-m'>Subir desde galería</p>
+          <div className="flex flex-col items-center justify-center pt-5 pb-6 gap-2">
+            <img src="src/assets/icon/upload.svg" alt="" />
+            <p className="mb-2 text-m">Subir una imagen de la galería</p>
           </div>
           <input
             accept='image/*'
