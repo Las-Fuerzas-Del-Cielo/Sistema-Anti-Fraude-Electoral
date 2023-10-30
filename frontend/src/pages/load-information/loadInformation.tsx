@@ -8,11 +8,11 @@ import ProgressIndicator from '#/components/progressIndicator';
 
 import { FlatListTypeEnum } from '#/components/flatList/types';
 import { ProgressStepStatus } from '#/components/progressIndicator/types';
-import { ILoadDataProps } from './types';
+import { ILoadInformationProps } from './types';
 
 import './styles.css';
 
-const LoadDataPage: FC<ILoadDataProps> = ({ message }) => {
+const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
   const flatList = [
     {
       logo: 'src/assets/logos/lla-logo.svg',
@@ -107,6 +107,6 @@ const LoadDataPage: FC<ILoadDataProps> = ({ message }) => {
   );
 };
 
-export const LoadData = observer(LoadDataPage);
+export const LoadInformation = observer(LoadInformationPage);
 
-export default LoadData;
+export default LoadInformation;

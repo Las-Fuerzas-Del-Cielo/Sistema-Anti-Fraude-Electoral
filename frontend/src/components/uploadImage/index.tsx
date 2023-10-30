@@ -1,10 +1,6 @@
 import { getBase64 } from '#/utils';
 
-export function UploadImage({
-  onUpload,
-}: {
-  onUpload: (image: string) => void;
-}) {
+const UploadImage = ({ onUpload }: { onUpload: (image: string) => void }) => {
   async function onUploadInternal(file: File | null | undefined) {
     if (!file) return;
     const base64 = await getBase64(file);
@@ -57,4 +53,6 @@ export function UploadImage({
       </label>
     </div>
   );
-}
+};
+
+export default UploadImage;

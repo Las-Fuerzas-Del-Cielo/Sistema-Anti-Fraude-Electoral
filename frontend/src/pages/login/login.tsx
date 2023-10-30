@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { observer } from 'mobx-react-lite';
 import Button from '#/components/button';
@@ -89,12 +89,13 @@ const LoginPage: React.FC = () => {
               type="submit"
               label="Ingresar"
             />
-            <a
-              href="#"
+
+            <Link
+              to="total-results"
               className="mt-8 text-lg text-center text-gray-600 underline"
             >
-              ¿Necesitas ayuda?
-            </a>
+              Ir a resultados
+            </Link>
           </div>
         </form>
       </div>
