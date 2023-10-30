@@ -11,13 +11,13 @@ const dummyData = [
 ];
 
 const FilterPage = () => {
-  const [distrito, setDistrito] = useState('');
-  const [seccionElectoral, setSeccionElectoral] = useState('');
-  const [seccion, setSeccion] = useState('');
-  const [municipio, setMunicipio] = useState('');
-  const [circuito, setCircuito] = useState('');
-  const [establecimiento, setEstablecimiento] = useState('');
-  const [mesa, setMesa] = useState('');
+  const [distrito, setDistrito] = useState<string>('');
+  const [seccionElectoral, setSeccionElectoral] = useState<string>('');
+  const [seccion, setSeccion] = useState<string>('');
+  const [municipio, setMunicipio] = useState<string>('');
+  const [circuito, setCircuito] = useState<string>('');
+  const [establecimiento, setEstablecimiento] = useState<string>('');
+  const [mesa, setMesa] = useState<string>('');
 
   return (
     <>
