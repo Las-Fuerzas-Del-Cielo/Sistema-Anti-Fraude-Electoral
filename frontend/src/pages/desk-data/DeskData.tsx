@@ -12,22 +12,28 @@ const DeskData = () => {
 
   return (
     <>
-    <FormHeader routerLink="/" title="" />
-    <main className="items-center flex flex-col relative px-10">
-      <section className="md:w-1/2 w-full rounded-xl z-10 mt-10">
-        
+    <main className="items-center flex flex-col relative">
+      <FormHeader routerLink="/" title="" />
+
+      <div className= "md:w-1/2 w-full rounded-xl z-10 mt-10 px-10 my-10">
+
       <ProgressIndicator
-            steps={[
-              ProgressStepStatus.Active,
-              ProgressStepStatus.Pending,
-              ProgressStepStatus.Pending,
-              ProgressStepStatus.Pending,
-            ]}
-          />
-        <h1 className="text-xl font-bold mb-6 my-10">Ubicacion de la mesa</h1>
-        <h2 className="p-4 mx-10 text-start mx-12 text-xl">Recopilación de la ubicación precisa del centro educativo</h2>
-        
-        <div className="px-3">
+        steps={[
+          ProgressStepStatus.Active,
+          ProgressStepStatus.Pending,
+          ProgressStepStatus.Pending,
+          ProgressStepStatus.Pending,
+        ]}
+        />
+        </div>
+
+      <section className="md:w-1/2 w-full rounded-xl z-10 mt-10 px-10 my-10">
+        <h1 className="text-xl font-bold mb-3 my-2">Ubicacion de la mesa</h1>
+        <h2 className="p-2 text-start text-sm-lg">
+          Recopilación de la <b>ubicación</b> precisa del <b>centro educativo.</b>
+        </h2>
+
+        <div className="">
           <Selector provincias={DummyData} placeholder="Distrito" />
           <Selector provincias={DummyData} placeholder="Sección Electoral" />
           <Selector provincias={DummyData} placeholder="Sección" />
@@ -39,10 +45,10 @@ const DeskData = () => {
           className="mt-10 bg-violet-brand p-4 text-white w-full rounded-xl font-semibold text-xl tracking-wider"
           type="submit"
           label="Continuar"
-          />
+        />
       </section>
     </main>
-    </>
+  </>
   );
 };
 
