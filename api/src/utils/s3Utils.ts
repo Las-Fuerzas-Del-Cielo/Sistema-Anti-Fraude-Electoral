@@ -1,6 +1,6 @@
 import { PutObjectCommand, PutObjectCommandOutput, S3Client } from '@aws-sdk/client-s3';
-import { ReportFaltaFiscal } from 'src/types/models';
-import { ResultadoRegistroS3 } from 'src/types/models';
+import { ReportFaltaFiscal } from '../types/models';
+import { ResultadoRegistroS3 } from '../types/models';
 import { ERROR_CODES } from './errorConstants';
 
 // Inicializa el cliente de S3 con las configuraciones necesarias
