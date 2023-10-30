@@ -1,7 +1,7 @@
-import Navbar from '#/components/navbar';
-import Button from '#/components/button';
 import { observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
+import Navbar from '#/components/navbar';
+import Button from '#/components/button';
 
 const TotalResultsPage = () => {
   const percentages = [61.05, 38.95];

@@ -1,9 +1,11 @@
-import { Link } from 'react-router-dom';
-import { UploadImage } from '#/components/uploadImage';
 import { useState } from 'react';
-import { ProgressStepStatus } from '#/components/progressIndicator/types';
+
 import ProgressIndicator from '#/components/progressIndicator';
 import FormHeader from '#/components/formHeader';
+import UploadImage from '#/components/uploadImage';
+
+import { ProgressStepStatus } from '#/components/progressIndicator/types';
+
 import './styles.css';
 
 const CheckItem = ({ text }: { text: string }) => (
