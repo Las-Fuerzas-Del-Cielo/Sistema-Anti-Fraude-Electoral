@@ -1,10 +1,13 @@
+type UpdateTotalVotesFunction = (votesDifference: number) => void;
+
 export enum FlatListTypeEnum {
   massa = 'massa',
   milei = 'milei',
-  blank = 'blank',
   null = 'null',
-  noValidate = 'noValidate',
-  absent = 'absent',
+  appealed = 'appealed',
+  contested = 'contested',
+  electoralCommand = 'electoralCommand',
+  blank = 'blank',
 }
 
 export interface FlatListProps {
@@ -14,4 +17,5 @@ export interface FlatListProps {
   title?: string;
   type: FlatListTypeEnum;
   votes: number;
+  updateTotalVotes: UpdateTotalVotesFunction;
 }
