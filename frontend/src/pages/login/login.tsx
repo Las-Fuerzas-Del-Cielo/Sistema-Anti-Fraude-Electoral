@@ -22,9 +22,13 @@ const LoginPage: React.FC = () => {
     onSubmit,
   });
 
+  const handleClick = () => {
+    // Maneja la lógica cuando se hace clic en el botón
+  };
+
   return (
     <section className="relative flex flex-col items-center h-screen overflow-hidden bg-gray-100">
-    <div className="z-10 w-5/6 p-4 md:w-1/2 shadow-3xl rounded-xl">
+      <div className="z-10 w-5/6 p-4 md:w-1/2 shadow-3xl rounded-xl">
         <div className="container mx-auto">
           <div className="flex items-center justify-center my-20">
             <img
@@ -58,18 +62,13 @@ const LoginPage: React.FC = () => {
               onChange={handleChange}
             />
           </div>
-          <div className='flex flex-col items-center text-lg'>
+          <div className="flex flex-col items-center text-lg">
+            <Button label="Ingresar" variant="default" onClick={handleClick} type="submit"/>
             <Button
-              className="w-full p-4 text-xl font-semibold tracking-wider text-white bg-violet-brand rounded-xl"
-              type="submit"
-              label="Ingresar"
+              label="¿Necesitas ayuda?"
+              variant="outline"
+              onClick={handleClick}
             />
-            <a
-              href="#"
-              className="mt-8 text-lg text-center text-gray-600 underline"
-            >
-              ¿Necesitas ayuda?
-            </a>
           </div>
         </form>
       </div>
