@@ -17,7 +17,7 @@
     "application/json"
   ],
   "paths": {
-    "/denuncia": {
+    "/reports": {
       "get": {
         "description": "",
         "responses": {
@@ -27,7 +27,7 @@
         }
       }
     },
-    "/denuncia/{id}": {
+    "/reports/{id}": {
       "get": {
         "description": "",
         "parameters": [
@@ -45,7 +45,7 @@
         }
       }
     },
-    "/fiscalizar": {
+    "/audit": {
       "post": {
         "description": "",
         "responses": {
@@ -55,7 +55,7 @@
         }
       }
     },
-    "/mesa/{id}": {
+    "/voting-tables/{id}": {
       "get": {
         "description": "",
         "parameters": [
@@ -73,7 +73,7 @@
         }
       }
     },
-    "/mesa": {
+    "/voting-tables": {
       "get": {
         "description": "",
         "responses": {

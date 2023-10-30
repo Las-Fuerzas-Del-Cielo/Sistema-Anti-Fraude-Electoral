@@ -1,15 +1,15 @@
 import RouterAdapter from './routerAdapter';
 import userRoutes from './user'
-import mesaRoutes from './mesa'
-import fiscalizarRoutes from './fiscalizar'
-import denunciaRouter from './denuncia';
+import votingTablesRoutes from './voting-tables'
+import auditRoutes from './audit'
+import reportRouter from './report';
 
 
 const routers: RouterAdapter[] = [
-    new RouterAdapter('denuncia', denunciaRouter),
+    new RouterAdapter('reports', reportRouter),
     new RouterAdapter('user', userRoutes),
-    new RouterAdapter('mesa', mesaRoutes),
-    new RouterAdapter('fiscalizar', fiscalizarRoutes),
+    new RouterAdapter('voting-tables', votingTablesRoutes),
+    new RouterAdapter('audit', auditRoutes),
 ];
 
 export default routers;
