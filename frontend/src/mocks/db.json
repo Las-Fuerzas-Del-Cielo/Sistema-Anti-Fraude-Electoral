@@ -1,0 +1,36 @@
+{
+  "auth": {
+    "dni": "12312312",
+    "password": "1231231"
+  },
+  "user": {
+    "id": 1,
+    "firstName": "Javier Gerardo",
+    "lastName": "Milei",
+    "email": "javiergerardomilei@gmail.com",
+    "dni": "39977777",
+    "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+    "address": "Calle Falsa 123, Cordoba, Cordoba",
+    "role": "admin",
+    "province": "Buenos Aires",
+    "circuit": "Circuito 1",
+    "table": "Mesa 1"
+  },
+  "users": [
+    {
+      "id": 1,
+      "name": "Juan Pérez",
+      "email": "juan@perez.com"
+    },
+    {
+      "id": 2,
+      "name": "María Gómez",
+      "email": "maria@gomez.com"
+    },
+    {
+      "id": 3,
+      "name": "Carlos López",
+      "email": "carlos@lopez.com"
+    }
+  ]
+}

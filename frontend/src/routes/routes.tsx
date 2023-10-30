@@ -18,6 +18,7 @@ const AppRoutes: React.FC = () => (
   <Routes>
     {/* Auth */}
     <Route path="/login" element={<Login />} />
+    {/* TODO: Agregar Middleware (si no existe user, no entra a las siguientes rutas) */}
 
     {/* Cuenta */}
     <Route path="/dashboard" element={<Dashboard />} />
