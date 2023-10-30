@@ -34,7 +34,7 @@ const AppRoutes: React.FC = () => (
     <Route path="/send-success" element={<SendSuccess />} />
 
     {/* Filters & Results */}
-    <Route path="/results" element={<FilterPage />} />
+    <Route path="/filter-results" element={<FilterPage />} />
     <Route path="/total-results" element={<TotalResults />} />
 
     {/* Utils */}

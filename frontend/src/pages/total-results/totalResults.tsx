@@ -1,5 +1,7 @@
 import Navbar from '#/components/navbar';
+import Button from '#/components/button';
 import { observer } from 'mobx-react';
+import { Link } from 'react-router-dom';
 
 const inicioContent = () => {
   const porcentajes = [61.05, 38.95];
@@ -7,12 +9,18 @@ const inicioContent = () => {
   return (
     <div className="bg-white h-screen flex flex-col">
       <Navbar />
-      <p className="font-bold text-[30px] text-[#363F45] mt-5">
-        Resultados totales
-      </p>
-      <button className="mx-3 lg:mx-60 my-10 bg-white border-[4px] border-[#61439D] text-lg text-[#61439D]">
-        Seleccionar filtros
-      </button>
+      <div className="flex flex-col p-4">
+        <p className="font-bold text-2xl text-gray-700 mt-5">
+          Resultados totales
+        </p>
+        <Link
+          to="/filter-results"
+          className="border-2 border-violet-brand text-violet-brand bg-transparent p-3 w-full rounded-xl text-xl tracking-wider shadow-md hover:border-violet-light my-4"
+        >
+          Seleccionar filtros
+        </Link>
+      </div>
+
       <div className="lg:px-60 px-3">
         {
           //Card Javier, VLL
@@ -129,9 +137,13 @@ const inicioContent = () => {
           </div>
         </div>
       </div>
-      <button className="mx-3 lg:mx-60 mt-20 bg-white border-[2px] border-[#AD3459] text-lg text-[#AD3459]">
-        Alerta Irregularidades
-      </button>
+      <div className="mt-4 p-4">
+        <Button
+          className="border-2 border-rose-700 text-rose-700 bg-transparent p-3 w-full rounded-xl text-xl tracking-wider shadow-md hover:border-violet-light my-4"
+          type="button"
+          label="Alerta Irregularidades"
+        />
+      </div>
     </div>
   );
 };

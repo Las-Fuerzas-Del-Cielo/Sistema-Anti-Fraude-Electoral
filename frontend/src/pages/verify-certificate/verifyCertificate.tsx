@@ -10,34 +10,26 @@ import './styles.css';
 
 const VerifyCertificate = () => {
   return (
-    <section className="items-center flex flex-col ">
+    <section className="items-center flex flex-col justify-center text-center">
       <FormHeader routerLink="/" title="Cargá el certificado del fiscal" />
-      <div className="p-4 w-full">
+      <div className="w-full text-center">
         <div className="container mx-auto flex-column my-210">
           <ProgressIndicator
             steps={[
               ProgressStepStatus.Active,
-              ProgressStepStatus.Pending,
+              ProgressStepStatus.Active,
               ProgressStepStatus.Pending,
             ]}
           />
-          <div className="flex items-center justify-center my-210">
-            <div></div>
-            {/* TODO: Add ProgressIndicator (FINISHED) <ProgressIndicator step_one='successful' step_two='successful'step_three='successful' step_four='successful' /> */}
-          </div>
 
-          <div className="">
-            <div className="p-4 text-start my-2 mx-12 text-xl font-bold">
-              <span>Cargá el certificado del fiscal.</span>
-              {/* TODO: Pensar los espaciados y quizá el width de la img */}
-            </div>
+          <div className="p-4 text-center my-2 mx-12 text-xl font-bold">
+            <span>Cargá el certificado del fiscal.</span>
+            {/* TODO: Pensar los espaciados y quizá el width de la img */}
           </div>
-          <div className="flex items-center my-210 text-lg-300 w-305">
-            <div className="p-4 text-start mx-12 text-base">
-              <span>
-                Chequeá que la imagen se vea nítida y completa antes de subirla.
-              </span>
-            </div>
+          <div className="p-4 text-center mx-12 text-base">
+            <span>
+              Chequeá que la imagen se vea nítida y completa antes de subirla.
+            </span>
           </div>
 
           <div className="flex items-center justify-center my-2">
@@ -50,39 +42,23 @@ const VerifyCertificate = () => {
 
           <div className="flex items-center text-sm my-10">
             <div className="flex items-center px-12">
-              <div className="p-2 ">
-                <div className="inline-flex items-center">
-                  <label
-                    className="relative flex items-center p-3 rounded-full cursor-pointer"
-                    data-ripple-dark="true"
-                  >
-                    <input
-                      id="login"
-                      type="checkbox"
-                      className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-violet-500 checked:bg-violet-500 checked:before:bg-violet-500 hover:before:opacity-10"
-                    />
-                    <div className="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-3.5 w-3.5"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        stroke="currentColor"
-                        stroke-width="1"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </div>
-                  </label>
-                  <label className="mt-px font-light text-gray-700 cursor-pointer select-none"></label>
-                </div>
+              <div className="inline-flex items-center">
+                <label
+                  className="relative flex items-center p-3 rounded-full cursor-pointer"
+                  data-ripple-dark="true"
+                >
+                  <input
+                    id="login"
+                    type="checkbox"
+                    className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-violet-500 checked:bg-violet-500 checked:before:bg-violet-500 hover:before:opacity-10"
+                  />
+                  <div className="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
+                    <img src="src/assets/icon/check-icon.svg" alt="check" />
+                  </div>
+                </label>
               </div>
-              <div className="p-3">
-                <h3 className="text-start">
+              <div className="px-3">
+                <h3 className="text-start text-md">
                   Verifico que la imagen está firmada por el presidente de mesa
                   y fue completado por mí previamente.
                 </h3>
@@ -91,26 +67,18 @@ const VerifyCertificate = () => {
           </div>
           {/* TODO: Agregar lógica de documento a los botones*/}
           {/* TODO: Agregar lógica de documento al reintentar */}
-          <div className="flex items-center justify-center w-full">
+          <div className="flex flex-col items-center justify-center w-full p-4">
             {/* TODO: Mover a Dashboard */}
-            <Link to="/">
-              <Button
-                className="w-full p-4 text-xl font-semibold tracking-wider text-white bg-violet-brand rounded-xl"
-                type="submit"
-                label="Enviar imagen"
-              />
-            </Link>
-          </div>
-
-          <div className="flex items-center justify-center my-10">
-            {/* TODO: Mover a Dashboard */}
-            <Link to="/">
-              <Button
-                className="px-10 py-2 w-full rounded-xl text-xl tracking-wider border-2 border-gray-200 text-gray-300"
-                type="submit"
-                label="Reintentar"
-              />
-            </Link>
+            <Button
+              className="w-full p-4 text-xl font-semibold tracking-wider text-white bg-violet-brand rounded-xl"
+              type="submit"
+              label="Enviar imagen"
+            />
+            <Button
+              className="w-full p-3 text-xl font-semibold tracking-wider border-2 border-violet-brand text-violet-brand hover:border-violet-light mt-4 rounded-xl"
+              type="submit"
+              label="Reintentar"
+            />
           </div>
         </div>
       </div>

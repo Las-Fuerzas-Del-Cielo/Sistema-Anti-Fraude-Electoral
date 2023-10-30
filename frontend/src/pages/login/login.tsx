@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 import Button from '#/components/button';
 import Input from '#/components/input';
 import { ILoginProps } from './types';
+import { Link } from 'react-router-dom';
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -69,12 +70,10 @@ const LoginPage: React.FC = () => {
               label="Ingresar"
               onClick={handleClick}
             />
-            <a
-              href="#"
-              className="mt-8 text-lg text-center text-gray-600 underline"
-            >
-              ¿Necesitas ayuda?
-            </a>
+
+            <Link to='total-results' className="mt-8 text-lg text-center text-gray-600 underline">
+              Ir a resultados
+            </Link>
           </div>
         </form>
       </div>

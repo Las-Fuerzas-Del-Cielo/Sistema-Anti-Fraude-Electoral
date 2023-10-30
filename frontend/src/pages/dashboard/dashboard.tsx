@@ -18,18 +18,20 @@ const DashboardPage = () => {
             <p className="text-gray-500">{email}</p>
           </div>
           <div className="flex flex-col items-center space-y-8 w-full">
-            <Link to="/upload-certificate" className='w-full'>
+            <Link to="/upload-certificate" className="w-full">
               <Button
                 className="bg-violet-brand p-3 text-white w-full rounded-xl text-xl tracking-wider shadow-md hover:border-violet-light"
                 type="submit"
                 label="Cargar resultados de mesa"
               />
             </Link>
-            <Button
+            <Link
+              to="/total-results"
               className="border-2 border-violet-brand text-violet-brand bg-transparent p-3 w-full rounded-xl text-xl tracking-wider shadow-md hover:border-violet-light"
               type="submit"
-              label="Ver resultados"
-            />
+            >
+              Ver resultados
+            </Link>
             <Button
               className="border-2 border-red text-red bg-transparent p-3 w-full rounded-xl text-xl tracking-wider shadow-md hover:border-violet-light"
               type="submit"
