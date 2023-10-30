@@ -27,10 +27,10 @@ export const searchVotingTables: RequestHandler = (req, res) => {
 
 export const reportarFaltaFiscal: RequestHandler<ReportarFaltaFiscalParams, any, ReportarFaltaFiscalBody> = async (req, res) => {
   // Get mesaId from URL parameters
-  const mesaId = req.params.id;
+  const mesaId: string = req.params.id;
 
   // Destructure fiscalId and escuelaId from the request body
-  const { fiscalId, escuelaId } = req.body;
+  const { fiscalId, escuelaId } : {fiscalId: string, escuelaId: string} = req.body;
 
   // Validación básica de los datos de entrada
   if (!fiscalId || !mesaId || !escuelaId) {
