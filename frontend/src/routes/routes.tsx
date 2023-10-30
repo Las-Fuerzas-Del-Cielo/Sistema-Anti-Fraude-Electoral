@@ -11,12 +11,16 @@ const LoadInformation = lazy(
 const Dashboard = lazy(() => import('#/pages/dashboard/dashboard'));
 const UploadCertificate = lazy(
   () => import('#/pages/upload-certificate/uploadCertificate'),
-);
-const VerifyCertificate = lazy(
-  () => import('#/pages/verify-certificate/verifyCertificate'),
-);
-const TotalResults = lazy(() => import('#/pages/total-results/totalResults'));
-const FilterPage = lazy(() => import('#/pages/results/filter'));
+  );
+  const VerifyCertificate = lazy(
+    () => import('#/pages/verify-certificate/verifyCertificate'),
+    );
+    const TotalResults = lazy(() => import('#/pages/total-results/totalResults'));
+    const FilterPage = lazy(() => import('#/pages/results/filter'));
+    
+    const DeskData = lazy (() => import ('#/pages/desk-data/DeskData'));
+    const SecondStep = lazy (() => import ('#/pages/second-step/secondStep'))
+
 
 const AppRoutes: React.FC = () => (
   <Routes>
@@ -32,6 +36,8 @@ const AppRoutes: React.FC = () => (
     <Route path="/verify-certificate" element={<VerifyCertificate />} />
     <Route path="/load-information" element={<LoadInformation />} />
     <Route path="/send-success" element={<SendSuccess />} />
+    <Route path = "/load-deskData" element={<DeskData />} />
+    <Route path = "/second-step" element={<SecondStep />} />
 
     {/* Filters & Results */}
     <Route path="/filter-results" element={<FilterPage />} />
