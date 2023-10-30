@@ -1,19 +1,19 @@
-import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react';
+
 import Button from '#/components/button';
-import './styles.css';
 import ProgressIndicator from '#/components/progressIndicator';
 import FormHeader from '#/components/formHeader';
+
 import { ProgressStepStatus } from '#/components/progressIndicator/types';
+import './styles.css';
 
-
-const SecondStep = () => {
+const VerifyCertificate = () => {
   return (
-    <section className='items-center flex flex-col '>
+    <section className="items-center flex flex-col ">
       <FormHeader routerLink="/" title="Cargá el certificado del fiscal" />
-      <div className='p-4 w-full'>
-        <div className='container mx-auto flex-column my-210'>
+      <div className="p-4 w-full">
+        <div className="container mx-auto flex-column my-210">
           <ProgressIndicator
             steps={[
               ProgressStepStatus.Active,
@@ -21,36 +21,36 @@ const SecondStep = () => {
               ProgressStepStatus.Pending,
             ]}
           />
-          <div className='flex items-center justify-center my-210'>
-            <div>
-            </div>
+          <div className="flex items-center justify-center my-210">
+            <div></div>
             {/* TODO: Add ProgressIndicator (FINISHED) <ProgressIndicator step_one='successful' step_two='successful'step_three='successful' step_four='successful' /> */}
           </div>
 
-          <div className=''>
-            <div className='p-4 mx-10 text-start my-2 mx-12 text-xl font-bold'>
-
+          <div className="">
+            <div className="p-4 text-start my-2 mx-12 text-xl font-bold">
               <span>Cargá el certificado del fiscal.</span>
               {/* TODO: Pensar los espaciados y quizá el width de la img */}
             </div>
           </div>
-          <div className='flex items-center my-210 text-lg-300 w-305'>
-            <div className='p-4 mx-10 text-start mx-12 text-base'>
-              <span>Chequeá que la imagen se vea nítida y completa antes de subirla.</span>
+          <div className="flex items-center my-210 text-lg-300 w-305">
+            <div className="p-4 text-start mx-12 text-base">
+              <span>
+                Chequeá que la imagen se vea nítida y completa antes de subirla.
+              </span>
             </div>
           </div>
 
-          <div className='flex items-center justify-center my-2'>
+          <div className="flex items-center justify-center my-2">
             <img
-              src='src/assets/images/certfFiscal-test.png'
-              alt='data sent successful'
-              className='object-cover rounded w-100 h-auto'
+              src="src/assets/images/certfFiscal-test.png"
+              alt="data sent successful"
+              className="object-cover rounded w-100 h-auto"
             />
           </div>
 
           <div className="flex items-center text-sm my-10">
             <div className="flex items-center px-12">
-              <div className='p-2 '>
+              <div className="p-2 ">
                 <div className="inline-flex items-center">
                   <label
                     className="relative flex items-center p-3 rounded-full cursor-pointer"
@@ -78,24 +78,22 @@ const SecondStep = () => {
                       </svg>
                     </div>
                   </label>
-                  <label
-                    className="mt-px font-light text-gray-700 cursor-pointer select-none"
-                  >
-                  </label>
+                  <label className="mt-px font-light text-gray-700 cursor-pointer select-none"></label>
                 </div>
               </div>
-              <div className='p-3'>
+              <div className="p-3">
                 <h3 className="text-start">
-                  Verifico que la imagen está firmada por el presidente de mesa y fue completado por mí previamente.
+                  Verifico que la imagen está firmada por el presidente de mesa
+                  y fue completado por mí previamente.
                 </h3>
               </div>
             </div>
           </div>
           {/* TODO: Agregar lógica de documento a los botones*/}
           {/* TODO: Agregar lógica de documento al reintentar */}
-          <div className='flex items-center justify-center w-full'>
+          <div className="flex items-center justify-center w-full">
             {/* TODO: Mover a Dashboard */}
-            <Link to='/'>
+            <Link to="/">
               <Button
                 className="w-full p-4 text-xl font-semibold tracking-wider text-white bg-violet-brand rounded-xl"
                 type="submit"
@@ -104,13 +102,13 @@ const SecondStep = () => {
             </Link>
           </div>
 
-          <div className='flex items-center justify-center my-10'>
+          <div className="flex items-center justify-center my-10">
             {/* TODO: Mover a Dashboard */}
-            <Link to='/'>
+            <Link to="/">
               <Button
-                className='px-10 py-2 w-full rounded-xl text-xl tracking-wider border-2 border-gray-200 text-gray-300'
-                type='submit'
-                label='Reintentar'
+                className="px-10 py-2 w-full rounded-xl text-xl tracking-wider border-2 border-gray-200 text-gray-300"
+                type="submit"
+                label="Reintentar"
               />
             </Link>
           </div>
@@ -120,6 +118,6 @@ const SecondStep = () => {
   );
 };
 
-export const secondStep = observer(SecondStep);
+export const VerifyCertificatePage = observer(VerifyCertificate);
 
-export default SecondStep;
+export default VerifyCertificatePage;
