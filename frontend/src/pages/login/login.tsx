@@ -1,10 +1,10 @@
 import { useNavigate, Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { observer } from 'mobx-react-lite';
+import * as yup from 'yup';
 import Button from '#/components/button';
 import Input from '#/components/input';
 import { ILoginProps } from './types';
-import * as yup from 'yup';
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -16,8 +16,8 @@ const LoginPage: React.FC = () => {
   };
 
   const validationSchema = yup.object({
-    dni: yup.string().required('Required field'),
-    password: yup.string().required('Required field'),
+    dni: yup.string().required('Campo requerido'),
+    password: yup.string().required('Campo requerido'),
   });
 
   const { handleSubmit, handleBlur, handleChange, errors, touched } = useFormik(
