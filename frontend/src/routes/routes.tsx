@@ -1,3 +1,4 @@
+import { LoadingPage } from '#/pages/loading-page';
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
@@ -18,6 +19,7 @@ const AppRoutes: React.FC = () => (
     <Route path="/send-success" element={<SendSuccess />} />
     <Route path="/load-data" element={<LoadData />} />
     <Route path="/upload-certificate" element={<UploadCertificate />} />
+    <Route path="/loading-page" element={<LoadingPage />} />
     <Route path="/" element={<Login />} />
   </Routes>
 );
