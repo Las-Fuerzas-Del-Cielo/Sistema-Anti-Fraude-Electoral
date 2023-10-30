@@ -1,14 +1,7 @@
 import { toast, Toaster, ToastPosition } from 'react-hot-toast';
 import { ToastiBarProps } from './types';
 
-const toastiBar = ({
-  text,
-  action,
-  close,
-  twoLine,
-  textTwo,
-  actionText,
-}: ToastiBarProps) => {
+const toastiBar = ({ text, action, close, twoLine, textTwo, actionText }: ToastiBarProps) => {
   let longerAction = false;
 
   if (actionText && actionText?.length > 7) {
@@ -35,45 +28,30 @@ const toastiBar = ({
           <p>{text}</p>
           {textTwo && <p>{textTwo}</p>}
         </div>
-        <div
-          className={`flex gap-3 ${
-            longerAction ? 'w-full justify-end' : 'w-3/12'
-          }`}
-        >
+        <div className={`flex gap-3 ${longerAction ? 'w-full justify-end' : 'w-3/12'}`}>
           {action && (
-            <div
-              className={`${
-                longerAction ? 'w-2/12' : 'w-3/4'
-              } flex justify-center items-center`}
-            >
-              <p role="button" onClick={() => action()}>
+            <div className={`${longerAction ? 'w-2/12' : 'w-3/4'} flex justify-center items-center`}>
+              <p role='button' onClick={() => action()}>
                 {actionText}
               </p>
             </div>
           )}
           {close && (
-            <div
-              className={`${
-                longerAction ? 'w-1/12' : 'w-1/4'
-              } flex justify-center items-center`}
-            >
-              <p role="button" onClick={() => toast.dismiss(t.id)}>
-                <img
-                  className="w-4 h-4"
-                  src="/src/assets/icon/close.svg"
-                  alt=""
-                />
+            <div className={`${longerAction ? 'w-1/12' : 'w-1/4'} flex justify-center items-center`}>
+              <p role='button' onClick={() => toast.dismiss(t.id)}>
+                <img alt='' className='w-4 h-4' src='/src/assets/icon/close.svg' />
               </p>
             </div>
           )}
         </div>
       </div>
     ),
-    config,
+    config
   );
 };
 
 export const SnackBar = (props: ToastiBarProps) => {
   toastiBar(props);
+
   return <Toaster />;
 };

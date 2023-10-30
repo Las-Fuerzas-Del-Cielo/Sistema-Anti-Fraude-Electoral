@@ -1,3 +1,3 @@
 export interface ILoadingIndicatorProps {
-    className: string
+  className: string;
 }

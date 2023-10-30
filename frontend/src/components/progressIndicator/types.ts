@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export enum ProgressStepStatus {
   Pending = 'pending',
   Active = 'active',

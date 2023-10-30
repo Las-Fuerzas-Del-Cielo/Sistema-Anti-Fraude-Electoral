@@ -1,15 +1,13 @@
-import { useCallback, useEffect, useState } from "react";
-import { useEventListener } from "./use-event-listener";
+import { useCallback, useEffect, useState } from 'react';
+import { useEventListener } from './use-event-listener';
 
 interface Size {
   width: number;
   height: number;
 }
 
-export function useElementSize<T extends HTMLElement = HTMLDivElement>(): [
-  (node: T | null) => void,
-  Size
-] {
+// eslint-disable-next-line no-unused-vars
+export function useElementSize<T extends HTMLElement = HTMLDivElement>(): [(node: T | null) => void, Size] {
   const [ref, setRef] = useState<T | null>(null);
   const [size, setSize] = useState<Size>({
     width: 0,
@@ -23,7 +21,7 @@ export function useElementSize<T extends HTMLElement = HTMLDivElement>(): [
     });
   }, [ref?.offsetHeight, ref?.offsetWidth]);
 
-  useEventListener("resize", handleSize);
+  useEventListener('resize', handleSize);
 
   useEffect(() => {
     handleSize();

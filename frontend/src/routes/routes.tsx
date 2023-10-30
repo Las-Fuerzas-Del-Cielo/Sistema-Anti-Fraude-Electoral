@@ -13,30 +13,29 @@ const TotalResults = lazy(() => import('#/pages/total-results/totalResults'));
 const FilterPage = lazy(() => import('#/pages/results/filter'));
 const DeskData = lazy(() => import('#/pages/desk-data/DeskData'));
 
-
 const AppRoutes: React.FC = () => (
   <Routes>
     {/* Auth */}
-    <Route path="/login" element={<Login />} />
+    <Route element={<Login />} path='/login' />
 
     {/* Cuenta */}
-    <Route path="/dashboard" element={<Dashboard />} />
-    <Route path="/profile" element={<Profile />} />
+    <Route element={<Dashboard />} path='/dashboard' />
+    <Route element={<Profile />} path='/profile' />
 
     {/* Steps Formulario */}
-    <Route path="/upload-certificate" element={<UploadCertificate />} />
-    <Route path="/verify-certificate" element={<VerifyCertificate />} />
-    <Route path="/load-information" element={<LoadInformation />} />
-    <Route path="/send-success" element={<SendSuccess />} />
-    <Route path="/load-desk-data" element={<DeskData />} />
+    <Route element={<UploadCertificate />} path='/upload-certificate' />
+    <Route element={<VerifyCertificate />} path='/verify-certificate' />
+    <Route element={<LoadInformation />} path='/load-information' />
+    <Route element={<SendSuccess />} path='/send-success' />
+    <Route element={<DeskData />} path='/load-desk-data' />
 
     {/* Filters & Results */}
-    <Route path="/filter-results" element={<FilterPage />} />
-    <Route path="/total-results" element={<TotalResults />} />
+    <Route element={<FilterPage />} path='/filter-results' />
+    <Route element={<TotalResults />} path='/total-results' />
 
     {/* Utils */}
-    <Route path="/loading-page" element={<LoadingPage />} />
-    <Route path="/" element={<Login />} />
+    <Route element={<LoadingPage />} path='/loading-page' />
+    <Route element={<Login />} path='/' />
   </Routes>
 );
 

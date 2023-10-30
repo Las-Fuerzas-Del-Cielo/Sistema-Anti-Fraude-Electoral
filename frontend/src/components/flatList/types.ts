@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 type UpdateTotalVotesFunction = (votesDifference: number) => void;
 
 export enum FlatListTypeEnum {

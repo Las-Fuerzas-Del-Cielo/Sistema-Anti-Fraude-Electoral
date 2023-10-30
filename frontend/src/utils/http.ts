@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
-import { sleep } from './utils';
 import { eventBus } from './event-bus';
+import { sleep } from './utils';
 
 type Data = Record<string, any>;
 
@@ -45,52 +46,28 @@ export class Http {
     return axios.get(path, options).then(this.mapData).catch(this.handleError);
   }
 
-  public async post(
-    path: string,
-    data?: Data,
-    options: AxiosRequestConfig = {}
-  ) {
+  public async post(path: string, data?: Data, options: AxiosRequestConfig = {}) {
     await this.waitForConnection().catch();
 
-    return axios
-      .post(path, data, options)
-      .then(this.mapData)
-      .catch(this.handleError);
+    return axios.post(path, data, options).then(this.mapData).catch(this.handleError);
   }
 
-  public async put(
-    path: string,
-    data?: Data,
-    options: AxiosRequestConfig = {}
-  ) {
+  public async put(path: string, data?: Data, options: AxiosRequestConfig = {}) {
     await this.waitForConnection().catch();
 
-    return axios
-      .put(path, data, options)
-      .then(this.mapData)
-      .catch(this.handleError);
+    return axios.put(path, data, options).then(this.mapData).catch(this.handleError);
   }
 
-  public async patch(
-    path: string,
-    data?: Data,
-    options: AxiosRequestConfig = {}
-  ) {
+  public async patch(path: string, data?: Data, options: AxiosRequestConfig = {}) {
     await this.waitForConnection().catch();
 
-    return axios
-      .patch(path, data, options)
-      .then(this.mapData)
-      .catch(this.handleError);
+    return axios.patch(path, data, options).then(this.mapData).catch(this.handleError);
   }
 
   public async delete(path: string, options: AxiosRequestConfig = {}) {
     await this.waitForConnection().catch();
 
-    return axios
-      .delete(path, options)
-      .then(this.mapData)
-      .catch(this.handleError);
+    return axios.delete(path, options).then(this.mapData).catch(this.handleError);
   }
 
   private mapData = (result: AxiosResponse<any>) => {
@@ -105,6 +82,7 @@ export class Http {
         this.handleError(result?.data?.errors[0]);
       }
     }
+
     return result.data;
   };
 

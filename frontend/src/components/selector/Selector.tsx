@@ -14,18 +14,18 @@ function Selector(props: ISelectorProps) {
     <Select onValueChange={(aux) => setValue(aux)}>
       <SelectTrigger id={'selector'}>
         <label
-          htmlFor={'selector'}
           className={`absolute left-0 px-3 transition-all duration-300 ease-in-out transform ${
             value ? '-translate-y-1/3 text-xs font-thin' : ' text-md'
           } pointer-events-none`}
+          htmlFor={'selector'}
         >
           {props.placeholder}
         </label>
-        <span className="transform translate-y-1/2">{value}</span>
+        <span className='transform translate-y-1/2'>{value}</span>
       </SelectTrigger>
       <SelectContent>
         {props?.provincias?.map((provincia, index) => (
-          <SelectItem value={provincia} key={`${provincia} ${index}`}>
+          <SelectItem key={`${provincia} ${index}`} value={provincia}>
             {provincia}
           </SelectItem>
         ))}
