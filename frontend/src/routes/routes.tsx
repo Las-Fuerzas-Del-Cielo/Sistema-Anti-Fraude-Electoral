@@ -5,21 +5,13 @@ import { Route, Routes } from 'react-router-dom';
 const Login = lazy(() => import('#/pages/login/login'));
 const Profile = lazy(() => import('#/pages/profile/profile'));
 const SendSuccess = lazy(() => import('#/pages/send-success/sendSuccess'));
-const LoadInformation = lazy(
-  () => import('#/pages/load-information/loadInformation'),
-);
+const LoadInformation = lazy(() => import('#/pages/load-information/loadInformation'));
 const Dashboard = lazy(() => import('#/pages/dashboard/dashboard'));
-const UploadCertificate = lazy(
-  () => import('#/pages/upload-certificate/uploadCertificate'),
-  );
-  const VerifyCertificate = lazy(
-    () => import('#/pages/verify-certificate/verifyCertificate'),
-    );
-    const TotalResults = lazy(() => import('#/pages/total-results/totalResults'));
-    const FilterPage = lazy(() => import('#/pages/results/filter'));
-    
-    const DeskData = lazy (() => import ('#/pages/desk-data/DeskData'));
-    const SecondStep = lazy (() => import ('#/pages/second-step/secondStep'))
+const UploadCertificate = lazy(() => import('#/pages/upload-certificate/uploadCertificate'));
+const VerifyCertificate = lazy(() => import('#/pages/verify-certificate/verifyCertificate'));
+const TotalResults = lazy(() => import('#/pages/total-results/totalResults'));
+const FilterPage = lazy(() => import('#/pages/results/filter'));
+const DeskData = lazy(() => import('#/pages/desk-data/DeskData'));
 
 
 const AppRoutes: React.FC = () => (
@@ -36,8 +28,7 @@ const AppRoutes: React.FC = () => (
     <Route path="/verify-certificate" element={<VerifyCertificate />} />
     <Route path="/load-information" element={<LoadInformation />} />
     <Route path="/send-success" element={<SendSuccess />} />
-    <Route path = "/load-deskData" element={<DeskData />} />
-    <Route path = "/second-step" element={<SecondStep />} />
+    <Route path="/load-desk-data" element={<DeskData />} />
 
     {/* Filters & Results */}
     <Route path="/filter-results" element={<FilterPage />} />
