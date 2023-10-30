@@ -22,38 +22,38 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
   const [envelopes, setEnvelopes] = useState<number>(0);
 
   const [totalVotes, setTotalVotes] = useState<number>(0);
-  const [correctData, setCorrectData] = useState(false);
+  const [correctData, setCorrectData] = useState<boolean>(false);
 
   const handleCircuitChange = (value: number) => {
-    const newValue = Number(value);
+    const newValue: number = value;
     if (newValue >= 0) {
       setCircuit(newValue);
     }
   };
 
   const handleTableChange = (value: number) => {
-    const newValue = Number(value);
+    const newValue: number = value;
     if (newValue >= 0) {
       setTable(newValue);
     }
   };
 
   const handleElectorsChange = (value: number) => {
-    const newValue = Number(value);
+    const newValue: number = value;
     if (newValue >= 0) {
       setElectors(newValue);
     }
   };
 
   const handleEnvelopesChange = (value: number) => {
-    const newValue = Number(value);
+    const newValue: number = value;
     if (newValue >= 0) {
       setEnvelopes(newValue);
     }
   };
 
   const updateTotalVotes = (newValue: number) => {
-    setTotalVotes((prevTotal) => prevTotal + newValue);
+    setTotalVotes((prevTotal: number) => prevTotal + newValue);
   };
 
   const handleCheckbox = () => {
@@ -61,16 +61,21 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
   };
 
   // Conditional styles
-  const selectedInputStyle = 'border-2 border-violet-brand !text-black';
-  const circuitInputStyle = circuit > 0 ? selectedInputStyle : null;
-  const tableInputStyle = table > 0 ? selectedInputStyle : null;
-  const electorsInputStyle = electors > 0 ? selectedInputStyle : null;
-  const envelopesInputStyle = envelopes > 0 ? selectedInputStyle : null;
+  const selectedInputStyle: string = 'border-2 border-violet-brand !text-black';
 
-  const electorsEnvelopesDiffStyle =
+  const circuitInputStyle: string | null =
+    circuit > 0 ? selectedInputStyle : null;
+  const tableInputStyle: string | null = table > 0 ? selectedInputStyle : null;
+  const electorsInputStyle: string | null =
+    electors > 0 ? selectedInputStyle : null;
+  const envelopesInputStyle: string | null =
+    envelopes > 0 ? selectedInputStyle : null;
+
+  const electorsEnvelopesDiffStyle: string | null =
     electors - envelopes > 4 ? 'text-red' : null;
 
-  const totalVotesDiffStyle = envelopes - totalVotes != 0 ? '!text-red' : null;
+  const totalVotesDiffStyle: string | null =
+    envelopes - totalVotes != 0 ? '!text-red' : null;
 
   const flatList = [
     {
@@ -156,8 +161,10 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
             <input
               type="number"
               value={circuit}
-              onChange={(e) => handleCircuitChange(Number(e.target.value))}
-              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-28 flex text-2xl ${circuitInputStyle}`}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                handleCircuitChange(Number(e.target.value))
+              }
+              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-32 flex text-2xl ${circuitInputStyle}`}
             />
           </div>
           <div>
@@ -165,8 +172,10 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
             <input
               type="number"
               value={table}
-              onChange={(e) => handleTableChange(Number(e.target.value))}
-              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-28 flex text-2xl ${tableInputStyle}`}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                handleTableChange(Number(e.target.value))
+              }
+              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-32 flex text-2xl ${tableInputStyle}`}
             />
           </div>
         </div>
@@ -178,8 +187,10 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
             <input
               type="number"
               value={electors}
-              onChange={(e) => handleElectorsChange(Number(e.target.value))}
-              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-28 flex text-2xl ${electorsInputStyle}`}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                handleElectorsChange(Number(e.target.value))
+              }
+              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-32 flex text-2xl ${electorsInputStyle}`}
             />
           </div>
         </div>
@@ -191,8 +202,10 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
             <input
               type="number"
               value={envelopes}
-              onChange={(e) => handleEnvelopesChange(Number(e.target.value))}
-              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-28 flex text-2xl ${envelopesInputStyle}`}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                handleEnvelopesChange(Number(e.target.value))
+              }
+              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-32 flex text-2xl ${envelopesInputStyle}`}
             />
           </div>
         </div>
