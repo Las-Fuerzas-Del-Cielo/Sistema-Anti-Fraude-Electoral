@@ -66,6 +66,9 @@
             ],
             "#routes/*": [
                 "src/routes/*"
+            ],
+            "#lib/*": [
+                "src/lib/*"
             ]
         }
     },
