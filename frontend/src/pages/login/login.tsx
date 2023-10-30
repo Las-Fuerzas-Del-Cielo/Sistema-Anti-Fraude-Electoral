@@ -63,12 +63,18 @@ const LoginPage: React.FC = () => {
             />
           </div>
           <div className="flex flex-col items-center text-lg">
-            <Button label="Ingresar" variant="default" onClick={handleClick} type="submit"/>
             <Button
-              label="¿Necesitas ayuda?"
-              variant="outline"
+              className="w-full p-4 text-xl font-semibold tracking-wider text-white bg-violet-brand rounded-xl"
+              type="submit"
+              label="Ingresar"
               onClick={handleClick}
             />
+            <a
+              href="#"
+              className="mt-8 text-lg text-center text-gray-600 underline"
+            >
+              ¿Necesitas ayuda?
+            </a>
           </div>
         </form>
       </div>

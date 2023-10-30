@@ -1,7 +1,6 @@
-export interface ButtonProps {
+export interface IButtonProps {
+  type: 'button' | 'submit' | 'reset';
+  className: string;
   label: string;
-  onClick: () => void;
-  className?: string;
-  variant?: 'default' | 'secondary' | 'inactive' | 'warning' | 'outline';
-  type?: 'button' | 'submit' | 'reset';
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
