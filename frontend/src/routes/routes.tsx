@@ -1,3 +1,4 @@
+import { LoadingPage } from '#/pages/loading-page';
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
@@ -25,6 +26,7 @@ const AppRoutes: React.FC = () => (
     <Route path="/inicio" element={<Inicio />} />
     <Route path="/results" element={<FilterPage />} />
     <Route path="/second-step" element={ <SecondStep />}></Route>
+    <Route path="/loading-page" element={<LoadingPage />} />
     <Route path="/" element={<Login />} />
   </Routes>
 );
