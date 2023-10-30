@@ -4,11 +4,6 @@ import { ERROR_CODES } from '../utils/errorConstants';
 import { ReportFaltaFiscal, Mesa, Escuela, ResultadoRegistroS3 } from '../types/models';
 import { generateUniqueId } from '../utils/generateUniqueId';
 
-// Definir tipos específicos para los ID
-type FiscalId = string;
-type MesaId = string;
-type EscuelaId = string;
-
 export const getMesaData: RequestHandler = (req, res) => {
   // Mocked Logic
   res.status(200).json({ mesaData: 'some mesa data' })
@@ -17,10 +12,10 @@ export const getMesaData: RequestHandler = (req, res) => {
 export const searchMesas: RequestHandler = (req, res) => {
   // Mocked Logic
   res.status(200).json({ mesas: ['Mesa 1', 'Mesa 2'] })
-}
+} 
 
 export const reportarFaltaFiscal: RequestHandler = async (req, res) => {
-  const { fiscalId, mesaId, escuelaId }: { fiscalId: FiscalId; mesaId: MesaId; escuelaId: EscuelaId } = req.body;
+  const { fiscalId, mesaId, escuelaId }: { fiscalId: string; mesaId: string; escuelaId: string } = req.body;
 
   // Validación básica de los datos de entrada
   if (!fiscalId || !mesaId || !escuelaId) {
@@ -30,13 +25,13 @@ export const reportarFaltaFiscal: RequestHandler = async (req, res) => {
 
   try {
     // Validar que el fiscal es un fiscal general
-    const esFiscalGeneral = await validarFiscalGeneral(fiscalId);
+    const esFiscalGeneral: boolean = await validarFiscalGeneral(fiscalId);
     if (!esFiscalGeneral) {
       return res.status(ERROR_CODES.UNAUTHORIZED_GENERAL.status).json({ message: ERROR_CODES.UNAUTHORIZED_GENERAL.message });
     }
 
     // Detectar la institución del fiscal general
-    const institucion = await getInstitucionDeFiscal(fiscalId);
+    const institucion: string = await getInstitucionDeFiscal(fiscalId);
     if (!institucion) {
       return res.status(ERROR_CODES.INSTITUTION_NOT_FOUND.status).json({ message: ERROR_CODES.INSTITUTION_NOT_FOUND.message });
     }
@@ -76,7 +71,7 @@ export const reportarFaltaFiscal: RequestHandler = async (req, res) => {
 // Aquí irían las implementaciones de las funciones auxiliares
 // validarFiscalGeneral, obtenerInstitucionDeFiscal, validarMesaYEscuela, registrarReporteEnS3
 
-async function validarFiscalGeneral(fiscalId: FiscalId): Promise<boolean> {
+async function validarFiscalGeneral(fiscalId: string): Promise<boolean> {
   // Lógica para verificar en la base de datos si el fiscal es general
   // Ejemplo:
   // const fiscal = await FiscalModel.findById(fiscalId);
@@ -84,7 +79,7 @@ async function validarFiscalGeneral(fiscalId: FiscalId): Promise<boolean> {
   return true; // Simulación, reemplazar con la lógica real
 }
 
-async function getInstitucionDeFiscal(fiscalId: FiscalId): Promise<string|null> {
+async function getInstitucionDeFiscal(fiscalId: string): Promise<string> {
   // Lógica para obtener la institución del fiscal
   // Ejemplo:
   // const fiscal = await FiscalModel.findById(fiscalId);
@@ -92,7 +87,7 @@ async function getInstitucionDeFiscal(fiscalId: FiscalId): Promise<string|null> 
   return 'Institución XYZ'; // Simulación, reemplazar con la lógica real
 }
 
-async function validateMesaYEscuela(mesaId: MesaId, escuelaId: EscuelaId): Promise<boolean> {
+async function validateMesaYEscuela(mesaId: string, escuelaId: string): Promise<boolean> {
   // Lógica para validar que la mesa pertenece a la escuela
   // Ejemplo:
   // const mesa = await MesaModel.findById(mesaId);
