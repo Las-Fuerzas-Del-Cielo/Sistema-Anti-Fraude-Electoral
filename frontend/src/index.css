@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-
   /* Normal Fonts */
   @font-face {
     font-family: 'Poppins';
@@ -58,6 +57,17 @@
     font-display: auto;
 
     src: url(./assets/fonts/Poppins-SemiBoldItalic.ttf);
+  }
+}
+
+@layer base {
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number'] {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield !important;
+    appearance: none;
   }
 }
 

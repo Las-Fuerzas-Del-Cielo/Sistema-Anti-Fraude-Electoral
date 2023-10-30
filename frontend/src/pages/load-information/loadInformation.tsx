@@ -157,7 +157,7 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
               type="number"
               value={circuit}
               onChange={(e) => handleCircuitChange(Number(e.target.value))}
-              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-28 flex text-xl ${circuitInputStyle}`}
+              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-28 flex text-2xl ${circuitInputStyle}`}
             />
           </div>
           <div>
@@ -166,7 +166,7 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
               type="number"
               value={table}
               onChange={(e) => handleTableChange(Number(e.target.value))}
-              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-28 flex text-xl ${tableInputStyle}`}
+              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-28 flex text-2xl ${tableInputStyle}`}
             />
           </div>
         </div>
@@ -179,7 +179,7 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
               type="number"
               value={electors}
               onChange={(e) => handleElectorsChange(Number(e.target.value))}
-              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-28 flex text-xl ${electorsInputStyle}`}
+              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-28 flex text-2xl ${electorsInputStyle}`}
             />
           </div>
         </div>
@@ -192,7 +192,7 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
               type="number"
               value={envelopes}
               onChange={(e) => handleEnvelopesChange(Number(e.target.value))}
-              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-28 flex text-xl ${envelopesInputStyle}`}
+              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-28 flex text-2xl ${envelopesInputStyle}`}
             />
           </div>
         </div>
