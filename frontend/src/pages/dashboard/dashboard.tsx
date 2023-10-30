@@ -25,11 +25,13 @@ const DashboardPage = () => {
                 type='submit'
               />
             </Link>
-            <Button
+            <Link
               className='border-2 border-violet-brand text-violet-brand bg-transparent p-3 w-full rounded-xl text-xl tracking-wider shadow-md hover:border-violet-light'
-              label='Ver resultados'
+              to='/total-results'
               type='submit'
-            />
+            >
+              Ver resultados
+            </Link>
             <Button
               className='border-2 border-red text-red bg-transparent p-3 w-full rounded-xl text-xl tracking-wider shadow-md hover:border-violet-light'
               label='Denunciar Irregularidades'

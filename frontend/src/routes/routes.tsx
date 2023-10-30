@@ -5,25 +5,35 @@ import { Route, Routes } from 'react-router-dom';
 const Login = lazy(() => import('#/pages/login/login'));
 const Profile = lazy(() => import('#/pages/profile/profile'));
 const SendSuccess = lazy(() => import('#/pages/send-success/sendSuccess'));
-const LoadData = lazy(() => import('#/pages/load-data/loadData'));
+const LoadInformation = lazy(() => import('#/pages/load-information/loadInformation'));
 const Dashboard = lazy(() => import('#/pages/dashboard/dashboard'));
-const TotalResults = lazy(() => import('#/pages/total-results/totalResults'));
 const UploadCertificate = lazy(() => import('#/pages/upload-certificate/uploadCertificate'));
-const SecondStep = lazy(() => import('#/pages/second-step/secondStep'));
+const VerifyCertificate = lazy(() => import('#/pages/verify-certificate/verifyCertificate'));
+const TotalResults = lazy(() => import('#/pages/total-results/totalResults'));
 const FilterPage = lazy(() => import('#/pages/results/filter'));
+const DeskData = lazy(() => import('#/pages/desk-data/DeskData'));
 
 const AppRoutes: React.FC = () => (
   <Routes>
+    {/* Auth */}
     <Route element={<Login />} path='/login' />
+
+    {/* Cuenta */}
     <Route element={<Dashboard />} path='/dashboard' />
     <Route element={<Profile />} path='/profile' />
-    <Route element={<SendSuccess />} path='/send-success' />
-    <Route element={<LoadData />} path='/load-data' />
+
+    {/* Steps Formulario */}
     <Route element={<UploadCertificate />} path='/upload-certificate' />
-    <Route element={<FilterPage />} path='/results' />
+    <Route element={<VerifyCertificate />} path='/verify-certificate' />
+    <Route element={<LoadInformation />} path='/load-information' />
+    <Route element={<SendSuccess />} path='/send-success' />
+    <Route element={<DeskData />} path='/load-desk-data' />
+
+    {/* Filters & Results */}
+    <Route element={<FilterPage />} path='/filter-results' />
     <Route element={<TotalResults />} path='/total-results' />
-    <Route element={<FilterPage />} path='/results' />
-    <Route element={<SecondStep />} path='/second-step' />
+
+    {/* Utils */}
     <Route element={<LoadingPage />} path='/loading-page' />
     <Route element={<Login />} path='/' />
   </Routes>

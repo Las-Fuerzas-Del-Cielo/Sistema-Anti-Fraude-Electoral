@@ -2,7 +2,7 @@ import Button from '#/components/button';
 import Input from '#/components/input';
 import { useFormik } from 'formik';
 import { observer } from 'mobx-react-lite';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ILoginProps } from './types';
 
 const LoginPage: React.FC = () => {
@@ -56,9 +56,10 @@ const LoginPage: React.FC = () => {
               type='submit'
               onClick={handleClick}
             />
-            <a className='mt-8 text-lg text-center text-gray-600 underline' href='#'>
-              ¿Necesitas ayuda?
-            </a>
+
+            <Link className='mt-8 text-lg text-center text-gray-600 underline' to='total-results'>
+              Ir a resultados
+            </Link>
           </div>
         </form>
       </div>

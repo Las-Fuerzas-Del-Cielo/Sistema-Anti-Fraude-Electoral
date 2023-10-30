@@ -136,6 +136,29 @@
           }
         }
       }
+    },
+    "/upload": {
+      "post": {
+        "summary": "Upload a file to the server",
+        "consumes": ["multipart/form-data"],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "file",
+            "type": "file",
+            "required": true,
+            "description": "File to upload"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "File uploaded successfully"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
     }
   }
 }

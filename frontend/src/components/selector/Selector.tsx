@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger } from './Exports';
-interface Props {
+
+interface ISelectorProps {
   placeholder: string;
   provincias: string[];
 }
 
-function Selector(props: Props) {
+function Selector(props: ISelectorProps) {
   // TODO: HANDLE VALUE FROM PARENT BY PROPS
   const [value, setValue] = useState<string>('');
 

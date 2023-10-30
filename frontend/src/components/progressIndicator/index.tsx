@@ -17,7 +17,7 @@ const ProgressIndicator = ({ steps }: IProgressIndicatorProps) => {
             }`}
           >
             {step === ProgressStepStatus.Successful ? (
-              <img alt='' className='w-4 h-4' src='src/assets/icon/check-icono.svg' />
+              <img alt='' className='w-4 h-4' src='src/assets/icon/check-icon.svg' />
             ) : (
               <span className='font-normal text-xl'>{(index + 1).toString()}</span>
             )}

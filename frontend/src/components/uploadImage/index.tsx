@@ -1,7 +1,7 @@
 import { getBase64 } from '#/utils';
 
 // eslint-disable-next-line no-unused-vars
-export function UploadImage({ onUpload }: { onUpload: (image: string) => void }) {
+const UploadImage = ({ onUpload }: { onUpload: (image: string) => void }) => {
   async function onUploadInternal(file: File | null | undefined) {
     if (!file) return;
     const base64 = await getBase64(file);
@@ -56,4 +56,6 @@ export function UploadImage({ onUpload }: { onUpload: (image: string) => void })
       </label>
     </div>
   );
-}
+};
+
+export default UploadImage;

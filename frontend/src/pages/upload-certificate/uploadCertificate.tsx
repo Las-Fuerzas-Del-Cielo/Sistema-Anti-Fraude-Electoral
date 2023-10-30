@@ -1,14 +1,17 @@
+import { useState } from 'react';
+
 import FormHeader from '#/components/formHeader';
 import ProgressIndicator from '#/components/progressIndicator';
+import UploadImage from '#/components/uploadImage';
+
 import { ProgressStepStatus } from '#/components/progressIndicator/types';
-import { UploadImage } from '#/components/uploadImage';
-import { useState } from 'react';
+
 import './styles.css';
 
 const CheckItem = ({ text }: { text: string }) => (
   <div className='flex justify-space-around items-center gap-2 h-12'>
     <div className='flex justify-center items-center rounded-full bg-green-check text-white w-5 h-5 flex-shrink-0'>
-      <img alt='' className='w-3 h-3' src='src/assets/check-icono.svg' />
+      <img alt='' className='w-3 h-3' src='src/assets/icon/check-icon.svg' />
     </div>
     <p>{text}</p>
   </div>

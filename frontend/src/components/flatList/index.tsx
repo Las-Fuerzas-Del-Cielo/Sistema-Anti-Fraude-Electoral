@@ -1,31 +1,44 @@
 import { useState } from 'react';
 import { FlatListProps } from './types';
 
-const FlatList = ({ logo, type, subTitle, title, votes, edit = false }: FlatListProps) => {
+const FlatList = ({ logo, type, subTitle, title, votes, edit = false, updateTotalVotes }: FlatListProps) => {
   const [vote, setVote] = useState<number>(votes);
+
+  const handleVoteChange = (value: number) => {
+    const newValue: number = value;
+
+    if (newValue >= 0) {
+      setVote(newValue);
+      updateTotalVotes(newValue - vote);
+    }
+  };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const titleColor: any = {
     massa: 'text-sky-400',
     milei: 'text-violet-800',
-    blank: 'text-neutral-700',
-    noValidate: 'text-neutral-700',
-    absent: 'text-neutral-700',
+    null: 'text-neutral-500',
+    appealed: 'text-neutral-500',
+    contested: 'text-neutral-500',
+    electoralCommand: 'text-neutral-500',
+    blank: 'text-neutral-500',
   };
 
+  const selectedInputStyle: string | null = vote > 0 ? 'border-2 border-violet-brand !text-black' : null;
+
   return (
-    <div className='flex p-2 justify-between items-center w-full  max-w-md '>
+    <div className='flex p-2 justify-between items-center w-full  max-w-md gap-4'>
       <img alt='logo' className='w-16 h-16' src={logo} />
       <div className='flex flex-col justify-start items-start mt-3'>
         <label className={` ${titleColor[type]} text-xl font-bold leading-[15px]`}>{subTitle}</label>
         <label className={`text-neutral-700 mt-1 text-base font-semibold leading-7`}>{title}</label>
       </div>
       <input
-        className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-700 font-bold rounded-xl h-12 w-28 flex text-xl`}
+        className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-700 font-bold rounded-xl h-12 w-32 flex text-2xl ${selectedInputStyle}`}
         readOnly={!edit}
         type='number'
         value={vote}
-        onChange={(e) => setVote(Number(e.target.value))}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleVoteChange(Number(e.target.value))}
       />
     </div>
   );
