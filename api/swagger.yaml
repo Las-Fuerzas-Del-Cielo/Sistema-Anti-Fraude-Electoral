@@ -4,7 +4,6 @@ info:
   version: '1.0.0'
 
 paths:
-
   # User Features
   /api/users:
     post:
@@ -17,7 +16,7 @@ paths:
             schema:
               $ref: '#/components/schemas/User'
       responses:
-        '201': 
+        '201':
           description: User created
 
   # User Roles and Identity
@@ -29,7 +28,7 @@ paths:
       responses:
         '200':
           description: Roles returned
-  
+
   # Muestra Resultados Público
   /api/mesa/{id}:
     get:
@@ -52,14 +51,14 @@ paths:
       responses:
         '200':
           description: Denuncias list
-  
+
   /api/denuncia/{id}:
     get:
       summary: Get Specific Denuncia
       responses:
         '200':
           description: Denuncia data
-  
+
   # Fiscal General to Fiscal Mesa
   /api/fiscalizar:
     post:
@@ -72,9 +71,28 @@ paths:
             schema:
               $ref: '#/components/schemas/Fiscalizar'
       responses:
-        '201': 
+        '201':
           description: Fiscalization recorded
-  
+
+  # Upload File
+  /api/upload:
+    post:
+      summary: Upload a file to the server
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: File uploaded successfully
+        '500':
+          description: Internal server error
+
 components:
   schemas:
     User:
