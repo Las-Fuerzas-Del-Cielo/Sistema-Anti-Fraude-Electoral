@@ -8,19 +8,32 @@ const FlatList = ({
   title,
   votes,
   edit = false,
+  updateTotalVotes
 }: FlatListProps) => {
   const [vote, setVote] = useState<number>(votes);
+
+  const handleVoteChange = (value: number) => {
+    const newValue = Number(value);
+    if (newValue >= 0) {
+      setVote(newValue);
+      updateTotalVotes(newValue - vote);
+    }
+  }
 
   const titleColor: any = {
     massa: 'text-sky-400',
     milei: 'text-violet-800',
-    blank: 'text-neutral-700',
-    noValidate: 'text-neutral-700',
-    absent: 'text-neutral-700',
+    null: 'text-neutral-500',
+    appealed: 'text-neutral-500',
+    contested: 'text-neutral-500',
+    electoralCommand: 'text-neutral-500',
+    blank: 'text-neutral-500',
   };
 
+  const selectedInputStyle = vote > 0 ? 'border-2 border-violet-brand !text-black' : null;
+
   return (
-    <div className="flex p-2 justify-between items-center w-full  max-w-md ">
+    <div className="flex p-2 justify-between items-center w-full  max-w-md gap-4">
       <img src={logo} alt="logo" className="w-16 h-16" />
       <div className="flex flex-col justify-start items-start mt-3">
         <label
@@ -36,10 +49,10 @@ const FlatList = ({
       </div>
       <input
         type="number"
-        onChange={(e) => setVote(Number(e.target.value))}
+        onChange={(e) => handleVoteChange(Number(e.target.value))}
         value={vote}
         readOnly={!edit}
-        className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-700 font-bold rounded-xl h-12 w-28 flex text-xl`}
+        className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-700 font-bold rounded-xl h-12 w-28 flex text-xl ${selectedInputStyle}`}
       />
     </div>
   );
