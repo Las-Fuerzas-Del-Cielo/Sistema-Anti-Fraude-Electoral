@@ -25,7 +25,7 @@ export const searchVotingTables: RequestHandler = (req, res) => {
   res.status(200).json({ mesas: ['Mesa 1', 'Mesa 2'] })
 } 
 
-export const reportarFaltaFiscal: RequestHandler<ReportarFaltaFiscalParams, any, ReportarFaltaFiscalBody> = async (req, res) => {
+export const reportMissingAuditor: RequestHandler<ReportarFaltaFiscalParams, any, ReportarFaltaFiscalBody> = async (req, res) => {
   // Get mesaId from URL parameters
   const mesaId: string = req.params.id;
 

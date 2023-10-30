@@ -73,7 +73,7 @@
         }
       }
     },
-    "/voting-tables/{id}/reportarFaltaFiscal": {
+    "/voting-tables/{id}/report-missing-auditor": {
       "post": {
         "description": "Report a missing fiscal at a specific voting table",
         "parameters": [
@@ -83,11 +83,7 @@
             "required": true,
             "type": "string",
             "description": "The ID of the voting table"
-          }
-        ],
-        "consumes": ["application/json"],
-        "produces": ["application/json"],
-        "parameters": [
+          },
           {
             "name": "body",
             "in": "body",
@@ -198,6 +194,29 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    },
+    "/upload": {
+      "post": {
+        "summary": "Upload a file to the server",
+        "consumes": ["multipart/form-data"],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "file",
+            "type": "file",
+            "required": true,
+            "description": "File to upload"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "File uploaded successfully"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         }
       }

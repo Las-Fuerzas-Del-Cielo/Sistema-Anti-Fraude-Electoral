@@ -74,6 +74,25 @@ paths:
         '201':
           description: Fiscalization recorded
 
+  # Upload File
+  /api/upload:
+    post:
+      summary: Upload a file to the server
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: File uploaded successfully
+        '500':
+          description: Internal server error
+
 components:
   schemas:
     User:

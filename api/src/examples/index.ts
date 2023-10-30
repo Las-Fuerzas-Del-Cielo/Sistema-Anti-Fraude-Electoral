@@ -1,4 +1,3 @@
-require('dotenv').config()
 import fs from 'fs-extra'
 import path from 'path'
 import { DynamoDBClient, GetItemCommand, PutItemCommand } from '@aws-sdk/client-dynamodb'
