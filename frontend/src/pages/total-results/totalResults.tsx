@@ -1,11 +1,11 @@
-import Navbar from '#/components/navbar';
-import Button from '#/components/button';
 import { observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
+import Navbar from '#/components/navbar';
+import Button from '#/components/button';
 
-const inicioContent = () => {
-  const porcentajes = [61.05, 38.95];
-  const votos = ['16,482,688', '10,517,312'];
+const TotalResultsPage = () => {
+  const percentages = [61.05, 38.95];
+  const votes = ['16,482,688', '10,517,312'];
   return (
     <div className="bg-white h-screen flex flex-col">
       <Navbar />
@@ -35,10 +35,10 @@ const inicioContent = () => {
               />
               <div className="flex flex-col items-end mr-5 mt-2">
                 <span className="text-[12px] text-[#64748B]">
-                  {votos[0]} votos
+                  {votes[0]} votes
                 </span>
                 <p className="font-bold uppercase text-[#61439D] ">
-                  {porcentajes[1]}%
+                  {percentages[1]}%
                 </p>
               </div>
             </div>
@@ -46,7 +46,7 @@ const inicioContent = () => {
               <div className="w-[95%] rounded-md h-2 bg-[#CBD5E1]">
                 <div
                   className="h-full bg-[#61439D] rounded-l"
-                  style={{ width: `${porcentajes[0]}%` }}
+                  style={{ width: `${percentages[0]}%` }}
                 ></div>
               </div>
               <p className="text-[13px] font-bold uppercase text-[#61439D] flex items-start">
@@ -89,10 +89,10 @@ const inicioContent = () => {
               </svg>
               <div className="flex flex-col items-end mr-5 mt-2">
                 <span className="text-[12px] text-[#64748B]">
-                  {votos[1]} votos
+                  {votes[1]} votes
                 </span>
                 <p className="font-bold uppercase text-[#61439D] ">
-                  {porcentajes[1]}%
+                  {percentages[1]}%
                 </p>
               </div>
             </div>
@@ -100,7 +100,7 @@ const inicioContent = () => {
               <div className="w-[95%] rounded-md h-2 bg-[#CBD5E1]">
                 <div
                   className="h-full bg-[#61439D] rounded-l"
-                  style={{ width: `${porcentajes[1]}%` }}
+                  style={{ width: `${percentages[1]}%` }}
                 ></div>
               </div>
               <p className="text-[13px] font-bold uppercase text-[#61439D] flex items-start">
@@ -116,7 +116,7 @@ const inicioContent = () => {
       <div className="flex flex-col px-8 lg:px-60 mt-10">
         <div className="border border-t-1 opacity-70"></div>
         <div className="my-2">
-          <span className="text-[17px] text-[#64748B]">Total de votos</span>
+          <span className="text-[17px] text-[#64748B]">Total de votes</span>
           <p className="text-[25px] font-bold uppercase text-[#61439D]">
             27,000,000
           </p>
@@ -148,5 +148,5 @@ const inicioContent = () => {
   );
 };
 
-export const inicio = observer(inicioContent);
-export default inicio;
+export const TotalResults = observer(TotalResultsPage);
+export default TotalResults;
