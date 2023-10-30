@@ -9,6 +9,7 @@ const Dashboard = lazy(() => import('#/pages/dashboard/dashboard'));
 const UploadCertificate = lazy(
   () => import('#/pages/upload-certificate/uploadCertificate'),
 );
+const FilterPage = lazy(() => import('#/pages/results/filter'));
 
 const AppRoutes: React.FC = () => (
   <Routes>
@@ -19,6 +20,7 @@ const AppRoutes: React.FC = () => (
     <Route path="/load-data" element={<LoadData />} />
     <Route path="/upload-certificate" element={<UploadCertificate />} />
     <Route path="/" element={<Login />} />
+    <Route path="/results" element={<FilterPage />} />
   </Routes>
 );
 
