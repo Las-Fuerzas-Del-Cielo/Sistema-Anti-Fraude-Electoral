@@ -1,5 +1,4 @@
 #!/bin/bash
-##author: Samuel Onti <enrissmuelo@gmail.com>
 
 # Define the name of the Docker image and the name of the container
 DOCKER_IMAGE="app-frontend"

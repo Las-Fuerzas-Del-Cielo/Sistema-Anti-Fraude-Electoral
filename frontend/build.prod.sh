@@ -1,5 +1,4 @@
 #!/bin/bash
-##author: Samuel Onti <enrissmuelo@gmail.com>
 DOCKER_IMAGE="app-frontend-prod"
 CONTAINER_NAME="temp-container"
 
