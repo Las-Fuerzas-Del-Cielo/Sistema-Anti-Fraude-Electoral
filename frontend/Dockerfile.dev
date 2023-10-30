@@ -1,0 +1,14 @@
+##author:  Samuel Onti <enrissmuelo@gmail.com>
+FROM node:18-alpine as development
+
+WORKDIR /app
+
+COPY package.json yarn.lock ./
+
+RUN yarn
+
+COPY . .
+
+EXPOSE 5173
+
+CMD [ "yarn", "dev", "--host" ]
