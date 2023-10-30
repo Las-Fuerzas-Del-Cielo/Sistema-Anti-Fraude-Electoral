@@ -7,6 +7,8 @@ import { generateUniqueId } from '../utils/generateUniqueId';
 // Definir tipos específicos para los ID
 type FiscalId = string;
 type MesaId = string;
+type EscuelaId = string;
+
 export const getMesaData: RequestHandler = (req, res) => {
   // Mocked Logic
   res.status(200).json({ mesaData: 'some mesa data' })
@@ -18,7 +20,7 @@ export const searchMesas: RequestHandler = (req, res) => {
 }
 
 export const reportarFaltaFiscal: RequestHandler = async (req, res) => {
-  const { fiscalId, mesaId, escuelaId } = req.body;
+  const { fiscalId, mesaId, escuelaId }: { fiscalId: FiscalId; mesaId: MesaId; escuelaId: EscuelaId } = req.body;
 
   // Validación básica de los datos de entrada
   if (!fiscalId || !mesaId || !escuelaId) {
@@ -74,7 +76,7 @@ export const reportarFaltaFiscal: RequestHandler = async (req, res) => {
 // Aquí irían las implementaciones de las funciones auxiliares
 // validarFiscalGeneral, obtenerInstitucionDeFiscal, validarMesaYEscuela, registrarReporteEnS3
 
-async function validarFiscalGeneral(fiscalId: string): Promise<boolean> {
+async function validarFiscalGeneral(fiscalId: FiscalId): Promise<boolean> {
   // Lógica para verificar en la base de datos si el fiscal es general
   // Ejemplo:
   // const fiscal = await FiscalModel.findById(fiscalId);
@@ -82,7 +84,7 @@ async function validarFiscalGeneral(fiscalId: string): Promise<boolean> {
   return true; // Simulación, reemplazar con la lógica real
 }
 
-async function getInstitucionDeFiscal(fiscalId: string): Promise<string|null> {
+async function getInstitucionDeFiscal(fiscalId: FiscalId): Promise<string|null> {
   // Lógica para obtener la institución del fiscal
   // Ejemplo:
   // const fiscal = await FiscalModel.findById(fiscalId);
@@ -90,7 +92,7 @@ async function getInstitucionDeFiscal(fiscalId: string): Promise<string|null> {
   return 'Institución XYZ'; // Simulación, reemplazar con la lógica real
 }
 
-async function validateMesaYEscuela(mesaId: string, escuelaId: string): Promise<boolean> {
+async function validateMesaYEscuela(mesaId: MesaId, escuelaId: EscuelaId): Promise<boolean> {
   // Lógica para validar que la mesa pertenece a la escuela
   // Ejemplo:
   // const mesa = await MesaModel.findById(mesaId);

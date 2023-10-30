@@ -1,4 +1,9 @@
-export const ERROR_CODES = {
+type ErrorCode = {
+    status: number;
+    message: string;
+};
+
+export const ERROR_CODES: Record<string, ErrorCode> = {
     INCOMPLETE_DATA: {
       status: 400,
       message: 'Incomplete data. Please fill in all required fields.'

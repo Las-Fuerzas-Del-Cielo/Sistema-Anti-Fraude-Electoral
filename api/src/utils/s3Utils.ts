@@ -3,8 +3,19 @@ import { ReportFaltaFiscal } from '../types/models';
 import { ResultadoRegistroS3 } from '../types/models';
 import { ERROR_CODES } from './errorConstants';
 
+type S3Config = {
+  region: string;
+}
+
+type S3UploadParams = {
+  Bucket: string;
+  Key: string;
+  Body: string;
+}
+
 // Inicializa el cliente de S3 con las configuraciones necesarias
-const s3Client = new S3Client({ region: 'tu-region' });
+const s3Config: S3Config = { region: 'tu-region' };
+const s3Client: S3Client = new S3Client(s3Config);
 
 /**
  * Sube un reporte al bucket S3 especificado.
@@ -16,11 +27,13 @@ export async function registrarReporteEnS3(reporte: ReportFaltaFiscal): Promise<
     const bucketName: string = 'nombre-de-tu-bucket';
     const objectKey: string = `reportes/${reporte.fiscalId}-${new Date().getTime()}.json`;
 
-    const comando: PutObjectCommand = new PutObjectCommand({
-        Bucket: bucketName,
-        Key: objectKey,
-        Body: JSON.stringify(reporte),
-    });
+    const uploadParams: S3UploadParams = {
+      Bucket: bucketName,
+      Key: objectKey,
+      Body: JSON.stringify(reporte),
+    };
+
+    const comando: PutObjectCommand = new PutObjectCommand(uploadParams);
 
     try {
         const resultado: PutObjectCommandOutput = await s3Client.send(comando);
