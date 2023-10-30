@@ -1,0 +1,13 @@
+.message {
+  font-size: 144% !important;
+  font-weight: 600;
+}
+
+.w-image-25 {
+  margin-right: 25%;
+}
+.successfull {
+  font-size: 144%;
+  font-weight: 600;
+  color: rgba(68, 68, 68, 1);
+}
