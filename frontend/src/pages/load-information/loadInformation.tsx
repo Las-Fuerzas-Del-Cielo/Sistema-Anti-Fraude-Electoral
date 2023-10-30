@@ -72,7 +72,7 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
     envelopes > 0 ? selectedInputStyle : null;
 
   const electorsEnvelopesDiffStyle: string | null =
-    electors - envelopes > 4 ? 'text-red' : null;
+    electors - envelopes > 4 || electors - envelopes < 0 ? 'text-red' : null;
 
   const totalVotesDiffStyle: string | null =
     envelopes - totalVotes != 0 ? '!text-red' : null;
@@ -222,7 +222,7 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
                   Diferencia <img src="src/assets/icon/warn-icon.svg"></img>
                 </div>
               ) : (
-                'Diferencia'
+                <div className=''>Diferencia</div>
               )}
             </div>
             <div className="text-2xl font-semibold px-3 py-5 mr-10">
