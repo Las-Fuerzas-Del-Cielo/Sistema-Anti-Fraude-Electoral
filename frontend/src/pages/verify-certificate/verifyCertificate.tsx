@@ -16,7 +16,7 @@ const VerifyCertificate = () => {
         <div className="container mx-auto flex-column my-210">
           <ProgressIndicator
             steps={[
-              ProgressStepStatus.Active,
+              ProgressStepStatus.Successful,
               ProgressStepStatus.Active,
               ProgressStepStatus.Pending,
             ]}
