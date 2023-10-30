@@ -6,7 +6,7 @@ const Navbar = () => {
       <div className="w-full flex flex-row items-center justify-between">
         <div className="flex-shrink-0">
           <img
-            src="src/assets/logos/fenix-white.svg"
+            src="/src/assets/logos/fenix-white.svg"
             alt="Logo"
             className="object-cover rounded w-16 h-16"
           />
@@ -14,7 +14,7 @@ const Navbar = () => {
         <div className="flex-shrink-0">
           <Link to="/profile">
             <img
-              src="src/assets/icon/user.svg"
+              src="/src/assets/icon/user.svg"
               alt="User profile"
               className="object-cover rounded w-8 h-8"
             />

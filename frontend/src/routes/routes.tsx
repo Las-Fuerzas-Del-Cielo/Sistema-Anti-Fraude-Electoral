@@ -17,6 +17,7 @@ const VerifyCertificate = lazy(
 );
 const TotalResults = lazy(() => import('#/pages/total-results/totalResults'));
 const FilterPage = lazy(() => import('#/pages/results/filter'));
+const NotFound = lazy(() => import('#/pages/not-found/notFound'));
 
 const AppRoutes: React.FC = () => (
   <Routes>
@@ -40,6 +41,9 @@ const AppRoutes: React.FC = () => (
     {/* Utils */}
     <Route path="/loading-page" element={<LoadingPage />} />
     <Route path="/" element={<Login />} />
+
+    {/* 404 Not found */}
+    <Route path="*" element={<NotFound />} />
   </Routes>
 );
 
