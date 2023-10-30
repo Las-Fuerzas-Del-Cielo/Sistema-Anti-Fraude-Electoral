@@ -18,6 +18,7 @@ const VerifyCertificate = lazy(
 const TotalResults = lazy(() => import('#/pages/total-results/totalResults'));
 const FilterPage = lazy(() => import('#/pages/results/filter'));
 const NotFound = lazy(() => import('#/pages/not-found/notFound'));
+const DeskData = lazy(() => import('#/pages/desk-data/DeskData'));
 
 const AppRoutes: React.FC = () => (
   <Routes>
@@ -33,6 +34,7 @@ const AppRoutes: React.FC = () => (
     <Route path="/verify-certificate" element={<VerifyCertificate />} />
     <Route path="/load-information" element={<LoadInformation />} />
     <Route path="/send-success" element={<SendSuccess />} />
+    <Route path="/load-desk-data" element={<DeskData />} />
 
     {/* Filters & Results */}
     <Route path="/filter-results" element={<FilterPage />} />
