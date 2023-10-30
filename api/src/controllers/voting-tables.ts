@@ -4,6 +4,17 @@ import { ERROR_CODES } from '../utils/errorConstants';
 import { ReportFaltaFiscal, Mesa, Escuela, ResultadoRegistroS3 } from '../types/models';
 import { generateUniqueId } from '../utils/generateUniqueId';
 
+// Define the expected structure of the request body
+interface ReportarFaltaFiscalBody {
+  fiscalId: string;
+  escuelaId: string;
+}
+
+// Define the expected URL parameters
+interface ReportarFaltaFiscalParams {
+  id: string; // mesaId is received as 'id' in the URL
+}
+
 export const getVotingTableData: RequestHandler = (req, res) => {
   // Mocked Logic
   res.status(200).json({ mesaData: 'some mesa data' })
@@ -14,8 +25,12 @@ export const searchVotingTables: RequestHandler = (req, res) => {
   res.status(200).json({ mesas: ['Mesa 1', 'Mesa 2'] })
 } 
 
-export const reportarFaltaFiscal: RequestHandler = async (req, res) => {
-  const { fiscalId, mesaId, escuelaId }: { fiscalId: string; mesaId: string; escuelaId: string } = req.body;
+export const reportarFaltaFiscal: RequestHandler<ReportarFaltaFiscalParams, any, ReportarFaltaFiscalBody> = async (req, res) => {
+  // Get mesaId from URL parameters
+  const mesaId = req.params.id;
+
+  // Destructure fiscalId and escuelaId from the request body
+  const { fiscalId, escuelaId } = req.body;
 
   // Validación básica de los datos de entrada
   if (!fiscalId || !mesaId || !escuelaId) {

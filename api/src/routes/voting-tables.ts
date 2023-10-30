@@ -5,6 +5,6 @@ const router = Router()
 
 router.get('/', searchVotingTables)
 router.get('/:id', getVotingTableData)
-router.post('/mesas/reportarFaltaFiscal', reportarFaltaFiscal)
+router.post('/:id/reportarFaltaFiscal', reportarFaltaFiscal)
 
 export default router
