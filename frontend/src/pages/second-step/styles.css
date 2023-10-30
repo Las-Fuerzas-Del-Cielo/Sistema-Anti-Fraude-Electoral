@@ -1,0 +1,19 @@
+.message {
+  font-size: 144% !important;
+  font-weight: 600;
+}
+
+.w-image-25 {
+  margin-right: 25%;
+}
+
+.buttonSend {
+  display: flex;
+  width: 316px;
+  height: 50px;
+  padding: 0px 25px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+}
