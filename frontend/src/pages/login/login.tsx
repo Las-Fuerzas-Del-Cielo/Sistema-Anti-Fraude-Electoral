@@ -1,22 +1,23 @@
-import Button from "#/components/button";
-import Input from "#/components/input";
-import { useFormik } from "formik";
-import { observer } from "mobx-react-lite";
+import { useNavigate } from 'react-router-dom';
+import { useFormik } from 'formik';
+import { observer } from 'mobx-react-lite';
+import Button from '#/components/button';
+import Input from '#/components/input';
+import { ILoginProps } from './types';
 
-interface ILoginProps {
-  dni: string;
-  password: string;
-}
+const LoginPage: React.FC = () => {
+  const navigate = useNavigate();
 
-const LoginPage = () => {
   const onSubmit = (values: ILoginProps) => {
-    console.log(values);
+    //TODO: Add logic auth.
+    //TODO: Change logic on submit with AUTH and redirect to /dashboard
+    navigate('/dashboard');
   };
 
   const { handleSubmit, handleChange } = useFormik({
     initialValues: {
-      dni: "",
-      password: "",
+      dni: '',
+      password: '',
     },
     onSubmit,
   });
@@ -57,7 +58,7 @@ const LoginPage = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="flex flex-col items-center text-lg">
+          <div className='flex flex-col items-center text-lg'>
             <Button
               className="w-full p-4 text-xl font-semibold tracking-wider text-white bg-violet-brand rounded-xl"
               type="submit"
@@ -71,7 +72,6 @@ const LoginPage = () => {
             </a>
           </div>
         </form>
-        
       </div>
 
       <div className="absolute left-0 right-0 transform -skew-y-12 -bottom-32 h-80 bg-violet-brand"></div>
