@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+
 const Login = lazy(() => import('#/pages/login/login'));
 const Profile = lazy(() => import('#/pages/profile/profile'));
 const SendSuccess = lazy(() => import('#/pages/send-success/sendSuccess'));
@@ -10,6 +11,7 @@ const Inicio = lazy(() => import('#/pages/inicio/inicio'));
 const UploadCertificate = lazy(
   () => import('#/pages/upload-certificate/uploadCertificate'),
 );
+const SecondStep = lazy(() => import('#/pages/second-step/secondStep'))
 const FilterPage = lazy(() => import('#/pages/results/filter'));
 
 const AppRoutes: React.FC = () => (
@@ -21,8 +23,9 @@ const AppRoutes: React.FC = () => (
     <Route path="/load-data" element={<LoadData />} />
     <Route path="/upload-certificate" element={<UploadCertificate />} />
     <Route path="/inicio" element={<Inicio />} />
-    <Route path="/" element={<Login />} />
     <Route path="/results" element={<FilterPage />} />
+    <Route path="/second-step" element={ <SecondStep />}></Route>
+    <Route path="/" element={<Login />} />
   </Routes>
 );
 
