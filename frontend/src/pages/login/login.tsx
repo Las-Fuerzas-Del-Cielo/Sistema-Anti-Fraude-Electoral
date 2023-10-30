@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 import Button from '#/components/button';
 import Input from '#/components/input';
 import { ILoginProps } from './types';
+import * as yup from 'yup';
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -14,17 +15,37 @@ const LoginPage: React.FC = () => {
     navigate('/dashboard');
   };
 
-  const { handleSubmit, handleChange } = useFormik({
-    initialValues: {
-      dni: '',
-      password: '',
-    },
-    onSubmit,
+  const validationSchema = yup.object({
+    dni: yup.string().required('Required field'),
+    password: yup.string().required('Required field'),
   });
+
+  const { handleSubmit, handleBlur, handleChange, errors, touched } = useFormik(
+    {
+      initialValues: {
+        dni: '',
+        password: '',
+      },
+      onSubmit,
+      validationSchema,
+    },
+  );
+
+  function dniChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const value = e.target.value;
+    const cleanValue = value.replace(/[^\d]/g, '').slice(0, 8);
+    if (!cleanValue) {
+      e.target.value = cleanValue;
+    } else {
+      const formatted = parseInt(cleanValue).toLocaleString('es-AR');
+      e.target.value = formatted;
+    }
+    handleChange(e);
+  }
 
   return (
     <section className="relative flex flex-col items-center h-screen overflow-hidden bg-gray-100">
-    <div className="z-10 w-5/6 p-4 md:w-1/2 shadow-3xl rounded-xl">
+      <div className="z-10 w-5/6 p-4 md:w-1/2 shadow-3xl rounded-xl">
         <div className="container mx-auto">
           <div className="flex items-center justify-center my-20">
             <img
@@ -46,7 +67,9 @@ const LoginPage: React.FC = () => {
               type="text"
               id="dni"
               placeholder="Ingresa tu DNI"
-              onChange={handleChange}
+              onChange={dniChange}
+              onBlur={handleBlur}
+              error={!!errors.dni && !!touched.dni}
             />
           </div>
           <div className="flex items-center mb-6 text-lg md:mb-8 shadow-3xl">
@@ -56,9 +79,11 @@ const LoginPage: React.FC = () => {
               id="password"
               placeholder="Ingresa tu Contraseña"
               onChange={handleChange}
+              onBlur={handleBlur}
+              error={!!errors.password && !!touched.password}
             />
           </div>
-          <div className='flex flex-col items-center text-lg'>
+          <div className="flex flex-col items-center text-lg">
             <Button
               className="w-full p-4 text-xl font-semibold tracking-wider text-white bg-violet-brand rounded-xl"
               type="submit"

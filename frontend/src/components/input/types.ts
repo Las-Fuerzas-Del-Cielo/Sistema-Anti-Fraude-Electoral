@@ -9,6 +9,7 @@ export interface IInputProps {
   labelClassName?: string;
   inputClassName?: string;
 
-  appearance?: 'outline' | 'underline'
+  appearance?: 'outline' | 'underline';
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
