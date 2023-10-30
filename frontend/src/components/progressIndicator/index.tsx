@@ -19,7 +19,7 @@ export const ProgressIndicator = ({ steps }: IProgressIndicatorProps) => {
             {step === ProgressStepStatus.Successful ? (
               <img
                 className="w-4 h-4"
-                src="src/assets/check-icono.svg"
+                src="src/assets/icon/check-icono.svg"
                 alt=""
               />
             ) : (
