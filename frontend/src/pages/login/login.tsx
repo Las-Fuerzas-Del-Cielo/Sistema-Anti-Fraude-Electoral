@@ -23,6 +23,10 @@ const LoginPage: React.FC = () => {
     onSubmit,
   });
 
+  const handleClick = () => {
+    // Maneja la lógica cuando se hace clic en el botón
+  };
+
   return (
     <section className='relative flex flex-col items-center h-screen overflow-hidden bg-gray-100'>
       <div className='z-10 w-5/6 p-4 md:w-1/2 shadow-3xl rounded-xl'>
@@ -50,6 +54,7 @@ const LoginPage: React.FC = () => {
               className='w-full p-4 text-xl font-semibold tracking-wider text-white bg-violet-brand rounded-xl'
               label='Ingresar'
               type='submit'
+              onClick={handleClick}
             />
             <a className='mt-8 text-lg text-center text-gray-600 underline' href='#'>
               ¿Necesitas ayuda?

@@ -1,6 +1,6 @@
 import React from 'react';
-import { IProgressIndicatorProps, ProgressStepStatus } from './types';
 import './styles.css';
+import { IProgressIndicatorProps, ProgressStepStatus } from './types';
 
 const ProgressIndicator = ({ steps }: IProgressIndicatorProps) => {
   return (
@@ -17,7 +17,7 @@ const ProgressIndicator = ({ steps }: IProgressIndicatorProps) => {
             }`}
           >
             {step === ProgressStepStatus.Successful ? (
-              <img alt='' className='w-4 h-4' src='src/assets/check-icono.svg' />
+              <img alt='' className='w-4 h-4' src='src/assets/icon/check-icono.svg' />
             ) : (
               <span className='font-normal text-xl'>{(index + 1).toString()}</span>
             )}
