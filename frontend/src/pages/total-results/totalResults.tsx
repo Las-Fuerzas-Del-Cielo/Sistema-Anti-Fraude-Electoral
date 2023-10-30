@@ -3,7 +3,7 @@ import Button from '#/components/button';
 import { observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
 
-const inicioContent = () => {
+const TotalResultsPage = () => {
   const porcentajes = [61.05, 38.95];
   const votos = ['16,482,688', '10,517,312'];
   return (
@@ -148,5 +148,5 @@ const inicioContent = () => {
   );
 };
 
-export const inicio = observer(inicioContent);
-export default inicio;
+export const TotalResults = observer(TotalResultsPage);
+export default TotalResults;
