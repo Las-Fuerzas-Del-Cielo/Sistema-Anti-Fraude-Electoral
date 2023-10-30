@@ -170,7 +170,7 @@ El backend principal sera el que tenga la business logic de los casos de uso pri
 
 **Backend Read Only"
 
-Es posible que tengamos un backend para las operaciones read-only del publico en general / auditores externos a LLA. Es posible que este backend trabaje con una replica off line de la Base de Datos Princial, actualizada cada tanto.
+Es posible que tengamos un backend para las operaciones read-only del publico en general / auditores externos a LLA. Es posible que este backend trabaje con una replica off line de la Base de Datos Principal, actualizada cada tanto.
 
 **Backend para Logins / Signups / Mantenimiento de Usuarios**
 

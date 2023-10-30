@@ -4,10 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "test:examples": "ts-node src/examples/index.ts",
-    "build:swagger": "tsc && node dist/src/generators/swagger.js"
+    "start": "ts-node -r dotenv/config src/index.ts",
+    "dev": "ts-node-dev --respawn --transpile-only -r dotenv/config src/index.ts",
+    "test:examples": "ts-node -r dotenv/config src/examples/index.ts",
+    "build:swagger": "tsc && node -r dotenv/config dist/src/generators/swagger.js"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.438.0",
@@ -21,7 +21,8 @@
     "fs-extra": "^11.1.1",
     "multer": "^1.4.5-lts.1",
     "swagger-autogen": "^2.23.7",
-    "swagger-ui-express": "^5.0.0"
+    "swagger-ui-express": "^5.0.0",
+    "winston": "3.11.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.15",
