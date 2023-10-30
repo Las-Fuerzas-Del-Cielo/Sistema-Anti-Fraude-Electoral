@@ -1,18 +1,26 @@
-import Navbar from '#/components/navbar';
 import { observer } from 'mobx-react';
+import { Link } from 'react-router-dom';
+import Navbar from '#/components/navbar';
+import Button from '#/components/button';
 
-const inicioContent = () => {
-  const porcentajes = [61.05, 38.95];
-  const votos = ['16,482,688', '10,517,312'];
+const TotalResultsPage = () => {
+  const percentages = [61.05, 38.95];
+  const votes = ['16,482,688', '10,517,312'];
   return (
     <div className="bg-white h-screen flex flex-col">
       <Navbar />
-      <p className="font-bold text-[30px] text-[#363F45] mt-5">
-        Resultados totales
-      </p>
-      <button className="mx-3 lg:mx-60 my-10 bg-white border-[4px] border-[#61439D] text-lg text-[#61439D]">
-        Seleccionar filtros
-      </button>
+      <div className="flex flex-col p-4">
+        <p className="font-bold text-2xl text-gray-700 mt-5">
+          Resultados totales
+        </p>
+        <Link
+          to="/filter-results"
+          className="border-2 border-violet-brand text-violet-brand bg-transparent p-3 w-full rounded-xl text-xl tracking-wider shadow-md hover:border-violet-light my-4"
+        >
+          Seleccionar filtros
+        </Link>
+      </div>
+
       <div className="lg:px-60 px-3">
         {
           //Card Javier, VLL
@@ -27,10 +35,10 @@ const inicioContent = () => {
               />
               <div className="flex flex-col items-end mr-5 mt-2">
                 <span className="text-[12px] text-[#64748B]">
-                  {votos[0]} votos
+                  {votes[0]} votes
                 </span>
                 <p className="font-bold uppercase text-[#61439D] ">
-                  {porcentajes[1]}%
+                  {percentages[1]}%
                 </p>
               </div>
             </div>
@@ -38,7 +46,7 @@ const inicioContent = () => {
               <div className="w-[95%] rounded-md h-2 bg-[#CBD5E1]">
                 <div
                   className="h-full bg-[#61439D] rounded-l"
-                  style={{ width: `${porcentajes[0]}%` }}
+                  style={{ width: `${percentages[0]}%` }}
                 ></div>
               </div>
               <p className="text-[13px] font-bold uppercase text-[#61439D] flex items-start">
@@ -81,10 +89,10 @@ const inicioContent = () => {
               </svg>
               <div className="flex flex-col items-end mr-5 mt-2">
                 <span className="text-[12px] text-[#64748B]">
-                  {votos[1]} votos
+                  {votes[1]} votes
                 </span>
                 <p className="font-bold uppercase text-[#61439D] ">
-                  {porcentajes[1]}%
+                  {percentages[1]}%
                 </p>
               </div>
             </div>
@@ -92,7 +100,7 @@ const inicioContent = () => {
               <div className="w-[95%] rounded-md h-2 bg-[#CBD5E1]">
                 <div
                   className="h-full bg-[#61439D] rounded-l"
-                  style={{ width: `${porcentajes[1]}%` }}
+                  style={{ width: `${percentages[1]}%` }}
                 ></div>
               </div>
               <p className="text-[13px] font-bold uppercase text-[#61439D] flex items-start">
@@ -108,7 +116,7 @@ const inicioContent = () => {
       <div className="flex flex-col px-8 lg:px-60 mt-10">
         <div className="border border-t-1 opacity-70"></div>
         <div className="my-2">
-          <span className="text-[17px] text-[#64748B]">Total de votos</span>
+          <span className="text-[17px] text-[#64748B]">Total de votes</span>
           <p className="text-[25px] font-bold uppercase text-[#61439D]">
             27,000,000
           </p>
@@ -129,12 +137,16 @@ const inicioContent = () => {
           </div>
         </div>
       </div>
-      <button className="mx-3 lg:mx-60 mt-20 bg-white border-[2px] border-[#AD3459] text-lg text-[#AD3459]">
-        Alerta Irregularidades
-      </button>
+      <div className="mt-4 p-4">
+        <Button
+          className="border-2 border-rose-700 text-rose-700 bg-transparent p-3 w-full rounded-xl text-xl tracking-wider shadow-md hover:border-violet-light my-4"
+          type="button"
+          label="Alerta Irregularidades"
+        />
+      </div>
     </div>
   );
 };
 
-export const inicio = observer(inicioContent);
-export default inicio;
+export const TotalResults = observer(TotalResultsPage);
+export default TotalResults;
