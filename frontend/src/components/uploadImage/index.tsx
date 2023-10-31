@@ -2,19 +2,6 @@ import ImageInput from '#/components/imageInput';
 import { getBase64 } from '#/utils';
 import { useState } from 'react';
 
-interface FileProps {
-  name: string;
-  size: number;
-  type: string;
-  lastModified: Date;
-  lastModifiedDate: Date;
-  webkitRelativePath?: string;
-  arrayBuffer: () => Promise<ArrayBuffer>;
-  slice: (start?: number, end?: number) => Blob;
-  stream: () => ReadableStream;
-  text: () => Promise<string>;
-}
-
 export function UploadImage({
   onUpload,
 }: {
