@@ -28,7 +28,7 @@ export function UploadImage({
     handlePreview(file);
   }
 
-  function handlePreview(file: File): void {
+  function handlePreview(file: File) {
     const objectUrl = URL.createObjectURL(file);
     setPreview(objectUrl);
   }
