@@ -1,13 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import ProgressIndicator from '#/components/progressIndicator';
 import FormHeader from '#/components/formHeader';
 import UploadImage from '#/components/uploadImage';
-
 import { ProgressStepStatus } from '#/components/progressIndicator/types';
-
 import './styles.css';
-import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
 
 const CheckItem = ({ text }: { text: string }) => (
   <div className="flex justify-space-around items-center md:text-xl text-sm gap-2 h-12">
@@ -19,8 +17,13 @@ const CheckItem = ({ text }: { text: string }) => (
 );
 
 const UploadCertificate = () => {
+  const navigate = useNavigate();
   // TODO: Replace with context useState
-  const [, setCertificateImage] = useState<string>();
+  const [certificateImage, setCertificateImage] = useState<string>();
+
+  useEffect(() => {
+    if (certificateImage) navigate('/verify-certificate');
+  }, [certificateImage]);
 
   return (
     <section className="items-center flex flex-col ">
@@ -30,6 +33,7 @@ const UploadCertificate = () => {
           <ProgressIndicator
             steps={[
               ProgressStepStatus.Active,
+              ProgressStepStatus.Pending,
               ProgressStepStatus.Pending,
               ProgressStepStatus.Pending,
             ]}

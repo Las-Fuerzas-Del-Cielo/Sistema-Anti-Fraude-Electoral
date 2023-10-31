@@ -1,17 +1,18 @@
 import { useNavigate, Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { observer } from 'mobx-react-lite';
+import * as yup from 'yup';
+
 import Button from '#/components/button';
 import Input from '#/components/input';
-import { SnackBar } from '#/components/snackbar';
 import useAxios from '#/hooks/utils/useAxios';
 import { useAuth } from '#/context/AuthContext';
 import { ILoginProps } from './types';
 
 const LoginPage: React.FC = () => {
+  const navigate = useNavigate();
   const { login } = useAuth();
   const axios = useAxios();
-  const navigate = useNavigate();
 
   const onSubmit = async (values: ILoginProps) => {
     //TODO: Cambiar cuando la logica del LOGIN (desde el back, me devuelva el JWT y la info del Usuario)
@@ -25,17 +26,38 @@ const LoginPage: React.FC = () => {
     navigate('/dashboard');
   };
 
-  const { handleSubmit, handleChange } = useFormik({
-    initialValues: {
-      dni: '',
-      password: '',
-    },
-    onSubmit,
+  const validationSchema = yup.object({
+    dni: yup.string().required('Campo requerido'),
+    password: yup.string().required('Campo requerido'),
   });
+
+  const { handleSubmit, handleBlur, handleChange, errors, touched } = useFormik(
+    {
+      initialValues: {
+        dni: '',
+        password: '',
+      },
+      onSubmit,
+      validationSchema,
+    },
+  );
 
   const handleClick = async () => {
     // Maneja la lógica cuando se hace clic en el botón
+    return;
   };
+
+  function dniChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const value = e.target.value;
+    const cleanValue = value.replace(/[^\d]/g, '').slice(0, 8);
+    if (!cleanValue) {
+      e.target.value = cleanValue;
+    } else {
+      const formatted = parseInt(cleanValue).toLocaleString('es-AR');
+      e.target.value = formatted;
+    }
+    handleChange(e);
+  }
 
   return (
     <section className="relative flex flex-col items-center h-screen overflow-hidden bg-gray-100">
@@ -61,7 +83,9 @@ const LoginPage: React.FC = () => {
               type="text"
               id="dni"
               placeholder="Ingresa tu DNI"
-              onChange={handleChange}
+              onChange={dniChange}
+              onBlur={handleBlur}
+              error={!!errors.dni && !!touched.dni}
             />
           </div>
           <div className="flex items-center mb-6 text-lg md:mb-8 shadow-3xl">
@@ -71,6 +95,8 @@ const LoginPage: React.FC = () => {
               id="password"
               placeholder="Ingresa tu Contraseña"
               onChange={handleChange}
+              onBlur={handleBlur}
+              error={!!errors.password && !!touched.password}
             />
           </div>
           <div className="flex flex-col items-center text-lg">
@@ -91,13 +117,12 @@ const LoginPage: React.FC = () => {
         </form>
       </div>
 
-      <div 
-        className="absolute left-0 right-0 bottom-0 h-screen bg-violet-brand" 
-        style={
-          {
-            clipPath: 'polygon(0 90%, 100% 80%, 100% 100%, 0% 100%)'
-          }
-      }/>
+      <div
+        className="absolute left-0 right-0 bottom-0 h-screen bg-violet-brand"
+        style={{
+          clipPath: 'polygon(0 90%, 100% 80%, 100% 100%, 0% 100%)',
+        }}
+      />
 
       {/* 
         // TODO: FIX FOOTER IMAGE DESIGN 

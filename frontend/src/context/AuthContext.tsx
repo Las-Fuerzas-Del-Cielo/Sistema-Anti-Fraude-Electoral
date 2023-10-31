@@ -1,5 +1,13 @@
-import { createContext, useContext, ReactNode, useState } from 'react';
+import {
+  createContext,
+  useContext,
+  ReactNode,
+  useState,
+  useEffect,
+} from 'react';
+import useAxios from '#/hooks/utils/useAxios';
 import { IUser } from '#/interfaces/IUser';
+import { useNavigate } from 'react-router-dom';
 
 interface AuthContextType {
   isAuthenticated: boolean;
@@ -15,8 +23,14 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+  const axios = useAxios();
+  const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState<IUser | null>(null);
+
+  useEffect(() => {
+    refreshToken();
+  }, []);
 
   const login = (userData: IUser) => {
     sessionStorage.setItem('accessToken', userData.jwt);
@@ -28,6 +42,17 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     sessionStorage.removeItem('accessToken');
     setIsAuthenticated(false);
     setUser(null);
+    navigate('/login');
+  };
+
+  const refreshToken = async () => {
+    const accessToken = sessionStorage.getItem('accessToken');
+    if (!accessToken) return logout();
+
+    const { data, error } = await axios.get('/refreshToken');
+    if (error) return logout();
+
+    login(data);
   };
 
   return (

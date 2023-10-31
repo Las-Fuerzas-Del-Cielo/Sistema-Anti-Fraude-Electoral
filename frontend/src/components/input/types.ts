@@ -11,4 +11,5 @@ export interface IInputProps {
 
   appearance?: 'outline' | 'underline'
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

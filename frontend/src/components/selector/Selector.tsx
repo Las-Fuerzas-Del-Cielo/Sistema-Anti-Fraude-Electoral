@@ -1,17 +1,15 @@
-import { useState } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger } from './Exports';
 
 interface ISelectorProps {
   placeholder: string;
-  provincias: string[];
+  options: { key: string; label: string }[];
+  value?: string;
+  onChange?: (value: string) => void;
 }
 
-function Selector(props: ISelectorProps) {
-  // TODO: HANDLE VALUE FROM PARENT BY PROPS
-  const [value, setValue] = useState<string>('');
-
+function Selector({ placeholder, options, value, onChange }: ISelectorProps) {
   return (
-    <Select onValueChange={(aux) => setValue(aux)}>
+    <Select onValueChange={onChange}>
       <SelectTrigger id={'selector'}>
         <label
           htmlFor={'selector'}
@@ -19,14 +17,14 @@ function Selector(props: ISelectorProps) {
             value ? '-translate-y-1/3 text-xs font-thin' : ' text-md'
           } pointer-events-none`}
         >
-          {props.placeholder}
+          {placeholder}
         </label>
         <span className="transform translate-y-1/2">{value}</span>
       </SelectTrigger>
       <SelectContent>
-        {props?.provincias?.map((provincia, index) => (
-          <SelectItem value={provincia} key={`${provincia} ${index}`}>
-            {provincia}
+        {options?.map((option, index) => (
+          <SelectItem value={option.key} key={`${option.key} ${index}`}>
+            {option.label}
           </SelectItem>
         ))}
       </SelectContent>
