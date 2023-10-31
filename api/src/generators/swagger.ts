@@ -1,13 +1,14 @@
 import swaggerAutogen from 'swagger-autogen'
 import fs from 'fs'
 import path from 'path'
+import config from '../config'
 
 const doc = {
   info: {
     title: 'LLA Fraud detection API',
     description: 'API for the LLA Fraud detection project'
   },
-  host: 'localhost:3000',
+  host: `localhost:${config.port}`,
   basePath: '/api',
   consumes: ['application/json'],
   produces: ['application/json']

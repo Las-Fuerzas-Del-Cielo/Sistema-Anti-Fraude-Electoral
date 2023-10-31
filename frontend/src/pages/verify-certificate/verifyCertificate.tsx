@@ -11,13 +11,14 @@ import './styles.css';
 const VerifyCertificate = () => {
   return (
     <section className="items-center flex flex-col justify-center text-center">
-      <FormHeader routerLink="/" title="Cargá el certificado del fiscal" />
+      <FormHeader routerLink="/upload-certificate" title="Cargá el certificado del fiscal" />
       <div className="w-full text-center">
         <div className="container mx-auto flex-column my-210">
           <ProgressIndicator
             steps={[
               ProgressStepStatus.Successful,
               ProgressStepStatus.Active,
+              ProgressStepStatus.Pending,
               ProgressStepStatus.Pending,
             ]}
           />
@@ -69,11 +70,13 @@ const VerifyCertificate = () => {
           {/* TODO: Agregar lógica de documento al reintentar */}
           <div className="flex flex-col items-center justify-center w-full p-4">
             {/* TODO: Mover a Dashboard */}
-            <Button
-              className="w-full p-4 text-xl font-semibold tracking-wider text-white bg-violet-brand rounded-xl"
-              type="submit"
-              label="Enviar imagen"
-            />
+            <Link to="/load-information" className='flex w-full'>
+              <Button
+                className="w-full p-4 text-xl font-semibold tracking-wider text-white bg-violet-brand rounded-xl"
+                type="button"
+                label="Enviar imagen"
+              />
+            </Link>
             <Button
               className="w-full p-3 text-xl font-semibold tracking-wider border-2 border-violet-brand text-violet-brand hover:border-violet-light mt-4 rounded-xl"
               type="submit"

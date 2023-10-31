@@ -1,3 +1,5 @@
+import { LoadingIndicator } from '#/components/loadingIndicator';
+
 export const LoadingPage: React.FC = () => {
   return (
     <section className="relative flex flex-col items-center h-screen overflow-hidden bg-gray-100">
@@ -16,19 +18,18 @@ export const LoadingPage: React.FC = () => {
             />
           </div>
         </div>
-        <div className="flex h-full">
-          <div
-            className="m-auto inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-violet-brand motion-reduce:animate-[spin_1.5s_linear_infinite] "
-            role="status"
-          >
-            <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)] ">
-              Cargando...
-            </span>
-          </div>
-        </div>
       </div>
 
-      <div className="absolute left-0 right-0 transform -skew-y-12 -bottom-32 h-80 bg-violet-brand"></div>
+      <div className="flex absolute h-full">
+        <LoadingIndicator className="w-16 h-16 fill-violet-700" />
+      </div>
+
+      <div
+        className="absolute left-0 right-0 bottom-0 h-screen bg-violet-brand"
+        style={{
+          clipPath: 'polygon(0 90%, 100% 80%, 100% 100%, 0% 100%)',
+        }}
+      />
 
       {/* 
         // TODO: FIX FOOTER IMAGE DESIGN 

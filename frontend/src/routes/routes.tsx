@@ -17,11 +17,14 @@ const VerifyCertificate = lazy(
 );
 const TotalResults = lazy(() => import('#/pages/total-results/totalResults'));
 const FilterPage = lazy(() => import('#/pages/results/filter'));
+const NotFound = lazy(() => import('#/pages/not-found/notFound'));
+const DeskData = lazy(() => import('#/pages/desk-data/DeskData'));
 
 const AppRoutes: React.FC = () => (
   <Routes>
     {/* Auth */}
     <Route path="/login" element={<Login />} />
+    {/* TODO: Agregar Middleware (si no existe user, no entra a las siguientes rutas) */}
 
     {/* Cuenta */}
     <Route path="/dashboard" element={<Dashboard />} />
@@ -32,6 +35,7 @@ const AppRoutes: React.FC = () => (
     <Route path="/verify-certificate" element={<VerifyCertificate />} />
     <Route path="/load-information" element={<LoadInformation />} />
     <Route path="/send-success" element={<SendSuccess />} />
+    <Route path="/load-desk-data" element={<DeskData />} />
 
     {/* Filters & Results */}
     <Route path="/filter-results" element={<FilterPage />} />
@@ -40,6 +44,9 @@ const AppRoutes: React.FC = () => (
     {/* Utils */}
     <Route path="/loading-page" element={<LoadingPage />} />
     <Route path="/" element={<Login />} />
+
+    {/* 404 Not found */}
+    <Route path="*" element={<NotFound />} />
   </Routes>
 );
 

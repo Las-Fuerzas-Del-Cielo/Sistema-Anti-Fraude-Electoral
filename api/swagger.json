@@ -17,7 +17,7 @@
     "application/json"
   ],
   "paths": {
-    "/denuncia": {
+    "/reports": {
       "get": {
         "description": "",
         "responses": {
@@ -27,7 +27,7 @@
         }
       }
     },
-    "/denuncia/{id}": {
+    "/reports/{id}": {
       "get": {
         "description": "",
         "parameters": [
@@ -45,7 +45,7 @@
         }
       }
     },
-    "/fiscalizar": {
+    "/audit": {
       "post": {
         "description": "",
         "responses": {
@@ -55,7 +55,7 @@
         }
       }
     },
-    "/mesa/{id}": {
+    "/voting-tables/{id}": {
       "get": {
         "description": "",
         "parameters": [
@@ -73,7 +73,68 @@
         }
       }
     },
-    "/mesa": {
+    "/voting-tables/{id}/report-missing-auditor": {
+      "post": {
+        "description": "Report a missing fiscal at a specific voting table",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The ID of the voting table"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "fiscalId": {
+                  "type": "string",
+                  "description": "The ID of the fiscal"
+                },
+                "escuelaId": {
+                  "type": "string",
+                  "description": "The ID of the school"
+                }
+              },
+              "required": ["fiscalId", "escuelaId"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Report successfully received",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "resultadoS3": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request data"
+          },
+          "401": {
+            "description": "Unauthorized access"
+          },
+          "404": {
+            "description": "Voting table or school not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/voting-tables": {
       "get": {
         "description": "",
         "responses": {
@@ -133,6 +194,29 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    },
+    "/upload": {
+      "post": {
+        "summary": "Upload a file to the server",
+        "consumes": ["multipart/form-data"],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "file",
+            "type": "file",
+            "required": true,
+            "description": "File to upload"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "File uploaded successfully"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         }
       }
