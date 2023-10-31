@@ -30,14 +30,14 @@ paths:
           description: Roles returned
 
   # Muestra Resultados Público
-  /api/mesa/{id}:
+  /api/voting-tables/{id}:
     get:
       summary: Get Mesa Data
       responses:
         '200':
           description: Mesa data returned
 
-  /api/mesas:
+  /api/voting-tables:
     get:
       summary: Search Mesas
       responses:
@@ -45,14 +45,14 @@ paths:
           description: Mesas list
 
   # Denuncias
-  /api/denuncias:
+  /api/reports:
     get:
       summary: List or Search Denuncias
       responses:
         '200':
           description: Denuncias list
 
-  /api/denuncia/{id}:
+  /api/reports/{id}:
     get:
       summary: Get Specific Denuncia
       responses:
@@ -60,7 +60,7 @@ paths:
           description: Denuncia data
 
   # Fiscal General to Fiscal Mesa
-  /api/fiscalizar:
+  /api/audit:
     post:
       summary: Fiscal general evaluates fiscal mesa
       security:
