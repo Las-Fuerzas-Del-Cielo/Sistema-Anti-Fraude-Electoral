@@ -7,4 +7,4 @@ const { port } = config
 
 routes.forEach(({ prefix, router }) => app.use(prefix, router));
 
-app.listen(port, () => console.log(`Server up and running. \nSwagger UI running at http://localhost:${config}/api-docs`))
+app.listen(port, () => console.log(`Server up and running. \nSwagger UI running at http://localhost:${port}/api-docs`));
