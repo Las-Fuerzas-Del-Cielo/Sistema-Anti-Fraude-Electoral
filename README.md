@@ -234,6 +234,7 @@ Al mejor estilo Open Source, aquel que desee hacerse responsable de alguna parte
 - Análisis General [@Luis-Fernando-Molina](https://www.github.com/Luis-Fernando-Molina)
 - UX/UI [@JoseOrtega02](https://github.com/JoseOrtega02), [cualquier persona que desee unirse]
 - FrontEnd [@JoseOrtega02](https://github.com/JoseOrtega02), [cualquier persona que desee unirse]
+- Backend [@bsilvestre3103](https://github.com/bsilvestre3103)
 
 ## Enlaces de interés
 - Figma: [Enlace a Figma](https://www.figma.com/file/nyWx6CewFyvb3a7y3g1r7W/Libertarios-APP?type=design&node-id=0%3A1&mode=design&t=L4k93Fh2vw4b8yku-1)
