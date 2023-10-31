@@ -211,7 +211,7 @@ Para poder abrir el juego y que varios desarrolladores puedan hacer diferentes p
 
 **Procesos de Detección de Fraudes**
 
-Con los datos cargados por los Fiscales a través de la mobile app más los datos extraidos del sistema oficial, el sistema tiene la capicidad de correr multiples procesos cada uno especializado en detectar algun tipo de fraude.
+Con los datos cargados por los Fiscales a través de la mobile app más los datos extraídos del sistema oficial, el sistema tiene la capacidad de correr múltiples procesos cada uno especializado en detectar algún tipo de fraude.
 
 Se debe analizar los procesos que se necesitan para detectar los tipos de fraude previamente especificados.
 
