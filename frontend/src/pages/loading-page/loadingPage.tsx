@@ -19,10 +19,19 @@ export const LoadingPage: React.FC = () => {
           </div>
         </div>
       </div>
+
       <div className="flex absolute h-full">
         <LoadingIndicator className="w-16 h-16 fill-violet-700"/>
       </div>
-      <div className="absolute left-0 right-0 transform -skew-y-12 -bottom-32 h-80 bg-violet-brand"></div>
+
+      <div 
+        className="absolute left-0 right-0 bottom-0 h-screen bg-violet-brand" 
+        style={
+          {
+            clipPath: 'polygon(0 90%, 100% 80%, 100% 100%, 0% 100%)'
+          }
+      }/>
+
       {/* 
         // TODO: FIX FOOTER IMAGE DESIGN 
         // https://www.figma.com/file/iO7j93Rxbk2nIfYdqpAmv2/%F0%9F%A6%85-APP-Fiscalizaci%C3%B3n-Libertaria-%7C-%F0%9F%93%B1-FINAL?type=design&node-id=59-4193&mode=dev
