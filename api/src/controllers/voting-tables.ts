@@ -16,8 +16,18 @@ interface ReportarFaltaFiscalParams {
   id: string; // mesaId is received as 'id' in the URL
 }
 
-// Función auxiliar para validar y convertir los parámetros de la consulta
-function getValidatedQueryParams(query: any) {
+interface ValidatedQueryParams {
+  anioEleccion?: string;
+  tipoRecuento?: string;
+  tipoEleccion?: string;
+  categoriaId?: string;
+  distritoId?: string;
+  circuitoId?: string;
+  seccionId?: string;
+  seccionProvincialId?: string;
+}
+
+function getValidatedQueryParams(query: any): ValidatedQueryParams {
   return {
     anioEleccion: query.anioEleccion as string | undefined,
     tipoRecuento: query.tipoRecuento as string | undefined,
@@ -31,39 +41,49 @@ function getValidatedQueryParams(query: any) {
 }
 
 export const getVotingTableData: RequestHandler = async (req, res) => {
+  // Extracting 'mesaId' from the URL parameters
   const { id: mesaId } = req.params;
-  const queryParams = getValidatedQueryParams(req.query);
 
+  // Converting and validating query parameters to a specific structure
+  const queryParams: ValidatedQueryParams = getValidatedQueryParams(req.query);
+
+  // Creating an object with only the defined query parameters
   const validParams = Object.entries(queryParams)
-    .filter(([_, value]) => value !== undefined)
+    .filter(([_, value]) => value !== undefined) // Filtering out undefined values
     .reduce((obj, [key, value]) => {
-      obj[key] = value;
+      obj[key] = value; // Assigning each defined value to the corresponding key
       return obj;
-    }, {} as any);
+    }, {} as any); // Initializing with an empty object
 
   try {
+    // Making an asynchronous API call to get election results
     await new ResultadosApi().getResultados({
-      mesaId,
-      ...validParams
+      mesaId, // Including 'mesaId' as a parameter
+      ...validParams // Spreading in the validated and defined query parameters
     })
     .then((response: GetResultadosResponse) => {
+      // On success, sending a 200 status with the API response
       res.status(200).json(response);
     })
     .catch(error => {
+      // Handling errors from the API call
       if (error.response) {
-        // La solicitud se completó, pero el servidor devolvió un código de estado distinto de 2xx
+        // If there is a response from the server, send the server's error status and data
         res.status(error.response.status).send(error.response.data);
       } else {
-        // Errores relacionados con la red o que ocurrieron después de recibir la respuesta
+        // For network or other errors, log the error and send a 500 internal server error response
         console.error('Error al recuperar datos de la mesa:', error.message);
         res.status(500).json({ message: 'Error interno del servidor' });
       }
     });
   } catch (error) {
+    // Catching any exceptions thrown in the try block
     console.error('Error en getVotingTableData:', error);
+    // Sending a 500 internal server error response in case of an exception
     res.status(500).json({ message: 'Error interno del servidor' });
   }
 };
+
 
 export const searchVotingTables: RequestHandler = (req, res) => {
   // Mocked Logic
