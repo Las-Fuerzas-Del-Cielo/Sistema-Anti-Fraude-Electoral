@@ -52,25 +52,27 @@ const Navbar: React.FC = () => {
                   Mi cuenta
                 </Link>
                 <Link
-                  to="/profile"
+                  to="/upload-certificate"
                   className="scale-95 transform transition-transform hover:scale-105"
                 >
                   Cargar resultados de mesa
                 </Link>
                 <Link
-                  to="/profile"
+                  to="/dashboard"
                   className="scale-95 transform transition-transform hover:scale-105"
+                  onClick={() => alert('No existe la ruta aún')}
                 >
-                  Impugnar mesa
+                  Impugnar mesa 
                 </Link>
                 <Link
-                  to="/profile"
+                  to="/dashboard"
                   className="scale-95 transform transition-transform hover:scale-105"
+                  onClick={() => alert('No existe la ruta aún')}
                 >
                   Denunciar Irregularidades
                 </Link>
                 <Link
-                  to="/profile"
+                  to="/total-results"
                   className="scale-95 transform transition-transform hover:scale-105"
                 >
                   Ver resultados
