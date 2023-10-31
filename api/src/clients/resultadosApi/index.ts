@@ -5,7 +5,7 @@ import {GetResultadosParamsRequest, GetResultadosResponse} from "./types";
 import {EleccionTipo, MesaTipo, PadronTipo, RecuentoTipo, VotosTipo, Provincia} from './enums';
 
 export interface IResultadosApi {
-    getResultados(GetResultadosParamsRequest): Promise<GetResultadosResponse>;
+    getResultados(arg0: GetResultadosParamsRequest): Promise<GetResultadosResponse>;
 }
 
 class ResultadosApi implements IResultadosApi {

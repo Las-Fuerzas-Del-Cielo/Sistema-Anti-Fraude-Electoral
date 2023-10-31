@@ -66,6 +66,18 @@
             ],
             "#routes/*": [
                 "src/routes/*"
+            ],
+            "#lib/*": [
+                "src/lib/*"
+            ],
+            "#context/*": [
+                "src/context/*"
+            ],
+            "#interfaces/*": [
+                "src/interfaces/*"
+            ],
+            "#mocks/*": [
+                "src/mocks/*"
             ]
         }
     },
