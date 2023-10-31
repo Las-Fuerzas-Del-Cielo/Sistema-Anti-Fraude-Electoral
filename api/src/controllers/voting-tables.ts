@@ -3,7 +3,7 @@ import { registrarReporteEnS3 } from '../utils/s3Utils';
 import { ERROR_CODES } from '../utils/errorConstants';
 import { ReportFaltaFiscal, ResultadoRegistroS3 } from '../types/models';
 import { generateUniqueId } from '../utils/generateUniqueId';
-import { GetResultadosResponse, ResultadosApi } from '../clients/resultadosApi'
+import { GetResultadosParamsRequest, GetResultadosResponse, ResultadosApi } from '../clients/resultadosApi'
 
 // Define the expected structure of the request body
 interface ReportarFaltaFiscalBody {
@@ -27,6 +27,9 @@ interface ValidatedQueryParams {
   seccionProvincialId?: string;
 }
 
+// Define a type for the valid query parameters after filtering
+type ValidParams = Partial<ValidatedQueryParams>;
+
 function getValidatedQueryParams(query: any): ValidatedQueryParams {
   return {
     anioEleccion: query.anioEleccion as string | undefined,
@@ -41,49 +44,42 @@ function getValidatedQueryParams(query: any): ValidatedQueryParams {
 }
 
 export const getVotingTableData: RequestHandler = async (req, res) => {
-  // Extracting 'mesaId' from the URL parameters
   const { id: mesaId } = req.params;
-
-  // Converting and validating query parameters to a specific structure
   const queryParams: ValidatedQueryParams = getValidatedQueryParams(req.query);
 
-  // Creating an object with only the defined query parameters
-  const validParams = Object.entries(queryParams)
-    .filter(([_, value]) => value !== undefined) // Filtering out undefined values
-    .reduce((obj, [key, value]) => {
-      obj[key] = value; // Assigning each defined value to the corresponding key
-      return obj;
-    }, {} as any); // Initializing with an empty object
+  // Construir 'params' excluyendo las propiedades 'undefined'
+  const params: Partial<GetResultadosParamsRequest> = {
+    mesaId,
+    ...Object.entries(queryParams)
+      .filter(([_, value]) => value !== undefined) // Solo incluir propiedades definidas
+      .reduce((obj, [key, value]) => {
+        (obj as Partial<GetResultadosParamsRequest>)[key as keyof GetResultadosParamsRequest] = value;
+        return obj;
+      }, {})
+  };
 
   try {
-    // Making an asynchronous API call to get election results
-    await new ResultadosApi().getResultados({
-      mesaId, // Including 'mesaId' as a parameter
-      ...validParams // Spreading in the validated and defined query parameters
-    })
-    .then((response: GetResultadosResponse) => {
-      // On success, sending a 200 status with the API response
-      res.status(200).json(response);
-    })
-    .catch(error => {
-      // Handling errors from the API call
-      if (error.response) {
-        // If there is a response from the server, send the server's error status and data
-        res.status(error.response.status).send(error.response.data);
-      } else {
-        // For network or other errors, log the error and send a 500 internal server error response
-        console.error('Error al recuperar datos de la mesa:', error.message);
-        res.status(500).json({ message: 'Error interno del servidor' });
-      }
-    });
+    // Hacer la llamada a la API
+    const response: GetResultadosResponse = await new ResultadosApi().getResultados(params as GetResultadosParamsRequest);
+    res.status(200).json(response);
   } catch (error) {
-    // Catching any exceptions thrown in the try block
-    console.error('Error en getVotingTableData:', error);
-    // Sending a 500 internal server error response in case of an exception
-    res.status(500).json({ message: 'Error interno del servidor' });
+    // Verificar si 'error' es una instancia de Error y si 'response' existe
+    if (error instanceof Error && 'response' in error && typeof error.response === 'object' && error.response !== null) {
+      // Verificar si 'status' y 'data' existen en 'response'
+      if ('status' in error.response && 'data' in error.response) {
+        // Asegurarse de que 'status' sea un número
+        const status = typeof error.response.status === 'number' ? error.response.status : 500;
+        res.status(status).send(error.response.data);
+      } else {
+        res.status(500).json({ message: 'Error sin respuesta del servidor' });
+      }
+    } else {
+      console.error('Error desconocido:', error);
+      res.status(500).json({ message: 'Error interno del servidor' });
+    }
   }
+  
 };
-
 
 export const searchVotingTables: RequestHandler = (req, res) => {
   // Mocked Logic
