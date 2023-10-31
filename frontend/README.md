@@ -1,3 +1,22 @@
+# Frontend Fiscales - Documentación
+
+**Instalación**
+
+Primero, clona el repositorio y navega hasta el directorio del proyecto:
+
+git clone <URL_DEL_REPOSITORIO>
+cd frontend-fiscales
+npm install o yarn install
+
+**Scripts Disponibles**
+
+- `npm run dev`: Inicia el servidor de desarrollo de Vite.
+- `npm run build`: Compila el proyecto para producción usando TypeScript y Vite.
+- `npm run lint`: Ejecuta ESLint para analizar el código TypeScript y TypeScript React.
+- `npm run preview`: Compila el proyecto y lo muestra en modo de vista previa.
+- `npm run server`: Inicia el servidor JSON usando `db.json` como base de datos mock.
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
