@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import ImageInput from '#/components/imageInput';
 import { getBase64 } from '#/utils';
-import { useState } from 'react';
 
 export function UploadImage({
   onUpload,

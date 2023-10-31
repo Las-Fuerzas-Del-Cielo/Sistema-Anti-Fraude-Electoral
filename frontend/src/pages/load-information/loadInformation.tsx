@@ -138,19 +138,19 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
 
   return (
     <section className="bg-white items-center flex flex-col">
-      <FormHeader routerLink="/" title="" />
+      <FormHeader routerLink="/verify-certificate" title="" />
       <div className="container mx-auto p-2">
         <div className="flex items-center justify-center my-210">
           <ProgressIndicator
             steps={[
               ProgressStepStatus.Successful,
               ProgressStepStatus.Successful,
-              ProgressStepStatus.Successful,
               ProgressStepStatus.Active,
+              ProgressStepStatus.Pending,
             ]}
           />
         </div>
-        <div className="py-8 text-neutral-700 text-3xl font-bold">
+        <div className="py-8 text-neutral-700 text-xl font-bold">
           Cargar datos del certificado
         </div>
         <div className="flex flex-row w-full justify-center gap-16">
@@ -164,7 +164,7 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 handleCircuitChange(Number(e.target.value))
               }
-              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-32 flex text-2xl ${circuitInputStyle}`}
+              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-32 flex text-xl ${circuitInputStyle}`}
             />
           </div>
           <div>
@@ -175,13 +175,13 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 handleTableChange(Number(e.target.value))
               }
-              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-32 flex text-2xl ${tableInputStyle}`}
+              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-32 flex text-xl ${tableInputStyle}`}
             />
           </div>
         </div>
         <div className="flex items-center justify-center w-full p-2">
           <div className="flex p-2 justify-between items-center w-full  max-w-md ">
-            <div className="text-2xl text-neutral-700 font-bold px-3 py-5 tracking-wide">
+            <div className="text-xl text-neutral-700 font-bold px-3 py-5 tracking-wide">
               Cantidad de electores
             </div>
             <input
@@ -190,13 +190,13 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 handleElectorsChange(Number(e.target.value))
               }
-              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-32 flex text-2xl ${electorsInputStyle}`}
+              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-32 flex text-xl ${electorsInputStyle}`}
             />
           </div>
         </div>
         <div className="flex items-center justify-center w-full p-2">
           <div className="flex p-2 justify-between items-center w-full  max-w-md ">
-            <div className="text-2xl text-neutral-700 font-bold px-3 py-5 tracking-wide">
+            <div className="text-xl text-neutral-700 font-bold px-3 py-5 tracking-wide">
               Cantidad de sobres
             </div>
             <input
@@ -205,7 +205,7 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 handleEnvelopesChange(Number(e.target.value))
               }
-              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-32 flex text-2xl ${envelopesInputStyle}`}
+              className={`border-2 text-center border-gray-300 outline-none cursor-default bg-white text-neutral-500 font-bold rounded-xl h-12 w-32 flex text-xl ${envelopesInputStyle}`}
             />
           </div>
         </div>
@@ -215,7 +215,7 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
         >
           <div className="flex p-2 justify-between items-center w-full  max-w-md ">
             <div
-              className={`text-2xl text-neutral-700 font-bold px-3 py-5 tracking-wide ${electorsEnvelopesDiffStyle}`}
+              className={`text-xl text-neutral-700 font-bold px-3 py-5 tracking-wide ${electorsEnvelopesDiffStyle}`}
             >
               {electorsEnvelopesDiffStyle ? (
                 <div className="flex flex-row gap-2">
@@ -225,7 +225,7 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
                 <div className=''>Diferencia</div>
               )}
             </div>
-            <div className="text-2xl font-semibold px-3 py-5 mr-10">
+            <div className="text-xl font-semibold px-3 py-5 mr-10">
               {electors - envelopes}
             </div>
           </div>
@@ -266,7 +266,7 @@ const LoadInformationPage: FC<ILoadInformationProps> = ({ message }) => {
               )}
             </div>
             <div
-              className={`text-2xl font-semibold px-3 py-5 mr-10 ${totalVotesDiffStyle}`}
+              className={`text-xl font-semibold px-3 py-5 mr-10 ${totalVotesDiffStyle}`}
             >
               {totalVotes}
             </div>

@@ -10,8 +10,8 @@ import './styles.css';
 
 const SendSuccessPage: FC<ISendSuccessProps> = ({ message }) => {
   return (
-    <section className="bg-gray-100 items-center flex flex-col ">
-      <FormHeader routerLink="/" title="Datos enviados con éxito" />
+    <section className="items-center flex flex-col ">
+      <FormHeader routerLink="/load-information" title="Datos enviados con éxito" />
       <div className="p-4">
         <div className="container mx-auto">
           <div className="flex items-center justify-center my-210">
@@ -20,6 +20,7 @@ const SendSuccessPage: FC<ISendSuccessProps> = ({ message }) => {
                 ProgressStepStatus.Successful,
                 ProgressStepStatus.Successful,
                 ProgressStepStatus.Successful,
+                ProgressStepStatus.Active,
               ]}
             />
           </div>
@@ -37,7 +38,7 @@ const SendSuccessPage: FC<ISendSuccessProps> = ({ message }) => {
           </div>
           <div className="flex items-center justify-center my-20">
             {/* TODO: Mover a Dashboard */}
-            <Link to="/">
+            <Link to="/dashboard">
               <Button
                 className="bg-violet-brand p-4 text-white w-full rounded-xl font-semibold text-xl tracking-wider"
                 type="submit"
