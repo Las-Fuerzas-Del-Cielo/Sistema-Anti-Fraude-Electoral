@@ -5,19 +5,26 @@ import { Route, Routes } from 'react-router-dom';
 const Login = lazy(() => import('#/pages/login/login'));
 const Profile = lazy(() => import('#/pages/profile/profile'));
 const SendSuccess = lazy(() => import('#/pages/send-success/sendSuccess'));
-const LoadInformation = lazy(() => import('#/pages/load-information/loadInformation'));
+const LoadInformation = lazy(
+  () => import('#/pages/load-information/loadInformation'),
+);
 const Dashboard = lazy(() => import('#/pages/dashboard/dashboard'));
-const UploadCertificate = lazy(() => import('#/pages/upload-certificate/uploadCertificate'));
-const VerifyCertificate = lazy(() => import('#/pages/verify-certificate/verifyCertificate'));
+const UploadCertificate = lazy(
+  () => import('#/pages/upload-certificate/uploadCertificate'),
+);
+const VerifyCertificate = lazy(
+  () => import('#/pages/verify-certificate/verifyCertificate'),
+);
 const TotalResults = lazy(() => import('#/pages/total-results/totalResults'));
 const FilterPage = lazy(() => import('#/pages/results/filter'));
+const NotFound = lazy(() => import('#/pages/not-found/notFound'));
 const DeskData = lazy(() => import('#/pages/desk-data/DeskData'));
-
 
 const AppRoutes: React.FC = () => (
   <Routes>
     {/* Auth */}
     <Route path="/login" element={<Login />} />
+    {/* TODO: Agregar Middleware (si no existe user, no entra a las siguientes rutas) */}
 
     {/* Cuenta */}
     <Route path="/dashboard" element={<Dashboard />} />
@@ -37,6 +44,9 @@ const AppRoutes: React.FC = () => (
     {/* Utils */}
     <Route path="/loading-page" element={<LoadingPage />} />
     <Route path="/" element={<Login />} />
+
+    {/* 404 Not found */}
+    <Route path="*" element={<NotFound />} />
   </Routes>
 );
 

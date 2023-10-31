@@ -1,17 +1,27 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { observer } from 'mobx-react-lite';
 import Button from '#/components/button';
 import Input from '#/components/input';
+import { SnackBar } from '#/components/snackbar';
+import useAxios from '#/hooks/utils/useAxios';
+import { useAuth } from '#/context/AuthContext';
 import { ILoginProps } from './types';
-import { Link } from 'react-router-dom';
 
 const LoginPage: React.FC = () => {
+  const { login } = useAuth();
+  const axios = useAxios();
   const navigate = useNavigate();
 
-  const onSubmit = (values: ILoginProps) => {
-    //TODO: Add logic auth.
-    //TODO: Change logic on submit with AUTH and redirect to /dashboard
+  const onSubmit = async (values: ILoginProps) => {
+    //TODO: Cambiar cuando la logica del LOGIN (desde el back, me devuelva el JWT y la info del Usuario)
+    //TODO: Descomentar cuando este todo listo -> const { data, error, loading } = await axios.post('/auth', values);
+    const { data, error, loading } = await axios.get('/user');
+
+    if (error) return; //TODO: Snackbar de error.
+    if (loading) return; //TODO: Spinner de carga.
+
+    login(data);
     navigate('/dashboard');
   };
 
@@ -23,7 +33,7 @@ const LoginPage: React.FC = () => {
     onSubmit,
   });
 
-  const handleClick = () => {
+  const handleClick = async () => {
     // Maneja la lógica cuando se hace clic en el botón
   };
 
@@ -71,7 +81,10 @@ const LoginPage: React.FC = () => {
               onClick={handleClick}
             />
 
-            <Link to='total-results' className="mt-8 text-lg text-center text-gray-600 underline">
+            <Link
+              to="total-results"
+              className="mt-8 text-lg text-center text-gray-600 underline"
+            >
               Ir a resultados
             </Link>
           </div>
