@@ -247,3 +247,5 @@ In an open-source manner, anyone who wishes to take responsibility for a part of
 # Developer Discord
 
 [Discord Link](https://discord.gg/BWDqcpXn)
+
+[Enlace al Discord](https://discord.gg/BWDqcpXn)
