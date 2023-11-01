@@ -73,6 +73,8 @@ paths:
       responses:
         '201':
           description: Fiscalization recorded
+        '400':
+          description: Message wrongly formatted.
 
   # Upload File
   /api/upload:
