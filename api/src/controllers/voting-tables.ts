@@ -3,6 +3,7 @@ import { registrarReporteEnS3 } from '../utils/s3Utils';
 import { ERROR_CODES } from '../utils/errorConstants';
 import { ReportFaltaFiscal, Mesa, Escuela, ResultadoRegistroS3 } from '../types/models';
 import { generateUniqueId } from '../utils/generateUniqueId';
+import MesaElectoralService from "../service/MesaElectoralService";
 
 // Define the expected structure of the request body
 interface ReportarFaltaFiscalBody {
@@ -23,7 +24,7 @@ export const getVotingTableData: RequestHandler = (req, res) => {
 export const searchVotingTables: RequestHandler = (req, res) => {
   // Mocked Logic
   res.status(200).json({ mesas: ['Mesa 1', 'Mesa 2'] })
-} 
+}
 
 export const reportMissingAuditor: RequestHandler<ReportarFaltaFiscalParams, any, ReportarFaltaFiscalBody> = async (req, res) => {
   // Get mesaId from URL parameters
@@ -35,7 +36,7 @@ export const reportMissingAuditor: RequestHandler<ReportarFaltaFiscalParams, any
   // Validación básica de los datos de entrada
   if (!fiscalId || !mesaId || !escuelaId) {
     return res.status(ERROR_CODES.INCOMPLETE_DATA.status).json({ message: ERROR_CODES.INCOMPLETE_DATA.message });
-    
+
   }
 
   try {
@@ -66,7 +67,7 @@ export const reportMissingAuditor: RequestHandler<ReportarFaltaFiscalParams, any
       timestamp: new Date(), // Asegúrate de que sea un objeto Date
       observaciones: '', // Puedes dejarlo vacío o agregar alguna observación por defecto
     };
-    
+
     const resultadoS3: ResultadoRegistroS3 = await registrarReporteEnS3(reporte);
 
     // Verifica si 'resultadoS3' es del tipo 'ErrorSubidaS3'
@@ -102,10 +103,20 @@ async function getInstitucionDeFiscal(fiscalId: string): Promise<string> {
   return 'Institución XYZ'; // Simulación, reemplazar con la lógica real
 }
 
-async function validateMesaYEscuela(mesaId: string, escuelaId: string): Promise<boolean> {
+async function validateMesaYEscuela(mesaId: string, escuelaId: string): Promise<string | boolean> {
   // Lógica para validar que la mesa pertenece a la escuela
-  // Ejemplo:
-  // const mesa = await MesaModel.findById(mesaId);
-  // return mesa && mesa.escuelaId === escuelaId;
-  return true; // Simulación, reemplazar con la lógica real
+
+  const mesa = await MesaElectoralService.findMesaByEscuela(escuelaId).then((mesas) => {
+    const listaFiltrada = mesas.filter((elemento) => elemento !== undefined);
+    const result = listaFiltrada.find((elemento) => elemento.id === mesaId);
+    if(result == undefined){
+      return ""
+    }else{
+      return result;
+    }
+  })
+
+  return mesa && mesa.escuelaId === escuelaId;
 }
+
+
