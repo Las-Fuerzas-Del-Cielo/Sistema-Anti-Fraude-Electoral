@@ -1,6 +1,7 @@
+import { useAuth } from '#/context/AuthContext';
 import { LoadingPage } from '#/pages/loading-page';
-import { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { lazy, useEffect } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
 const Login = lazy(() => import('#/pages/login/login'));
 const Profile = lazy(() => import('#/pages/profile/profile'));
@@ -20,11 +21,17 @@ const FilterPage = lazy(() => import('#/pages/results/filter'));
 const NotFound = lazy(() => import('#/pages/not-found/notFound'));
 const DeskData = lazy(() => import('#/pages/desk-data/DeskData'));
 
-const AppRoutes: React.FC = () => (
-  <Routes>
+const AppRoutes: React.FC = () => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) navigate('/login');
+  }, [user, navigate]);
+
+  return <Routes>
     {/* Auth */}
     <Route path="/login" element={<Login />} />
-    {/* TODO: Agregar Middleware (si no existe user, no entra a las siguientes rutas) */}
 
     {/* Cuenta */}
     <Route path="/dashboard" element={<Dashboard />} />
@@ -48,6 +55,6 @@ const AppRoutes: React.FC = () => (
     {/* 404 Not found */}
     <Route path="*" element={<NotFound />} />
   </Routes>
-);
+};
 
 export default AppRoutes;
