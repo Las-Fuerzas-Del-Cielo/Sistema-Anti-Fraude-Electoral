@@ -13,12 +13,12 @@ La intencion de crear este sistema es mantener y preservar la democracia y la tr
   - [Componentes](#componentes)
   - [Repositorios y organización](#repositorios-y-organización)
   - [Tipos de Fraudes](#tipos-de-fraudes)
-    - [Sumarizacion Fraudulenta](#sumarizacion-fraudulenta)
+    - [Sumarizacion Fraudulenta](#sumarización-fraudulenta)
     - [Mesas Inexistentes](#mesas-inexistentes)
     - [Datos de Mesa Correctos luego Incorrectos](#datos-de-mesa-correctos-luego-incorrectos)
     - [Fiscales Falsos](#fiscales-falsos)
     - [Fiscales Judas](#fiscales-judas)
-    - [Ficales Incompetentes](#ficales-incompetentes)
+    - [Ficales Incompetentes](#fiscales-incompetentes)
     - [Conteo de Voto Corrupto por falta del Fiscal de Mesa](#conteo-de-voto-corrupto-por-falta-del-fiscal-de-mesa)
   - [Usuarios](#usuarios)
   - [Funcionalidad](#funcionalidad)
@@ -29,10 +29,10 @@ La intencion de crear este sistema es mantener y preservar la democracia y la tr
       - [Frontend](#frontend)
       - [Procesos Batch](#procesos-batch)
   - [Responsables](#responsables)
-  - [Links de interes](#links-de-interes)
-- [Como contribuir](#como-contribuir)
+  - [Links de interes](#enlaces-de-interés)
+- [Cómo contribuir](#cómo-contribuir)
 - [Autores](#autores)
-- [Contributors](#contributors)
+- [Contributors](#colaboradores)
 
 ## Objetivos
 
@@ -54,7 +54,7 @@ Este repositorio tiene la finalidad de:
 
 Estos repositorios son las partes complementarias del proyecto:
 - Frontend público (_TO DO: Incluir link cuando se lo cree_)
-- [Backend API](https://github.com/Las-Fuerzas-Del-Cielo/api)
+- [Backend API](https://github.com/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral/tree/main/api)
 
 ## Tipos de Fraudes
 
@@ -252,3 +252,4 @@ Al mejor estilo Open Source, aquel que desee hacerse responsable de alguna parte
 # Discord para Desarrolladores
 
 [Enlace al Discord](https://discord.gg/BWDqcpXn)
+
