@@ -1,4 +1,4 @@
-import { createLogger, format, transports, LoggerOptions, Logger } from 'winston';
+import {createLogger, format, Logger, transports} from 'winston';
 
 const logger: Logger = createLogger({
   level: 'info',

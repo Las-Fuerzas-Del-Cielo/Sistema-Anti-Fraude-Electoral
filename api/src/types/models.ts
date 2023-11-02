@@ -5,7 +5,7 @@ export interface User {
   mesa_id: string
 }
 
-export interface Fiscalizar {
+export interface Audit {
   imagen: string
   validado: boolean
   errores: boolean
