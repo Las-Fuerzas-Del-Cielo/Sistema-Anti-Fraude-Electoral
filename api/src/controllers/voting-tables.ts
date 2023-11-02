@@ -1,8 +1,9 @@
 import { RequestHandler } from 'express'
 import { registrarReporteEnS3 } from '../utils/s3Utils';
 import { ERROR_CODES } from '../utils/errorConstants';
-import { ReportFaltaFiscal, Mesa, Escuela, ResultadoRegistroS3 } from '../types/models';
+import { ReportFaltaFiscal, ResultadoRegistroS3 } from '../types/models';
 import { generateUniqueId } from '../utils/generateUniqueId';
+import { GetResultadosParamsRequest, GetResultadosResponse, ResultadosApi } from '../clients/resultadosApi'
 
 // Define the expected structure of the request body
 interface ReportarFaltaFiscalBody {
@@ -15,10 +16,70 @@ interface ReportarFaltaFiscalParams {
   id: string; // mesaId is received as 'id' in the URL
 }
 
-export const getVotingTableData: RequestHandler = (req, res) => {
-  // Mocked Logic
-  res.status(200).json({ mesaData: 'some mesa data' })
+interface ValidatedQueryParams {
+  anioEleccion?: string;
+  tipoRecuento?: string;
+  tipoEleccion?: string;
+  categoriaId?: string;
+  distritoId?: string;
+  circuitoId?: string;
+  seccionId?: string;
+  seccionProvincialId?: string;
 }
+
+// Define a type for the valid query parameters after filtering
+type ValidParams = Partial<ValidatedQueryParams>;
+
+function getValidatedQueryParams(query: any): ValidatedQueryParams {
+  return {
+    anioEleccion: query.anioEleccion as string | undefined,
+    tipoRecuento: query.tipoRecuento as string | undefined,
+    tipoEleccion: query.tipoEleccion as string | undefined,
+    categoriaId: query.categoriaId as string | undefined,
+    distritoId: query.distritoId as string | undefined,
+    circuitoId: query.circuitoId as string | undefined,
+    seccionId: query.seccionId as string | undefined,
+    seccionProvincialId: query.seccionProvincialId as string | undefined,
+  };
+}
+
+export const getVotingTableData: RequestHandler = async (req, res) => {
+  const { id: mesaId } = req.params;
+  const queryParams: ValidatedQueryParams = getValidatedQueryParams(req.query);
+
+  // Construir 'params' excluyendo las propiedades 'undefined'
+  const params: Partial<GetResultadosParamsRequest> = {
+    mesaId,
+    ...Object.entries(queryParams)
+      .filter(([_, value]) => value !== undefined) // Solo incluir propiedades definidas
+      .reduce((obj, [key, value]) => {
+        (obj as Partial<GetResultadosParamsRequest>)[key as keyof GetResultadosParamsRequest] = value;
+        return obj;
+      }, {})
+  };
+
+  try {
+    // Hacer la llamada a la API
+    const response: GetResultadosResponse = await new ResultadosApi().getResultados(params as GetResultadosParamsRequest);
+    res.status(200).json(response);
+  } catch (error) {
+    // Verificar si 'error' es una instancia de Error y si 'response' existe
+    if (error instanceof Error && 'response' in error && typeof error.response === 'object' && error.response !== null) {
+      // Verificar si 'status' y 'data' existen en 'response'
+      if ('status' in error.response && 'data' in error.response) {
+        // Asegurarse de que 'status' sea un número
+        const status = typeof error.response.status === 'number' ? error.response.status : 500;
+        res.status(status).send(error.response.data);
+      } else {
+        res.status(500).json({ message: 'Error sin respuesta del servidor' });
+      }
+    } else {
+      console.error('Error desconocido:', error);
+      res.status(500).json({ message: 'Error interno del servidor' });
+    }
+  }
+  
+};
 
 export const searchVotingTables: RequestHandler = (req, res) => {
   // Mocked Logic

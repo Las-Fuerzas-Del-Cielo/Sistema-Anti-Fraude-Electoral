@@ -57,13 +57,55 @@
     },
     "/voting-tables/{id}": {
       "get": {
-        "description": "",
+        "description": "Obtiene información sobre la mesa en particular",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "default": "1244",
+            "description": "Id de la Mesa"
+          },
+          {
+            "name": "anioEleccion",
+            "in": "query",
+            "required": true,
+            "type": "number",
+            "default": 2019,
+            "description": "Año del Ciclo Electoral"
+          },
+          {
+            "name": "tipoRecuento",
+            "in": "query",
+            "required": true,
+            "type": "number",
+            "default": 1,
+            "description": "Tipo de recuento que se quiere consultar. Utilizar el valor '1' para Recuento Provisional."
+          },
+          {
+            "name": "tipoEleccion",
+            "in": "query",
+            "required": true,
+            "type": "number",
+            "default": 1,
+            "description": "Tipo de elección a consultar. Utilizar el valor '1' para PASO, '2' para Elecciones Generales y '3' para Segunda Vuelta."
+          },
+          {
+            "name": "categoriaId",
+            "in": "query",
+            "required": true,
+            "type": "number",
+            "default": 2,
+            "description": "Id de la categoría electoral para la cual se están solicitando datos."
+          },
+          {
+            "name": "distritoId",
+            "in": "query",
+            "required": true,
+            "type": "number",
+            "default": 6,
+            "description": "Id del distrito"
           }
         ],
         "responses": {
