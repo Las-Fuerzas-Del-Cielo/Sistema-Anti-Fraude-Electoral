@@ -1,6 +1,6 @@
-import {Fiscalizar} from "../types/models";
+import {Audit} from "../types/models";
 
-export const validateFiscalizar: (obj: any) => obj is Fiscalizar = (obj: any): obj is Fiscalizar => {
+export const validateAudit: (obj: any) => obj is Audit = (obj: any): obj is Audit => {
     return "imagen" in obj &&
         "validado" in obj &&
         "errores" in obj &&
