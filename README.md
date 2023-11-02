@@ -10,6 +10,7 @@ La intencion de crear este sistema es mantener y preservar la democracia y la tr
 - [:lion: Sistema-Anti-Fraude-Electoral :lion:](#lion-sistema-anti-fraude-electoral-lion)
   - [Indice](#indice)
   - [Objetivos](#objetivos)
+  - [Código electoral y guías de fiscalización](#código-electoral-y-guías-de-fiscalización)
   - [Componentes](#componentes)
   - [Repositorios y organización](#repositorios-y-organización)
   - [Tipos de Fraudes](#tipos-de-fraudes)
@@ -46,6 +47,20 @@ Los objetivos de este sistema son:
 - Frontend fiscales (carga de datos)
 - Frontend público (para toda persona que quiera acceder a los datos)
 - Backend (API)
+
+## Código Electoral y Guías de Fiscalización
+
+El Código Electoral argentino establece las normas y procedimientos para la organización de elecciones nacionales y provinciales, incluyendo la regulación de la representación política y la forma de votación. También establece las disposiciones relacionadas con la fiscalización, el escrutinio y la proclamación de resultados electorales.
+
+Como desarrolladores, es importante conocer la ley y el proceso de punta a punta. Y si conocen el proceso, también están listos para fiscalizar ;) 
+
+- [Guía rápida para fiscales](https://www.argentina.gob.ar/sites/default/files/guia_rapida_fiscales_2019_web.pdf)
+- [Guía para autoridades de mesa](https://www.electoral.gob.ar/nuevo/paginas/pdf/Manual_Autoridad_de_Mesa_2023.pdf)
+- [Código Electoral completo](https://servicios.infoleg.gob.ar/infolegInternet/anexos/15000-19999/19442/texact.htm)
+- [Código Electoral PDF completo](https://www.argentina.gob.ar/interior/observatorioelectoral/normativa-electoral/normativa-electoral-nacional/codigo-electoral)
+- [Capacitaciones para Autoridades y Fiscales](https://capacitacionelectoral.gob.ar/?redirect=0)
+- [Cuentas de Twitter para anotarse como fiscales y capacitation: @AgrupCiudadana](https://twitter.com/AgrupCiudadana)
+
 
 ## Repositorios y organización
 Este repositorio tiene la finalidad de:
