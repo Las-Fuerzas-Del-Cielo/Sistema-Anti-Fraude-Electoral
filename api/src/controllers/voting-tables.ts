@@ -1,8 +1,8 @@
-import { RequestHandler } from 'express'
-import { registrarReporteEnS3 } from '../utils/s3Utils';
-import { ERROR_CODES } from '../utils/errorConstants';
-import { ReportFaltaFiscal, Mesa, Escuela, ResultadoRegistroS3 } from '../types/models';
-import { generateUniqueId } from '../utils/generateUniqueId';
+import {RequestHandler} from 'express'
+import {registrarReporteEnS3} from '../utils/s3Utils';
+import {ERROR_CODES} from '../utils/errorConstants';
+import {ReportFaltaFiscal, ResultadoRegistroS3} from '../types/models';
+import {generateUniqueId} from '../utils/generateUniqueId';
 
 // Define the expected structure of the request body
 interface ReportarFaltaFiscalBody {
