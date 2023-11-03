@@ -1,270 +1,251 @@
 ![GitHub Repo Size](https://img.shields.io/github/repo-size/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral)
 
-# :lion: Sistema-Anti-Fraude-Electoral :lion:
+# :lion: Electoral Anti-Fraud System :lion:
 
-Este es un proyecto **Open Source** (codigo libre) cuyo objetivo es minimizar y detectar la posibilidad de fraude electoral en las proximas elecciones presidenciales de Argentina donde se define finalmente quien sera presidente.
+This is an **Open Source** project with the aim of minimizing and detecting the possibility of electoral fraud in the upcoming presidential elections in Argentina, where the final outcome of the presidency is determined.
 
-La intencion de crear este sistema es mantener y preservar la democracia y la transparencia al pueblo argentino.
+The intention behind creating this system is to uphold and preserve democracy and transparency for the Argentine people.
 
-## Indice
-- [:lion: Sistema-Anti-Fraude-Electoral :lion:](#lion-sistema-anti-fraude-electoral-lion)
-  - [Indice](#indice)
-  - [Objetivos](#objetivos)
-  - [Código electoral y guías de fiscalización](#código-electoral-y-guías-de-fiscalización)
-  - [Componentes](#componentes)
-  - [Repositorios y organización](#repositorios-y-organización)
-  - [Tipos de Fraudes](#tipos-de-fraudes)
-    - [Sumarizacion Fraudulenta](#sumarización-fraudulenta)
-    - [Mesas Inexistentes](#mesas-inexistentes)
-    - [Datos de Mesa Correctos luego Incorrectos](#datos-de-mesa-correctos-luego-incorrectos)
-    - [Fiscales Falsos](#fiscales-falsos)
-    - [Fiscales Judas](#fiscales-judas)
-    - [Ficales Incompetentes](#fiscales-incompetentes)
-    - [Conteo de Voto Corrupto por falta del Fiscal de Mesa](#conteo-de-voto-corrupto-por-falta-del-fiscal-de-mesa)
-  - [Usuarios](#usuarios)
-  - [Funcionalidad](#funcionalidad)
-  - [Arquitectura del Sistema](#arquitectura-del-sistema)
-    - [Componentes Principales](#componentes-principales)
-      - [Base de Datos](#base-de-datos)
-      - [Servicios de Backend](#servicios-de-backend)
+## Table of Contents
+- [:lion: Electoral Anti-Fraud System :lion:](#lion-electoral-anti-fraud-system-lion)
+  - [Table of Contents](#table-of-contents)
+  - [Objectives](#objectives)
+  - [Components](#components)
+  - [Repositories and Organization](#repositories-and-organization)
+  - [Types of Frauds](#types-of-frauds)
+    - [Fraudulent Summarization](#fraudulent-summarization)
+    - [Non-Existent Polling Stations](#non-existent-polling-stations)
+    - [Correct Table Data, Then Incorrect](#correct-table-data-then-incorrect)
+    - [False Polling Officials](#false-polling-officials)
+    - [Judas Polling Officials](#judas-polling-officials)
+    - [Incompetent Polling Officials](#incompetent-polling-officials)
+    - [Corrupt Vote Count Due to Missing Polling Official](#corrupt-vote-count-due-to-missing-polling-official)
+  - [Users](#users)
+  - [Functionality](#functionality)
+  - [System Architecture](#system-architecture)
+    - [Key Components](#key-components)
+      - [Database](#database)
+      - [Backend Services](#backend-services)
       - [Frontend](#frontend)
-      - [Procesos Batch](#procesos-batch)
-  - [Responsables](#responsables)
-  - [Links de interes](#enlaces-de-interés)
-- [Cómo contribuir](#cómo-contribuir)
-- [Autores](#autores)
-- [Contributors](#colaboradores)
+      - [Batch Processes](#batch-processes)
+  - [Responsibles](#responsibles)
+  - [Useful Links](#useful-links)
+- [How to Contribute](#how-to-contribute)
+- [Authors](#authors)
+- [Contributors](#contributors)
 
-## Objetivos
+## Objectives
 
-Los objetivos de este sistema son:
+The objectives of this system are:
 
-1. Identificar potenciales fraudes electorales.
-2. Minimizar su ocurrencia e impacto.
-3. Acelerar su detección para evitar la falsa declaración de un ganador con altos niveles de fraude/casos sospechosos.
+1. Identify potential electoral frauds.
+2. Minimize their occurrence and impact.
+3. Expedite their detection to prevent the false declaration of a winner with high levels of fraud/suspicious cases.
 
-## Componentes
-- Frontend fiscales (carga de datos)
-- Frontend público (para toda persona que quiera acceder a los datos)
+## Components
+- Frontend for Polling Officials (data entry)
+- Public Frontend (for anyone accessing the data)
 - Backend (API)
 
-## Código Electoral y Guías de Fiscalización
+## Repositories and Organization
+This repository serves the purpose of:
+- Explaining the project in general
+- Hosting the [frontend code for polling officials](https://github.com/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral/tree/main/Frontend/fiscales-app-ts).
 
-El Código Electoral argentino establece las normas y procedimientos para la organización de elecciones nacionales y provinciales, incluyendo la regulación de la representación política y la forma de votación. También establece las disposiciones relacionadas con la fiscalización, el escrutinio y la proclamación de resultados electorales.
+These repositories are complementary parts of the project:
+- Public Frontend (_TO DO: Include a link when it's created_)
+- [Backend API](https://github.com/Las-Fuerzas-Del-Cielo/api)
 
-Como desarrolladores, es importante conocer la ley y el proceso de punta a punta. Y si conocen el proceso, también están listos para fiscalizar ;) 
+## Types of Frauds
 
-- [Guía rápida para fiscales](https://www.argentina.gob.ar/sites/default/files/guia_rapida_fiscales_2019_web.pdf)
-- [Guía para autoridades de mesa](https://www.electoral.gob.ar/nuevo/paginas/pdf/Manual_Autoridad_de_Mesa_2023.pdf)
-- [Código Electoral completo](https://servicios.infoleg.gob.ar/infolegInternet/anexos/15000-19999/19442/texact.htm)
-- [Código Electoral PDF completo](https://www.argentina.gob.ar/interior/observatorioelectoral/normativa-electoral/normativa-electoral-nacional/codigo-electoral)
-- [Capacitaciones para Autoridades y Fiscales](https://capacitacionelectoral.gob.ar/?redirect=0)
-- [Cuentas de Twitter para anotarse como fiscales y capacitation: @AgrupCiudadana](https://twitter.com/AgrupCiudadana)
+What types of fraud are expected to be detected? In an election like this, there are many ways to commit fraud if someone controls the official computing system.
 
+This is the list of Types of Frauds that we aim to tackle. This forms the backbone of the project, and all the functionality to be built derives from this. If you like, you can code something for any of the identified types of fraud, and if you think of another type of fraud and how to minimize it, you can add it to the list and specify what needs to be done. If you have the time and energy, you could start coding what's needed while waiting for others to assist.
 
-## Repositorios y organización
-Este repositorio tiene la finalidad de:
-- Explicar el proyecto en general
-- Alojar el [código para el frontend para fiscales](https://github.com/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral/tree/main/Frontend/fiscales-app-ts).
+### Fraudulent Summarization
 
-Estos repositorios son las partes complementarias del proyecto:
-- Frontend público (_TO DO: Incluir link cuando se lo cree_)
-- [Backend API](https://github.com/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral/tree/main/api)
+In this case, the official computing system has all the data correctly loaded, but the grouping by Province/Nation is incorrect.
 
-## Tipos de Fraudes
+### Non-Existent Polling Stations
 
-¿Qué tipos de fraude se esperan detectar? En una elección como esta, hay muchas formas de hacer fraudes si alguien controla el sistema de cómputos oficial.
+In this case, the official computing system has all the data correctly loaded, but in addition to the real polling stations, there are polling stations that only exist in the system and are used to alter the global results.
 
-Esta es la lista de Tipos de Fraudes que se quieren atacar. Esa es la columna vertebral de este proyecto, de ahí deriva toda la funcionalidad que se va a construir. Si querés, podés programar algo de lo que se necesita para alguno de los tipos de fraudes identificados, si se te ocurre algún otro tipo de fraude y cómo minimizarlo, lo podés agregar a la lista y especificar qué habría que hacer para eso. Y si tienes tiempo y energía, podrías empezar programando lo que haga falta en lo que llegan otros y te ayudan.
+### Correct Table Data, Then Incorrect
 
-### Sumarización Fraudulenta
+The third type of fraud would be that the tables loaded into the Official System have different data from the records of the polling officials. Currently, this can be manually detected if the polling official checks the Official System. The problem is that the official system could initially show the correct data for a while and then change it later when the official has already checked and seen it as correct. Most likely, an official would only verify the data once, and if it's correct, they would assume it won't change later.
 
-En este caso, el Sistema Oficial de cómputos tiene cargado correctamente todos los datos, pero aún así, el agrupamiento por Provincia / Nación es incorrecto.
+### False Polling Officials
 
-### Mesas Inexistentes
+These would be people who registered as polling officials just to secure a polling station or a group of polling stations and then not show up or abandon at the last moment when it's very difficult to find a replacement and reassign their stations.
 
-En este caso, el Sistema Oficial de cómputos tiene cargado correctamente todos los datos, pero además de las mesas reales, hay mesas que solo existen en el sistema y que se usan para cambiar los resultados globales.
+The system should have pre-loaded data on the Polling Officials and their work in the PASO and GENERAL elections so that if they were absent without cause or in a suspicious manner, they wouldn't be called for the BALLOTAGE.
 
-### Datos de Mesa Correctos luego Incorrectos
+### Judas Polling Officials
 
-El tercer tipo de fraude sería que las mesas cargadas en el Sistema Oficial tienen datos diferentes a las actas de los fiscales. Esto actualmente se puede detectar a mano si el fiscal revisa el Sistema Oficial. El problema es que el sistema oficial podría mostrarle los datos correctos por un tiempo y luego cambiarlos más adelante cuando el fiscal ya los consultó y los vio correctos. Seguramente un fiscal solo verificaría una vez los datos y si están bien, daría por hecho de que eso luego no cambia más.
+This type of fraud is based on recruiting and enrolling Polling Officials who, instead of overseeing and defending the votes of LLA, actually do the opposite. Polling stations with Judas Polling Officials could allow false data to be entered into the Official System because the counting has already been corrupted.
 
-### Fiscales Falsos
+The system should allow users of the **External Auditors** type to view the data of the Polling Officials in order to investigate them and determine if they are of the Judas type or not. Polling Officials will be invited to provide optional information about their identities on social networks, and those who do so will earn points in their reputation as Polling Officials. On the other hand, an army of external auditors can investigate with their ID and these social identities what the real background of these people is, and based on the results of these investigations, assign a score to each polling official that can be used in an extreme case to disqualify them or at least observe them with caution.
 
-Estos serían gente que se inscribieron como fiscales solo para quedarse con una mesa o grupo de mesas y luego no ir o abandonar a último momento cuando es muy difícil conseguir reemplazo y reasignar sus mesas.
+### Incompetent Polling Officials
 
-El sistema debe tener pre-cargados los datos de los Fiscales de Mesa y su trabajo en las elecciones PASO y GENERALES para que si en ellas se ausentaron sin causa, o de manera sospechosa, no se los vuelva a convocar para el BALLOTAGE.
+The system should cover cases of polling officials who are simply incompetent and, due to ignorance, enter data incorrectly into the system. This means that there should be mechanisms to exclude data from these polling officials or allow some type of user to override them based on, for example, photographs of the records.
 
-### Fiscales Judas
+### Corrupt Vote Count Due to Missing Polling Official
 
-Este tipo de fraude se basa en reclutar e inscribir Fiscales de Mesa que en vez de fiscalizar y defender los votos de LLA, en realidad hacen lo opuesto. Las mesas con Fiscales Judas podrían permitir que se carguen en el Sistema Oficial datos falsos porque la contabilización ya fue corrupta.
+The system should help manage the Polling Officials and General Polling Officials so that there is at least one General Polling Official in each school at a minimum. Cases where there is not even one General Polling Official per school result in a huge loss of votes. It should also manage the assignment of Polling Officials so that in case of shortages, they are sent to the places where they are most needed. For example, to schools with a higher number of voters combined with a lower number of Polling Officials.
 
-El sistema debe permitir a los usuarios del tipo **Auditores Externos** ver los datos de los Fiscales de Mesa para poder investigarlos y así poder inferir si son del tipo Judas o no. Los Fiscales de Mesa serán invitados a proveer información de manera opcional de sus identidades en redes sociales, y a los que lo hagan, sumarán puntos en su reputación como Fiscal. Del otro lado, un ejército de auditores externos puede investigar con su DNI y esas identidades sociales cuál es el background real de esas personas y en base a los resultados de estas investigaciones, asignarle a cada fiscal un score que puede usarse en un caso extremo para descalificarlo o al menos para observarlo con precaución.
+## Users
 
-### Fiscales Incompetentes
+This APP would have these types of users:
 
-El sistema debe cubrir el caso de fiscales que simplemente son incompetentes y por ignorancia cargan mal los datos en el sistema. Esto significa que deberían existir mecanismos para excluir datos de este tipo de fiscales o que algún tipo de usuario los pueda sobreescribir basándose, por ejemplo, en las fotografías de las actas.
+1. **Polling Official:** The primary user of this APP would be the Polling Officials of LLA. They would be responsible for entering the data.
 
-### Conteo de Voto Corrupto por falta del Fiscal de Mesa
+2. **General Polling Official:** Oversees the Polling Officials in a specific school. The General Polling Official MUST take photos of all the records from all the polling stations in the assigned school. In theory, there should always be at least one General Polling Official, even if there might not be any Polling Officials. If they do this and upload the data to the system, we can have an online army of volunteers who transcribe the values from the photos into numerical records, providing the first version of data into the system shortly after the voting ends. It should be the responsibility of the General Polling Official to take photos of all the physically present polling stations in each school because that way we can detect those phantom polling stations in the Official System.
 
-El sistema debe ayudar a administrar los Fiscales de Mesa y los Fiscales Generales, para que por lo menos haya un Fiscal General en cada escuela como mínimo. Los casos donde no hay ni siquiera un Fiscal General por escuela son una pérdida gigante de votos. También debe gestionar la asignación de Fiscales de Mesa, para que ante la escasez, estos sean enviados a los lugares donde más se necesitan. Por ejemplo, a las escuelas donde haya una mayor cantidad de electores combinado con una menor cantidad de Fiscales de Mesa.
+3. **Party Delegate:** These are trusted individuals of LLA who can go from one school to another during the voting to support and audit the General Polling Officials and Polling Officials.
 
-## Usuarios
+4. **Internal Auditor:** These would be people from LLA who would analyze the data entered by the Polling Officials and compare it with the official data. The APP should aim to automate this comparison to detect differences and potential frauds.
 
-Esta APP tendría estos tipos de usuarios:
+5. **External Auditor:** Any individual who completes the sign-up process as an external auditor. This profile would have access to the necessary functionality to query data and digitized documents and report anomalies that would then be investigated by Internal Auditors. It's important to note that fraud needs to be detected as early as possible because once someone is declared a winner, it's unlikely to be reversed, regardless of the number of fraud reports that come afterward. This eliminates the possibility of just uploading a photo, and someone at some point entering the data from that photo. In general, the detection of different types of fraud should be instantaneous, and, if possible, anyone from the general population should be able to view the vote count according to the LLA Polling Officials even before the official data is released, so that there's a public reaction to a potential large-scale fraud before a winner is declared.
 
-1. **Fiscal de Mesa:** El principal usuario de esta APP serían los Fiscales de Mesa de LLA. Serían quienes cargan los datos.
+6. **Public:** Anyone who wants to view the results online, based on the data entered by the LLA Polling Officials. They can also navigate through all the information available in the system.
 
-2. **Fiscal General:** Supervisa a los Fiscales de Mesa en una determinada escuela. El fiscal general DEBE tomar fotos de todas las actas de todas las mesas de la escuela a la cual fue asignado. En teoría siempre hay aunque sea un fiscal general, aunque pudiera no haber ningún Fiscal de Mesa. Si lo hace y las sube al sistema, podemos tener detrás un ejército de voluntarios por internet que transcriba los valores de las fotos en registros numéricos y así tener la primera versión de datos en el sistema bien temprano después del cierre de la votación. Debería ser una responsabilidad del Fiscal General tomar las fotos de todas las mesas de una escuela, porque de esa manera podríamos evitar el tipo de fraude **Mesas Inexistentes** en el que en el sistema oficial aparece luego alguna mesa que en la realidad no existió. Si cada uno de nuestros fiscales toma foto de TODAS las mesas físicamente presentes en cada escuela, podríamos detectar esas mesas fantasmas.
+## Functionality
 
-3. **Delegado del Partido:** Son personas de confianza de LLA que durante la votación pueden ir de una escuela a otra para apoyar y auditar a los Fiscales Generales y a los Fiscales de Mesa.
+1. **Data Entry**: The APP would allow Polling Officials to enter data from the polling stations they supervise. The system would accumulate all the data in a database.
 
-4. **Auditor Interno:** Serían gente de LLA que analizaría los datos cargados por los Fiscales de Mesa y los compararían con los datos oficiales. La APP trataría de automatizar esa comparación con el objetivo de detectar diferencias y potenciales fraudes.
+2. **Reports for Auditors**: The system would generate different types of reports aimed at detecting fraud, based on the data entered by the Polling Officials and the Official Data.
 
-5. **Auditor Externo:** Sería cualquier persona que complete el proceso de sign up como auditor externo. Este perfil tendría acceso a la funcionalidad necesaria para consultar datos y documentos digitalizados y reportar anomalías que luego serían levantadas por los Auditores Internos. Es importante notar que el fraude se tiene que detectar lo antes posible porque una vez que se declara a alguien ganador, difícilmente eso se vuelva atrás sin importar la cantidad de denuncias de fraude que haya después. Eso elimina la posibilidad de solo cargar una foto y luego que alguien en algún momento digite los datos de esa foto. En general, la detección de los distintos tipos de fraude debería ser instantánea y es más, si es posible, cualquier persona de la población en general debería poder ver el recuento de votos de acuerdo a los fiscales de LLA incluso antes que salgan los datos oficiales, cosa de que antes de que se nombre un ganador ya haya una reacción del público general ante un potencial fraude de gran escala.
+3. **Queries for the Public**: The system would allow various types of queries for the general public.
 
-6. **Público:** Cualquier persona que quiera ver los resultados en línea, de acuerdo a los datos cargados por los Fiscales de Mesa de LLA. También podrán navegar por toda la información disponible en el sistema.
+4. **Map / Report of Polling Officials Working**: The system should allow knowing online where there are and where there are no Polling Officials, so through social networks, people can be mobilized to go and oversee the voting, especially in the most extreme cases where, for example, there are none. An online report sorted by severity of where Polling Officials are urgently needed would be optimal. It would be more critical in schools with a higher number of voters and fewer Polling Officials. From there, data could be taken, which would be updated at all times during the voting, on where it's most critical to call for reinforcements through social networks.
 
+5. **Map / Information on Bunkers-Branches**: The system should allow visualizing a map or multiple maps where people can go to get their personal ballots, so people can see where to get them.
 
-## Funcionalidad
-
-1. **Carga de Datos**: La APP permitiría a los Fiscales de Mesa cargar los datos de las mesas que supervisan. El sistema acumularía todos los datos en una base de datos.
-
-2. **Reportes para Auditores**: El sistema generaría diferentes tipos de reportes orientados a detectar fraude, basándose en los datos cargados por los Fiscales de Mesa y los datos Oficiales.
-
-3. **Consultas para el Público**: El sistema permitiría ejecutar diferentes tipos de consultas para el público en general.
-
-4. **Mapa / Reporte de Fiscales Trabajando**: El sistema debería permitir saber en línea dónde hay y dónde no hay fiscales, así a través de las redes se puede movilizar a la gente para que vaya a fiscalizar, especialmente en los casos más extremos donde, por ejemplo, no hay nadie. Un reporte en línea ordenado por gravedad de dónde hacen falta fiscales con urgencia sería óptimo. Sería más grave en las escuelas con mayor cantidad de electores donde hay la menor cantidad de fiscales. De ahí podrían tomar los datos que estarían actualizados a toda hora durante la votación de dónde es más crítico llamar por las redes para que se refuercen esas escuelas.
-
-5. **Mapa / Información de Bunkers-Sucursales**: El sistema debe permitir visualizar un mapa o varios mapas en los cuales se debería poder ver dónde ir a buscar boletas personales y así que la gente pueda ver dónde ir a buscarlas.
-
-## Arquitectura del Sistema
+## System Architecture
 
 ![image](https://github.com/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral/assets/140413871/d3b6c243-93b5-41f6-9060-5ab97d90995c)
 
-- **Cloudflare:** Se utiliza para la gestión de DNS, CDN y seguridad en la capa 7.
+- **Cloudflare:** Used for DNS management, CDN, and security at layer 7.
 
-- **React SPA:** Alojada en S3.
+- **React SPA:** Hosted on S3.
 
-- **API Express:** Hospedada como un monolito en una función Lambda. Esto permite flexibilidad para los desarrolladores y evita la complejidad de tener que adaptarse al desarrollo de microservicios.
+- **Express API:** Hosted as a monolith in a Lambda function. This provides flexibility for developers and avoids the complexity of adapting to microservices development.
 
-- **API Gateway:** Aquí ocurre la magia de hacer un monolito serverless, ya que todos los endpoints se proxean a la Lambda que ejecuta el servidor Express.
+- **API Gateway:** This is where the magic of creating a serverless monolith happens, as all endpoints are proxied to the Lambda that runs the Express server.
 
-- **DynamoDB:** Otro servicio serverless que nos evita tener que lidiar con configuraciones de escalado y posibles picos inesperados de tráfico. Esto asegura que la aplicación pueda soportar altos niveles de carga sin fallar.
+- **DynamoDB:** Another serverless service that eliminates the need to deal with scaling configurations and potential unexpected traffic spikes. This ensures that the application can handle high levels of load without failing.
 
-- **S3 Bucket:** Aquí se subirán assets en forma de videos o imágenes como pruebas de fraudes.
+- **S3 Bucket:** This is where assets in the form of videos or images will be uploaded as evidence of fraud.
 
-Hay muchas formas de abordar la arquitectura de un sistema como este. Enumeremos primero los criterios más importantes que queremos seguir y, a partir de ellos, derivaremos la arquitectura que emerja.
+There are many ways to approach the architecture of a system like this. Let's first list the most important criteria we want to follow, and from there, we will derive the emerging architecture.
 
-1. El sistema completo debe desarrollarse y probarse en tiempo récord. Ese es el principal contraint.
+1. The entire system must be developed and tested in record time. That is the main constraint.
 
-2. Necesitamos poner a trabajar a muchas personas en paralelo, con la mínima fricción entre ellos. Para lograrlo, debemos dividir el sistema en bloques de casos de uso que interactúen entre sí a través de interfaces bien definidas.
+2. We need to put many people to work in parallel with minimal friction between them. To achieve this, we must divide the system into blocks of use cases that interact with each other through well-defined interfaces.
 
-3. Debemos minimizar la confianza en cada individuo que participe, ya que nadie se conoce y nadie sabe quién es quién, y algunos podrían asumir responsabilidades con la intención explícita de no cumplirlas, entre otras cosas.
+3. We must minimize trust in each individual who participates because nobody knows each other, and some might assume responsibilities with the explicit intention of not fulfilling them, among other things.
 
-4. Debemos minimizar el riesgo de fallos el día de las elecciones, por lo que debemos tener redundancia no solo a nivel de hardware, sino también de software.
+4. We must minimize the risk of failures on election day, so we need redundancy not only at the hardware level but also at the software level.
 
-5. Creemos en el OPEN SOURCE, en sistemas PERMISSIONLESS y DECENTRALIZADOS (hasta donde sea posible y razonable para este caso). Queremos desarrollar un sistema que no solo permita que cualquiera pueda auditar su código por ser de código abierto, sino que también permita que cualquier persona del mundo se registre con cualquiera de sus roles/tipos de usuarios. De esta manera, por primera vez en la historia, cualquier persona, esté donde esté a través de Internet, puede ayudar a auditar la elección y prevenir fraudes.
+5. We believe in OPEN SOURCE, PERMISSIONLESS, and DECENTRALIZED systems (as far as possible and reasonable for this case). We want to develop a system that not only allows anyone to audit its code because it is open source but also allows anyone in the world to register with any of its roles/user types. This way, for the first time in history, anyone, wherever they are via the Internet, can help audit the election and prevent fraud.
 
-### Componentes Principales
+### Key Components
 
-#### Base de Datos
+#### Database
 
-**Base de Datos Principal**
+**Main Database**
 
-La base de datos del sistema es, en nuestro caso, el SINGLE POINT OF FAILURE (salvo que esté replicada). Visualizamos tener al menos una base de datos para la información recogida por los Fiscales de Mesa y los Fiscales Generales, que será de lectura / escritura y desde ella se servirá la información para las funcionalidades de esos roles (Fiscales de Mesa, Fiscales Generales).
+The system's main database is, in our case, the SINGLE POINT OF FAILURE (unless it's replicated). We envision having at least one database for the information collected by the Table Officers and General Officers, which will be read/write, and from it, the information will be served for the functionalities of those roles (Table Officers, General Officers).
 
-**Base de Datos Read-Only**
+**Read-Only Database**
 
-Para consultas del Público en General o del ejército online de auditores, debido a que es difícil estimar la cantidad de usuarios en esos roles en un sistema abierto y permissionless, es posible que tengamos una réplica de la base de datos anterior pero de solo lectura, o una versión in-memory o cache para servir todo tipo de requerimientos de consultas por parte de estos tipos de usuarios.
+For queries from the General Public or the online army of auditors, given that it is difficult to estimate the number of users in these roles in an open and permissionless system, we may have a replica of the previous database but in read-only mode, or an in-memory or cache version to serve all types of query requests from these types of users.
 
-**Base de Datos de Usuarios**
+**User Database**
 
-Estaría separada del resto para que sea construida, mantenida y operada por gente especializada en Seguridad de Sistemas y que nadie ajeno a ese equipo pueda romper nada aquí.
+It would be separated from the rest so that it is built, maintained, and operated by specialized people in Systems Security, and no one outside that team can break anything here.
 
-#### Servicios de Backend
+#### Backend Services
 
-**Backend Principal**
+**Main Backend**
 
-El backend principal será el que tenga la business logic de los casos de uso principales, que son los que corresponden a los Fiscales de Mesa, Fiscales Generales, Delegados del Partido.
+The main backend will have the business logic of the main use cases, corresponding to Table Officers, General Officers, Party Delegates.
 
-**Backend Read Only**
+**Read-Only Backend**
 
-Es posible que tengamos un backend para las operaciones read-only del público en general / auditores externos a LLA. Es posible que este backend trabaje con una réplica offline de la Base de Datos Principal, actualizada cada tanto.
+It is possible that we have a backend for read-only operations by the general public / external auditors of LLA. This backend might work with an offline replica of the Main Database, updated from time to time.
 
-**Backend para Logins / Signups / Mantenimiento de Usuarios**
+**Backend for Logins / Signups / User Maintenance**
 
-Normalmente esto sería parte del Backend Principal, pero como tenemos tan poco tiempo, podríamos separar este grupo de funcionalidades para que un equipo especializado desarrolle esto sin tocar nada en el resto del sistema.
+Normally, this would be part of the Main Backend, but since we have so little time, we could separate this group of functionalities so that a specialized team develops it without touching anything else in the system.
 
 #### Frontend
 
-**UI Web / Mobile para Fiscales**
+**Web / Mobile UI for Table Officers**
 
-La UI para los Fiscales debe considerarse de misión crítica. Si ella no funcionara no tendríamos nada, porque los fiscales son los que cargan los datos que son la base de todas las auditorías que el sistema va a permitir realizar. Basándonos en los criterios antes expuestos de minimizar el riesgo de que algún módulo no esté listo o que no funcione bien, la propuesta es abrir la cancha y que múltiples desarrolladores desarrollen múltiples UIs. Luego publicaríamos los links a las que pasen las pruebas que hagamos y el resto quedarían abandonadas. Cada quien es libre de elegir el framework y tecnologías a usar para su UI para Fiscales, porque cada quien invierte su propio tiempo construyéndola. Todas estas UI se conectarían al Backend Principal vía una API pre-definida y desde cualquiera de ellas se podrían realizar los casos de uso definidos / a definir.
+The UI for Table Officers should be considered mission-critical. If it doesn't work, we have nothing because Table Officers are the ones who enter the data, which is the basis for all the audits that the system will allow. Based on the previously mentioned criteria of minimizing the risk of a module not being ready or not functioning well, the proposal is to open the field and allow multiple developers to create multiple UIs. We would then publish links to those that pass the tests we conduct, and the rest would be abandoned. Each person is free to choose the framework and technologies to use for their Table Officer UI because everyone invests their own time in building it. All these UIs would connect to the Main Backend via a predefined API, and from any of them, the defined use cases can be performed.
 
-Como una extensión del criterio anterior, sería incluso óptimo si cada desarrollador hosteara lo mismo en su propio servidor su UI incluyendo su propio dominio si lo quisiera. Esto haría el sistema más resiliente si hubiera más de una opción. Esto aplica para la siguiente UI también.
+As an extension of the previous criterion, it would be even better if each developer hosts the same thing on their own server for their Table Officer UI, including their own domain if they wish. This would make the system more resilient if there were more than one option. This applies to the following UI as well.
 
-Si todas las mesas tuvieran fiscales estamos hablando de una cantidad de potenciales usuarios de entre 100K y 150K porque hay más o menos esa cantidad de mesas de votación a nivel nacional.
+If all tables have Table Officers, we are talking about a potential number of users between 100K and 150K because there are approximately that many polling stations nationwide.
 
-**UI Web para el público en general / auditores externos**
+**Web UI for the general public / external auditors**
 
-La UI para el público en general / auditores externos y las ideas de funcionalidades misión no crítica deberían ser una web app. En este caso, la masa potencial de usuarios es tremendamente mayor que la anterior, en el orden de los 30 o 40 millones de personas potencialmente que pudieran querer consultar los resultados como los ve LLA y algún número menor que ese de gente que quiera jugar el rol de auditor externo y controlar lo que el sistema le permita controlar. Permitir que cualquier número de personas entre al sistema a auditar puede ser la clave para que, combinado con el uso / denuncias a través de redes sociales de un gran número de personas, se puedan desaconsejar los posibles fraudes que la gente que controla el sistema oficial (que es un sistema cerrado y opaco) pudiera querer hacer.
+The UI for the general public / external auditors and the ideas for non-critical functionality should be a web app. In this case, the potential user base is significantly larger than the previous one, in the order of 30 to 40 million people who may want to check the results as LLA sees them, and a smaller number of people who want to play the role of an external auditor and control what the system allows them to control. Allowing any number of people to enter the system for auditing can be the key to, combined with the use/reports through social networks by a large number of people, discouraging potential frauds that the people who control the official system (which is a closed and opaque system) may want to commit.
 
-En este caso, también permitiríamos que cualquier desarrollador pueda crear su propia versión de este sitio para el público en general y auditores externos, en la tecnología que quiera, y luego publicaríamos los links a los sitios que pasen correctamente las pruebas que hagamos. Al mismo tiempo, si hubiera varias versiones del sitio, disminuiríamos la carga individual en cada uno y bajaríamos el riesgo de no tener algo funcionando para el día de las elecciones.
+In this case, we would also allow any developer to create their own version of this site for the general public and external auditors in the technology they prefer, and then we would publish links to the sites that pass our tests. At the same time, if there were several versions of the site, we would reduce the individual load on each one and lower the risk of not having something working on election day.
 
-**UI Login / Signup / Mantenimiento de Usuarios**
+**UI for Login / Signup / User Maintenance**
 
-Esta sería la UI específica para estos casos de uso, a cargo de gente especializada en Seguridad de Sistemas.
+This would be the specific UI for these use cases, handled by people specialized in Systems Security.
 
-#### Procesos Batch
+#### Batch Processes
 
-**Extracción de Datos del Sistema Oficial**
+**Extraction of Data from the Official System**
 
-El sistema oficial provee aquí (https://resultados.mininterior.gob.ar/desarrollo) instrucciones de cómo acceder a ciertos datos del mismo a través de una API. Nosotros deberíamos tener un proceso que extraiga dichos datos cada cierto tiempo (5 minutos?) y actualice nuestra base de datos.
+The official system provides instructions here (https://resultados.mininterior.gob.ar/desarrollo) on how to access certain data from it through an API. We should have a process that extracts this data at regular intervals (5 minutes?) and updates our database.
 
-Para poder abrir el juego y que varios desarrolladores puedan hacer diferentes procesos usando los datos del Sitio Oficial más los datos subidos por los Fiscales de Mesa, es mejor si hay un proceso que solo extraiga los datos del sitio oficial y los grabe en nuestra base de datos. Luego de que corra ese proceso cada cierto tiempo, pueden haber n procesos, de n developers distintos cada uno buscando detectar algún tipo de fraude diferente.
+To open the field for various developers to create different processes using data from the Official System plus the data uploaded by Table Officers, it's better if there is a process that only extracts the data from the official site and stores it in our database. After running this process at regular intervals, there can be multiple processes, each specialized in detecting a different type of fraud.
 
-**Procesos de Detección de Fraudes**
+The processes needed to detect the previously specified types of fraud should be analyzed.
 
-Con los datos cargados por los Fiscales a través de la mobile app más los datos extraidos del sistema oficial, el sistema tiene la capicidad de correr multiples procesos cada uno especializado en detectar algun tipo de fraude.
+## How to Contribute
 
-Se debe analizar los procesos que se necesitan para detectar los tipos de fraude previamente especificados.
+To make your contribution, you need to create a fork that includes the dev branch and work on it. When you've finished your changes, create a PR from your fork pointing to the dev branch of this repository. If possible, add a detailed description to the PR so that reviewers can quickly orient themselves and add the appropriate labels to the changes made.
 
-## Cómo contribuir
+In summary:
+- Create a fork of this repository that includes the **dev** branch.
+- Make changes in the local clone of the fork on the **dev** branch.
+- Upload the changes to your fork.
+- Create a PR towards the **dev** branch of this repository.
+- Add a clear description of the changes in the PR.
+- Add labels corresponding to the changes in the PR.
 
-Para aportar tu contribución, tenés que crear un fork que incluya la rama dev y trabajar en ella. Cuando hayas terminado con tus cambios, crea un PR desde tu fork apuntando a la rama dev de este repositorio. Si es posible, agrega una descripción detallada al PR para que los revisores puedan orientarse rápidamente y agrega las etiquetas correspondientes a los cambios realizados.
+## Responsible Parties
 
-En resumen:
-- Crear un fork de este repositorio que incluya la rama **dev**.
-- Realizar los cambios en el clon local del fork en la rama **dev**.
-- Subir los cambios a tu fork.
-- Crear un PR hacia la rama **dev** de este repositorio.
-- Agrega una descripción clara de los cambios en el PR.
-- Agrega etiquetas correspondientes a los cambios en el PR.
+In an open-source manner, anyone who wishes to take responsibility for a part of the system can list themselves below by modifying this readme through a PR.
 
-## Responsables
+- General Analysis [@Luis-Fernando-Molina](https://www.github.com/Luis-Fernando-Molina)
+- UX/UI [@JoseOrtega02](https://github.com/JoseOrtega02), [anyone who wants to join]
+- Frontend [@JoseOrtega02](https://github.com/JoseOrtega02), [anyone who wants to join]
 
-Al mejor estilo Open Source, aquel que desee hacerse responsable de alguna parte del sistema puede auto-listarse aquí abajo, modificando este readme a través de un PR.
+## Useful Links
+- Figma: [Figma Link](https://www.figma.com/file/nyWx6CewFyvb3a7y3g1r7W/Libertarios-APP?type=design&node-id=0%3A1&mode=design&t=L4k93Fh2vw4b8yku-1)
+- Trello: [Trello Link](https://trello.com/invite/b/3sdCNjhp/ATTI0ee6e921ed507577043c8411266d7206D016745E/libertarios-app-ux-ui-fronted)
 
-- Análisis General [@Luis-Fernando-Molina](https://www.github.com/Luis-Fernando-Molina)
-- UX/UI [@JoseOrtega02](https://github.com/JoseOrtega02), [cualquier persona que desee unirse]
-- FrontEnd [@JoseOrtega02](https://github.com/JoseOrtega02), [cualquier persona que desee unirse]
-
-## Enlaces de interés
-- Figma: [Enlace a Figma](https://www.figma.com/file/nyWx6CewFyvb3a7y3g1r7W/Libertarios-APP?type=design&node-id=0%3A1&mode=design&t=L4k93Fh2vw4b8yku-1)
-- Trello: [Enlace a Trello](https://trello.com/invite/b/3sdCNjhp/ATTI0ee6e921ed507577043c8411266d7206D016745E/libertarios-app-ux-ui-fronted)
-
-# Autores
+# Authors
 
 - [@Luis-Fernando-Molina](https://www.github.com/Luis-Fernando-Molina)
 - [@switTV](https://www.github.com/switTV)
 
-# Colaboradores
+# Collaborators
 <a href="https://github.com/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral" height="50"/>
 </a>
 
-# Discord para Desarrolladores
+# Developer Discord
+
+[Discord Link](https://discord.gg/BWDqcpXn)
 
 [Enlace al Discord](https://discord.gg/BWDqcpXn)
-
