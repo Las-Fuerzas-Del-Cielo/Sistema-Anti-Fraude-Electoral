@@ -3,12 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { Selector } from '#/components/selector';
 import Button from '#/components/button';
 import Navbar from '#/components/navbar';
-
-const dummyData = [
-  { key: 'ex1', label: 'Example' },
-  { key: 'ex2', label: 'Example 2' },
-  { key: 'ex3', label: 'Example 3' },
-];
+import { useSelectData } from '#/hooks/utils/useSelectData';
 
 const FilterPage = () => {
   const [distrito, setDistrito] = useState<string>('');
@@ -19,6 +14,16 @@ const FilterPage = () => {
   const [establecimiento, setEstablecimiento] = useState<string>('');
   const [mesa, setMesa] = useState<string>('');
 
+  const {
+    districts,
+    electoralSections,
+    sections,
+    municipalities,
+    establishments,
+    circuits,
+    tables,
+  } = useSelectData();
+
   return (
     <>
       <Navbar />
@@ -27,43 +32,43 @@ const FilterPage = () => {
           <h1 className="text-xl font-bold mb-6">Resultados totales</h1>
           <div className="px-3">
             <Selector
-              options={dummyData}
+              options={districts}
               placeholder="Distrito"
               value={distrito}
               onChange={setDistrito}
             />
             <Selector
-              options={dummyData}
+              options={electoralSections}
               placeholder="Sección Electoral"
               value={seccionElectoral}
               onChange={setSeccionElectoral}
             />
             <Selector
-              options={dummyData}
+              options={sections}
               placeholder="Sección"
               value={seccion}
               onChange={setSeccion}
             />
             <Selector
-              options={dummyData}
+              options={municipalities}
               placeholder="Municipio"
               value={municipio}
               onChange={setMunicipio}
             />
             <Selector
-              options={dummyData}
+              options={circuits}
               placeholder="Circuito "
               value={circuito}
               onChange={setCircuito}
             />
             <Selector
-              options={dummyData}
-              placeholder="Establecimiento"
+              options={establishments}
+              placeholder="Establecimiento!!!"
               value={establecimiento}
               onChange={setEstablecimiento}
             />
             <Selector
-              options={dummyData}
+              options={tables}
               placeholder="Mesa"
               value={mesa}
               onChange={setMesa}

@@ -5,9 +5,16 @@ import Navbar from '#/components/navbar';
 import ProgressIndicator from '#/components/progressIndicator';
 import FormHeader from '#/components/formHeader';
 import { ProgressStepStatus } from '#/components/progressIndicator/types';
+import { useSelectData } from '../../hooks/utils/useSelectData';
 
 const DeskData = () => {
-  const DummyData = ['Example', 'Example 1', 'Example 2'];
+  const {
+    districts,
+    electoralSections,
+    sections,
+    municipalities,
+    establishments,
+  } = useSelectData();
 
   return (
     <>
@@ -33,11 +40,11 @@ const DeskData = () => {
           </h2>
 
           <div className="">
-            <Selector provincias={DummyData} placeholder="Distrito" />
-            <Selector provincias={DummyData} placeholder="Sección Electoral" />
-            <Selector provincias={DummyData} placeholder="Sección" />
-            <Selector provincias={DummyData} placeholder="Municipio" />
-            <Selector provincias={DummyData} placeholder="Establecimiento" />
+            <Selector options={districts} placeholder="Distrito" />
+            <Selector options={electoralSections} placeholder="Sección Electoral" />
+            <Selector options={sections} placeholder="Sección" />
+            <Selector options={municipalities} placeholder="Municipio" />
+            <Selector options={establishments} placeholder="Establecimiento" />
           </div>
 
           <Button
