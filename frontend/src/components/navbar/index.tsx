@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
             )}
           </div>
           {menuOpen && (
-            <div className="absolute bg-white right-6 top-20 rounded-xl px-1 shadow-2xl">
+            <div className="absolute bg-white right-6 top-20 rounded-xl px-1 shadow-2xl z-[500]">
               <div className="absolute top-[-15px] right-12 w-0 h-0">
                 <svg width="50" height="20">
                   <polygon points="25,0 0,50 50,50" fill="white" />
