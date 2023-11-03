@@ -43,37 +43,37 @@ const Navbar: React.FC = () => {
               <div className="w-full text-left py-4 px-8 pt-6 border-b-2 border-gray-100 font-bold text-xl text-violet-brand">
                 <span>Javier</span>
               </div>
-              <div className="flex flex-col px-8 py-8 gap-y-6 items-start text-lg text-[#363F45] ">
+              <div className="flex flex-col px-8 py-8 gap-y-10 md:gap-y-8 items-start text-lg text-[#363F45]">
                 {/* El gris pactado no se parece al de figma */}
                 <Link
                   to="/profile"
-                  className="scale-95 transform transition-transform hover:scale-105"
+                  className="scale-100 transform transition-transform hover:scale-105"
                 >
                   Mi cuenta
                 </Link>
                 <Link
                   to="/upload-certificate"
-                  className="scale-95 transform transition-transform hover:scale-105"
+                  className="scale-100 transform transition-transform hover:scale-105"
                 >
                   Cargar resultados de mesa
                 </Link>
                 <Link
                   to="/dashboard"
-                  className="scale-95 transform transition-transform hover:scale-105"
+                  className="scale-100 transform transition-transform hover:scale-105"
                   onClick={() => alert('No existe la ruta aún')}
                 >
                   Impugnar mesa
                 </Link>
                 <Link
                   to="/dashboard"
-                  className="scale-95 transform transition-transform hover:scale-105"
+                  className="scale-100 transform transition-transform hover:scale-105"
                   onClick={() => alert('No existe la ruta aún')}
                 >
                   Denunciar Irregularidades
                 </Link>
                 <Link
                   to="/total-results"
-                  className="scale-95 transform transition-transform hover:scale-105"
+                  className="scale-100 transform transition-transform hover:scale-105"
                 >
                   Ver resultados
                 </Link>
