@@ -2,7 +2,7 @@
 
 # :lion: Anti-Fraud-Electoral-System :lion:
 
-This is an **Open Source** project whose objective is to minimize and detect the possibility of electoral fraud in the upcoming presidential election in Argentina. where donde se define finalmente quien sera presidente.
+This is an **Open Source** project whose objective is to minimize and detect the possibility of electoral fraud in the upcoming presidential election in Argentina, where the next president will be elected.
 
 The reason for creating this system is to maintain and preserve democracy and transparency for the people of Argentina.
 
