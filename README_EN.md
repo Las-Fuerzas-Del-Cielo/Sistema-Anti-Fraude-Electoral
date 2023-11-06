@@ -244,7 +244,7 @@ In the best Open Source style, anyone who wants to take responsibility for some 
 - [@Luis-Fernando-Molina](https://www.github.com/Luis-Fernando-Molina)
 - [@switTV](https://www.github.com/switTV)
 
-# Colaboradores
+# Contributors
 <a href="https://github.com/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral" height="50"/>
 </a>
