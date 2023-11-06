@@ -33,6 +33,7 @@ La intencion de crear este sistema es mantener y preservar la democracia y la tr
 - [Como contribuir](#como-contribuir)
 - [Autores](#autores)
 - [Contributors](#contributors)
+- [Discord Para Desarrolladores](#discord-para-desarrolladores)
 
 ## Objetivos
 
