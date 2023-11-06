@@ -212,7 +212,7 @@ In order to be able to open the database and so that several developers can do d
 
 **Fraud Detection Processes**
 
-With the data uploaded by the Auditors through the mobile app plus the data extracted from the official system, the system has the ability to run multiple processes each specialized in detecting some type of fraud.
+With the data uploaded by the Auditors through the mobile app plus the data extracted from the official system, the system has the ability to run multiple processes each specializing in detecting some type of fraud.
 
 The processes that are needed to detect the previously specified types of fraud should be analyzed.
 
