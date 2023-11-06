@@ -94,7 +94,7 @@ The system should cover the case of auditors who are simply incompetent and thro
 
 The system should help to manage the Table Auditors and the General Auditors, so that there is at least one General Auditor in each school as a minimum. Cases where there is not even one General Auditor per school are a giant loss of votes. The allocation of Table Auditors should also be managed, so that in the face of shortages, Auditors are sent to the places where they are most needed. For example, to schools where there are a larger number of electors combined with a smaller number of Table Auditors.
 
-## Usuarios
+## Users
 
 This app would have these types of users:
 
