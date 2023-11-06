@@ -218,7 +218,7 @@ The processes that are needed to detect the previously specified types of fraud 
 
 ## How to contribute
 
-To make your contribution, you have to create a fork that includes the dev branch and work on it. When you are done with your changes, create a PR from your fork pointing to the dev branch of this repository. If possible, add a detailed description to the PR so that reviewers can get oriented quickly and add the corresponding tags to the changes made.
+To make your contribution, create a fork that includes the **dev** branch and work on it. When you are done with your changes, create a PR from your fork pointing to the **dev** branch of this repository. If possible, add a detailed description to the PR so that reviewers can get oriented quickly and add the corresponding tags to the changes made.
 
 In summary:
 - Create a fork of this repository that includes the **dev** branch.

@@ -218,7 +218,7 @@ Se debe analizar los procesos que se necesitan para detectar los tipos de fraude
 
 ## Cómo contribuir
 
-Para aportar tu contribución, tenés que crear un fork que incluya la rama dev y trabajar en ella. Cuando hayas terminado con tus cambios, crea un PR desde tu fork apuntando a la rama dev de este repositorio. Si es posible, agrega una descripción detallada al PR para que los revisores puedan orientarse rápidamente y agrega las etiquetas correspondientes a los cambios realizados.
+Para aportar tu contribución, tenés que crear un fork que incluya la rama **dev** y trabajar en ella. Cuando hayas terminado con tus cambios, crea un PR desde tu fork apuntando a la rama dev de este repositorio. Si es posible, agrega una descripción detallada al PR para que los revisores puedan orientarse rápidamente y agrega las etiquetas correspondientes a los cambios realizados.
 
 En resumen:
 - Crear un fork de este repositorio que incluya la rama **dev**.
