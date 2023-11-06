@@ -61,7 +61,7 @@ These repositories are the complementary parts of the project:
 
 What types of fraud are expected to be detected? In an election like this, there are many ways to commit fraud if someone controls the official computer system.
 
-This is the list of types of fraud that we want to attack. That is the backbone of this project, from there all the functionality that is required is going to be built. If you want, you can program some of what is needed for any of the identified types of fraud, if you can think of any other type of fraud and how to minimize it, you can add it to the list and specify what would have to be done for that. And if you have time and energy, you could start by scheduling what is needed in which others arrive to help you.
+This is the list of types of fraud that we want to attack. That is the backbone of this project, from there all the functionality that is required is going to be built. If you want, you can program some of what is needed for any of the identified types of fraud. If you can think of any other type of fraud and how to minimize it, you can add it to the list and specify what would have to be done for that. And if you have time and energy, you could start by scheduling what is needed in which others arrive to help you.
 
 ### Fraudulent Summation
 
