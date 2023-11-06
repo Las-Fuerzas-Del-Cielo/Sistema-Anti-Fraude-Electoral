@@ -1,13 +1,13 @@
 ![GitHub Repo Size](https://img.shields.io/github/repo-size/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral)
 
-# :lion: Anti-Fraud-Electoral-System :lion:
+# :lion: Anti-Fraud-Electoral-System- :lion:
 
 This is an **Open Source** project whose objetive is to minimize and detect the possibility of electoral fraud in the upcoming presidential election in Argentina. where donde se define finalmente quien sera presidente.
 
 The reason for creating this system is to maintain and preserve democracy and transparency for the people of Argentina.
 
 ## Index
-- [:lion: Anti-Fraud-Electoral-System :lion:](#lion-anti-fraude-electoral-system-lion)
+- [:lion: Anti-Fraud-Electoral-System :lion:](#lion-anti-fraud-electoral-system-lion)
   - [Index](#index)
   - [Objectives](#objectives)
   - [Components](#components)
@@ -27,12 +27,13 @@ The reason for creating this system is to maintain and preserve democracy and tr
       - [Database](#database)
       - [Backend Services](#backend-services)
       - [Frontend](#frontend)
-      - [Batch Procesos](#batch-processes)
+      - [Batch Processes](#batch-processes)
   - [Responsible](#responsible)
   - [Links of interest](#links-of-interest)
 - [How to Contribute](#how-to-contribute)
 - [Authors](#authors)
 - [Contributors](#contributors)
+- [Discord for Developers](#discord-for-developers)
 
 ## Objectives
 
@@ -94,7 +95,7 @@ The system should cover the case of auditors who are simply incompetent and thro
 
 The system should help to manage the Table Auditors and the General Auditors, so that there is at least one General Auditor in each school as a minimum. Cases where there is not even one General Auditor per school are a giant loss of votes. The allocation of Table Auditors should also be managed, so that in the face of shortages, Auditors are sent to the places where they are most needed. For example, to schools where there are a larger number of electors combined with a smaller number of Table Auditors.
 
-## Usuarios
+## Users
 
 This app would have these types of users:
 
@@ -111,7 +112,7 @@ This app would have these types of users:
 6. **Public:** Anyone who wants to see the results online, according to the data uploaded by the Prosecutors of Mesa de LLA. They will also be able to browse all the information available in the system.
 
 
-## Funcionaliy
+## Funcionality
 
 1. **Data Upload**: The APP would allow Table Auditors to upload the data of the tables they supervise. The system would accumulate all the data in a database.
 
@@ -244,7 +245,7 @@ In the best Open Source style, anyone who wants to take responsibility for some 
 - [@Luis-Fernando-Molina](https://www.github.com/Luis-Fernando-Molina)
 - [@switTV](https://www.github.com/switTV)
 
-# Colaboradores
+# Contributors
 <a href="https://github.com/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral" height="50"/>
 </a>

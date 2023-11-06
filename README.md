@@ -29,10 +29,11 @@ La intencion de crear este sistema es mantener y preservar la democracia y la tr
       - [Frontend](#frontend)
       - [Procesos Batch](#procesos-batch)
   - [Responsables](#responsables)
-  - [Links de interes](#links-de-interes)
+  - [Enlaces de interés](#enlaces-de-interés)
 - [Como contribuir](#como-contribuir)
 - [Autores](#autores)
 - [Contributors](#contributors)
+- [Discord Para Desarrolladores](#discord-para-desarrolladores)
 
 ## Objetivos
 
@@ -207,7 +208,7 @@ Esta sería la UI específica para estos casos de uso, a cargo de gente especial
 
 El sistema oficial provee aquí (https://resultados.mininterior.gob.ar/desarrollo) instrucciones de cómo acceder a ciertos datos del mismo a través de una API. Nosotros deberíamos tener un proceso que extraiga dichos datos cada cierto tiempo (5 minutos?) y actualice nuestra base de datos.
 
-Para poder abrir el juego y que varios desarrolladores puedan hacer diferentes procesos usando los datos del Sitio Oficial más los datos subidos por los Fiscales de Mesa, es mejor si hay un proceso que solo extraiga los datos del sitio oficial y los grabe en nuestra base de datos. Luego de que corra ese proceso cada cierto tiempo, pueden haber n procesos, de n developers distintos cada uno buscando detectar algún tipo de fraude diferente.
+Para poder abrir el juego y que varios desarrolladores puedan hacer diferentes procesos usando los datos del Sitio Oficial más los datos subidos por los Fiscales de Mesa, es mejor si hay un proceso que solo extraiga los datos del sitio oficial y los grabe en nuestra base de datos. Luego de que corra ese proceso cada cierto tiempo, pueden haber *n* procesos, de *n* developers distintos cada uno buscando detectar algún tipo de fraude diferente.
 
 **Procesos de Detección de Fraudes**
 
