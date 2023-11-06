@@ -116,7 +116,7 @@ This app would have these types of users:
 
 1. **Data Upload**: The APP would allow Table Auditors to upload the data of the tables they supervise. The system would accumulate all the data in a database.
 
-2. **Reports for Auditors**: The system would generate different types of reports aimed at detecting fraud, based on the data uploaded by the Table Prosecutors and Official data.
+2. **Reports for Auditors**: The system would generate different types of reports aimed at detecting fraud, based on the data uploaded by the Table Auditors and Official data.
 
 3. **Consultations for the Public**: The system would allow to execute different types of consultations for the general public.
 
