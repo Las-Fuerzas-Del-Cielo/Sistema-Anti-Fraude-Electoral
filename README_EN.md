@@ -28,7 +28,7 @@ The reason for creating this system is to maintain and preserve democracy and tr
       - [Backend Services](#backend-services)
       - [Frontend](#frontend)
       - [Batch Processes](#batch-processes)
-  - [Responsible](#responsible)
+  - [Responsibility](#responsibility)
   - [Links of interest](#links-of-interest)
 - [How to Contribute](#how-to-contribute)
 - [Authors](#authors)
@@ -228,7 +228,7 @@ In summary:
 - Add a clear description of the changes in the PR.
 - Add tags corresponding to the changes in the PR.
 
-## Responsible
+## Responsibility
 
 In the best Open Source style, anyone who wants to take responsibility for some part of the system can self-list here below, modifying this readme through a PR.
 
