@@ -29,7 +29,7 @@ La intencion de crear este sistema es mantener y preservar la democracia y la tr
       - [Frontend](#frontend)
       - [Procesos Batch](#procesos-batch)
   - [Responsables](#responsables)
-  - [Links de interes](#links-de-interes)
+  - [Enlaces de interes](#enlaces-de-interes)
 - [Como contribuir](#como-contribuir)
 - [Autores](#autores)
 - [Contributors](#contributors)
