@@ -46,7 +46,7 @@ The objectives of this system are:
 ## Components
 - Frontend Auditors (data upload)
 - Frontend Public (for anyone who wants to access the data)
-- Backend (API)
+- [Backend API](https://github.com/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral/tree/main/api)
 
 ## Repositories and organization
 This repository has the purpose of:
