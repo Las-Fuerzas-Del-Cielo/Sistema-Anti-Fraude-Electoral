@@ -77,7 +77,7 @@ The third type of fraud would be that the tables loaded into the Official System
 
 ### False Auditors
 
-These would be people who signed up as auditors only to stay with a table or group of tables and then not go or leave at the last minute when it is very difficult to get replacement and reassign their tables.
+These would be people who signed up as auditors only to stay with a table or group of tables and then leave at the last minute when it is very difficult to get replacements and reassign their tables.
 
 The system must have the data of the Table Auditors and their work in the PASO and general elections pre-loaded so that if they were absent without cause, or suspiciously, they will not be called back for the ballotage.
 
