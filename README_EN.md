@@ -1,19 +1,19 @@
 ![GitHub Repo Size](https://img.shields.io/github/repo-size/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral)
 
-# :lion: Sistema-Anti-Fraude-Electoral :lion:
+# :lion: Anti-Fraud-Electoral-System :lion:
 
 This is an **Open Source** project whose objetive is to minimize and detect the possibility of electoral fraud in the upcoming presidential election in Argentina. where donde se define finalmente quien sera presidente.
 
 The reason for creating this system is to maintain and preserve democracy and transparency for the people of Argentina.
 
 ## Index
-- [:lion: Sistema-Anti-Fraude-Electoral :lion:](#lion-sistema-anti-fraude-electoral-lion)
+- [:lion: Anti-Fraud-Electoral-System :lion:](#lion-anti-fraude-electoral-system-lion)
   - [Index](#index)
   - [Objectives](#objectives)
   - [Components](#components)
   - [Repositories and organization](#repositories-and-organization)
   - [Types of Fraud](#types-of-fraud)
-    - [Fraud Summary](#fraud-summary)
+    - [Fraudulent Summation](#fraudulent-summation)
     - [Non-Existent Tables](#non-existent-tables)
     - [Correct Table Data Then Incorrect](#correct-table-data-then-incorrect)
     - [False Auditors](#false-auditors)
@@ -23,7 +23,7 @@ The reason for creating this system is to maintain and preserve democracy and tr
   - [Users](#users)
   - [Funcionality](#funcionality)
   - [System Arquitecture](#system-architecture)
-    - [Principal Components](#principal-components)
+    - [Main Components](#main-components)
       - [Database](#database)
       - [Backend Services](#backend-services)
       - [Frontend](#frontend)
@@ -49,197 +49,197 @@ The objectives of this system are:
 
 ## Repositories and organization
 This repository has the purpose of:
-- Explicar el proyecto en general
-- Alojar el [código para el frontend para fiscales](https://github.com/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral/tree/main/Frontend/fiscales-app-ts).
+- Explain the project in general
+- Hosting the [code for the frontend for the auditors](https://github.com/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral/tree/main/Frontend/fiscales-app-ts).
 
-Estos repositorios son las partes complementarias del proyecto:
-- Frontend público (_TO DO: Incluir link cuando se lo cree_)
+These repositories are the complementary parts of the project:
+- Frontend Public
 - [Backend API](https://github.com/Las-Fuerzas-Del-Cielo/api)
 
-## Tipos de Fraudes
+## Types of Fraud
 
-¿Qué tipos de fraude se esperan detectar? En una elección como esta, hay muchas formas de hacer fraudes si alguien controla el sistema de cómputos oficial.
+What types of fraud are expected to be detected? In an election like this, there are many ways to commit fraud if someone controls the official computer system.
 
-Esta es la lista de Tipos de Fraudes que se quieren atacar. Esa es la columna vertebral de este proyecto, de ahí deriva toda la funcionalidad que se va a construir. Si querés, podés programar algo de lo que se necesita para alguno de los tipos de fraudes identificados, si se te ocurre algún otro tipo de fraude y cómo minimizarlo, lo podés agregar a la lista y especificar qué habría que hacer para eso. Y si tienes tiempo y energía, podrías empezar programando lo que haga falta en lo que llegan otros y te ayudan.
+This is the list of types of fraud that we want to attack. That is the backbone of this project, from there all the functionality that is required is going to be built. If you want, you can program some of what is needed for any of the identified types of fraud, if you can think of any other type of fraud and how to minimize it, you can add it to the list and specify what would have to be done for that. And if you have time and energy, you could start by scheduling what is needed in which others arrive to help you.
 
-### Sumarización Fraudulenta
+### Fraudulent Summation
 
-En este caso, el Sistema Oficial de cómputos tiene cargado correctamente todos los datos, pero aún así, el agrupamiento por Provincia / Nación es incorrecto.
+In this case, the Official Computer System has correctly loaded all the data, but even so, the grouping by Province/Nation is incorrect.
 
-### Mesas Inexistentes
+### Non-existent Tables
 
-En este caso, el Sistema Oficial de cómputos tiene cargado correctamente todos los datos, pero además de las mesas reales, hay mesas que solo existen en el sistema y que se usan para cambiar los resultados globales.
+In this case, the Official Computer System has all the data loaded correctly, but in addition to the real tables, there are tables that only exist in the system and that are used to change the global results.
 
-### Datos de Mesa Correctos luego Incorrectos
+### Correct Table Data Then Incorrect
 
-El tercer tipo de fraude sería que las mesas cargadas en el Sistema Oficial tienen datos diferentes a las actas de los fiscales. Esto actualmente se puede detectar a mano si el fiscal revisa el Sistema Oficial. El problema es que el sistema oficial podría mostrarle los datos correctos por un tiempo y luego cambiarlos más adelante cuando el fiscal ya los consultó y los vio correctos. Seguramente un fiscal solo verificaría una vez los datos y si están bien, daría por hecho de que eso luego no cambia más.
+The third type of fraud would be that the tables loaded into the Official System have different data than the records of the auditors. This can currently be detected by hand if the auditor checks the Official System. The problem is that the official system could show you the correct data for a while and then change it later when the auditor has already consulted it and seen the correct data. Surely an auditor would only check the data once and if it is correct, he would assume that it does not change later.
 
-### Fiscales Falsos
+### False Auditors
 
-Estos serían gente que se inscribieron como fiscales solo para quedarse con una mesa o grupo de mesas y luego no ir o abandonar a último momento cuando es muy difícil conseguir reemplazo y reasignar sus mesas.
+These would be people who signed up as auditors only to stay with a table or group of tables and then not go or leave at the last minute when it is very difficult to get replacement and reassign their tables.
 
-El sistema debe tener pre-cargados los datos de los Fiscales de Mesa y su trabajo en las elecciones PASO y GENERALES para que si en ellas se ausentaron sin causa, o de manera sospechosa, no se los vuelva a convocar para el BALLOTAGE.
+The system must have the data of the Table Auditors and their work in the PASO and general elections pre-loaded so that if they were absent without cause, or suspiciously, they will not be called back for the ballotage.
 
-### Fiscales Judas
+### Judas Auditors
 
-Este tipo de fraude se basa en reclutar e inscribir Fiscales de Mesa que en vez de fiscalizar y defender los votos de LLA, en realidad hacen lo opuesto. Las mesas con Fiscales Judas podrían permitir que se carguen en el Sistema Oficial datos falsos porque la contabilización ya fue corrupta.
+This type of fraud is based on recruiting and enrolling Table Auditors who instead of supervising and defending the votes of LLA, actually do the opposite. The tables with Judas Prosecutors could allow false data to be loaded into the Official System because the accounting was already corrupt.
 
-El sistema debe permitir a los usuarios del tipo **Auditores Externos** ver los datos de los Fiscales de Mesa para poder investigarlos y así poder inferir si son del tipo Judas o no. Los Fiscales de Mesa serán invitados a proveer información de manera opcional de sus identidades en redes sociales, y a los que lo hagan, sumarán puntos en su reputación como Fiscal. Del otro lado, un ejército de auditores externos puede investigar con su DNI y esas identidades sociales cuál es el background real de esas personas y en base a los resultados de estas investigaciones, asignarle a cada fiscal un score que puede usarse en un caso extremo para descalificarlo o al menos para observarlo con precaución.
+The system should allow users of the **External Auditors** type to see the data of the Table Auditors in order to investigate them and thus be able to infer whether they are of the Judas type or not. Table Auditors will be invited to optionally provide information of their identities on social networks, and those who do, will score points on their reputation as an Auditors. On the other hand, an army of external auditors can investigate with their ID and those social identities what the real background of those people are and based on the results of these investigations, assign each auditor a score that can be used in an extreme case to disqualify him or at least to observe him with caution.
 
-### Fiscales Incompetentes
+### Incompetent Auditors  
 
-El sistema debe cubrir el caso de fiscales que simplemente son incompetentes y por ignorancia cargan mal los datos en el sistema. Esto significa que deberían existir mecanismos para excluir datos de este tipo de fiscales o que algún tipo de usuario los pueda sobreescribir basándose, por ejemplo, en las fotografías de las actas.
+The system should cover the case of auditors who are simply incompetent and through ignorance upload incorrect data into the system. There should be mechanisms to exclude data from this type of auditor or that some type of user can overwrite them based, for example, on the photographs of the records.
 
-### Conteo de Voto Corrupto por falta del Fiscal de Mesa
+### Corrupt Vote Count due to Lack of Auditors
 
-El sistema debe ayudar a administrar los Fiscales de Mesa y los Fiscales Generales, para que por lo menos haya un Fiscal General en cada escuela como mínimo. Los casos donde no hay ni siquiera un Fiscal General por escuela son una pérdida gigante de votos. También debe gestionar la asignación de Fiscales de Mesa, para que ante la escasez, estos sean enviados a los lugares donde más se necesitan. Por ejemplo, a las escuelas donde haya una mayor cantidad de electores combinado con una menor cantidad de Fiscales de Mesa.
+The system should help to manage the Table Auditors and the General Auditors, so that there is at least one General Auditor in each school as a minimum. Cases where there is not even one General Auditor per school are a giant loss of votes. The allocation of Table Auditors should also be managed, so that in the face of shortages, Auditors are sent to the places where they are most needed. For example, to schools where there are a larger number of electors combined with a smaller number of Table Auditors.
 
 ## Usuarios
 
-Esta APP tendría estos tipos de usuarios:
+This app would have these types of users:
 
-1. **Fiscal de Mesa:** El principal usuario de esta APP serían los Fiscales de Mesa de LLA. Serían quienes cargan los datos.
+1. **Table Auditor:** The main user of this APP would be the Table Auditors of LLA. They would be the ones who upload the data.
 
-2. **Fiscal General:** Supervisa a los Fiscales de Mesa en una determinada escuela. El fiscal general DEBE tomar fotos de todas las actas de todas las mesas de la escuela a la cual fue asignado. En teoría siempre hay aunque sea un fiscal general, aunque pudiera no haber ningún Fiscal de Mesa. Si lo hace y las sube al sistema, podemos tener detrás un ejército de voluntarios por internet que transcriba los valores de las fotos en registros numéricos y así tener la primera versión de datos en el sistema bien temprano después del cierre de la votación. Debería ser una responsabilidad del Fiscal General tomar las fotos de todas las mesas de una escuela, porque de esa manera podríamos evitar el tipo de fraude **Mesas Inexistentes** en el que en el sistema oficial aparece luego alguna mesa que en la realidad no existió. Si cada uno de nuestros fiscales toma foto de TODAS las mesas físicamente presentes en cada escuela, podríamos detectar esas mesas fantasmas.
+2. **General Auditors:** Supervises the Desk Prosecutors at a certain school. The General Auditors MUST take photos of all the acts of all the tables of the school to which they were assigned. In theory there is always a General Auditor, even if there are no Table Auditors. If there are no Table Auditors and the General Auditor has to photograph the acts and upload them to the system, we can have an army of online volunteers that transcribes the values of the photos into numerical records and thus have the first version of data in the system very early after the close of voting. It should be the responsibility of the General Auditor to take the photos of all the tables in a school, because that way we could avoid **Non-Existent Tables** fraud, where in the official system there appear tables that in reality did not exist. If each of our auditors takes a picture of ALL the tables physically present in each school, we could detect those ghost tables.
 
-3. **Delegado del Partido:** Son personas de confianza de LLA que durante la votación pueden ir de una escuela a otra para apoyar y auditar a los Fiscales Generales y a los Fiscales de Mesa.
+3. **Party Delegate:** They are trusted people from LLA who during the voting can go from one school to another to support and audit the General Auditors and the Table Auditors.
 
-4. **Auditor Interno:** Serían gente de LLA que analizaría los datos cargados por los Fiscales de Mesa y los compararían con los datos oficiales. La APP trataría de automatizar esa comparación con el objetivo de detectar diferencias y potenciales fraudes.
+4. **Internal Auditor:** They would be people from LLA who would analyze the data uploaded by the Table Auditors and compare them with the official data. The APP would try to automate this comparison in order to detect differences and potential fraud.
 
-5. **Auditor Externo:** Sería cualquier persona que complete el proceso de sign up como auditor externo. Este perfil tendría acceso a la funcionalidad necesaria para consultar datos y documentos digitalizados y reportar anomalías que luego serían levantadas por los Auditores Internos. Es importante notar que el fraude se tiene que detectar lo antes posible porque una vez que se declara a alguien ganador, difícilmente eso se vuelva atrás sin importar la cantidad de denuncias de fraude que haya después. Eso elimina la posibilidad de solo cargar una foto y luego que alguien en algún momento digite los datos de esa foto. En general, la detección de los distintos tipos de fraude debería ser instantánea y es más, si es posible, cualquier persona de la población en general debería poder ver el recuento de votos de acuerdo a los fiscales de LLA incluso antes que salgan los datos oficiales, cosa de que antes de que se nombre un ganador ya haya una reacción del público general ante un potencial fraude de gran escala.
+5. **External Auditor:** This would be anyone who completes the sign up process as an external auditor. This profile would have access to the necessary functionality to consult digitized data and documents and report anomalies that would then be raised by Internal Auditors. It is important to note that fraud has to be detected as soon as possible because once a winner is declared, it will be difficult to overturn no matter how many fraud reports there are afterwards. That eliminates the possibility of just uploading a photo and then having someone at some point type in the data of that photo. In general, the detection of the different types of fraud should be instantaneous and moreover, if possible, anyone from the general population should be able to see the vote count according to the LLA prosecutors even before the official data comes out, so that before a winner is declared there is already a reaction from the general public to a potential large-scale fraud.
 
-6. **Público:** Cualquier persona que quiera ver los resultados en línea, de acuerdo a los datos cargados por los Fiscales de Mesa de LLA. También podrán navegar por toda la información disponible en el sistema.
+6. **Public:** Anyone who wants to see the results online, according to the data uploaded by the Prosecutors of Mesa de LLA. They will also be able to browse all the information available in the system.
 
 
-## Funcionalidad
+## Funcionaliy
 
-1. **Carga de Datos**: La APP permitiría a los Fiscales de Mesa cargar los datos de las mesas que supervisan. El sistema acumularía todos los datos en una base de datos.
+1. **Data Upload**: The APP would allow Table Auditors to upload the data of the tables they supervise. The system would accumulate all the data in a database.
 
-2. **Reportes para Auditores**: El sistema generaría diferentes tipos de reportes orientados a detectar fraude, basándose en los datos cargados por los Fiscales de Mesa y los datos Oficiales.
+2. **Reports for Auditors**: The system would generate different types of reports aimed at detecting fraud, based on the data uploaded by the Table Prosecutors and Official data.
 
-3. **Consultas para el Público**: El sistema permitiría ejecutar diferentes tipos de consultas para el público en general.
+3. **Consultations for the Public**: The system would allow to execute different types of consultations for the general public.
 
-4. **Mapa / Reporte de Fiscales Trabajando**: El sistema debería permitir saber en línea dónde hay y dónde no hay fiscales, así a través de las redes se puede movilizar a la gente para que vaya a fiscalizar, especialmente en los casos más extremos donde, por ejemplo, no hay nadie. Un reporte en línea ordenado por gravedad de dónde hacen falta fiscales con urgencia sería óptimo. Sería más grave en las escuelas con mayor cantidad de electores donde hay la menor cantidad de fiscales. De ahí podrían tomar los datos que estarían actualizados a toda hora durante la votación de dónde es más crítico llamar por las redes para que se refuercen esas escuelas.
+4. **Map / Report of Auditors Working**: The system should allow to know online where there are and where there aren't auditors, so through networks people can be mobilized to go to audit, especially in the most extreme cases where, for example, there is no one. An online report ordered by severity of where auditors are urgently needed would be optimal. It would be more serious in schools with the largest number of voters where there are the fewest auditors. From there they could take the data that would be updated at all times during the voting of where it is most critical to call through the networks for those schools to be reinforced.
 
-5. **Mapa / Información de Bunkers-Sucursales**: El sistema debe permitir visualizar un mapa o varios mapas en los cuales se debería poder ver dónde ir a buscar boletas personales y así que la gente pueda ver dónde ir a buscarlas.
+5. **Map / Information of Bunkers-Branches**: The system should allow to visualize a map or several maps in which it should be possible to see where to go to look for personal ballots.
 
-## Arquitectura del Sistema
+## System Architecture
 
 ![image](https://github.com/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral/assets/140413871/d3b6c243-93b5-41f6-9060-5ab97d90995c)
 
-- **Cloudflare:** Se utiliza para la gestión de DNS, CDN y seguridad en la capa 7.
+- **Cloudflare:** Used for DNS, CDN and security management at layer 7.
 
-- **React SPA:** Alojada en S3.
+- **React SPA:** Hosted in S3.
 
-- **API Express:** Hospedada como un monolito en una función Lambda. Esto permite flexibilidad para los desarrolladores y evita la complejidad de tener que adaptarse al desarrollo de microservicios.
+- **Express API:** Hosted as a monolith in a Lambda function. This allows flexibility for developers and avoids the complexity of having to adapt to the development of microservices.
 
-- **API Gateway:** Aquí ocurre la magia de hacer un monolito serverless, ya que todos los endpoints se proxean a la Lambda que ejecuta el servidor Express.
+- **Gateway API:** The magic of making a serverless monolith happens here, since all the endpoints are proxied to the Lambda that runs the Express server.
 
-- **DynamoDB:** Otro servicio serverless que nos evita tener que lidiar con configuraciones de escalado y posibles picos inesperados de tráfico. Esto asegura que la aplicación pueda soportar altos niveles de carga sin fallar.
+- **DynamoDB:** Another serverless service that avoids us having to deal with scaling configurations and possible unexpected traffic spikes. This ensures that the application can withstand high load levels without crashing.
 
-- **S3 Bucket:** Aquí se subirán assets en forma de videos o imágenes como pruebas de fraudes.
+- **S3 Bucket:** Assets will be uploaded here in the form of videos or images as proof of fraud.
 
-Hay muchas formas de abordar la arquitectura de un sistema como este. Enumeremos primero los criterios más importantes que queremos seguir y, a partir de ellos, derivaremos la arquitectura que emerja.
+There are many ways to approach the architecture of a system like this. Let's list the most important criteria first, followed by the architecture that will be required.
 
-1. El sistema completo debe desarrollarse y probarse en tiempo récord. Ese es el principal contraint.
+1. The entire system must be developed and tested in record time. This is the main contraint.
 
-2. Necesitamos poner a trabajar a muchas personas en paralelo, con la mínima fricción entre ellos. Para lograrlo, debemos dividir el sistema en bloques de casos de uso que interactúen entre sí a través de interfaces bien definidas.
+2. We need to put many people to work in parallel, with the minimum friction between them. To achieve this, we must divide the system into blocks of use-cases that interact with each other through well-defined interfaces.
 
-3. Debemos minimizar la confianza en cada individuo que participe, ya que nadie se conoce y nadie sabe quién es quién, y algunos podrían asumir responsabilidades con la intención explícita de no cumplirlas, entre otras cosas.
+3. We must minimize the trust in each individual who participates, since no one knows each other and no one knows who is who, and some could assume responsibilities with the explicit intention of not fulfilling them, among other things.
 
-4. Debemos minimizar el riesgo de fallos el día de las elecciones, por lo que debemos tener redundancia no solo a nivel de hardware, sino también de software.
+4. We must minimize the risk of failures on Election Day, so we must have redundancy not only at the hardware level, but also at the software level.
 
-5. Creemos en el OPEN SOURCE, en sistemas PERMISSIONLESS y DECENTRALIZADOS (hasta donde sea posible y razonable para este caso). Queremos desarrollar un sistema que no solo permita que cualquiera pueda auditar su código por ser de código abierto, sino que también permita que cualquier persona del mundo se registre con cualquiera de sus roles/tipos de usuarios. De esta manera, por primera vez en la historia, cualquier persona, esté donde esté a través de Internet, puede ayudar a auditar la elección y prevenir fraudes.
+5. We believe in OPEN SOURCE, PERMISSIONLESS and DECENTRALIZED systems (as far as possible and reasonable for this case). We want to develop a system that not only allows anyone to audit the code because it is open source, but also allows anyone in the world to register with any of the roles/types of users. In this way, for the first time in history, anyone, wherever they are through the Internet, can help audit the election and prevent fraud.
 
-### Componentes Principales
+### Main Components 
 
-#### Base de Datos
+#### Database
 
-**Base de Datos Principal**
+**Main Database**
 
-La base de datos del sistema es, en nuestro caso, el SINGLE POINT OF FAILURE (salvo que esté replicada). Visualizamos tener al menos una base de datos para la información recogida por los Fiscales de Mesa y los Fiscales Generales, que será de lectura / escritura y desde ella se servirá la información para las funcionalidades de esos roles (Fiscales de Mesa, Fiscales Generales).
+The system database is, in our case, the SINGLE POINT OF FAILURE (unless it is replicated). We envision having at least one database for the information collected by the Table Auditors and the General Auditors, which will be read/write and from it the information will be used for the functionalities of those roles (Table Auditors, General Auditors).
 
-**Base de Datos Read-Only**
+**Read-Only Database**
 
-Para consultas del Público en General o del ejército online de auditores, debido a que es difícil estimar la cantidad de usuarios en esos roles en un sistema abierto y permissionless, es posible que tengamos una réplica de la base de datos anterior pero de solo lectura, o una versión in-memory o cache para servir todo tipo de requerimientos de consultas por parte de estos tipos de usuarios.
+For queries from the general public or the online army of auditors, because it is difficult to estimate the number of users in those roles in an open and permissionless system, we may have a replica of the previous database but read-only, or an in-memory or cache version to serve all kinds of query requirements by these types of users.
 
-**Base de Datos de Usuarios**
+**User Database**
 
-Estaría separada del resto para que sea construida, mantenida y operada por gente especializada en Seguridad de Sistemas y que nadie ajeno a ese equipo pueda romper nada aquí.
+It would be separated from the rest so that it is built, maintained and operated by people who specialize in System Security and that no one outside that team can break anything here.
 
-#### Servicios de Backend
+#### Backend Services
 
-**Backend Principal**
+**Main Backend**
 
-El backend principal será el que tenga la business logic de los casos de uso principales, que son los que corresponden a los Fiscales de Mesa, Fiscales Generales, Delegados del Partido.
+The main backend will be the one with the business logic of the main use-cases, which are those corresponding to the Table Auditors, General Auditors and Party Delegates.
 
 **Backend Read Only**
 
-Es posible que tengamos un backend para las operaciones read-only del público en general / auditores externos a LLA. Es posible que este backend trabaje con una réplica offline de la Base de Datos Principal, actualizada cada tanto.
+We may have a backend for the read-only operations of the general public/external auditors to LLA. It is possible that this backend works with an offline replica of the Main Database, updated from time to time.
 
-**Backend para Logins / Signups / Mantenimiento de Usuarios**
+**Backend for Logins / Signups / User Maintenance**
 
-Normalmente esto sería parte del Backend Principal, pero como tenemos tan poco tiempo, podríamos separar este grupo de funcionalidades para que un equipo especializado desarrolle esto sin tocar nada en el resto del sistema.
+Normally this would be part of the Main Backend, but since we have so little time, we could separate this group of functionalities for a specialized team to develop this without touching anything on the rest of the system.
 
 #### Frontend
 
-**UI Web / Mobile para Fiscales**
+**Web / Mobile UI for Auditors**
 
-La UI para los Fiscales debe considerarse de misión crítica. Si ella no funcionara no tendríamos nada, porque los fiscales son los que cargan los datos que son la base de todas las auditorías que el sistema va a permitir realizar. Basándonos en los criterios antes expuestos de minimizar el riesgo de que algún módulo no esté listo o que no funcione bien, la propuesta es abrir la cancha y que múltiples desarrolladores desarrollen múltiples UIs. Luego publicaríamos los links a las que pasen las pruebas que hagamos y el resto quedarían abandonadas. Cada quien es libre de elegir el framework y tecnologías a usar para su UI para Fiscales, porque cada quien invierte su propio tiempo construyéndola. Todas estas UI se conectarían al Backend Principal vía una API pre-definida y desde cualquiera de ellas se podrían realizar los casos de uso definidos / a definir.
+The UI for Auditors should be considered mission critical. If it didn't work, we wouldn't have anything, because the auditors are the ones who upload the data that are the basis of all the audits that the system is going to allow to be carried out. Based on the criteria outlined above, to minimize the risk of any module not being ready or not working well, the proposal is to open the field and have multiple developers develop multiple UIs. Then we would publish the links to which the tests we do pass and the rest would be abandoned. Everyone is free to choose the framework and technologies to use for their UI for Auditors, because everyone invests their own time building it. All these UIs would be connected to the Main Backend via a pre-defined API and the defined use-cases could be performed from any of them.
 
-Como una extensión del criterio anterior, sería incluso óptimo si cada desarrollador hosteara lo mismo en su propio servidor su UI incluyendo su propio dominio si lo quisiera. Esto haría el sistema más resiliente si hubiera más de una opción. Esto aplica para la siguiente UI también.
+As an extension of the above criterion, it would be optimal if each developer hosted the UI on his own server on his own domain if he wanted. This would make the system more resilient if there were more than one option. This applies to the next UI as well.
 
-Si todas las mesas tuvieran fiscales estamos hablando de una cantidad de potenciales usuarios de entre 100K y 150K porque hay más o menos esa cantidad de mesas de votación a nivel nacional.
+If all the polling stations had auditors we are talking about a number of potential users of between 100K and 150K because there are more or less that number of polling stations nationwide.
 
-**UI Web para el público en general / auditores externos**
+**Web UI for the general public / external auditors**
 
-La UI para el público en general / auditores externos y las ideas de funcionalidades misión no crítica deberían ser una web app. En este caso, la masa potencial de usuarios es tremendamente mayor que la anterior, en el orden de los 30 o 40 millones de personas potencialmente que pudieran querer consultar los resultados como los ve LLA y algún número menor que ese de gente que quiera jugar el rol de auditor externo y controlar lo que el sistema le permita controlar. Permitir que cualquier número de personas entre al sistema a auditar puede ser la clave para que, combinado con el uso / denuncias a través de redes sociales de un gran número de personas, se puedan desaconsejar los posibles fraudes que la gente que controla el sistema oficial (que es un sistema cerrado y opaco) pudiera querer hacer.
+The UI for the general public/external auditors and the ideas of non-mission critical functionalities should be a web app. In this case, the potential mass of users is tremendously greater than the previous one, in the order of the 30 or 40 million people who could potentially want to consult the results as they see them and some smaller number than that of people who want to play the role of external auditor and control what the system allows them to control. Allowing any number of people to enter the system to be audited can be the key so that, combined with the use /denunciations through social networks of a large number of people, possible frauds that the people who control the official system (which is a closed and opaque system) could want to do can be discouraged.
 
-En este caso, también permitiríamos que cualquier desarrollador pueda crear su propia versión de este sitio para el público en general y auditores externos, en la tecnología que quiera, y luego publicaríamos los links a los sitios que pasen correctamente las pruebas que hagamos. Al mismo tiempo, si hubiera varias versiones del sitio, disminuiríamos la carga individual en cada uno y bajaríamos el riesgo de no tener algo funcionando para el día de las elecciones.
+In this case, we would also allow any developer to create their own version of this site for the general public and External Auditors, in the technology they want, and then we would publish the links to the sites that pass the tests we make correctly. At the same time, if there were several versions of the site, we would decrease the individual load on each one and lower the risk of not having something working by Election Day.
 
-**UI Login / Signup / Mantenimiento de Usuarios**
+**Login UI / Signup / User Maintenance**
 
-Esta sería la UI específica para estos casos de uso, a cargo de gente especializada en Seguridad de Sistemas.
+This would be the specific UI for these use-cases, by people specialized in System Security.
 
-#### Procesos Batch
+#### Batch Processes 
 
-**Extracción de Datos del Sistema Oficial**
+**Extraction of Data from the Official System**
 
-El sistema oficial provee aquí (https://resultados.mininterior.gob.ar/desarrollo) instrucciones de cómo acceder a ciertos datos del mismo a través de una API. Nosotros deberíamos tener un proceso que extraiga dichos datos cada cierto tiempo (5 minutos?) y actualice nuestra base de datos.
+The official system provides here (https://resultados.mininterior.gob.ar/desarrollo) instructions on how to access certain data through an API. We should have a process that extracts data every so often (5 minutes?) and update our database.
 
-Para poder abrir el juego y que varios desarrolladores puedan hacer diferentes procesos usando los datos del Sitio Oficial más los datos subidos por los Fiscales de Mesa, es mejor si hay un proceso que solo extraiga los datos del sitio oficial y los grabe en nuestra base de datos. Luego de que corra ese proceso cada cierto tiempo, pueden haber n procesos, de n developers distintos cada uno buscando detectar algún tipo de fraude diferente.
+In order to be able to open the database and so that several developers can do different processes using the data from the Official Site plus the data uploaded by the Table Auditors, it is better if there is a process that only extracts the data from the official site and records them in our database. After that process runs every so often, there may be *n* processes, from *n* different developers each looking to detect some different type of fraud.
 
-**Procesos de Detección de Fraudes**
+**Fraud Detection Processes**
 
-Con los datos cargados por los Fiscales a través de la mobile app más los datos extraidos del sistema oficial, el sistema tiene la capicidad de correr multiples procesos cada uno especializado en detectar algun tipo de fraude.
+With the data uploaded by the Auditors through the mobile app plus the data extracted from the official system, the system has the ability to run multiple processes each specialized in detecting some type of fraud.
 
-Se debe analizar los procesos que se necesitan para detectar los tipos de fraude previamente especificados.
+The processes that are needed to detect the previously specified types of fraud should be analyzed.
 
-## Cómo contribuir
+## How to contribute
 
-Para aportar tu contribución, tenés que crear un fork que incluya la rama dev y trabajar en ella. Cuando hayas terminado con tus cambios, crea un PR desde tu fork apuntando a la rama dev de este repositorio. Si es posible, agrega una descripción detallada al PR para que los revisores puedan orientarse rápidamente y agrega las etiquetas correspondientes a los cambios realizados.
+To make your contribution, you have to create a fork that includes the dev branch and work on it. When you are done with your changes, create a PR from your fork pointing to the dev branch of this repository. If possible, add a detailed description to the PR so that reviewers can get oriented quickly and add the corresponding tags to the changes made.
 
-En resumen:
-- Crear un fork de este repositorio que incluya la rama **dev**.
-- Realizar los cambios en el clon local del fork en la rama **dev**.
-- Subir los cambios a tu fork.
-- Crear un PR hacia la rama **dev** de este repositorio.
-- Agrega una descripción clara de los cambios en el PR.
-- Agrega etiquetas correspondientes a los cambios en el PR.
+In summary:
+- Create a fork of this repository that includes the **dev** branch.
+- Make the changes to the local clone of the fork in the **dev** branch.
+- Upload the changes to your fork.
+- Create a PR to the **dev** branch of this repository.
+- Add a clear description of the changes in the PR.
+- Add tags corresponding to the changes in the PR.
 
-## Responsables
+## Responsible
 
-Al mejor estilo Open Source, aquel que desee hacerse responsable de alguna parte del sistema puede auto-listarse aquí abajo, modificando este readme a través de un PR.
+In the best Open Source style, anyone who wants to take responsibility for some part of the system can self-list here below, modifying this readme through a PR.
 
-- Análisis General [@Luis-Fernando-Molina](https://www.github.com/Luis-Fernando-Molina)
-- UX/UI [@JoseOrtega02](https://github.com/JoseOrtega02), [cualquier persona que desee unirse]
-- FrontEnd [@JoseOrtega02](https://github.com/JoseOrtega02), [cualquier persona que desee unirse]
+- General Analysis [@Luis-Fernando-Molina](https://www.github.com/Luis-Fernando-Molina)
+- UX/UI [@JoseOrtega02](https://github.com/JoseOrtega02), [anyone who wishes to join]
+- FrontEnd [@JoseOrtega02](https://github.com/JoseOrtega02), [anyone who wishes to join]
 
-## Enlaces de interés
+## Links of Interest
 - Figma: [Enlace a Figma](https://www.figma.com/file/nyWx6CewFyvb3a7y3g1r7W/Libertarios-APP?type=design&node-id=0%3A1&mode=design&t=L4k93Fh2vw4b8yku-1)
 - Trello: [Enlace a Trello](https://trello.com/invite/b/3sdCNjhp/ATTI0ee6e921ed507577043c8411266d7206D016745E/libertarios-app-ux-ui-fronted)
 
-# Autores
+# Authors
 
 - [@Luis-Fernando-Molina](https://www.github.com/Luis-Fernando-Molina)
 - [@switTV](https://www.github.com/switTV)
@@ -249,6 +249,6 @@ Al mejor estilo Open Source, aquel que desee hacerse responsable de alguna parte
   <img src="https://contrib.rocks/image?repo=Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral" height="50"/>
 </a>
 
-# Discord para Desarrolladores
+# Discord for Developers
 
-[Enlace al Discord](https://discord.gg/BWDqcpXn)
+[Discord Link](https://discord.gg/BWDqcpXn)
