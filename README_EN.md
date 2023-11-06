@@ -1,6 +1,6 @@
 ![GitHub Repo Size](https://img.shields.io/github/repo-size/Las-Fuerzas-Del-Cielo/Sistema-Anti-Fraude-Electoral)
 
-# :lion: Anti-Fraud-Electoral-System- :lion:
+# :lion: Anti-Fraud-Electoral-System :lion:
 
 This is an **Open Source** project whose objetive is to minimize and detect the possibility of electoral fraud in the upcoming presidential election in Argentina. where donde se define finalmente quien sera presidente.
 
