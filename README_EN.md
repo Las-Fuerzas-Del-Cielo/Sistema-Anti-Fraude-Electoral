@@ -73,7 +73,7 @@ In this case, the Official Computer System has all the data loaded correctly, bu
 
 ### Correct Table Data Then Incorrect
 
-The third type of fraud would be that the tables loaded into the Official System have different data than the records of the auditors. This can currently be detected by hand if the auditor checks the Official System. The problem is that the official system could show you the correct data for a while and then change it later when the auditor has already consulted it and seen the correct data. Surely an auditor would only check the data once and if it is correct, he would assume that it does not change later.
+The third type of fraud would be that the tables loaded into the Official System have different data than the records of the auditors. This can currently be detected by hand if the auditor checks the Official System. The problem is that the official system could show you the correct data for a while and then change it later when the auditor has already consulted it and seen the correct data. Surely an auditor would only check the data once and if it is correct, he would assume that it will not change later.
 
 ### False Auditors
 
