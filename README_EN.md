@@ -196,7 +196,7 @@ If all the polling stations had auditors we are talking about a number of potent
 
 The UI for the general public/external auditors and the ideas of non-mission critical functionalities should be a web app. In this case, the potential mass of users is tremendously greater than the previous one, in the order of the 30 or 40 million people who could potentially want to consult the results as they see them and some smaller number than that of people who want to play the role of external auditor and control what the system allows them to control. Allowing any number of people to enter the system to audit the data can be the key so that, combined with the use / complaints through social networks of a large number of people, we can discourage possible frauds committed by those who control the official system (which is a closed and opaque system).
 
-In this case, we would also allow any developer to create their own version of this site for the general public and External Auditors, in the technology they want, and then we would publish the links to the sites that pass the tests we make correctly. At the same time, if there were several versions of the site, we would decrease the individual load on each one and lower the risk of not having something working by Election Day.
+In this case, we would also allow any developer to create their own version of this site for the general public and External Auditors, with the technology they want, and then we would publish the links to these sites that pass the tests that we perform on them. At the same time, if there were several versions of the site, we would decrease the individual load on each one and lower the risk of not having something working by Election Day.
 
 **Login UI / Signup / User Maintenance**
 
