@@ -27,7 +27,7 @@ The reason for creating this system is to maintain and preserve democracy and tr
       - [Database](#database)
       - [Backend Services](#backend-services)
       - [Frontend](#frontend)
-      - [Batch Procesos](#batch-processes)
+      - [Batch Processes](#batch-processes)
   - [Responsible](#responsible)
   - [Links of interest](#links-of-interest)
 - [How to Contribute](#how-to-contribute)
